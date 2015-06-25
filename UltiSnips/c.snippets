@@ -1,0 +1,46 @@
+snippet disableWarning "disableWarning" b
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wall"
+endsnippet
+
+snippet enableWarning "enableWarning" b
+#pragma clang diagnostic pop
+endsnippet
+
+snippet /* "Block Comment" b
+/**
+ * $1
+ */
+endsnippet
+
+snippet /** "inline Comment" b
+/** $1 */
+endsnippet
+
+snippet todo "a TODO comment" b
+// ${0:TODO}: ${1:Content}
+endsnippet
+
+snippet fixme "a FIXME comment" b
+// ${0:FIXME}: ${1:Content}
+endsnippet
+
+snippet for "for loop" b
+for (${1:int i=0}; ${2:i<${3:n}}; ${4:++i}){
+	${VISUAL}$0
+}
+endsnippet
+
+snippet if "if statement" b
+if (${1}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet case "break-case" b
+case $1:
+{
+	$0
+	break;
+}
+endsnippet

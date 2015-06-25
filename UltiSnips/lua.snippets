@@ -1,0 +1,36 @@
+snippet cl "declare a new class" b
+local ${1:name} = class("$1"${2/.+/, /}${2:super})
+
+function $1:ctor()
+  $0
+end
+
+return $1
+endsnippet
+
+snippet fun "new function" 
+function ${1:new_function}(${2:args})
+	$0
+end
+endsnippet
+
+snippet if "Description" b
+if ${1:condition} then
+  $0
+end
+endsnippet
+	
+snippet eli "else if" b
+elseif ${1:condition} then
+  $0
+endsnippet
+
+snippet wh "while loop" b
+while ${1:true} do
+  $0
+end
+endsnippet
+
+snippet require "require and ret local var" b
+local ${1/(?:.*\.(\w*)\s*)|(.*)/$1$2/} = require("${1:path}")
+endsnippet

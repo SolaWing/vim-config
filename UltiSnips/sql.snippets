@@ -1,0 +1,28 @@
+snippet ct "create table" b
+CREATE TABLE ${1:name}(
+  ${0:columns}
+)CHARACTER SET=utf8 ;
+endsnippet
+
+snippet pk "primary key column" b
+${1:id}  INT  AUTO_INCREMENT  PRIMARY KEY,
+endsnippet
+
+snippet cproc "create procedure" b
+CREATE PROCEDURE ${1:name}(${2:param})
+BEGIN
+  $0
+END
+endsnippet
+
+snippet sel "select" b
+SELECT ${1:*} FROM ${2:table}${3/\s*\w+.*/ WHERE /}${3:condition};
+endsnippet
+
+snippet grant "grant" b
+GRANT ${1:ALL} ON ${2:*.*} TO ${3:user};
+endsnippet
+
+snippet up "update statement" b
+UPDATE ${1:table} SET ${2:col=val}${3/\s*\w+.*/ WHERE /}${3:condition};
+endsnippet

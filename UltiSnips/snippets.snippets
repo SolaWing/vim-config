@@ -1,0 +1,13 @@
+snippet s "Snippet Definition" b
+`!p snip.rv='snippet'` ${1:trigger} "${2:description}" ${3:b}
+$0
+`!p snip.rv='endsnippet'`
+endsnippet
+
+snippet v "VISUAL Placeholder"
+\$\{VISUAL${1:${2::default}${3:/search/replace/flag}}\}
+endsnippet
+
+snippet clear "clear snippet below cur priority" b
+`!p snip.rv='clearsnippets'` $1
+endsnippet

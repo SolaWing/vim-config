@@ -1,0 +1,152 @@
+priority -50
+
+extends c
+
+priority 0
+
+clearsnippets cl array dict forarray objacc
+
+snippet fs "format string" w
+[NSString stringWithFormat:${1:@""}, $3]
+endsnippet
+
+snippet prop "a @property" b
+@property (${1:nonatomic}${2/^.+$/, /}${2:strong}) ${3:NSString*} ${4:varName};
+endsnippet
+
+snippet singleton "objc singleton" b
++ (instancetype)${1:getInstance}{
+	static ${2:id} instance = NULL;
+	if (NULL == instance){
+		@synchronized(self){
+			if (NULL == instance){
+				instance = [[${2/^(id)$|\*$/(?1:self)/} alloc] ${3:init}];
+			}
+		}
+	}
+	return instance;
+}
+endsnippet
+
+snippet interface-category "objc interface-category" b
+@interface ${1:className} ($2) ${3/^.+$/</}${3:protocol}${3/^.+$/>/}
+{
+}
+$0
+@end
+endsnippet
+
+snippet implementation-category "objc implementation-category" b
+@implementation ${1:className} ($2)
+$0
+@end
+endsnippet
+
+snippet foreach "objc fast enumeration" b
+for (${1:id} ${2:element} in ${3:container}){
+	${VISUAL}$0
+}
+endsnippet
+
+snippet img "get image by name"
+[UIImage imageNamed:@"${1:name}"]
+endsnippet
+
+snippet weakref "weak ref var declare" b
+__weak typeof(${1:self}) ${2:me} = $1;
+endsnippet
+
+snippet mark "#pragma mark -" b
+#pragma mark - $1
+endsnippet
+
+snippet dispatch_async "dispatch_async" b
+dispatch_async(${1:dispatch_get_main_queue()}, ${2:^\{\}});
+endsnippet
+
+snippet dispatch_after "dispatch_after" b
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, ${1:3}* NSEC_PER_SEC),
+	dispatch_get_main_queue(), ${2:^\{\}});
+endsnippet
+
+snippet c4f "RGB Color"
+[UIColor colorWithRed:$1 green:$2 blue:$3 alpha:${4:1}]
+endsnippet
+snippet c4b "RGB Color"
+[UIColor colorWithRed:$1/255.0 green:$2/255.0 blue:$3/255.0 alpha:${4:1}]
+endsnippet
+
+snippet c2f "grey color"
+[UIColor colorWithWhite:$1 alpha:${2:1}];
+endsnippet
+
+snippet visualLayout "constraintsWithVisualFormat"
+[NSLayoutConstraint constraintsWithVisualFormat:
+${0:@""}
+options:${1:0} metrics:${2:nil} views:${3:views}]
+endsnippet
+
+snippet view-init "view init declare" b
+- (instancetype)init{
+	return [self initWithFrame:CGRectZero];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+	self = [super initWithFrame:frame];
+	if (self){ [self initilize]; }
+	return self;
+}
+
+- (void)initilize {
+	// need to prevent run more than once!
+}
+
+endsnippet
+
+snippet dispatch_timer "a dispatch_source based timer"
+dispatch_source_t timer = dispatch_source_create(
+	DISPATCH_SOURCE_TYPE_TIMER, 0, 0, ${1:dispatch_get_main_queue()});
+if (timer) {
+	int64_t interval = NSEC_PER_SEC * ${2:1ull};
+	dispatch_source_set_timer( timer,
+		dispatch_time(DISPATCH_TIME_NOW, ${3:interval}),
+		interval, ${4:interval});
+	dispatch_source_set_event_handler(timer, ${5:^\{\}});
+	dispatch_resume(timer);
+}
+endsnippet
+
+snippet nsenum "NS_Enum typedef" b
+typedef NS_ENUM(NSInteger, ${1:name}) {
+	$0
+};
+endsnippet
+
+snippet ^ "generate default block with args use in previewwindow" i
+^${1:`!p
+if not snip.c:
+  def getBlockArg():
+    previewContent = None
+    for w in vim.current.tabpage.windows:
+      if w.options['previewwindow']:
+        previewContent = "\n".join(w.buffer)
+        break
+    if not previewContent: return ""
+
+    startpos = 0;
+    prefix = vim.current.line[:vim.current.window.cursor[1]]
+    m = re.search(r'\w+:[^:]*$', prefix) # have expand word
+    if m:
+      prefix = m.group(0); prefix = prefix[:prefix.rfind(':')+1]
+      i = previewContent.find(prefix)
+      if i > 0: startpos = i + len(prefix)
+
+    #print previewContent, startpos
+    m = re.compile(r'\^([\w\s*]*\([^)]*\))').search(previewContent, startpos)
+    if m: return m.group(1)
+    return ""
+  snip.rv = getBlockArg()
+`}{
+	$0
+}
+endsnippet

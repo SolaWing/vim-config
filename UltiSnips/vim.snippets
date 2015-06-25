@@ -1,0 +1,44 @@
+snippet if "if" b
+if ${1:condition}
+  $0
+endif
+endsnippet
+
+snippet eli "else if" b
+elseif ${1:condition}
+  $0
+endsnippet
+
+snippet wh "while loop" b
+while ${1:condition}
+  $0
+endwhile
+endsnippet
+
+snippet for "for-in" b
+for ${1:l:var} in ${2:list}
+  $0
+endfor
+endsnippet
+
+snippet try "try final " b
+try 
+  $1
+finally
+  $2
+endtry
+endsnippet
+
+snippet try "try catch" b
+try
+  $0
+catch /${1:pattern}/
+  $2
+endtry
+endsnippet
+
+snippet f "function" b
+function! ${1:Fname}(${2}) ${3:range}
+  $0
+endfunction
+endsnippet
