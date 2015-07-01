@@ -295,7 +295,10 @@ EOF
         cnoremap <C-X><C-K> <C-K>
         " <M-]> to search backword
         cnoremap <M-]> <C-\>eSearchCharInCmd(0,0)<CR>
+        " sudo
         cabbrev w!! w !sudo tee % >/dev/null
+        " search occur
+        " cnoremap <C-o> <CR>:lvim//j % <bar>lwin<CR>
     "}}}
 
     """"""""""" command {{{
@@ -378,14 +381,14 @@ EOF
     nnoremap <Space>qgs :<C-U>lvimgrepadd/<C-R><C-W>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(13)<CR><BS>
     vnoremap <Space>qs :<C-U>lvim/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(6)<CR><BS>
     vnoremap <Space>qgs :<C-U>lvimgrepadd/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(13)<CR><BS>
-
+    " navigate at item
     nnoremap <Space>qn :<C-U><C-R>=v:count1<CR>lnext<CR>
     nnoremap <Space>Qn :<C-U><C-R>=v:count1<CR>cnext<CR>
     nnoremap <Space>qp :<C-U><C-R>=v:count1<CR>lNext<CR>
     nnoremap <Space>Qp :<C-U><C-R>=v:count1<CR>cNext<CR>
     nnoremap <Space>qq :<C-U>ll<C-R>=v:count1<CR><CR>
     nnoremap <Space>QQ :<C-U>cc<C-R>=v:count1<CR><CR>
-
+    " quick window undo and redo
     nnoremap <Space>Qu :<C-U>colder <C-R>=v:count1<CR><CR>
     nnoremap <Space>Q<C-R> :<C-U>cnewer <C-R>=v:count1<CR><CR>
     nnoremap <Space>qu :<C-U>lolder <C-R>=v:count1<CR><CR>

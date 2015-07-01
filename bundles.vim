@@ -321,6 +321,9 @@
         nnoremap <Space>um :<C-U>Unite bookmarks<CR>
         nnoremap <Space>u; :<C-U>Unite command -start-insert<CR>
         nnoremap <Space>u: :<C-U>Unite command<CR>
+        nnoremap <Space>ul :<C-U>Unite line -start-insert<CR>
+        " search like occur
+        cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR> -no-quit<CR>
         "}}
         " godlygeek/tabular {{
         Plugin 'godlygeek/tabular'
