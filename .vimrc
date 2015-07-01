@@ -63,7 +63,7 @@
                 return function(printf('py%seval', g:usepy))(a:expr)
             endfunction
             PY << EOF
-import sys; sys.path.insert(0,'/Users/mac/.vim/python'); u = {}
+import sys,os; sys.path.insert(0,os.path.expanduser('~/.vim/python')); u = {}
 EOF
         endif
         source ~/.vim/bundles.vim " vundle related
@@ -167,7 +167,7 @@ EOF
         " grepprg
         set grepprg=grep\ -nI\ $*\ --exclude-dir=.*\ /dev/null
         " switchbuf, jump to exist or open new tab
-        set switchbuf=usetab,newtab
+        set switchbuf=usetab
         " ignore file pattern
         set wildignore+=*.obj,*.o,*.a,*.dylib,*.app,*.pyc
         set textwidth=80
@@ -185,9 +185,6 @@ EOF
     """"""""""""""""""""""""""
 
     """"""""" normal map {{{
-        " 全文搜索
-        nnoremap <D-F>  :copen <bar> silent grep! -RF <C-R>=expand("<cword>")<CR> *<C-Left><Left>
-        vnoremap <D-F>  <esc>:copen <bar> silent grep! -RF <C-r>=line("'<") == line("'>") ? getline("'<")[col("'<")-1:col("'>")-1] : expand("<cword>") <CR> *<C-Left><Left>
 
         nnoremap Za :confirm qa<CR>
         nnoremap ZA :qa!<CR>
@@ -197,8 +194,6 @@ EOF
         " nnoremap <C-p>  :<C-R>=islwin?"l":"c"<CR>previous<CR>
         "z/ 取消搜索高亮
         nnoremap z/    :noh<CR>
-        "command + , edit vimrc
-        nnoremap <D-<> :edit $MYVIMRC<CR>
         " <leader>j  showjumplistToEnd
         nnoremap <leader>j    :let b:prevmore=&more <bar> set nomore <bar>
                             \jumps <bar> let &more=b:prevmore<CR>
@@ -219,13 +214,6 @@ EOF
         vnoremap <M-J> :m '>+1<CR>gv
         vnoremap <M-K> :m '<-2<CR>gv
         nnoremap <M-K> :m .-2<CR>
-        " use alt + r execute as shell code and replace current line
-        " inoremap <M-r> <esc>!!sh<CR>
-        " nnoremap <M-r> !!sh<CR>
-        " vnoremap <M-r> !sh<CR>
-        " imap <M-R> <esc><M-R>
-        " nnoremap <M-R> :py exec("\n".join(vim.current.range))<CR>
-        " vnoremap <M-R> :py exec("\n".join(vim.current.range))<CR>
         " use F5 to open quick-fix list
         nnoremap <F5> :cwin<cr>
         nnoremap <S-F5> :lwin<cr>
@@ -378,8 +366,6 @@ EOF
     nnoremap <Space>pf :<C-U>CtrlP<CR>
     nnoremap <D-p> :<C-U>CtrlP<CR>
     nnoremap <Space>pr :<C-U>CtrlPMRUFiles<CR>
-    nmap <Space>ps <D-F>
-    vmap <Space>ps <D-F>
     nnoremap <Space>p/ :<C-U>Ack! <C-R><C-W>
     vnoremap <Space>p/ :<C-U>Ack! <C-R>=GetVisualString()<CR>
     nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> <C-R><C-W>

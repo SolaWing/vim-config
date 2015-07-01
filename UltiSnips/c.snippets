@@ -37,6 +37,18 @@ if (${1}) {
 }
 endsnippet
 
+snippet switch "switch statement" b
+switch( $1 ){
+	case ${2:0}: {
+		$3
+	}
+	default: {
+		$0
+		break;
+	}
+}
+endsnippet
+
 snippet case "break-case" b
 case $1:
 {

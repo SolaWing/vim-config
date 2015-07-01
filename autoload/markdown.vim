@@ -3,7 +3,7 @@ import os
 def preview_markdown(s):
   if isinstance(s, str):
     s = s.decode('utf8')
-  templatePath = "/Users/mac/Sites/markdown.template"
+  templatePath = os.path.expanduser("~/Sites/markdown.template")
   import markdown
   html = markdown.markdown(s, extensions=['markdown.extensions.tables'])
   with open(templatePath) as f:

@@ -88,7 +88,7 @@
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
             "Plugin 'Valloric/YouCompleteMe'
-            Plugin 'file:///Users/mac/.vim/bundle/YouCompleteMe', {'pinned': 1}
+            Plugin 'file://~/.vim/bundle/YouCompleteMe', {'pinned': 1}
             nnoremap <leader>gi :YcmCompleter GoToDeclaration<CR>
             nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
             nnoremap <leader>gg :YcmCompleter GoTo<CR>
@@ -240,7 +240,7 @@
         " }}
         " mileszs/ack.vim"{{
         let g:ackhighlight = 1
-        let g:ackprg = 'ag --nogroup --nocolor --column'
+        let g:ackprg = 'ag --vimgrep'
         " this seems to only set fcl = all, will affect other buffer
         " let g:ack_autofold_results = 1
 
