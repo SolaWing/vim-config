@@ -47,9 +47,11 @@ def interactiveScriptAnywhere(isReplace, isExec=None):
             instr = instr[m.end():]
             # TODO: sh to exe cmd has some problem
             # for example: ag -g abc
-            p = subprocess.Popen(instr, shell=True, stdin=None,
-                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-            out, _ = p.communicate()
+            # fine in nvim, has problem in macvim
+            out, _ = subprocess.Popen(instr, shell=True, stdin=None,
+                                      stdout=subprocess.PIPE,
+                                      stderr=subprocess.STDOUT) \
+                .communicate()
             out = StringIO(out)
         elif special == '?':
             instr = "help(%s)"%(instr[m.end():])

@@ -79,6 +79,9 @@
             let g:ycm_collect_identifiers_from_tags_files = 1
             let g:ycm_complete_in_comments = 1
             let g:ycm_enable_diagnostic_highlighting = 0
+            " can pass same extra data to global conf
+            let g:ycm_extra_conf_vim_data = [['ycm_additional_flags','get(b:, "ycm_additional_flags", g:ycm_additional_flags)']]
+            let g:ycm_additional_flags = []
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             let g:ycm_key_invoke_completion = '<M-.>'
             " let g:ycm_key_list_previous_completion = []
@@ -323,13 +326,16 @@
         nnoremap <Space>u: :<C-U>Unite command<CR>
         nnoremap <Space>ul :<C-U>Unite line -start-insert<CR>
         " search like occur
-        cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR> -no-quit<CR>
+        cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR> -no-quit -keep-focus<CR>
         "}}
         " godlygeek/tabular {{
         Plugin 'godlygeek/tabular'
         "}}
         " hynek/vim-python-pep8-indent"{{
         Plugin 'hynek/vim-python-pep8-indent'
+        "}}
+        " ivanov/vim-ipython"{{
+        " Plugin 'ivanov/vim-ipython'
         "}}
   "}}
     filetype plugin indent on     " required
