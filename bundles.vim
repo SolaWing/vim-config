@@ -334,7 +334,7 @@
         " hynek/vim-python-pep8-indent"{{
         Plugin 'hynek/vim-python-pep8-indent'
         "}}
-        " ivanov/vim-ipython"{{
+        " --- ivanov/vim-ipython"{{
         " Plugin 'ivanov/vim-ipython'
         "}}
   "}}
