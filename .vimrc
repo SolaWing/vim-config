@@ -221,6 +221,8 @@ EOF
         nmap <Leader><F5> <S-F5>
         noremap <M-a> <C-\><C-N>ggVG
         noremap <M-c> "*y
+        noremap <M-s> :<C-U>confirm w<CR>
+        inoremap <M-s> <C-o>:<C-U>confirm w<CR>
     "}}}
 
     """"""""""" visual map {{{

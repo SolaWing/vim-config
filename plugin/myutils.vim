@@ -7,17 +7,19 @@ let g:loaded_myutils = 1
 """ directly as a script interactive shell
 PY << EOF
 import interactivePython
-interactivePython.g = globals()
 u['interactiveScriptAnywhere'] = interactivePython.interactiveScriptAnywhere
 del interactivePython
 EOF
 
 imap <M-r> <esc><M-r>
-nnoremap <M-r> :PY u['interactiveScriptAnywhere'](True)<CR>
-vnoremap <M-r> :PY u['interactiveScriptAnywhere'](True)<CR>
+nnoremap <M-r> :PY u['interactiveScriptAnywhere']('replace')<CR>
+vnoremap <M-r> :PY u['interactiveScriptAnywhere']('replace')<CR>
+imap <M-R> <esc><M-R>
+nnoremap <M-R> :PY u['interactiveScriptAnywhere']('preview')<CR>
+vnoremap <M-R> :PY u['interactiveScriptAnywhere']('preview')<CR>
 imap <C-M-r> <esc><C-M-r>
-nnoremap <C-M-r> :PY u['interactiveScriptAnywhere'](False)<CR>
-vnoremap <C-M-r> :PY u['interactiveScriptAnywhere'](False)<CR>
+nnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
+vnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
 
 """ QuickDo
 function! QuickDo(cmd, hasbang, uselocal)
