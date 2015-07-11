@@ -4,7 +4,7 @@ endif
 
 let g:loaded_myutils = 1
 
-""" directly as a script interactive shell
+""" python-shell: directly as a script interactive shell "{{{
 PY << EOF
 import interactivePython
 u['interactiveScriptAnywhere'] = interactivePython.interactiveScriptAnywhere
@@ -20,49 +20,28 @@ vnoremap <M-R> :PY u['interactiveScriptAnywhere']('preview')<CR>
 imap <C-M-r> <esc><C-M-r>
 nnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
 vnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
+"}}}
 
-""" QuickDo
-function! QuickDo(cmd, hasbang, uselocal)
-  let v:errmsg = ""
-  if a:hasbang
-    if a:uselocal
-      lfirst
-      let l:next = 'lnext'
-    else
-      cfirst
-      let l:next = 'cnext'
-    endif
-  else
-    if a:uselocal
-      lfirst
-      let l:next = 'lnext!'
-    else
-      cfirst!
-      let l:next = 'cnext!'
-    endif
-  endif
-  if v:errmsg != '' | return | endif
-  exe a:cmd
-  while 1
-    let v:errmsg = ""
-    silent! exe l:next
-    if v:errmsg != '' | return | endif
-    exe a:cmd
-  endwhile
-endfunction
-
-com! -nargs=1 -bang -complete=command CLDo call QuickDo(<q-args>, !empty("<bang>"), 0)
-com! -nargs=1 -bang -complete=command LLDo call QuickDo(<q-args>, !empty("<bang>"), 1)
+""" QuickDo"{{{
+com! -nargs=1 -bang -complete=command CLDo call QuickFix#Do(<q-args>, !empty("<bang>"), 0)
+com! -nargs=1 -bang -complete=command LLDo call QuickFix#Do(<q-args>, !empty("<bang>"), 1)
+"}}}
 
 """ redirect output and open in a scratch buffer
 com! -nargs=1 -bang -complete=command Redir call myredirect#buffer(<q-args>, 0, !empty("<bang>"))
 
-""" check syntax match
+""" check syntax match"{{{
 com! ShowSyntax let tmp = synID(line("."),col("."),1) | echo "syn<". synIDattr(tmp,"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(tmp),"name") . ">"
 com! ShowSyntaxStack for tmp in synstack(line("."),col("."))|
       \ echo "syn<". synIDattr(tmp,"name") . "> lo<"
       \ . synIDattr(synIDtrans(tmp),"name") . ">"| endfor
+"}}}
 
+" WaitYankAndPaste "{{{
+inoremap <expr> <M-y>  WaitYank#Paste()
+inoremap <expr> <C-R>? WaitYank#Paste()
+"}}}
 
+" vim:set fdm=marker:
