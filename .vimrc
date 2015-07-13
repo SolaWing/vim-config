@@ -146,6 +146,8 @@ EOF
         set formatoptions-=t
         " list unvisible char in list option on
         set listchars=trail:·,tab:>-
+        " case statement in c indent style
+        set cinoptions+=l1
     "}}}
 
     " other setting {{{

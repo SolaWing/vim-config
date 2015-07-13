@@ -13,7 +13,7 @@ snippet sync "@synchronized block" b
 endsnippet
 
 snippet fs "format string" w
-[NSString stringWithFormat:${1:@""}, $3]
+[NSString stringWithFormat:${1:${VISUAL:@""}}, $3]
 endsnippet
 
 snippet prop "a @property" b
@@ -42,6 +42,14 @@ $0
 @end
 endsnippet
 
+snippet protocol "protocol define" b
+@protocol ${1:protocolName} <${2:NSObject}>
+
+$0
+
+@end
+endsnippet
+
 snippet implementation-category "objc implementation-category" b
 @implementation ${1:className} ($2)
 $0
@@ -67,12 +75,12 @@ snippet mark "#pragma mark -" b
 endsnippet
 
 snippet dispatch_async "dispatch_async" b
-dispatch_async(${1:dispatch_get_main_queue()}, ${2:^\{\}});
+dispatch_async(${1:dispatch_get_main_queue()}, ${2:^\{${VISUAL/^/\n/}\}});
 endsnippet
 
 snippet dispatch_after "dispatch_after" b
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, ${1:3}* NSEC_PER_SEC),
-	dispatch_get_main_queue(), ${2:^\{\}});
+	dispatch_get_main_queue(), ${2:^\{${VISUAL/^/\n/}\}});
 endsnippet
 
 snippet c4f "RGB Color"

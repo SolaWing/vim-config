@@ -8,26 +8,41 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " Only load this indent file when no other was loaded.
-"if exists("b:did_indent")
-"    finish
-"endif
-"let b:did_indent = 1
+if exists("b:did_indent")
+   finish
+endif
+let b:did_indent = 1
 "setlocal cindent
 
 setl indentkeys=0{,0},:,0#,!^F,o,O,e,<:>
 
-setlocal indentexpr=GetObjCIndentImproved()
+setl indentexpr=GetObjCIndentImproved()
 
 " Top level statements which should not be indented, and which should not
 " cause next (non-blank) line to be indented either.
 let s:topLev = '^\s*@\%(class\|end\|implementation\|interface\|protocol\|\)\>'
 
-function! GetObjCIndentImproved()
-  " NOTE: Ignore leading white space to avoid having to deal with space vs.
-  " tab issues.  Rely on the indent() function instead.
-  let thisLine = substitute(getline(v:lnum), '^\s*', '', '')
+function! s:GetWidth(line, regexp)
+    let end = matchend(a:line, a:regexp)
+    let width = 0
+    let i = 0
+    while i < end
+      if a:line[i] != "\t"
+        let width = width + 1
+      else
+        let width = width + &ts - (width % &ts)
+      endif
+      let i = i + 1
+    endwhile
+    return width
+endfunction
 
-  if thisLine =~# s:topLev || getline(prevnonblank(v:lnum - 1)) =~# s:topLev
+function! GetObjCIndentImproved()
+  let thisLine = getline(v:lnum)
+  let prevnonblanknr = prevnonblank(v:lnum -1)
+  let prevLine = getline(prevnonblanknr)
+
+  if thisLine =~# s:topLev || prevLine =~# s:topLev
     return 0
   endif
 
@@ -43,10 +58,9 @@ function! GetObjCIndentImproved()
   "   if ([obj something:here])
   "       [obj other:here];
   "
-  let thisColon = match(thisLine, '^\s*\K\k*\zs:')
-  if thisColon > 0
-    let prevLine = substitute(getline(v:lnum - 1), '^\s*', '', '')
-    let prevColon = match(prevLine, ':')
+  let thisColon = s:GetWidth(thisLine, ":")
+  if thisColon > 0 && prevLine !~# ';'
+    let prevColon = s:GetWidth(prevLine, ":")
     if prevColon > 0
       " Try to align colons, always making sure line is indented at least
       " one shiftwidth more than the indentation at the beginning of the
@@ -58,30 +72,20 @@ function! GetObjCIndentImproved()
       let [lnum,lcol] = searchpairpos('\[', '', '\]', 'b', 0,
             \ max([1, v:lnum - 10]))
       let minInd = &sw + (lnum > 0 ? indent(lnum) : 0)
-      let alignedInd = indent(v:lnum - 1) + prevColon - thisColon
+      let alignedInd = prevColon - thisColon + s:GetWidth(thisLine, '\s\+')
       return alignedInd > minInd ? alignedInd : minInd
     endif
   endif
 
-  let prevLnum = v:lnum - 1
-  let ind      = indent(prevLnum)
-
-  " Indent one shiftwidth after opening block, e.g.:
-  "
-  "   call_func_with_block(param, ^{
-  "       do_stuff();
-  "   });
-  "
-  let blockPat = '\^\s*\(([^)]*)\)\?\s*{$'
-  if thisLine =~ '^}'
-    norm '^%'
-    if getline(".") =~ blockPat
-      return indent(".")
-    endif
+  " Indent close pair to open pair
+  if thisLine =~ '^\s*[]})]'
+    norm! ^%
+    return indent(".")
   endif
 
-  if getline(prevLnum) =~ blockPat
-    return ind + &sw
+  " Indent a shiftwidth after {. cindent won't indent for {} in ()
+  if prevLine =~ '{[^}]*$'
+    return indent(prevnonblanknr) + &sw
   endif
 
   return cindent(v:lnum)
