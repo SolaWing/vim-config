@@ -17,6 +17,14 @@ snippet /** "inline Comment" b
 /** $1 */
 endsnippet
 
+snippet --- "seperator Comment" b
+/************************ $1 **************************/
+endsnippet
+
+snippet *** "seperator Comment" b
+/************************ $1 **************************/
+endsnippet
+
 snippet todo "a TODO comment" b
 // ${0:TODO}: ${1:Content}
 endsnippet
@@ -62,4 +70,8 @@ case $1: {
 	$0
 	break;
 }
+endsnippet
+
+snippet va "__VA_ARGS__"
+__VA_ARGS__
 endsnippet

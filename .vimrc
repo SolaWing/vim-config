@@ -116,8 +116,8 @@ EOF
         " 哪些可以自动换到行首或行尾
         set whichwrap=b,s,<,>,[,]
         "tab stop
-        set tabstop=4
-        set softtabstop=2
+        set tabstop=8
+        set softtabstop=4
         "indent width
         set sw=2
         " autoindent
@@ -241,12 +241,18 @@ EOF
         map! <M-l> <Right>
         map! <M-H> <home>
         map! <M-L> <end>
+        inoremap <C-F> <Right>
+        inoremap <C-B> <Left>
+        inoremap <C-A> <home>
+        inoremap <C-E> <end>
+
         " alt + f b, word move
         map! <M-f> <S-Right>
         map! <M-b> <S-Left>
         map <M-H> <home>
         map <M-L> <end>
         noremap! <C-D> <Del>
+
         " alt + d, del word
         inoremap <M-d> <C-O>de
         cnoremap <M-d> <C-\>eForwordDeleteWordInCmd()<CR>
@@ -283,7 +289,7 @@ EOF
         " inoremap ` <C-O>  " 很少用
         " map some EX completion
         inoremap <C-]> <C-X><C-]>
-        inoremap <C-F> <C-X><C-F>
+        " inoremap <C-F> <C-X><C-F>
         " map tab to show completion
 
     "}}}

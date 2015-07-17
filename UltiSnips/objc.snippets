@@ -164,3 +164,29 @@ if not snip.c:
 	$0
 }
 endsnippet
+
+snippet tableViewDefaultDelegate "tableViewDefaultDelegate" b
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {return 1;}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+#define CellIdentifier @"cell"
+	UITableViewCell* cell =
+		[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (!cell){
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+		                              reuseIdentifier:CellIdentifier];
+	}
+	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+}
+endsnippet

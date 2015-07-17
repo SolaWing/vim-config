@@ -57,6 +57,7 @@
                         \ 'enumeration'    : 'e'
                     \ }
                 \ }
+        let g:tagbar_type_objcpp = g:tagbar_type_objc
         Plugin 'majutsushi/tagbar'
         nnoremap <leader>t :TagbarToggle<CR>
         nnoremap <F3> :TagbarToggle<CR>

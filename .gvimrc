@@ -20,8 +20,8 @@
     inoremap <D-5>    <esc>5gt
 
     " move tabs
-    nnoremap <D-‘>    :tabm +1<cr>
-    nnoremap <D-“>    :tabm -1<cr>
+    nnoremap <D-M-]>    :tabm +1<cr>
+    nnoremap <D-M-[>    :tabm -1<cr>
     " open some window quickly
 
 
