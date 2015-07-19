@@ -1,15 +1,22 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 from __future__ import print_function
 import sys, re, subprocess, vim
 from cStringIO import StringIO
+import itertools
+import myutil
 # dict used as user interactive scope
 user_env = {
     "sys":sys,
     "re":re,
     "subprocess":subprocess,
     "vim":vim,
+    "p":print,
+    "r":xrange,
+    "it":itertools,
 }
 g = user_env
-['user_options_store', 'getCFamilyToggleFile', 'UltiSnips_Manager', 'vimsupport', '__builtins__', 'GetCompletionsInner', 'utils', 'YouCompleteMe', 'results', '__package__', 'sys', 'base', 'u', 'module_path', '__name__', 'sourced_file', 'vim', 'os', '__doc__', 'ycm_state']
 
 def interactivePython(s, t = 'single'):
     """
@@ -36,15 +43,6 @@ def captureOutput(func, *args):
         sys.stdout = oldSysout
     out.seek(0)
     return out
-
-def escape(s, chars):
-    buf = StringIO()
-    for c in s:
-        if c in chars: buf.write("\\")
-        buf.write(c)
-    s = buf.getvalue()
-    buf.close()
-    return s
 
 def interactiveScriptAnywhere(output, isExec=None):
     """
@@ -94,30 +92,32 @@ def interactiveScriptAnywhere(output, isExec=None):
         print(s)
     elif output == 'preview':
         name = "[python-preview]"
-        vim.command(r"pedit +set\ bt=nofile %s"%escape(name,'\\ ['))
-        win = None;
-        for w in vim.current.tabpage.windows:
-            if w.options['previewwindow']:
-                win = w
-                break
-        win.buffer[:] = [l.rstrip("\r\n") for l in out]
+        myutil.preview(out.read(), name)
     else:
         name = "[%s]"%output
         lastWin = vim.current.window;
-        win = None;
-        # in nvim, vim.windows return all windows
-        for w in vim.current.tabpage.windows:
-            if w.buffer.name.endswith(name):
-                vim.current.window = w
-                win = w
-                break
-        if win is None:
-            vim.command(r"sp +set\ bt=nofile %s"%escape(name,' [\\'))
-            win = vim.current.window
-            if win.height > 10: win.height = 10
+        win = myutil.openOrReuseBuffer(name)
 
         win.cursor = (len(win.buffer),1) # move to last
         win.buffer.append([l.rstrip("\r\n") for l in out])
         vim.command(r'exe "norm! \<down>z\<CR>"')
         vim.current.window = lastWin
+
     out.close()
+
+def findAll(pat):
+    s = "\n".join(vim.current.range)
+    m = re.findall(pat , s)
+    if m:
+        if isinstance(m[0], basestring):
+            s = "\n".join(m)
+        else:
+            pat = vim.eval(r"inputdialog('input format pattern: ')")
+            def fmt(pat,x):
+                if pat:
+                    if isinstance(x, basestring): return pat.format(x)
+                    return pat.format(*x)
+                else: return str(x)
+            s = "\n".join(fmt(pat, l) for l in m)
+
+        myutil.preview(s, '[python-output]')

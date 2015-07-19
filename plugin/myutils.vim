@@ -3,11 +3,13 @@ if exists("loaded_myutils")
 endif
 
 let g:loaded_myutils = 1
+" unlet g:loaded_myutils
 
 """ python-shell: directly as a script interactive shell "{{{
 PY << EOF
 import interactivePython
 u['interactiveScriptAnywhere'] = interactivePython.interactiveScriptAnywhere
+u['findall'] = interactivePython.findAll
 del interactivePython
 EOF
 
@@ -43,5 +45,9 @@ com! ShowSyntaxStack for tmp in synstack(line("."),col("."))|
 inoremap <expr> <M-y>  WaitYank#Paste()
 inoremap <expr> <C-R>? WaitYank#Paste()
 "}}}
-
+" FindAll"{{{
+com! -range=% -nargs=1 FindAll <line1>,<line2>PY u['findall'](r"<args>")
+nnoremap <space>xf :FindAll<space>
+vnoremap <space>xf :FindAll<space>
+"}}}
 " vim:set fdm=marker:
