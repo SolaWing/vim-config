@@ -84,6 +84,7 @@ class Registers(object):
         del vim.tmp
     def __delitem__(self, key):
         self.__setitem__(key, "")
+
     def __getattr__(self, name):
         return vim.eval(r'@%s', name)
     def __setattr__(self, name, value):

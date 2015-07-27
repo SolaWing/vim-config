@@ -6,7 +6,8 @@ com! -range=% CReFold <line1>,<line2>call <SID>refold()
 com! -range=% CFold silent! exe printf('norm! %dGV%dGzD', <line1>,<line2>) | <line1>,<line2>g/\v^[-+a-zA-Z]&[^;{]*%(\n+\s*%(\s[^;{]*)?)*\{[^;{}]*$/.,/\v(^\}\s*\n\zs^\s*$|^\})/fold
 
 inoremap <buffer> <M-CR> <End>;<CR>
-nnoremap <buffer> <leader>h :call <SID>toggleHeader()<CR>
+nnoremap <buffer> <leader>h      :call <SID>toggleHeader(1)<CR>
+nnoremap <buffer> <C-W><leader>h :call <SID>toggleHeader(0)<CR>
 nnoremap <buffer> <Space>mf :CReFold<CR>
 vnoremap <buffer> <Space>mf :CReFold<CR>
 " comment
@@ -55,16 +56,23 @@ def getCFamilyToggleFile(currentPath):
     return ""
 EOF
 
-function! s:toggleHeader()
+function! s:toggleHeader(reuseWindow)
   let l:file = expand("%:p")
   let l:ret = PYEVAL("getCFamilyToggleFile('".l:file."')")
   if !empty(l:ret)
-    if bufexists(l:ret)
-      let l:exe = 'sb '. l:ret
-    else
-      let l:exe = 'sp '. l:ret
+    if a:reuseWindow
+      let v:errmsg = ''
+      silent! exe 'e' l:ret
+      if v:errmsg == ''
+        return
+      endif
     endif
-    exe l:exe
+
+    if bufexists(l:ret)
+      exe 'sb' l:ret
+    else
+      exe 'sp' l:ret
+    endif
   endif
 endfunction
 

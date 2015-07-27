@@ -8,17 +8,17 @@ endsnippet
 
 snippet fori "for i loop" b
 for ${1:i} in xrange(${2:10}):
-    ${0:pass}
+	${0:pass}
 endsnippet
 
 snippet fork "for kv loop" b
 for ${1:k}, ${2:v} in ${3:dict}.iteritems():
-    ${0:pass}
+	${0:pass}
 endsnippet
 
 snippet eli "elif" b
 elif ${1:condition}:
-    ${0:pass}
+	${0:pass}
 endsnippet
 
 snippet imp "import" b
@@ -27,4 +27,9 @@ endsnippet
 
 snippet from "from . import *" b
 from ${1:.} import ${2:*}
+endsnippet
+
+snippet wi "with clause" b
+with ${1:open($2)} ${3/.+/as/} ${3:f}:
+	$0
 endsnippet
