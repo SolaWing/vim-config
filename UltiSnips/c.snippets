@@ -75,3 +75,13 @@ endsnippet
 snippet va "__VA_ARGS__"
 __VA_ARGS__
 endsnippet
+
+snippet ifdef "ifdef macro" b
+#ifdef $1
+endsnippet
+
+snippet ifdefine "if define symbol, execute code" b
+#if defined(${1:DEBUG}) && $1 != 0
+	${VISUAL}$0
+#endif
+endsnippet

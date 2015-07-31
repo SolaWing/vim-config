@@ -225,6 +225,7 @@ EOF
         noremap <M-c> "*y
         noremap <M-s> :<C-U>confirm w<CR>
         inoremap <M-s> <C-o>:<C-U>confirm w<CR>
+        noremap <M-S> :<C-U>confirm wa<CR>
     "}}}
 
     """"""""""" visual map {{{
@@ -320,7 +321,7 @@ EOF
         command! Colortest sp $VIMRUNTIME/syntax/colortest.vim|so %
         command! -nargs=? Scratch new +set\ bt=nowrite <args>
         command! -range=% TrimWhiteSpace <line1>,<line2>s/\m\s\+$//e
-        command! -range=% TrimMoreThanOneEmptyLine silent <line1>,<line2>g/^\s*\n\s*\n/d
+        command! -range=% TrimMultiEmptyLine silent <line1>,<line2>g/^\s*\n\s*\n\s*\n/d
     "}}}
 
     " my-keybinding space category {{{
@@ -436,7 +437,7 @@ EOF
     "}}}
     """ text"{{{
     nnoremap <Space>xw :<C-U>TrimWhiteSpace<CR>
-    nnoremap <Space>xl :<C-U>TrimMoreThanOneEmptyLine<CR>
+    nnoremap <Space>xl :<C-U>TrimMultiEmptyLine<CR>
     "}}}
     """ misc"{{{
     nnoremap <leader><Space>s :<C-U>Scratch<Space>
