@@ -72,6 +72,8 @@
         map  <M-?> <Plug>(easymotion-s)
         imap <M-?> <C-o><Plug>(easymotion-s)
         map <Space><Space> <Plug>(easymotion-s)
+        " zap to char
+        imap <M-z> <C-o>d<Plug>(easymotion-s)
         "}}
         " YouCompleteMe {{
             let g:ycm_allow_changing_updatetime = 1

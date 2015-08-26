@@ -70,6 +70,10 @@ snippet weakref "weak ref var declare" b
 __weak typeof(${1:self}) ${2:me} = $1;
 endsnippet
 
+snippet strongref "strong ref var declare" b
+__strong typeof(${1:me}) ${2:self} = $1;
+endsnippet
+
 snippet mark "#pragma mark -" b
 #pragma mark - $1
 endsnippet

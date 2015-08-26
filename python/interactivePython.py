@@ -106,6 +106,7 @@ def interactiveScriptAnywhere(output, isExec=None):
     out.close()
 
 def findAll(pat):
+    """find all and may format according to fmt string"""
     s = "\n".join(vim.current.range)
     m = re.findall(pat , s)
     if m:

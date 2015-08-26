@@ -357,6 +357,7 @@ EOF
     nnoremap <Space>th :<C-U>silent exe "tabm -". v:count1<CR>
     nnoremap <Space>tH :<C-U>silent tabm 0<CR>
     " new tab
+    nnoremap <Space>ts <C-W>s<C-W>T
     nnoremap <Space>tn :<C-U>silent tabnew<CR>
     nnoremap <Space>te :<C-U>tabe<Space>
     nnoremap <Space>t] :<C-U>tab tag <C-R><C-W><CR>

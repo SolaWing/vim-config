@@ -1,6 +1,8 @@
 function! QuickFix#Do(cmd, hasbang, uselocal)
   let l:old_hid = &hid
+  let l:ei = &eventignore
   set hid
+  set eventignore=all
   " let l:old_swb = &swb
   " set switchbuf=usetab,newtab   " open newtab for each execute file
   " echom a:cmd
@@ -43,5 +45,6 @@ function! QuickFix#Do(cmd, hasbang, uselocal)
   finally
     " let &switchbuf = l:old_swb
     let &hid = l:old_hid
+    let &eventignore = l:ei
   endtry
 endfunction
