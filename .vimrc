@@ -119,7 +119,7 @@ EOF
         set tabstop=8
         set softtabstop=4
         "indent width
-        set sw=2
+        set sw=4
         " autoindent
         set smartindent
         set autoindent
