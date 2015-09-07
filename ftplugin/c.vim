@@ -22,10 +22,10 @@ nnoremap <buffer> <Space>mc :<C-U>YcmDiags<CR>
 if exists("*s:refold") | finish | endif
 function! s:refold() range
   " delete old fold
-  silent! exe printf('norm! %dGV%dGzD', a:firstline, a:lastline) 
+  silent! exe printf('keepjumps norm! %dGV%dGzD', a:firstline, a:lastline) 
   let l:c = line("$")
   if l:c == a:lastline && getline(l:c) == '}' " add space line at lastline
-    silent norm! Go
+    silent keepjumps norm! Go
   endif
   call cursor(a:firstline, 0)
   " add space line after }

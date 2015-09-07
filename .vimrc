@@ -37,6 +37,11 @@
            call setreg('"',old_reg, old_regtype)
            return ret
        endfunction
+
+       function! SurroundSpaceBetweenPairs(start, end) range
+           exe printf('%d,%ds/\(%s\)\ze\S/\1 /ge', a:firstline, a:lastline, a:start)
+           exe printf('%d,%ds/\S\zs\(%s\)/ \1/ge', a:firstline, a:lastline, a:end)
+       endfunction
     " }}}
     """"""" 基本不会动的全局设定 {{{
 
@@ -139,6 +144,7 @@ EOF
         set noequalalways
         " min line
         set winminheight=0
+        set winminwidth=0
         " backspace
         set backspace=indent,eol,start
         " remove comment char when join
@@ -381,10 +387,10 @@ EOF
     nnoremap <Space>pf :<C-U>CtrlP<CR>
     nnoremap <D-p> :<C-U>CtrlP<CR>
     nnoremap <Space>pr :<C-U>CtrlPMRUFiles<CR>
-    nnoremap <Space>p/ :<C-U>Ack! <C-R><C-W>
-    vnoremap <Space>p/ :<C-U>Ack! <C-R>=GetVisualString()<CR>
-    nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> <C-R><C-W>
-    vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> <C-R>=GetVisualString()<CR>
+    nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
+    vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
+    nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
+    vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
     ""}}}
     """ quickFix"{{{
     nnoremap <Space>Q :<C-U>cwin<CR>
@@ -437,8 +443,19 @@ EOF
     nnoremap <Space>fr :<C-U>CtrlPMRUFiles<CR>
     "}}}
     """ text"{{{
-    nnoremap <Space>xw :<C-U>TrimWhiteSpace<CR>
-    nnoremap <Space>xl :<C-U>TrimMultiEmptyLine<CR>
+    nnoremap <Space>xw :TrimWhiteSpace<CR>
+    vnoremap <Space>xw :TrimWhiteSpace<CR>
+    nnoremap <Space>xl :TrimMultiEmptyLine<CR>
+    vnoremap <Space>xl :TrimMultiEmptyLine<CR>
+
+    nnoremap <Space>x( :call SurroundSpaceBetweenPairs('(',')')<CR>
+    nnoremap <Space>x) :call SurroundSpaceBetweenPairs('(',')')<CR>
+    nnoremap <Space>x[ :call SurroundSpaceBetweenPairs('\[','\]')<CR>
+    nnoremap <Space>x] :call SurroundSpaceBetweenPairs('\[','\]')<CR>
+    vnoremap <Space>x( :call SurroundSpaceBetweenPairs('(',')')<CR>
+    vnoremap <Space>x) :call SurroundSpaceBetweenPairs('(',')')<CR>
+    vnoremap <Space>x[ :call SurroundSpaceBetweenPairs('\[','\]')<CR>
+    vnoremap <Space>x] :call SurroundSpaceBetweenPairs('\[','\]')<CR>
     "}}}
     """ misc"{{{
     nnoremap <leader><Space>s :<C-U>Scratch<Space>
