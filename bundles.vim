@@ -99,9 +99,12 @@
             nnoremap <C-W><leader>gd <C-W>s:YcmCompleter GoToDefinition<CR>
             nnoremap <C-W><leader>gg <C-W>s:YcmCompleter GoTo<CR>
             nnoremap <C-W><leader>gh <C-W>s:YcmCompleter GoToImprecise<CR>
+            nnoremap <C-W><M-g> <C-W>s:YcmCompleter GoTo<CR>
+            nnoremap <Space>t<M-g> <C-W>s<C-W>T:YcmCompleter GoTo<CR>
             nnoremap <leader>gi :YcmCompleter GoToDeclaration<CR>
             nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
             nnoremap <leader>gg :YcmCompleter GoTo<CR>
+            nnoremap <M-g> :YcmCompleter GoTo<CR>
             nnoremap <leader>gh :YcmCompleter GoToImprecise<CR>
             nnoremap <leader>gt :YcmCompleter GetType<CR>
             nnoremap <leader>gp :YcmCompleter GetParent<CR>
