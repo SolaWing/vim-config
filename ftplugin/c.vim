@@ -18,6 +18,8 @@ vnoremap <buffer> <Space>mf :CReFold<CR>
 " compile
 nnoremap <buffer> <Space>mc :<C-U>YcmDiags<CR>
 
+nnoremap <buffer> <Space>mh :call <SID>moveImportToList()<CR>
+vnoremap <buffer> <Space>mh :call <SID>moveImportToList()<CR>
 
 if exists("*s:refold") | finish | endif
 function! s:refold() range
@@ -36,6 +38,17 @@ function! s:refold() range
   " echom l:s
   silent exe l:s
 endfunction
+
+function! s:moveImportToList() range
+    exe printf('%d,%ds/^\s*//', a:firstline, a:lastline)
+    exe printf('%d,%dd', a:firstline, a:lastline)
+
+    let l:line = search('#\%(import\|include\)', 'b')
+    exe l:line . 'put'
+
+    call cursor(a:lastline, 1)
+endfunction
+
 
 PY << EOF
 import vim,os
