@@ -109,6 +109,7 @@
             nnoremap <leader>gt :YcmCompleter GetType<CR>
             nnoremap <leader>gp :YcmCompleter GetParent<CR>
             nnoremap <leader>g :YcmCompleter GetType<CR>
+            nnoremap <leader>gf :YcmCompleter FixIt<CR>
         " }}
         " ---supertab {{
         " use this can use CR to confirm complete so can use tab as UltiSnips
@@ -348,6 +349,12 @@
         " }}
         " hynek/vim-python-pep8-indent"{{
         Plugin 'hynek/vim-python-pep8-indent'
+        "}}
+        " keith/swift.vim "{{
+        Plugin 'keith/swift.vim'
+        "}}
+        " rust-lang/rust.vim"{{
+        Plugin 'rust-lang/rust.vim'
         "}}
         " --- ivanov/vim-ipython"{{
         " Plugin 'ivanov/vim-ipython'

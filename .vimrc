@@ -131,7 +131,7 @@ EOF
         " indent use tab
         set expandtab
         " wrap text
-        " set wrap
+        set nowrap
         " line break
         set linebreak
         " smart ignorecase

@@ -6,7 +6,7 @@ priority 0
 
 clearsnippets cl array dict forarray objacc
 
-snippet sel "selector"
+snippet sel "selector" w
 @selector($1)
 endsnippet
 
@@ -18,6 +18,10 @@ endsnippet
 
 snippet fs "format string" w
 [NSString stringWithFormat:${1:${VISUAL:@""}}, $3]
+endsnippet
+
+snippet kindclass "kindclass" w
+[${1:obj} isKindOfClass:[${2:cls} class]]
 endsnippet
 
 snippet prop "a @property" b
@@ -66,7 +70,7 @@ for (${1:id} ${2:element} in ${3:container}){
 }
 endsnippet
 
-snippet img "get image by name"
+snippet img "get image by name" w
 [UIImage imageNamed:${2:@"${1:name}.png"}]
 endsnippet
 
@@ -108,23 +112,6 @@ ${0:@""}
 options:${1:0} metrics:${2:nil} views:${3:views}]
 endsnippet
 
-snippet view-init "view init declare" b
-- (instancetype)init{
-	return [self initWithFrame:CGRectZero];
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-	self = [super initWithFrame:frame];
-	if (self){ [self initilize]; }
-	return self;
-}
-
-- (void)initilize {
-	// need to prevent run more than once!
-}
-
-endsnippet
-
 snippet dispatch_timer "a dispatch_source based timer"
 dispatch_source_t timer = dispatch_source_create(
 	DISPATCH_SOURCE_TYPE_TIMER, 0, 0, ${1:dispatch_get_main_queue()});
@@ -142,6 +129,14 @@ snippet nsenum "NS_Enum typedef" b
 typedef NS_ENUM(NSInteger, ${1:name}) {
 	$0
 };
+endsnippet
+
+snippet font "ios system font" w
+[UIFont systemFontOfSize:$1]
+endsnippet
+
+snippet boldfont "ios system bold font" w
+[UIFont boldSystemFontOfSize:$1]
 endsnippet
 
 snippet ^ "generate default block with args use in previewwindow" i
@@ -197,4 +192,21 @@ snippet tableViewDefaultDelegate "tableViewDefaultDelegate" b
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 }
+endsnippet
+
+snippet view-init "view init declare" b
+- (instancetype)init{
+	return [self initWithFrame:CGRectZero];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+	self = [super initWithFrame:frame];
+	if (self){ [self initilize]; }
+	return self;
+}
+
+- (void)initilize {
+	// need to prevent run more than once!
+}
+
 endsnippet
