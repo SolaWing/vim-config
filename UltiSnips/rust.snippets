@@ -1,0 +1,46 @@
+snippet pln "print line" b
+println!("$1"${1/[^{]*(\{\})?.*/(?1:, :\);)/);}$2${1/[^{]*(\{\})?.*/(?1:\);)/}
+endsnippet
+
+snippet macro "macro_rules!" b
+macro_rules! ${1:name} {
+	(${2:matcher}) => {
+		${3}
+	}
+}
+endsnippet
+
+snippet test "a test func" b
+#[test]
+fn ${1:name}() {
+	$0
+}
+endsnippet
+
+snippet trait "a trait" b
+trait ${1:name} {
+	$0
+}
+endsnippet
+
+snippet match "match statement" b
+match ${1:x} {
+	$2 => $3,
+}
+endsnippet
+
+snippet impl_deref "implementation of deref" b
+impl Deref for ${1:type} {
+	type Target = ${2:target};
+
+	fn deref(&self) -> & $2{
+		& ${3:self.${4:path}}
+	}
+}
+
+${5:impl DerefMut for $1 {
+	fn deref_mut(&mut self) -> &mut $2 {
+		&mut $3
+	}
+}}
+endsnippet

@@ -359,6 +359,10 @@
         " --- ivanov/vim-ipython"{{
         " Plugin 'ivanov/vim-ipython'
         "}}
+        "racer-rust/vim-racer"{{
+        Plugin 'racer-rust/vim-racer'
+        let $RUST_SRC_PATH="/Users/wang/Documents/rustc-1.3.0/src"
+        "}}
   "}}
     filetype plugin indent on     " required
 

@@ -448,6 +448,9 @@ EOF
     nnoremap <Space>xl :TrimMultiEmptyLine<CR>
     vnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
+    nnoremap <Space>xs :s/\V<C-R><C-W>//gc<Left><Left><Left>
+    vnoremap g& :s//~/&<CR>
+
     nnoremap <Space>x( :call SurroundSpaceBetweenPairs('(',')')<CR>
     nnoremap <Space>x) :call SurroundSpaceBetweenPairs('(',')')<CR>
     nnoremap <Space>x[ :call SurroundSpaceBetweenPairs('\[','\]')<CR>
