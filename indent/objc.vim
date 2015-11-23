@@ -59,9 +59,9 @@ function! GetObjCIndentImproved()
   "       [obj other:here];
   "
   let thisColon = s:GetWidth(thisLine, ":")
-  if thisColon > 0 && prevLine !~# ';'
+  if thisColon > 0 && prevLine !~# '[;{]'
     let prevColon = s:GetWidth(prevLine, ":")
-    if prevColon > 0
+    if prevColon > 0 && &textwidth > 0 && prevColon < &textwidth * 3 / 4
       " Try to align colons, always making sure line is indented at least
       " one shiftwidth more than the indentation at the beginning of the
       " message.  Avoids situations like this:

@@ -449,6 +449,7 @@ EOF
     vnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
     nnoremap <Space>xs :s/\V<C-R><C-W>//gc<Left><Left><Left>
+    vnoremap <Space>xs :<C-U>s/\V<C-R>=GetVisualString()<CR>//gc<Left><Left><Left>
     vnoremap g& :s//~/&<CR>
 
     nnoremap <Space>x( :call SurroundSpaceBetweenPairs('(',')')<CR>

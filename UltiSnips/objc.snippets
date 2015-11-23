@@ -82,6 +82,11 @@ snippet strongref "strong ref var declare" b
 __strong typeof(${1:me}) ${2:self} = $1;
 endsnippet
 
+snippet strongrefAndMayReturn "strong ref var declare, if not exist, return" b
+__strong typeof(${1:me}) ${2:self} = $1;
+if (!$2) return;
+endsnippet
+
 snippet mark "#pragma mark -" b
 #pragma mark - $1
 endsnippet
@@ -209,4 +214,12 @@ snippet view-init "view init declare" b
 	// need to prevent run more than once!
 }
 
+endsnippet
+
+snippet setter "a default setter" b
+- (void)set${1/\w+/\u$0/}:(${2:id})${1:name} {
+	if ($1 != _$1) {
+		_$1 = $1;$0
+	}
+}
 endsnippet
