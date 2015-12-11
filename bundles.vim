@@ -95,14 +95,14 @@
             let g:ycm_use_ultisnips_completer = 1
             "Plugin 'Valloric/YouCompleteMe'
             Plugin 'file://~/.vim/bundle/YouCompleteMe', {'pinned': 1}
-            nnoremap <C-W><leader>gi <C-W>s:YcmCompleter GoToDeclaration<CR>
-            nnoremap <C-W><leader>gd <C-W>s:YcmCompleter GoToDefinition<CR>
+            nnoremap <C-W><leader>ggi <C-W>s:YcmCompleter GoToDeclaration<CR>
+            nnoremap <C-W><leader>ggd <C-W>s:YcmCompleter GoToDefinition<CR>
             nnoremap <C-W><leader>gg <C-W>s:YcmCompleter GoTo<CR>
             nnoremap <C-W><leader>gh <C-W>s:YcmCompleter GoToImprecise<CR>
             nnoremap <C-W><M-g> <C-W>s:YcmCompleter GoTo<CR>
             nnoremap <Space>t<M-g> <C-W>s<C-W>T:YcmCompleter GoTo<CR>
-            nnoremap <leader>gi :YcmCompleter GoToDeclaration<CR>
-            nnoremap <leader>gd :YcmCompleter GoToDefinition<CR>
+            nnoremap <leader>ggi :YcmCompleter GoToDeclaration<CR>
+            nnoremap <leader>ggd :YcmCompleter GoToDefinition<CR>
             nnoremap <leader>gg :YcmCompleter GoTo<CR>
             nnoremap <M-g> :YcmCompleter GoTo<CR>
             nnoremap <leader>gh :YcmCompleter GoToImprecise<CR>
@@ -183,6 +183,8 @@
         "}}
         " tpope/fugitive {{
         Plugin 'tpope/vim-fugitive'
+        nnoremap <leader>gd :Gdiff<CR>
+        nnoremap <leader>gb :Gblame<CR>
         " }}
         " kshenoy/vim-signature"{{
         let g:SignaturePeriodicRefresh = 0
