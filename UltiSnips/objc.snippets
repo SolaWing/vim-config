@@ -29,15 +29,12 @@ snippet prop "a @property" b
 endsnippet
 
 snippet singleton "objc singleton" b
-+ (instancetype)${1:getInstance}{
-	static ${2:id} instance = NULL;
-	if (NULL == instance){
-		@synchronized(self){
-			if (NULL == instance){
-				instance = [[${2/^(id)$|\*$/(?1:self)/} alloc] ${3:init}];
-			}
-		}
-	}
++ (instancetype)${1:sharedInstance} {
+	static dispatch_once_t once;
+	static ${2:id} instance;
+	dispatch_once(&once,^{
+		instance = [[self alloc] ${3:init}];$0
+	});
 	return instance;
 }
 endsnippet
@@ -75,29 +72,40 @@ snippet img "get image by name" w
 endsnippet
 
 snippet weakref "weak ref var declare" b
-__weak typeof(${1:self}) ${2:me} = $1;
+__weak typeof(${1:self}) ${2:weak_$1} = $1;
 endsnippet
 
 snippet strongref "strong ref var declare" b
-__strong typeof(${1:me}) ${2:self} = $1;
+__strong typeof(${2:weak_$1}) ${1:self} = $2;
 endsnippet
 
 snippet strongrefAndMayReturn "strong ref var declare, if not exist, return" b
-__strong typeof(${1:me}) ${2:self} = $1;
-if (!$2) return;
+__strong typeof(${2:weak_$1}) ${1:self} = $2;
+if (!$1) return;
 endsnippet
 
 snippet mark "#pragma mark -" b
 #pragma mark - $1
 endsnippet
 
+snippet dispatch_once "dispatch_once block" b
+static dispatch_once_t once;
+dispatch_once(&once, ^{
+	${VISUAL}$0
+});
+endsnippet
+
 snippet dispatch_async "dispatch_async" b
-dispatch_async(${1:dispatch_get_main_queue()}, ${2:^\{${VISUAL/^/\n/}\}});
+dispatch_async(${1:dispatch_get_main_queue()}, ${2:^\{
+	${VISUAL}$3
+\}});
 endsnippet
 
 snippet dispatch_after "dispatch_after" b
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, ${1:3}* NSEC_PER_SEC),
-	dispatch_get_main_queue(), ${2:^\{${VISUAL/^/\n/}\}});
+	dispatch_get_main_queue(), ${2:^\{
+	${VISUAL}$3
+\}});
 endsnippet
 
 snippet c4f "RGB Color"
@@ -200,10 +208,6 @@ snippet tableViewDefaultDelegate "tableViewDefaultDelegate" b
 endsnippet
 
 snippet view-init "view init declare" b
-- (instancetype)init{
-	return [self initWithFrame:CGRectZero];
-}
-
 - (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self){ [self initilize]; }
@@ -235,7 +239,45 @@ if not snip.c:
       if m: return m.group(1)
     return '_lock'
   snip.rv = findLock()
-`}); {
+`});
 	${VISUAL}$0
-} OSSpinLockUnlock(&$1);
+OSSpinLockUnlock(&$1);
+endsnippet
+
+snippet nsproxy "nsproxy definition" b
+@interface ${1:ProxyName} : NSProxy
+
+@property (nonatomic, strong) ${2:id} ${3:target};
+
++ (instancetype)newWithTarget:($2)$3;
+
+@end
+
+@implementation $1
+
++ (instancetype)newWithTarget:($2)$3 {
+	$1* ret = [self alloc];
+	ret->_$3 = $3;
+	return ret;
+}
+
+- (id)forwardingTargetForSelector:(SEL)selector {
+	return _$3;
+}
+
+- (void)forwardInvocation:(nonnull NSInvocation *)invocation {
+	invocation.$3 = _$3;
+	return [invocation invoke];
+}
+
+- (nullable NSMethodSignature *)methodSignatureForSelector:(nonnull SEL)sel {
+	return [_$3 methodSignatureForSelector:sel];
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector {
+	return [_$3 respondsToSelector:aSelector];
+}
+
+@end
+
 endsnippet

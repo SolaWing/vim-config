@@ -54,6 +54,7 @@
             colorscheme solarized
         endif
 
+        " python
         if has('python')
             let g:usepy = ""
         elseif has('python3')
