@@ -88,9 +88,10 @@
             let g:ycm_additional_flags = []
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             let g:ycm_key_invoke_completion = '<M-.>'
-            " let g:ycm_key_list_previous_completion = []
+            " let g:ycm_key_list_previous_completion = [] "for use enter to confirm select
             " let g:ycm_key_list_select_completion = []
             " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
+            " let g:ycm_server_log_level = 'debug'
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
@@ -120,27 +121,12 @@
             "let g:SuperTabLongestHighlight = 1
             "Plugin 'ervandew/supertab'
         " }}
-        " ---snipmate {{
-        "    Bundle "MarcWeber/vim-addon-mw-utils"
-        "    Bundle "tomtom/tlib_vim"
-        "    Bundle "garbas/vim-snipmate"
-        "    " inoremap <silent> <Plug>snipMateNextOrTrigger  <C-R>=snipMate#TriggerSnippet()<CR>
-        "    " snoremap <silent> <Plug>snipMateNextOrTrigger  <Esc>a<C-R>=snipMate#TriggerSnippet()<CR>
-        "    " inoremap <silent> <Plug>snipMateTrigger        <C-R>=snipMate#TriggerSnippet(1)<CR>
-        "    " inoremap <silent> <Plug>snipMateBack           <C-R>=snipMate#BackwardsSnippet()<CR>
-        "    " snoremap <silent> <Plug>snipMateBack           <Esc>a<C-R>=snipMate#BackwardsSnippet()<CR>
-        "    " inoremap <silent> <Plug>snipMateShow           <C-R>=snipMate#ShowAvailableSnips()<CR>
-        "    " xnoremap <silent> <Plug>snipMateVisual         :<C-U>call <SID>grab_visual()<CR>gv"_c
-
-        "    " Optional:
-        "    Bundle "honza/vim-snippets"
-        " }}
         " SirVer/ultisnips {{
-        let g:UltiSnipsExpandTrigger="<M-;>" " M-;
-        let g:UltiSnipsJumpForwardTrigger="<c-j>"
-        let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+        let g:UltiSnipsExpandTrigger="<M-'>" " M-'
+        let g:UltiSnipsJumpForwardTrigger="<Tab>"
+        let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
         let g:UltiSnipsEditSplit = "horizontal"
-        let g:UltiSnipsListSnippets = "<M-:>" " M-S-;
+        let g:UltiSnipsListSnippets="<M-\">"   " M-S-"
         let g:UltiSnipsEnableSnipMate = 0
         " nvim have a different location, so set it
         let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
@@ -342,6 +328,15 @@
         " search like occur
         cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR> -no-quit -keep-focus<CR>
         "}}
+        " Shougo/vimproc.vim {{
+        Plugin 'Shougo/vimproc.vim'
+        " }}
+        " Shougo/neomru.vim {{
+        " let g:neomru#file_mru_path = '~/.vim/bundle/neomru.vim/cache/file'
+        " let g:neomru#directory_mru_path = '~/.vim/bundle/neomru.vim/cache/dir'
+        " let g:neomru#do_validate = 0
+        " Plugin 'Shougo/neomru.vim'
+        " }}
         " " godlygeek/tabular {{
         " Plugin 'godlygeek/tabular'
         " "}}
@@ -353,14 +348,14 @@
         " hynek/vim-python-pep8-indent"{{
         Plugin 'hynek/vim-python-pep8-indent'
         "}}
+        " --- ivanov/vim-ipython"{{
+        " Plugin 'ivanov/vim-ipython'
+        "}}
         " keith/swift.vim "{{
         Plugin 'keith/swift.vim'
         "}}
         " rust-lang/rust.vim"{{
         Plugin 'rust-lang/rust.vim'
-        "}}
-        " --- ivanov/vim-ipython"{{
-        " Plugin 'ivanov/vim-ipython'
         "}}
         "racer-rust/vim-racer"{{
         Plugin 'racer-rust/vim-racer'
