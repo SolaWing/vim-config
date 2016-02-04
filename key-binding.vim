@@ -179,6 +179,16 @@ nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
 vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
+// git version control
+nnoremap <Space>gs :Gstatus<CR>z15<CR>
+nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count?"@~".v:count : ""<CR><CR>
+nnoremap <Space>gb :Gblame<CR>
+nnoremap <Space>gcd :Gcd<CR>
+nnoremap <Space>gf :Gfetch<CR>
+nnoremap <Space>gF :Gpull --rebase<CR>
+nnoremap <Space>gw :Gwrite<CR>
+nnoremap <Space>gl :Glog -n 30<CR>
+vnoremap <Space>gl :Glog -n 30<CR>
 ""}}}
 """ quickFix"{{{
 nnoremap <Space>Q :<C-U>cwin<CR>

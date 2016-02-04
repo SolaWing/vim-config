@@ -95,6 +95,7 @@
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
+            let g:ycm_rust_src_path="/Users/wang/Documents/rustc-1.3.0/src"
             "Plugin 'Valloric/YouCompleteMe'
             Plugin 'file://~/.vim/bundle/YouCompleteMe', {'pinned': 1}
             nnoremap <C-W><leader>ggi <C-W>s:YcmCompleter GoToDeclaration<CR>
@@ -123,8 +124,8 @@
         " }}
         " SirVer/ultisnips {{
         let g:UltiSnipsExpandTrigger="<M-'>" " M-'
-        let g:UltiSnipsJumpForwardTrigger="<Tab>"
-        let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+        let g:UltiSnipsJumpForwardTrigger="<C-j>"
+        let g:UltiSnipsJumpBackwardTrigger="<C-k>"
         let g:UltiSnipsEditSplit = "horizontal"
         let g:UltiSnipsListSnippets="<M-\">"   " M-S-"
         let g:UltiSnipsEnableSnipMate = 0
@@ -140,9 +141,12 @@
         com! UltiTmpSnippet call UltiSnips#AddFiletypes("tmp") | UltiSnipsEdit tmp
         nnoremap <leader>st :UltiTmpSnippet<CR>
         nnoremap <leader>se :UltiSnipsEdit<CR>
+
+        " preview auto stop snippet. so disable it
+        autocmd User UltiSnipsEnterFirstSnippet set completeopt-=preview
+        autocmd User UltiSnipsExitLastSnippet set completeopt+=preview
         " }}
         " ctrlp {{
-            "let g:ctrlp_map = '<D-p>'
             let g:ctrlp_cache_dir = '~/.vim/bundle/ctrlp.vim/cache/'
             let g:ctrlp_buftag_ctags_bin = 'xtags'
             let g:ctrlp_lazy_update = 1
@@ -170,8 +174,6 @@
         "}}
         " tpope/fugitive {{
         Plugin 'tpope/vim-fugitive'
-        nnoremap <leader>gd :Gdiff<CR>
-        nnoremap <leader>gb :Gblame<CR>
         " }}
         " kshenoy/vim-signature"{{
         let g:SignaturePeriodicRefresh = 0
@@ -204,20 +206,8 @@
         Plugin 'jiangmiao/auto-pairs'
         " }}
         " vim-airline {{
-        "let g:airline_theme='jellybeans'
-        "let g:airline_theme_patch_func = 'AirlineThemePatch'
-        function! AirlineThemePatch(palette)
-            if g:airline_theme == 'dark'
-                let l:inactive = a:palette.inactive
-                let l:inactive.airline_c[1] = '#808080'
-                let l:inactive.airline_b[1] = '#808080'
-                "let l:inactive.airline_a[0] = '#c0c0c0'
-                "let l:inactive.airline_x[0] = '#c0c0c0'
-                "let l:inactive.airline_y[0] = '#c0c0c0'
-                "let l:inactive.airline_z[0] = '#c0c0c0'
-            endif
-        endfunction
-        Plugin 'bling/vim-airline'
+        Plugin 'vim-airline/vim-airline'
+        Plugin 'vim-airline/vim-airline-themes'
         " }}
         " scrooloose/nerdtree {{
             let g:NERDTreeBookmarksFile = $HOME . "/.vim/bundle/nerdtree/.NERDTreeBookmarks"
@@ -319,14 +309,17 @@
 		" Using ag as recursive command.
         Plugin 'Shougo/unite.vim'
         " execute command return false when have arg, this should a bug
+		call unite#custom#source('buffer, file_rec/neovim, file_rec/git',
+                    \ 'matchers', ['converter_tail', 'matcher_fuzzy'])
 		let g:unite_source_rec_async_command = 'find'
         nnoremap <Space>ub :<C-U>Unite buffer<CR>
         nnoremap <Space>um :<C-U>Unite bookmarks<CR>
         nnoremap <Space>u; :<C-U>Unite command -start-insert<CR>
         nnoremap <Space>u: :<C-U>Unite command<CR>
         nnoremap <Space>ul :<C-U>Unite line -start-insert<CR>
+        nnoremap <Space>uu :<C-U>UniteResume<CR>
         " search like occur
-        cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR> -no-quit -keep-focus<CR>
+        cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR> -auto-preview -no-split<CR>
         "}}
         " Shougo/vimproc.vim {{
         Plugin 'Shougo/vimproc.vim'
@@ -358,7 +351,7 @@
         Plugin 'rust-lang/rust.vim'
         "}}
         "racer-rust/vim-racer"{{
-        Plugin 'racer-rust/vim-racer'
+        " Plugin 'racer-rust/vim-racer'
         let $RUST_SRC_PATH="/Users/wang/Documents/rustc-1.3.0/src"
         "}}
   "}}
