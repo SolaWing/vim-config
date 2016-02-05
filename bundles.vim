@@ -95,7 +95,7 @@
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
-            let g:ycm_rust_src_path="/Users/wang/Documents/rustc-1.3.0/src"
+            let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src/"
             "Plugin 'Valloric/YouCompleteMe'
             Plugin 'file://~/.vim/bundle/YouCompleteMe', {'pinned': 1}
             nnoremap <C-W><leader>ggi <C-W>s:YcmCompleter GoToDeclaration<CR>
@@ -352,7 +352,7 @@
         "}}
         "racer-rust/vim-racer"{{
         " Plugin 'racer-rust/vim-racer'
-        let $RUST_SRC_PATH="/Users/wang/Documents/rustc-1.3.0/src"
+        let $RUST_SRC_PATH=$HOME."/Documents/github/rust/src/"
         "}}
   "}}
     filetype plugin indent on     " required

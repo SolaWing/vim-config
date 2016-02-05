@@ -156,16 +156,16 @@ nnoremap <Space>t} :<C-U>tab tjump /.*<C-R><C-W>.*<CR>
 vnoremap <Space>t] :<C-U>tab tag <C-R>=GetVisualString()<CR><CR>
 vnoremap <Space>tg] :<C-U>tab tjump <C-R>=GetVisualString()<CR><CR>
 " close tab
-nnoremap <Space>tc :<C-U>confirm tabclose<CR>
+nnoremap <Space>tc :<C-U>confirm =v:count?v:count:""tabclose<CR>
 nnoremap <Space>tC :<C-U>silent windo quit!<CR>
-nnoremap <Space>to :<C-U>confirm tabonly<CR>
+nnoremap <Space>to :<C-U>confirm =v:count?v:count:""tabonly<CR>
 " tab do
 nnoremap <Space>t: :<C-U>tabdo<Space>
 "}}}
 """ windows"{{{
 nnoremap <C-W>e :<C-U>sp<Space>
-nnoremap <C-W>o :<C-U>confirm only<CR>
-nnoremap <C-W><C-O> :<C-U>confirm only<CR>
+nnoremap <C-W>o :<C-U>confirm =v:count?v:count:""only<CR>
+nnoremap <C-W><C-O> :<C-U>confirm =v:count?v:count:""only<CR>
 nnoremap <M-Left> <C-W>h
 nnoremap <M-Right> <C-W>l
 nnoremap <M-Up> <C-W>k
@@ -179,14 +179,17 @@ nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
 vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
-// git version control
+"  git version control
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count?"@~".v:count : ""<CR><CR>
+nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>
 nnoremap <Space>gF :Gpull --rebase<CR>
 nnoremap <Space>gw :Gwrite<CR>
+nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
+vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gl :Glog -n 30<CR>
 vnoremap <Space>gl :Glog -n 30<CR>
 ""}}}
