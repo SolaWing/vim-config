@@ -137,6 +137,7 @@
 
         " Optional:
         Plugin 'honza/vim-snippets'
+        let g:ultisnips_python_style = 'jedi'
 
         com! UltiTmpSnippet call UltiSnips#AddFiletypes("tmp") | UltiSnipsEdit tmp
         nnoremap <leader>st :UltiTmpSnippet<CR>
@@ -197,6 +198,13 @@
         " }}
         " my plugin" {{
         Plugin 'file://~/.vim/bundle/vim-objc-syntax', {'pinned':1}
+        Plugin 'file://~/.vim/bundle/quick-ultisnip', {'pinned' : 1}
+        nnoremap <C-p> :call quickUltiSnip#Paste()<CR>
+        inoremap <C-r><CR> <C-R>=quickUltiSnip#Insert()<CR>
+        inoremap <C-r><CR><CR> <C-R>=quickUltiSnip#Insert()<CR>"
+        vmap <M-y> <Plug>quickUltiSnipYankVisual
+        nmap <M-Y> <Plug>quickUltiSnipYankLineWise
+        nmap <M-y> <Plug>quickUltiSnipYankOperator
         " }}
         " ---lldb-plugin {{
         "Plugin 'gilligan/vim-lldb'

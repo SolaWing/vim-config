@@ -11,7 +11,7 @@ snippet deff "quick function" b
 def ${1:function}(`!p
 if snip.indent:
     snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
-	${0:pass}
+	${0:${VISUAL:pass}}
 endsnippet
 
 snippet fori "for i loop" b

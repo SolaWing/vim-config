@@ -37,6 +37,7 @@ noremap <M-c> "*y
 noremap <M-s> :<C-U>confirm w<CR>
 inoremap <M-s> <C-o>:<C-U>confirm w<CR>
 noremap <M-S> :<C-U>confirm wa<CR>
+inoremap <C-c><C-c> <C-o>:confirm x<CR>
 "}}}
 
 """"""""""" visual map {{{
@@ -103,7 +104,7 @@ cnoremap <C-X><C-A> <C-A>
 cnoremap <C-A> <C-B>
 cnoremap <C-]> <C-\>eSearchCharInCmd(1,1)<CR>
 " ctrl-K kill line
-cnoremap <C-K> <C-\>egetcmdpos()==1?"":getcmdline()[:getcmdpos()-2]<CR>
+cnoremap <C-K> <C-\>egetcmdpos()==1?"" :getcmdline()[:getcmdpos()-2]<CR>
 cnoremap <C-X><C-K> <C-K>
 " <M-]> to search backword
 cnoremap <M-]> <C-\>eSearchCharInCmd(0,0)<CR>
@@ -156,16 +157,16 @@ nnoremap <Space>t} :<C-U>tab tjump /.*<C-R><C-W>.*<CR>
 vnoremap <Space>t] :<C-U>tab tag <C-R>=GetVisualString()<CR><CR>
 vnoremap <Space>tg] :<C-U>tab tjump <C-R>=GetVisualString()<CR><CR>
 " close tab
-nnoremap <Space>tc :<C-U>confirm =v:count?v:count:""tabclose<CR>
+nnoremap <Space>tc :<C-U>confirm =v:count?v:count :""tabclose<CR>
 nnoremap <Space>tC :<C-U>silent windo quit!<CR>
-nnoremap <Space>to :<C-U>confirm =v:count?v:count:""tabonly<CR>
+nnoremap <Space>to :<C-U>confirm =v:count?v:count :""tabonly<CR>
 " tab do
 nnoremap <Space>t: :<C-U>tabdo<Space>
 "}}}
 """ windows"{{{
 nnoremap <C-W>e :<C-U>sp<Space>
-nnoremap <C-W>o :<C-U>confirm =v:count?v:count:""only<CR>
-nnoremap <C-W><C-O> :<C-U>confirm =v:count?v:count:""only<CR>
+nnoremap <C-W>o :<C-U>confirm =v:count?v:count :""only<CR>
+nnoremap <C-W><C-O> :<C-U>confirm =v:count?v:count :""only<CR>
 nnoremap <M-Left> <C-W>h
 nnoremap <M-Right> <C-W>l
 nnoremap <M-Up> <C-W>k
