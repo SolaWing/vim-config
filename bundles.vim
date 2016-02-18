@@ -211,6 +211,12 @@
         " }}
         " autopair {{
         let g:AutoPairsShortcutBackInsert = ""
+
+        let g:ycm_key_param_template = 0
+        " put here for compatibility
+        silent! inoremap <expr> <CR> pumvisible()?"<C-y><C-r>=youcompleteme#OnCompleteAction()<CR>"
+                    \ : "\<CR>"
+
         Plugin 'jiangmiao/auto-pairs'
         " }}
         " vim-airline {{

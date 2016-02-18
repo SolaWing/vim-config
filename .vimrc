@@ -140,7 +140,7 @@ EOF
         " set fold method
         set foldmethod=manual
         set foldlevel=100
-        set foldcolumn=2
+        set foldcolumn=1
         " no auto resize
         set noequalalways
         " min line

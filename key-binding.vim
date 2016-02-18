@@ -240,6 +240,7 @@ nnoremap <Space>bs :<C-U>sb<Space>
 nnoremap <Space>bv :<C-U>vert sb<Space>
 nnoremap <Space>bt :<C-U>tab sb<Space>
 nnoremap <Space>bl :<C-U>Unite -start-insert buffer<CR>
+nnoremap <M-tab> :<C-U>Unite -start-insert buffer<CR>
 " quit buffer and open previous buffer
 nnoremap <Space>bq <C-^>:bd #<CR>
 ""}}}
@@ -255,8 +256,8 @@ vnoremap <Space>xw :TrimWhiteSpace<CR>
 nnoremap <Space>xl :TrimMultiEmptyLine<CR>
 vnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
-nnoremap <Space>xs :s/\V<C-R><C-W>//gc<Left><Left><Left>
-vnoremap <Space>xs :<C-U>s/\V<C-R>=GetVisualString()<CR>//gc<Left><Left><Left>
+nnoremap <Space>xs :s/\V<C-R><C-W>//gc<Left><Left><Left><C-F>i
+vnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>s/\V<C-R>=GetVisualString()<CR>//gc<Left><Left><Left><C-F>i
 vnoremap g& :s//~/&<CR>
 
 nnoremap <Space>xS :s/ /\r/g<CR>
