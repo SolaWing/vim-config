@@ -59,6 +59,10 @@ inoremap <C-B> <Left>
 inoremap <C-A> <home>
 inoremap <C-E> <end>
 
+" easier horizontal scroll
+map zl zL
+map zh zH
+
 " alt + f b, word move
 map! <M-f> <S-Right>
 map! <M-b> <S-Left>
@@ -121,6 +125,7 @@ cabbrev w!! w !sudo tee % >/dev/null
 " in other mode, leader is <Space>
 imap <M-m> <C-o><Space>
 """ tab keys "{{{
+nmap <C-t> <Space>t
 " move to tab page
 nnoremap <Space>t1 1gt
 nnoremap <Space>t2 2gt
@@ -182,12 +187,13 @@ nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
 vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
 "  git version control
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
-nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count?"@~".v:count : ""<CR><CR>
-nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count?"@~".v:count : ""<CR><CR>
+nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
+nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>
 nnoremap <Space>gF :Gpull --rebase<CR>
+nnoremap <Space>gp :Git push<CR>
 nnoremap <Space>gw :Gwrite<CR>
 nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
@@ -249,6 +255,7 @@ nnoremap <Space>fs :<C-U>confirm w<CR>
 nnoremap <Space>fS :<C-U>confirm wa<CR>
 nnoremap <Space>ft :<C-U>sp ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
 nnoremap <Space>fr :<C-U>CtrlPMRUFiles<CR>
+nnoremap <Space>ff :<C-U>CtrlP<CR>
 "}}}
 """ text"{{{
 nnoremap <Space>xw :TrimWhiteSpace<CR>

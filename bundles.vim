@@ -159,6 +159,7 @@
                         \ 'PrtCurLeft()':         ['<c-h>', '<left>',   '<M-h>'],
                         \ 'PrtCurRight()':        ['<c-l>', '<right>',  '<M-l>'],
                         \ }
+            let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
             Plugin 'kien/ctrlp.vim'
         " }}
         " tpope/vim-surround "{{
@@ -320,12 +321,12 @@
         Plugin 'terryma/vim-multiple-cursors'
         "}}
         " Shougo/unite.vim"{{
-		" Using ag as recursive command.
+        " Using ag as recursive command.
         Plugin 'Shougo/unite.vim'
         " execute command return false when have arg, this should a bug
-		call unite#custom#source('buffer, file_rec/neovim, file_rec/git',
+        call unite#custom#source('buffer, file_rec/neovim, file_rec/git',
                     \ 'matchers', ['converter_tail', 'matcher_fuzzy'])
-		let g:unite_source_rec_async_command = 'find'
+        let g:unite_source_rec_async_command = 'find'
         nnoremap <Space>ub :<C-U>Unite buffer<CR>
         nnoremap <Space>um :<C-U>Unite bookmarks<CR>
         nnoremap <Space>u; :<C-U>Unite command -start-insert<CR>
