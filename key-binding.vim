@@ -241,12 +241,13 @@ vmap <Space>sm <Space>m/
 """ buffer"{{{
 nnoremap <Space>bw :<C-U>confirm w<CR>
 nnoremap <Space>bx :<C-U>confirm x<CR>
+nnoremap <Space>bd :<C-U>confirm bdelete<CR>
 nnoremap <Space>bb :<C-U>Unite buffer<CR>
 nnoremap <Space>bs :<C-U>sb<Space>
 nnoremap <Space>bv :<C-U>vert sb<Space>
 nnoremap <Space>bt :<C-U>tab sb<Space>
 nnoremap <Space>bl :<C-U>Unite -start-insert buffer<CR>
-nnoremap <M-tab> :<C-U>Unite -start-insert buffer<CR>
+nmap <M-tab> <Space>bl
 " quit buffer and open previous buffer
 nnoremap <Space>bq <C-^>:bd #<CR>
 ""}}}
