@@ -5,7 +5,8 @@ endif
 com! -range=% CReFold <line1>,<line2>call <SID>refold()
 com! -range=% CFold silent! exe printf('norm! %dGV%dGzD', <line1>,<line2>) | <line1>,<line2>g/\v^[-+a-zA-Z]&[^;{]*%(\n+\s*%(\s[^;{]*)?)*\{[^;{}]*$/.,/\v(^\}\s*\n\zs^\s*$|^\})/fold
 
-inoremap <buffer> <M-CR> <End>;<CR>
+inoremap <buffer> <M-;> <End>;<CR>
+
 nnoremap <buffer> <leader>h      :call <SID>toggleHeader(1)<CR>
 nnoremap <buffer> <C-W><leader>h :call <SID>toggleHeader(0)<CR>
 nnoremap <buffer> <Space>mf :CReFold<CR>

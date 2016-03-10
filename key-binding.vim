@@ -22,7 +22,8 @@ nnoremap <C-=>    <C-W>=
 nnoremap <silent> K      :<C-r>=&keywordprg==':help' <bar><bar> &keywordprg=='' ? printf("help %s",expand('<cword>')) : printf("!%s %s <bar> less", &keywordprg, expand('<cword>')) <CR><CR>
 vnoremap <silent> K      <esc>:<C-r>=line("'<") == line("'>") ? &keywordprg==':help' <bar><bar> &keywordprg=='' ? printf("help %s", getline("'<")[col("'<")-1:col("'>")-1] ) : printf("!%s %s <bar> less", &keywordprg, getline("'<")[col("'<")-1:col("'>")-1]) : "norm! gv" <cr><CR><CR>
 
-" move line up or down
+" move line up or down. may add zv to prevent auto refold to level
+" ( test only in vim buffer, marker fold, and level )
 nnoremap <M-J> :m .+1<CR>
 vnoremap <M-J> :m '>+1<CR>gv
 vnoremap <M-K> :m '<-2<CR>gv
@@ -120,10 +121,13 @@ cabbrev w!! w !sudo tee % >/dev/null
 
 
 " my-keybinding space category {{{
-" use a leader as group map. inspire by Spacemacs
+" use a leader as group map. inspired by Spacemacs
 " in insert mode, leader is <M-m>
 " in other mode, leader is <Space>
 imap <M-m> <C-o><Space>
+" mode reserved key <Space>m
+imap <M-CR> <C-o><Space>m
+map <M-CR> <Space>m
 """ tab keys "{{{
 nmap <C-t> <Space>t
 " move to tab page
@@ -264,7 +268,7 @@ vnoremap <Space>xw :TrimWhiteSpace<CR>
 nnoremap <Space>xl :TrimMultiEmptyLine<CR>
 vnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
-nnoremap <Space>xs :s/\V<C-R><C-W>//gc<Left><Left><Left><C-F>i
+nnoremap <Space>xs :s/\V\<<C-R><C-W>\>//gc<Left><Left><Left><C-F>i
 vnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>s/\V<C-R>=GetVisualString()<CR>//gc<Left><Left><Left><C-F>i
 vnoremap g& :s//~/&<CR>
 

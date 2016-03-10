@@ -107,7 +107,8 @@ EOF
         set fileencodings=ucs-bom,utf-8,default,gbk,latin1
         " showmatch
         set showmatch
-        set virtualedit=block
+        " virtualedit, add onemore for more consistency
+        set virtualedit=block,onemore
         " auto read when file change outside.
         set autoread
         " not save options and mapping when mksession.
@@ -137,6 +138,7 @@ EOF
         set linebreak
         " smart ignorecase
         set ignorecase smartcase
+        set fileignorecase
         " set fold method
         set foldmethod=manual
         set foldlevel=100

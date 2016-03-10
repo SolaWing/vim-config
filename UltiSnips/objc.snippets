@@ -71,6 +71,18 @@ snippet img "get image by name" w
 [UIImage imageNamed:${2:@"${1:name}.png"}]
 endsnippet
 
+snippet weakify "weakify macro" b
+WEAKIFY(${1:self});
+endsnippet
+
+snippet strongify "strongify macro" b
+STRONGIFY(${1:self});
+endsnippet
+
+snippet strongify_or_ret "strongify or ret macro " b
+STRONGIFY_OR_RET(${1:self});
+endsnippet
+
 snippet weakref "weak ref var declare" b
 __weak typeof(${1:self}) ${2:weak_$1} = $1;
 endsnippet

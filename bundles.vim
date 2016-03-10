@@ -200,9 +200,10 @@
         " my plugin" {{
         Plugin 'file://~/.vim/bundle/vim-objc-syntax', {'pinned':1}
         Plugin 'file://~/.vim/bundle/quick-ultisnip', {'pinned' : 1}
-        nnoremap <C-p> :call quickUltiSnip#Paste()<CR>
         inoremap <C-r><CR> <C-R>=quickUltiSnip#Insert()<CR>
+        " insert default register
         inoremap <C-r><CR><CR> <C-R>=quickUltiSnip#Insert()<CR>"
+        nnoremap <M-p> :call quickUltiSnip#Paste()<CR>
         vmap <M-y> <Plug>quickUltiSnipYankVisual
         nmap <M-Y> <Plug>quickUltiSnipYankLineWise
         nmap <M-y> <Plug>quickUltiSnipYankOperator
@@ -212,6 +213,7 @@
         " }}
         " autopair {{
         let g:AutoPairsShortcutBackInsert = ""
+        let g:AutoPairsShortcutToggle = ""
 
         let g:ycm_key_param_template = 0
         " put here for compatibility
