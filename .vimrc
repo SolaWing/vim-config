@@ -50,8 +50,13 @@
         " use bash shell
         let g:is_bash = 1
 
-        if !has("gui_running")
+        if has("gui_running")
+            " let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.5"
+            set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.5/Python
+            " py3 dir
+        else
             colorscheme solarized
+            autocmd FocusGained * checktime
         endif
 
         " python
@@ -73,6 +78,12 @@ import sys,os; sys.path.insert(0,os.path.expanduser('~/.vim/python')); u = {}
 EOF
         endif
         source ~/.vim/bundles.vim " vundle related
+
+        " [FIX] disable H detect for cpp, so objc will possible
+        if has("fname_case")
+            au! filetypedetect BufNewFile,BufRead *.H
+        endif
+
 
         "显示行号
         set number

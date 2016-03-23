@@ -337,6 +337,16 @@
         nnoremap <Space>uu :<C-U>UniteResume<CR>
         " search like occur
         cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR> -auto-preview -no-split<CR>
+
+        autocmd FileType unite call s:unite_my_settings()
+        function! s:unite_my_settings() "{{{
+            imap <buffer> '     <Plug>(unite_quick_match_default_action)
+            nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+            nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+            imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+            nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+            imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+        endfunction "}}}
         "}}
         " Shougo/vimproc.vim {{
         Plugin 'Shougo/vimproc.vim'
@@ -363,6 +373,13 @@
         "}}
         " keith/swift.vim "{{
         Plugin 'keith/swift.vim'
+        Plugin 'keith/sourcekittendaemon.vim'
+        "}}
+        " kana/vim-operator-user  "{{
+        Plugin 'kana/vim-operator-user'
+        "}}
+        " rhysd/vim-clang-format "{{
+        Plugin 'rhysd/vim-clang-format'
         "}}
         " rust-lang/rust.vim"{{
         Plugin 'rust-lang/rust.vim'

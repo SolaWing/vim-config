@@ -3,7 +3,7 @@
 
 import vim
 import itertools
-from cStringIO import StringIO
+from io import BytesIO as StringIO
 
 def escape(s, chars):
     """ escape chars in str

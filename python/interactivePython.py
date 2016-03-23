@@ -2,8 +2,8 @@
 # encoding: utf-8
 
 from __future__ import print_function
+from io import BytesIO as StringIO
 import sys, re, subprocess, vim
-from cStringIO import StringIO
 import itertools
 import myutil
 # dict used as user interactive scope
@@ -13,7 +13,7 @@ user_env = {
     "subprocess":subprocess,
     "vim":vim,
     "p":print,
-    "r":xrange,
+    "r":range,
     "it":itertools,
 }
 g = user_env
