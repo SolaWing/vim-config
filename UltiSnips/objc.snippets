@@ -39,12 +39,6 @@ snippet singleton "objc singleton" b
 }
 endsnippet
 
-snippet interface-category "objc interface-category" b
-@interface ${1:className} ($2) ${3/^.+$/</}${3:protocol}${3/^.+$/>/}
-$0
-@end
-endsnippet
-
 snippet protocol "protocol define" b
 @protocol ${1:protocolName} <${2:NSObject}>
 
@@ -53,8 +47,16 @@ $0
 @end
 endsnippet
 
+post_jump "if snip.tabstop == 3: vim.vars['oc_interface_name']=snip.tabstops[1].current_text; vim.vars['oc_category_name']=snip.tabstops[2].current_text;"
+snippet interface-category "objc interface-category" b
+@interface ${1:className} ($2) ${3/^.+$/</}${3:protocol}${3/^.+$/>/}
+$0
+@end
+endsnippet
+
+
 snippet implementation-category "objc implementation-category" b
-@implementation ${1:className} ($2)
+@implementation ${1:`!p snip.rv = vim.vars.get('oc_interface_name', 'className')`} (${2:`!p snip.rv = vim.vars.get('oc_category_name', "")`})
 $0
 @end
 endsnippet
@@ -290,4 +292,77 @@ snippet nsproxy "nsproxy definition" b
 
 @end
 
+endsnippet
+
+snippet KVCArrayInterface "interface of KVC array" b
+#pragma mark - KVC array accessors for ${1:key}
+- (NSUInteger)countOf${1/^\w/\u$0/};
+- (${2:id})objectIn${1/^\w/\u$0/}AtIndex:(NSUInteger)index;
+- (void)get${1/^\w/\u$0/}:($2 __unsafe_unretained [])buffer range:(NSRange)range;
+
+#pragma mark Mutable accessors for $1
+- (void)insertObject:($2)object in${1/^\w/\u$0/}AtIndex:(NSUInteger)index;
+- (void)insert${1/^\w/\u$0/}:(NSArray *)array atIndexes:(NSIndexSet *)indexes;
+- (void)removeObjectFrom${1/^\w/\u$0/}AtIndex:(NSUInteger)index;
+- (void)remove${1/^\w/\u$0/}AtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectIn${1/^\w/\u$0/}AtIndex:(NSUInteger)index withObject:($2)object;
+- (void)replace${1/^\w/\u$0/}AtIndexes:(NSIndexSet *)indexes with${1/^\w/\u$0/}:(NSArray *)array;
+#pragma mark end $1
+#pragma mark -
+endsnippet
+
+snippet KVCArrayImp "implementation of KVC array" b
+#pragma mark - KVC array accessors for ${1:key}
+- (NSUInteger)countOf${1/^\w/\u$0/} { return _$1.count; }
+- (${2:id})objectIn${1/^\w/\u$0/}AtIndex:(NSUInteger)index { return _$1[index]; }
+- (void)get${1/^\w/\u$0/}:($2 __unsafe_unretained [])buffer range:(NSRange)range {
+	[_$1 getObjects:buffer range:range];
+}
+
+#pragma mark Mutable accessors for $1
+- (void)insertObject:($2)object in${1/^\w/\u$0/}AtIndex:(NSUInteger)index {
+	[_$1 insertObject:object atIndex:index];
+}
+
+- (void)insert${1/^\w/\u$0/}:(NSArray *)array atIndexes:(NSIndexSet *)indexes {
+	[_$1 insertObjects:array atIndexes:indexes];
+}
+
+- (void)removeObjectFrom${1/^\w/\u$0/}AtIndex:(NSUInteger)index {
+	[_$1 removeObjectAtIndex:index];
+}
+
+- (void)remove${1/^\w/\u$0/}AtIndexes:(NSIndexSet *)indexes {
+	[_$1 removeObjectsAtIndexes:indexes];
+}
+
+- (void)replaceObjectIn${1/^\w/\u$0/}AtIndex:(NSUInteger)index withObject:($2)object {
+	[_$1 replaceObjectAtIndex:index withObject:object];
+}
+
+- (void)replace${1/^\w/\u$0/}AtIndexes:(NSIndexSet *)indexes with${1/^\w/\u$0/}:(NSArray *)array {
+	[_$1 replaceObjectsAtIndexes:indexes withObjects:array];
+}
+#pragma mark end $1
+#pragma mark -
+
+endsnippet
+
+snippet impAssociateProperty "default implementation for property use associative value backend" b
+- (${1:id})${2:name} {
+	return objc_getAssociatedObject(self, @selector($2));
+}
+
+- (void)set${2/\w/\u$0/}:($1)$2 {
+	objc_setAssociatedObject(self, @selector($2), $2, ${3:OBJC_ASSOCIATION_RETAIN_NONATOMIC});
+}
+endsnippet
+
+snippet init-method "default init method" b
+- (instancetype)${1:init} {
+	if (self = [super ${1/\([^)]*\)//g}]) {
+		$0
+	}
+	return self;
+}
 endsnippet

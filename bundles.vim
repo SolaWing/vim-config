@@ -88,6 +88,9 @@
             let g:ycm_additional_flags = []
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             let g:ycm_key_invoke_completion = '<M-.>'
+            " let g:ycm_semantic_triggers = {
+            "             \ 'swift' : ['.', ':', '->']
+            "             \ }
             " let g:ycm_key_list_previous_completion = [] "for use enter to confirm select
             " let g:ycm_key_list_select_completion = []
             " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
@@ -95,7 +98,7 @@
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
-            let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src/"
+            let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
             "Plugin 'Valloric/YouCompleteMe'
             Plugin 'file://~/.vim/bundle/YouCompleteMe', {'pinned': 1}
             nnoremap <C-W><leader>ggi <C-W>s:YcmCompleter GoToDeclaration<CR>
@@ -325,6 +328,7 @@
         " Shougo/unite.vim"{{
         " Using ag as recursive command.
         Plugin 'Shougo/unite.vim'
+        " Plugin 'Shougo/unite-outline'
         " execute command return false when have arg, this should a bug
         call unite#custom#source('buffer, file_rec/neovim, file_rec/git',
                     \ 'matchers', ['converter_tail', 'matcher_fuzzy'])
@@ -342,6 +346,8 @@
         function! s:unite_my_settings() "{{{
             imap <buffer> '     <Plug>(unite_quick_match_default_action)
             nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+            imap <buffer> <C-J>     <Plug>(unite_quick_match_jump)
+            nmap <buffer> J     <Plug>(unite_quick_match_jump)
             nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
             imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
             nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
@@ -373,12 +379,15 @@
         "}}
         " keith/swift.vim "{{
         Plugin 'keith/swift.vim'
-        Plugin 'keith/sourcekittendaemon.vim'
+        " 现在支持还不够好. 以后真的需要再说吧. 暂时用xcode开发swift
+        " Plugin 'keith/sourcekittendaemon.vim'
+        " Plugin 'mitsuse/autocomplete-swift'
         "}}
         " kana/vim-operator-user  "{{
         Plugin 'kana/vim-operator-user'
         "}}
         " rhysd/vim-clang-format "{{
+        let g:clang_format#detect_style_file = 1 " use .clang-format
         Plugin 'rhysd/vim-clang-format'
         "}}
         " rust-lang/rust.vim"{{

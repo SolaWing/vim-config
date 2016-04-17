@@ -22,6 +22,14 @@ nnoremap <buffer> <Space>mc :<C-U>YcmDiags<CR>
 nnoremap <buffer> <Space>mh :call <SID>moveImportToList()<CR>
 vnoremap <buffer> <Space>mh :call <SID>moveImportToList()<CR>
 
+" Clang-Format integrate
+nmap <buffer> gq <Plug>(operator-clang-format)
+vnoremap <buffer> gq :ClangFormat<CR>
+
+" Unite integrate
+" iMenu
+nnoremap <buffer> <Space>mm :<C-U>Unite line -start-insert -input=^[-+@a-zA-Z_]<CR>
+
 if exists("*s:refold") | finish | endif
 function! s:refold() range
   " delete old fold

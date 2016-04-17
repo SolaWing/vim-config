@@ -12,6 +12,7 @@ if !empty("tmp")
     endif
 endif
 unlet tmp
+set nottimeout
 set rtp^=~/.vim
 set rtp+=~/.vim/after
 set vdir=~/.vim/view

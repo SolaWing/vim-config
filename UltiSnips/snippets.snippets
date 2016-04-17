@@ -11,3 +11,15 @@ endsnippet
 snippet clear "clear snippet below cur priority" b
 `!p snip.rv='clearsnippets'` $1
 endsnippet
+
+snippet pre_expand "pre-expand action" b
+pre_expand "$0"
+endsnippet
+
+snippet expand "after expand action" b
+post_expand "$0"
+endsnippet
+
+snippet jump "after jump action" b
+post_jump "$0"
+endsnippet
