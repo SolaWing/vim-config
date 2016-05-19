@@ -99,16 +99,18 @@
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
             let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
-            "Plugin 'Valloric/YouCompleteMe'
+            " Plugin 'Valloric/YouCompleteMe'
             Plugin 'file://~/.vim/bundle/YouCompleteMe', {'pinned': 1}
             nnoremap <C-W><leader>ggi <C-W>s:YcmCompleter GoToDeclaration<CR>
             nnoremap <C-W><leader>ggd <C-W>s:YcmCompleter GoToDefinition<CR>
+            nnoremap <C-W><leader>ggr <C-W>s:YcmCompleter GoToReferences<CR>
             nnoremap <C-W><leader>gg <C-W>s:YcmCompleter GoTo<CR>
             nnoremap <C-W><leader>gh <C-W>s:YcmCompleter GoToImprecise<CR>
             nnoremap <C-W><M-g> <C-W>s:YcmCompleter GoTo<CR>
             nnoremap <Space>t<M-g> <C-W>s<C-W>T:YcmCompleter GoTo<CR>
             nnoremap <leader>ggi :YcmCompleter GoToDeclaration<CR>
             nnoremap <leader>ggd :YcmCompleter GoToDefinition<CR>
+            nnoremap <leader>ggr :YcmCompleter GoToReferences<CR>
             nnoremap <leader>gg :YcmCompleter GoTo<CR>
             nnoremap <M-g> :YcmCompleter GoTo<CR>
             nnoremap <leader>gh :YcmCompleter GoToImprecise<CR>
@@ -152,6 +154,7 @@
         " }}
         " ctrlp {{
             let g:ctrlp_cache_dir = '~/.vim/bundle/ctrlp.vim/cache/'
+            let g:ctrlp_custom_ignore = '\v\.(git|hg|svn)$'
             let g:ctrlp_buftag_ctags_bin = 'xtags'
             let g:ctrlp_lazy_update = 1
             let g:ctrlp_by_filename = 1
@@ -243,6 +246,8 @@
         " }}
         " scrooloose/syntastic {{
         let g:syntastic_python_checkers = ["python"]
+        " seem this cause E924
+        let g:syntastic_auto_loc_list = 0
         Plugin 'scrooloose/syntastic'
         " }}
         " scrooloose/nerdcommenter {{
@@ -253,6 +258,8 @@
         " mileszs/ack.vim"{{
         let g:ackhighlight = 1
         let g:ackprg = 'ag --vimgrep'
+        " let g:ack_apply_qmappings = 0
+        " let g:ack_apply_lmappings = 0
         " this seems to only set fcl = all, will affect other buffer
         " let g:ack_autofold_results = 1
 
@@ -279,6 +286,14 @@
                 endif
             endfor
         endfunction
+        call SubmodeMap('Diff(nNwpou)', 'n',
+                    \ [['[c', 'N', '[c', '']
+                    \ ,[']c', 'n', ']c', '']
+                    \ ,['', 'w', '<C-W>w', '']
+                    \ ,['', 'p', 'dp', '']
+                    \ ,['', 'o', 'do', '']
+                    \ ,['', 'u', 'u', '']
+                    \ ,['', '<C-r>', '<C-r>', ''] ])
         call SubmodeMap('undo/redo', 'n',
                     \ [['g-', '-', 'g-', '']
                     \ ,['g+', '+', 'g+', '']
@@ -374,6 +389,7 @@
         Plugin 'hynek/vim-python-pep8-indent'
         "}}
         " --- ivanov/vim-ipython"{{
+        "  seem abandoned
         " Plugin 'ivanov/vim-ipython'
         "}}
         " keith/swift.vim "{{
@@ -396,6 +412,10 @@
         " Plugin 'racer-rust/vim-racer'
         let $RUST_SRC_PATH=$HOME."/Documents/github/rust/src/"
         "}}
+        " https://github.com/dag/vim-fish"{{
+        " very slow
+        " Plugin 'dag/vim-fish'
+        ""}}
   "}}
     filetype plugin indent on     " required
 
