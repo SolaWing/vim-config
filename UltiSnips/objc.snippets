@@ -55,7 +55,7 @@ endsnippet
 
 post_jump "if snip.tabstop == 3: vim.vars['oc_interface_name']=snip.tabstops[1].current_text; vim.vars['oc_category_name']=snip.tabstops[2].current_text;"
 snippet interface-category "objc interface-category" b
-@interface ${1:className} ($2) ${3/^.+$/</}${3:protocol}${3/^.+$/>/}
+@interface ${1:className} ($2)${3/^.+$/ </}${3:protocol}${3/^.+$/>/}
 $0
 @end
 endsnippet

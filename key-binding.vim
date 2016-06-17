@@ -24,6 +24,7 @@ vnoremap <silent> K      <esc>:<C-r>=line("'<") == line("'>") ? &keywordprg==':h
 
 " move line up or down. may add zv to prevent auto refold to level
 " ( test only in vim buffer, marker fold, and level )
+" ADD: add zv still fold other fold.
 nnoremap <M-J> :m .+1<CR>
 vnoremap <M-J> :m '>+1<CR>gv
 vnoremap <M-K> :m '<-2<CR>gv

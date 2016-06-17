@@ -183,6 +183,9 @@
         " tpope/fugitive {{
         Plugin 'tpope/vim-fugitive'
         " }}
+        " junegunn/gv.vim {{
+        Plugin 'junegunn/gv.vim'
+        " }}
         " kshenoy/vim-signature"{{
         let g:SignaturePeriodicRefresh = 0
         "let g:SignatureEnabledAtStartup = 0
@@ -409,8 +412,10 @@
         Plugin 'rust-lang/rust.vim'
         "}}
         "racer-rust/vim-racer"{{
-        " Plugin 'racer-rust/vim-racer'
+        let g:racer_insert_paren = 0
+        let g:racer_experimental_completer = 1
         let $RUST_SRC_PATH=$HOME."/Documents/github/rust/src/"
+        Plugin 'racer-rust/vim-racer'
         "}}
         " https://github.com/dag/vim-fish"{{
         " very slow
