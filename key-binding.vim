@@ -40,6 +40,10 @@ noremap <M-s> :<C-U>confirm w<CR>
 inoremap <M-s> <C-o>:<C-U>confirm w<CR>
 noremap <M-S> :<C-U>confirm wa<CR>
 inoremap <C-c><C-c> <C-o>:confirm x<CR>
+
+" n always foward, N always backward
+noremap <expr> n 'Nn'[v:searchforward]
+noremap <expr> N 'nN'[v:searchforward]
 "}}}
 
 """"""""""" visual map {{{

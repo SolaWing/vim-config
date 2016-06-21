@@ -3,4 +3,4 @@ if (exists("b:did_ftplugin"))
 endif
 
 setl foldmethod=syntax
-setl fdl=0
+"setl fdl=0

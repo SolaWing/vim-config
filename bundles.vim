@@ -63,7 +63,10 @@
         nnoremap <F3> :TagbarToggle<CR>
         " }}
         " Lokaltog/vim-easymotion"{{
-        Plugin 'Lokaltog/vim-easymotion'
+        let g:EasyMotion_do_mapping = 0
+        " let g:EasyMotion_use_upper = 1
+        " let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
+        Plugin 'easymotion/vim-easymotion'
         map <S-Space> <Plug>(easymotion-bd-w)
         imap <S-Space> <C-o><Plug>(easymotion-bd-w)
         " <M-/>
@@ -73,6 +76,8 @@
         imap <M-?> <C-o><Plug>(easymotion-s)
 
         map <Space><Space> <Plug>(easymotion-s)
+        nmap <C-W><Space> <Plug>(easymotion-overwin-f)
+        nmap <C-W><M-/> <Plug>(easymotion-overwin-w)
         " zap to char
         imap <M-z> <C-o>d<Plug>(easymotion-s)
         "}}
