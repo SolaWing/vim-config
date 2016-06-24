@@ -62,3 +62,5 @@ endfunction
 
 if !exists('g:objc_mb_map') | let g:objc_mb_map = ']]' | endif
 exe 'inoremap <silent><buffer> ' . g:objc_mb_map . ' <esc>:call ObjcBracketSurround()<cr>a'
+
+setl makeprg=xcodebuild\ -destination\ 'generic/platform=iOS'\ -configuration\ Debug

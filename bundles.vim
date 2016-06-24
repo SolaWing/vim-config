@@ -181,6 +181,9 @@
         "}}
         " tpope/vim-unimpaired"{{
         Plugin 'tpope/vim-unimpaired'
+        nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
+        nnoremap [oe :set ei=all<CR>
+        nnoremap ]oe :set ei=<CR>
         "}}
         " tpope/vim-repeat"{{
         Plugin 'tpope/vim-repeat'
