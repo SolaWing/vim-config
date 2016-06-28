@@ -112,12 +112,12 @@ cnoremap <C-X><C-L> <C-L>
 cnoremap <C-X><C-A> <C-A>
 " use ctrl-A to move to begin, according to term
 cnoremap <C-A> <C-B>
-cnoremap <C-]> <C-\>eSearchCharInCmd(1,1)<CR>
+cnoremap <C-]> <C-\>eSearchCharInCmd(1,1, 2)<CR>
 " ctrl-K kill line
 cnoremap <C-K> <C-\>egetcmdpos()==1?"" :getcmdline()[:getcmdpos()-2]<CR>
 cnoremap <C-X><C-K> <C-K>
 " <M-]> to search backword
-cnoremap <M-]> <C-\>eSearchCharInCmd(0,0)<CR>
+cnoremap <M-]> <C-\>eSearchCharInCmd(0,0, 2)<CR>
 " sudo
 cabbrev w!! w !sudo tee % >/dev/null
 " search occur
