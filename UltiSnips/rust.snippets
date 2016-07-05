@@ -30,17 +30,17 @@ match ${1:x} {
 endsnippet
 
 snippet impl_deref "implementation of deref" b
-impl Deref for ${1:type} {
-	type Target = ${2:target};
+impl$1 Deref for ${2:type}$1 {
+	type Target = ${3:target};
 
-	fn deref(&self) -> & $2{
-		& ${3:self.${4:path}}
+	fn deref(&self) -> & $3{
+		& ${4:self.${5:path}}
 	}
 }
 
-${5:impl DerefMut for $1 {
-	fn deref_mut(&mut self) -> &mut $2 {
-		&mut $3
+${6:impl$1 DerefMut for $2$1 {
+	fn deref_mut(&mut self) -> &mut $3 {
+		&mut $4
 	}
 }}
 endsnippet

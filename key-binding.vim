@@ -42,8 +42,8 @@ noremap <M-S> :<C-U>confirm wa<CR>
 inoremap <C-c><C-c> <C-o>:confirm x<CR>
 
 " n always foward, N always backward
-noremap <expr> n 'Nn'[v:searchforward]
-noremap <expr> N 'nN'[v:searchforward]
+" noremap <expr> n 'Nn'[v:searchforward]
+" noremap <expr> N 'nN'[v:searchforward]
 "}}}
 
 """"""""""" visual map {{{
