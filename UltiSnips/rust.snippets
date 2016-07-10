@@ -1,3 +1,5 @@
+# clearsnippets impl
+
 snippet pln "print line" b
 println!("$1"${1/[^{]*(\{\})?.*/(?1:, :\);)/);}$2${1/[^{]*(\{\})?.*/(?1:\);)/}
 endsnippet
@@ -29,6 +31,12 @@ match ${1:x} {
 }
 endsnippet
 
+snippet impl "implementation" b
+impl$1 ${2:Trait}${2/.+/ for /}${3:Type} {
+	$0
+}
+endsnippet
+
 snippet impl_deref "implementation of deref" b
 impl$1 Deref for ${2:type}$1 {
 	type Target = ${3:target};
@@ -43,6 +51,11 @@ ${6:impl$1 DerefMut for $2$1 {
 		&mut $4
 	}
 }}
+endsnippet
+
+snippet impl_sync "impl sync/send" b
+unsafe impl$1 Send for $2 {}
+unsafe impl$1 Sync for $2 {}
 endsnippet
 
 snippet unimplemented "unimplemented!();" b

@@ -363,9 +363,9 @@
         nnoremap <Space>u; :<C-U>Unite command -start-insert<CR>
         nnoremap <Space>u: :<C-U>Unite command<CR>
         nnoremap <Space>ul :<C-U>Unite line -start-insert<CR>
-        nnoremap <Space>uu :<C-U>UniteResume<CR>
+        nnoremap <Space>uu :<C-U>UniteResume -no-start-insert<CR>
         " search like occur
-        cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR> -auto-preview -no-split<CR>
+        cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR><CR>
 
         autocmd FileType unite call s:unite_my_settings()
         function! s:unite_my_settings() "{{{
@@ -422,6 +422,7 @@
         "racer-rust/vim-racer"{{
         let g:racer_insert_paren = 0
         let g:racer_experimental_completer = 1
+        let g:racer_no_default_keymappings = 1 " this option use custom mapping in filetype
         let $RUST_SRC_PATH=$HOME."/Documents/github/rust/src/"
         Plugin 'racer-rust/vim-racer'
         "}}
