@@ -65,6 +65,14 @@
            exe printf('%d,%ds/\(%s\)\ze\S/\1 /ge', a:firstline, a:lastline, a:start)
            exe printf('%d,%ds/\S\zs\(%s\)/ \1/ge', a:firstline, a:lastline, a:end)
        endfunction
+
+       function! ToggleCamelOrUnderline(str)
+           let l:ret = substitute(a:str, "_\\(\\a\\)", "\\u\\1", "g")
+           if ret ==# a:str
+               let l:ret = substitute(a:str, "\\l\\zs\\u", "_\\l\\0", "g")
+           endif
+           return l:ret
+       endfunction
     " }}}
     """"""" 基本不会动的全局设定 {{{
 

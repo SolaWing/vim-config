@@ -280,6 +280,9 @@ vnoremap g& :s//~/&<CR>
 nnoremap <Space>xS :s/ /\r/g<CR>
 vnoremap <Space>xS :s/ /\r/g<CR>
 
+nnoremap <Space>xc :s/\V\<<C-R><C-W>\>/<C-R>=ToggleCamelOrUnderline("<C-R><C-W>")<CR>/gc
+vnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>s/\V<C-R>=tmp<CR>/<C-R>=ToggleCamelOrUnderline(tmp)<CR>/gc
+
 nnoremap <Space>x( :call SurroundSpaceBetweenPairs('(',')')<CR>
 nnoremap <Space>x) :call SurroundSpaceBetweenPairs('(',')')<CR>
 nnoremap <Space>x[ :call SurroundSpaceBetweenPairs('\[','\]')<CR>
