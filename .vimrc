@@ -226,9 +226,10 @@ EOF
         set textwidth=80
         set colorcolumn=+1
         "highlight trim whitespace
-        hi TrimWhiteSpace ctermbg=cyan guibg=cyan
+        hi link TrimWhiteSpace CursorLine
         augroup TrimWhiteSpace
-            au ColorScheme * highlight TrimWhiteSpace ctermbg=cyan guibg=cyan
+            au ColorScheme * hi! link TrimWhiteSpace CursorLine
+            " au ColorScheme * highlight TrimWhiteSpace ctermbg=cyan guibg=cyan
             au Syntax * syn match TrimWhiteSpace /\s\+$/ display oneline containedin=ALLBUT,TrimWhiteSpace
         augroup END
     "}}}

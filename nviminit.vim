@@ -21,6 +21,14 @@ let g:python_host_prog = '/usr/bin/python'
 tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 source ~/.vimrc
+
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" if has("gui_running")
+"     source ~/.gvimrc
+"     colorscheme Tomorrow-Night
+"     echom "gui_running"
+" end
+
 " ensure ~/.vim at first
 set rtp-=~/.vim
 set rtp^=~/.vim
