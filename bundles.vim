@@ -98,7 +98,8 @@
             "             \ }
             " let g:ycm_key_list_previous_completion = [] "for use enter to confirm select
             " let g:ycm_key_list_select_completion = []
-            " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
+            " let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
+            " let g:ycm_python_binary_path = 'python3'
             " let g:ycm_server_log_level = 'debug'
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
@@ -142,7 +143,7 @@
         " nvim have a different location, so set it
         let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
         " load two version of python spend a lot of time
-        let g:UltiSnipsUsePythonVersion = 2
+        let g:UltiSnipsUsePythonVersion = 3
         Plugin 'SirVer/ultisnips'
 
         " Optional:
@@ -257,6 +258,7 @@
         " }}
         " scrooloose/syntastic {{
         let g:syntastic_python_checkers = ["python"]
+        let g:syntastic_python_python_exec = 'python'.g:usepy
         " seem this cause E924
         let g:syntastic_auto_loc_list = 0
         Plugin 'scrooloose/syntastic'

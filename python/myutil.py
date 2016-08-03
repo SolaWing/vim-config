@@ -3,7 +3,17 @@
 
 import vim
 import itertools
-from io import BytesIO as StringIO
+from io import StringIO
+
+def ToUnicode( value ):
+  if not value:
+    return str()
+  if isinstance( value, str ):
+    return value
+  if isinstance( value, bytes ):
+    # All incoming text should be utf8
+    return str( value, 'utf8' )
+  return str( value )
 
 def escape(s, chars):
     """ escape chars in str

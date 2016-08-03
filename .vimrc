@@ -81,20 +81,20 @@
         " use bash shell
         let g:is_bash = 1
 
-        if has("gui_running")
-            " let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.5"
-            set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.5/Python
+        if has("gui_macvim")
+            let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.5"
+            set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.5/lib/libpython3.5m.dylib
             " py3 dir
-        else
+        else " terminal
             colorscheme solarized
             autocmd FocusGained * checktime
         endif
 
         " python
-        if has('python')
-            let g:usepy = ""
-        elseif has('python3')
+        if has('python3')
             let g:usepy = 3
+        elseif has('python')
+            let g:usepy = ""
         endif
         if exists('g:usepy')
             " selected python cmd

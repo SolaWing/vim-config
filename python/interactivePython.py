@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from __future__ import print_function
-from io import BytesIO as StringIO
+from __future__ import print_function, unicode_literals
+from io import StringIO
 import sys, re, subprocess, vim
 import itertools
 import myutil
