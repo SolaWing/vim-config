@@ -89,15 +89,15 @@ snippet strongify_or_ret "strongify or ret macro " b
 STRONGIFY_OR_RET(${1:self});
 endsnippet
 
-snippet weakref "weak ref var declare" b
+snippet weakvar "weak ref var declare" b
 __weak typeof(${1:self}) ${2:weak_$1} = $1;
 endsnippet
 
-snippet strongref "strong ref var declare" b
+snippet strongvar "strong ref var declare" b
 __strong typeof(${2:weak_$1}) ${1:self} = $2;
 endsnippet
 
-snippet strongrefAndMayReturn "strong ref var declare, if not exist, return" b
+snippet strongvar_or_ret "strong ref var declare, if not exist, return" b
 __strong typeof(${2:weak_$1}) ${1:self} = $2;
 if (!$1) return;
 endsnippet

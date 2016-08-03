@@ -424,6 +424,7 @@
         let g:racer_experimental_completer = 1
         let g:racer_no_default_keymappings = 1 " this option use custom mapping in filetype
         let $RUST_SRC_PATH=$HOME."/Documents/github/rust/src/"
+        " let g:racer_cmd = $HOME."/.cargo/bin/racer"
         Plugin 'racer-rust/vim-racer'
         "}}
         " https://github.com/dag/vim-fish"{{
