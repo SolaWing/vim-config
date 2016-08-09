@@ -23,6 +23,7 @@ def interactivePython(s, t = 'single'):
     eval python str like interactive console
     """
     # after compile, can prevent some error
+    if t != 'exec': s = s + "\n"
     eval(compile(s, '<string>', t), g, user_env)
 
 def captureOutput(func, *args):

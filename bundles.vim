@@ -219,7 +219,7 @@
         Plugin 'file://~/.vim/bundle/vim-objc-syntax', {'pinned':1}
         Plugin 'file://~/.vim/bundle/quick-ultisnip', {'pinned' : 1}
         " <C-r><CR> has problem, may not recognized
-        inoremap <C-y> <C-R>=quickUltiSnip#Insert()<CR>
+        inoremap <C-r>$ <C-R>=quickUltiSnip#Insert()<CR>
         nnoremap <M-p> :call quickUltiSnip#Paste()<CR>
         vmap <M-y> <Plug>quickUltiSnipYankVisual
         nmap <M-Y> <Plug>quickUltiSnipYankLineWise
