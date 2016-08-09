@@ -4,7 +4,8 @@ nnoremap <buffer> <Space>me :<C-U>let tmp = system("python", getline(1,'$'))<bar
 vnoremap <buffer> <Space>me :w !python<CR>
 nnoremap <buffer> <Space>ms :PY exec("\n".join(vim.current.range))<CR>
 vnoremap <buffer> <Space>ms :PY exec("\n".join(vim.current.range))<CR>
-setl formatoptions-=t
+" smartinent with pep8 indent, cause # to first column
+setl formatoptions-=t nosmartindent
 
 " in one command use fold will close text and cause include fold fail!!
 function! PythonFold() range

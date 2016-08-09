@@ -44,6 +44,7 @@ def captureOutput(func, *args):
     out.seek(0)
     return out
 
+interactiveShell = None
 def interactiveScriptAnywhere(output, isExec=None):
     """
     use input range as script input.
@@ -63,14 +64,19 @@ def interactiveScriptAnywhere(output, isExec=None):
         special = instr[m.end()-1]
         if special == '!':
             instr = instr[m.end():]
+            global interactiveShell
+            if interactiveShell is None:
+                from os import path
+                if path.exists('/usr/local/bin/fish'): interactiveShell = '/usr/local/bin/fish'
+                else: interactiveShell = 'sh'
             # TODO: sh to exe cmd has some problem
             # for example: ag -g abc
             # fine in nvim, has problem in macvim
-            out, _ = subprocess.Popen(instr, shell=True, stdin=None,
+            out, _ = subprocess.Popen([interactiveShell, '-c', instr], shell=False, stdin=None,
                                       stdout=subprocess.PIPE,
                                       stderr=subprocess.STDOUT) \
                 .communicate()
-            out = StringIO(out)
+            out = StringIO(myutil.ToUnicode(out))
         elif special == '?':
             instr = "help(%s)"%(instr[m.end():])
             out = captureOutput(interactivePython, instr,'single')
