@@ -195,6 +195,15 @@
         " junegunn/gv.vim {{
         Plugin 'junegunn/gv.vim'
         " }}
+        " junegunn/vim-easy-align {{
+        Plugin 'junegunn/vim-easy-align'
+        vmap <cr> <Plug>(EasyAlign)
+        nmap ga   <Plug>(EasyAlign)
+        " }}
+        " junegunn/fzf.vim {{
+        " 易用性上还差一节, 而且MacVim用不了.
+        " Plugin 'junegunn/fzf.vim'
+        " "}}
         " kshenoy/vim-signature"{{
         let g:SignaturePeriodicRefresh = 0
         "let g:SignatureEnabledAtStartup = 0
@@ -393,11 +402,6 @@
         " " godlygeek/tabular {{
         " Plugin 'godlygeek/tabular'
         " "}}
-        " junegunn/vim-easy-align {{
-        Plugin 'junegunn/vim-easy-align'
-        vmap <cr> <Plug>(EasyAlign)
-        nmap ga   <Plug>(EasyAlign)
-        " }}
         " hynek/vim-python-pep8-indent"{{
         Plugin 'hynek/vim-python-pep8-indent'
         "}}
