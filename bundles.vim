@@ -161,7 +161,7 @@
                         \ 'PrtCurRight()':        ['<c-l>', '<right>',  '<M-l>'],
                         \ }
             let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
-            Plug 'kien/ctrlp.vim', {'on': ['CtrlPMRUFiles', 'CtrlP']}
+            Plug 'kien/ctrlp.vim' ", {'on': ['CtrlPMRUFiles', 'CtrlP']}
         " }}
         " tpope/vim-surround "{{
         Plug 'tpope/vim-surround'
@@ -237,10 +237,6 @@
 
         Plug 'jiangmiao/auto-pairs'
         " }}
-        " vim-airline {{
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
-        " }}
         " scrooloose/nerdtree {{
             let g:NERDTreeBookmarksFile = $HOME . "/.vim/bundle/nerdtree/.NERDTreeBookmarks"
             let g:NERDTreeShowLineNumbers = 1
@@ -284,7 +280,7 @@
         " nnoremap <F6> :GundoToggle<CR>
         "}}
         " mbbill/undotree "{{
-        Plug 'mbbill/undotree',             { 'on': 'UndotreeToggle'   }
+        Plug 'mbbill/undotree' ",             { 'on': 'UndotreeToggle'   }
         nnoremap <F6> :UndotreeToggle<CR>
         "}}
         " kana/vim-submode"{{
@@ -359,7 +355,7 @@
         "}}
         " Shougo/unite.vim"{{
         " Using ag as recursive command.
-        Plug 'Shougo/unite.vim', {'on': 'Unite'}
+        Plug 'Shougo/unite.vim' ", {'on': 'Unite'}
         " Plugin 'Shougo/unite-outline'
         " execute command return false when have arg, this should a bug
     autocmd User unite.vim call s:unite_init()
@@ -415,7 +411,7 @@
         " Plugin 'mitsuse/autocomplete-swift'
         "}}
         " kana/vim-operator-user  "{{
-        Plug 'kana/vim-operator-user'
+        " Plug 'kana/vim-operator-user'
         "}}
         " rhysd/vim-clang-format "{{
         let g:clang_format#detect_style_file = 1 " use .clang-format
@@ -436,6 +432,10 @@
         " very slow
         " Plugin 'dag/vim-fish'
         ""}}
+        " vim-airline {{
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+        " }}
   "}}
     call plug#end()
     " filetype plugin indent on     " required
