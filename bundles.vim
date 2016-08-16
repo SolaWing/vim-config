@@ -439,8 +439,8 @@
         Plug 'racer-rust/vim-racer', {'for': 'rust'}
         "}}
         " -- dag/vim-fish"{{
-        " very slow
-        " Plugin 'dag/vim-fish'
+        " slow, better than None
+        Plug 'dag/vim-fish', {'for': 'fish'}
         ""}}
         " vim-airline {{
         Plug 'vim-airline/vim-airline'
