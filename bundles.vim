@@ -94,7 +94,6 @@
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
             let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
-            " Plugin 'Valloric/YouCompleteMe'
             Plug '~/.vim/bundle/YouCompleteMe'
             nnoremap <C-W><leader>ggi <C-W>s:YcmCompleter GoToDeclaration<CR>
             nnoremap <C-W><leader>ggd <C-W>s:YcmCompleter GoToDefinition<CR>
@@ -190,8 +189,15 @@
         nmap ga   <Plug>(EasyAlign)
         " }}
         " junegunn/fzf.vim {{
-        " 易用性上还差一节, 而且MacVim用不了.
-        " Plugin 'junegunn/fzf.vim'
+        " 易用性上还差一节, 而且MacVim用不了, 需要额外插件.
+        let g:fzf_launcher='~/bin/fzfIterm2.sh %s'
+        let g:fzf_history_dir='~/.vim/bundle/fzf.vim/.history'
+        let $FZF_DEFAULT_OPTS=' --bind '.join([
+        \    'alt-j:down,alt-k:up',
+        \    'alt-h:backward-char,alt-l:forward-char',
+        \], ',')
+        Plug '/usr/local/opt/fzf'
+        Plug 'junegunn/fzf.vim'
         " "}}
         " kshenoy/vim-signature"{{
         let g:SignaturePeriodicRefresh = 0
@@ -275,7 +281,7 @@
         " YCM will work extremly slow, I have fix it
         Plug 'mileszs/ack.vim', { 'on': 'Ack'}
         "}}
-        " sjl/gundo.vim"{{
+        " --- sjl/gundo.vim"{{
         " Plug 'sjl/gundo.vim', {'on': 'GundoToggle'} " undo tree
         " nnoremap <F6> :GundoToggle<CR>
         "}}
@@ -394,7 +400,7 @@
         " let g:neomru#do_validate = 0
         " Plugin 'Shougo/neomru.vim'
         " }}
-        " " godlygeek/tabular {{
+        " --- godlygeek/tabular {{
         " Plugin 'godlygeek/tabular'
         " "}}
         " hynek/vim-python-pep8-indent"{{
@@ -410,7 +416,7 @@
         " Plugin 'keith/sourcekittendaemon.vim'
         " Plugin 'mitsuse/autocomplete-swift'
         "}}
-        " kana/vim-operator-user  "{{
+        " --- kana/vim-operator-user  "{{
         " Plug 'kana/vim-operator-user'
         "}}
         " rhysd/vim-clang-format "{{
@@ -428,7 +434,7 @@
         " let g:racer_cmd = $HOME."/.cargo/bin/racer"
         Plug 'racer-rust/vim-racer', {'for': 'rust'}
         "}}
-        " https://github.com/dag/vim-fish"{{
+        " -- dag/vim-fish"{{
         " very slow
         " Plugin 'dag/vim-fish'
         ""}}
@@ -436,6 +442,9 @@
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
         " }}
+        " --- chriskempson/base16-vim "{{ color scheme(After Tomorrow)
+        " Plug 'chriskempson/base16-vim' still not good as solarized
+        "}}
   "}}
     call plug#end()
     " filetype plugin indent on     " required
