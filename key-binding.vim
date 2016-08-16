@@ -178,6 +178,7 @@ nnoremap <Space>to :<C-U>confirm =v:count?v:count :""tabonly<CR>
 nnoremap <Space>t: :<C-U>tabdo<Space>
 "}}}
 """ windows"{{{
+map <Space>w <C-W>
 nnoremap <C-W>e :<C-U>sp<Space>
 nnoremap <C-W>o :<C-U>confirm =v:count?v:count :""only<CR>
 nnoremap <C-W><C-O> :<C-U>confirm =v:count?v:count :""only<CR>
@@ -194,7 +195,8 @@ nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
 vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
-"  git version control
+""}}}
+""" git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
@@ -208,7 +210,7 @@ nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gl :Glog -n 30<CR>
 vnoremap <Space>gl :Glog -n 30<CR>
-""}}}
+"}}}
 """ quickFix"{{{
 nnoremap <Space>Q :<C-U>cwin<CR>
 nnoremap <Space>q :<C-U>lwin<CR>
@@ -303,6 +305,9 @@ nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 
 nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
 vnoremap <Space><Tab> :<C-U>let pat=GetVisualString()<CR>:ilist /<C-R>=pat<CR>/<CR>:let n = input("Which one: ")<BAR>if n > 0<BAR>exe "ijump" n "/".pat."/"<BAR>endif<CR>
+
+nnoremap <Space>* :<C-U>Unite line -input=<C-R><C-W><CR>
+vnoremap <Space>* :<C-U>Unite line -input=<C-R>=GetVisualString()<CR><CR>
 
 " <M-x> cmdline window
 nnoremap <M-x> q:i
