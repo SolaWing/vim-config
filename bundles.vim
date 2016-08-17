@@ -160,7 +160,7 @@
                         \ 'PrtCurRight()':        ['<c-l>', '<right>',  '<M-l>'],
                         \ }
             let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
-            Plug 'kien/ctrlp.vim' ", {'on': ['CtrlPMRUFiles', 'CtrlP']}
+            Plug 'ctrlpvim/ctrlp.vim' ", {'on': ['CtrlPMRUFiles', 'CtrlP']}
         " }}
         " tpope/vim-surround "{{
         Plug 'tpope/vim-surround'
@@ -191,17 +191,17 @@
         " -- junegunn/fzf.vim {{
         " 易用性上还差一节, 而且需要集成到term里面..
         " ctrlp的自动定位git很有用.  unite的方便性比它好..
-        " fzf 可能性能上有些优势, 但其它目前还没感觉到慢.
+        " fzf 性能上有些优势.
 
-        " let g:fzf_launcher='~/bin/fzfIterm2.sh %s'
-        " let g:fzf_history_dir='~/.vim/bundle/fzf.vim/.history'
-        " let g:fzf_command_prefix = 'FZ'
-        " let $FZF_DEFAULT_OPTS=' --bind '.join([
-        " \    'alt-j:down,alt-k:up',
-        " \    'alt-h:backward-char,alt-l:forward-char',
-        " \], ',')
-        " Plug '/usr/local/opt/fzf'
-        " Plug 'junegunn/fzf.vim'
+        let g:fzf_launcher='~/.vim/bin/fzfIterm.js %s'
+        let g:fzf_history_dir='~/.vim/bundle/fzf.vim/.history'
+        let g:fzf_command_prefix = 'FZ'
+        let $FZF_DEFAULT_OPTS=' --bind '.join([
+        \    'alt-j:down,alt-k:up',
+        \    'alt-h:backward-char,alt-l:forward-char',
+        \], ',')
+        Plug '/usr/local/opt/fzf'
+        Plug 'junegunn/fzf.vim'
         " "}}
         " kshenoy/vim-signature"{{
         let g:SignaturePeriodicRefresh = 0

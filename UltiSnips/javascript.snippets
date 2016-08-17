@@ -1,0 +1,33 @@
+snippet dowhile "do while loop" b
+do {
+	${VISUAL}$0
+} while ($1);
+endsnippet
+
+snippet while "while loop" b
+while ($1) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet foreach "for property" b
+for (var ${2:key} in ${1:container}) {
+	${VISUAL}$0
+}
+endsnippet
+snippet foritem "for item in array" b
+for (var $1_idx = 0, $1_len = $2.length; $1_idx < $1_len; $1_idx++) {
+	var ${1:item} = ${2:array}[$1_idx];
+	${VISUAL}$0
+}
+endsnippet
+
+snippet if "if statement" b
+if ($1) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet log "console.log()" b
+console.log($0)
+endsnippet

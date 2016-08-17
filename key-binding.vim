@@ -188,9 +188,9 @@ nnoremap <M-Up> <C-W>k
 nnoremap <M-Down> <C-W>j
 "}}}
 """ project keys"{{{
-nnoremap <Space>pf :<C-U>Unite -start-insert file_rec/git<CR>
+nnoremap <Space>pf :<C-U>FZGFiles<CR>
 nnoremap <D-p> :<C-U>CtrlP<CR>
-nnoremap <Space>pr :<C-U>CtrlPMRUFiles<CR>
+nnoremap <Space>pr :<C-U>FZHistory<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
