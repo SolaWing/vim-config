@@ -27,7 +27,51 @@ if ($1) {
 	${VISUAL}$0
 }
 endsnippet
+snippet eif "else if statement"
+else if ($1) {
+	${VISUAL}$0
+}
+endsnippet
+snippet else "else"
+else {
+	${VISUAL}$0
+}
+endsnippet
 
 snippet log "console.log()" b
 console.log($0)
+endsnippet
+
+snippet #! "#!osascript" b
+#!/usr/bin/env osascript -l JavaScript
+
+function run(argv) {
+	$0
+}
+endsnippet
+
+snippet instanceof "instanceof"
+$1 instanceof $2
+endsnippet
+
+# functional
+snippet map "map element"
+$1.map( ${2:function (${3:item, idx}) \{
+	return $0
+\}})
+endsnippet
+snippet filter "filter element"
+$1.filter( ${2:function (${3:item, idx}) \{
+	return $0
+\}})
+endsnippet
+snippet every "do every element. return false to break"
+$1.every( ${2:function (${3:item, idx}) \{
+	return $0
+\}})
+endsnippet
+snippet reduce "do reduce element. return false to break"
+$1.reduce( ${2:function (${4:sum, item, idx}) \{
+	return $0
+\}}, ${3:[]})
 endsnippet

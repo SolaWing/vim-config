@@ -1,3 +1,13 @@
 snippet m "escape ctrl key"
 \$'\e[$0m'
 endsnippet
+
+snippet DIR "current script dir" b
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+endsnippet
+
+snippet f "function define" b
+function $1 () {
+	$0
+}
+endsnippet

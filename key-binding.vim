@@ -161,6 +161,7 @@ nnoremap <Space>tl :<C-U>silent exe "tabm +". v:count1<CR>
 nnoremap <Space>tL :<C-U>silent tabm<CR>
 nnoremap <Space>th :<C-U>silent exe "tabm -". v:count1<CR>
 nnoremap <Space>tH :<C-U>silent tabm 0<CR>
+nnoremap <Space>tt <C-W>T
 " new tab
 nnoremap <Space>ts <C-W>s<C-W>T
 nnoremap <Space>tn :<C-U>silent tabnew<CR>
@@ -191,6 +192,11 @@ nnoremap <M-Down> <C-W>j
 nnoremap <Space>pf :<C-U>FZGFiles<CR>
 nnoremap <D-p> :<C-U>CtrlP<CR>
 nnoremap <Space>pr :<C-U>FZHistory<CR>
+nmap <F8> <Space>pr
+nmap <F7> <Space>pf
+nnoremap <Space>h  :<C-U>FZHistory<CR>
+nnoremap <Space>h: :<C-U>FZHistory:<CR>
+nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>

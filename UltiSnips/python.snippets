@@ -7,6 +7,19 @@ ${4:rtype:class}
 
 endsnippet
 
+snippet f "quick function" b
+def ${1:function}(`!p
+if snip.indent:
+    snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
+	${0:${VISUAL:pass}}
+endsnippet
+
+snippet cf "class function" b
+@classmethod
+def ${1:function}(cls${2/.+/, /}${2:arg}):
+	${0:${VISUAL:pass}}
+endsnippet
+
 snippet deff "quick function" b
 def ${1:function}(`!p
 if snip.indent:

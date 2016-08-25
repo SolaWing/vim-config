@@ -75,6 +75,7 @@
             " let g:ycm_autoclose_preview_window_after_insertion = 1
             let g:ycm_collect_identifiers_from_comments_and_strings = 1
             let g:ycm_collect_identifiers_from_tags_files = 1
+            let g:ycm_seed_identifiers_with_syntax = 1
             let g:ycm_complete_in_comments = 1
             let g:ycm_enable_diagnostic_highlighting = 0
             " can pass same extra data to global conf
@@ -82,9 +83,10 @@
             let g:ycm_additional_flags = []
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             let g:ycm_key_invoke_completion = '<M-.>'
-            " let g:ycm_semantic_triggers = {
-            "             \ 'swift' : ['.', ':', '->']
-            "             \ }
+            let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
+            let g:ycm_semantic_triggers = {
+                        \ 'swift' : ['.']
+                        \ }
             " let g:ycm_key_list_previous_completion = [] "for use enter to confirm select
             " let g:ycm_key_list_select_completion = []
             " let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
@@ -417,8 +419,8 @@
         " keith/swift.vim "{{
         Plug 'keith/swift.vim', {'for': 'swift'}
         " 现在支持还不够好. 以后真的需要再说吧. 暂时用xcode开发swift
-        " Plugin 'keith/sourcekittendaemon.vim'
-        " Plugin 'mitsuse/autocomplete-swift'
+        Plug '~/.vim/bundle/sourcekittendaemon.vim', {'for': 'swift'}
+        " Plug 'mitsuse/autocomplete-swift', {'for': 'swift'}
         "}}
         " --- kana/vim-operator-user  "{{
         " Plug 'kana/vim-operator-user'
