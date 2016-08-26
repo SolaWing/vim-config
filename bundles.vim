@@ -115,6 +115,10 @@
             nnoremap <leader>g :YcmCompleter GetType<CR>
             nnoremap <leader>gf :YcmCompleter FixIt<CR>
         " }}
+        " Shougo/neco-vim
+        Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
+        let g:ycm_semantic_triggers.vim = ['$', '&']
+        "
         " ---supertab {{
         " use this can use CR to confirm complete so can use tab as UltiSnips
             "let g:SuperTabDefaultCompletionType = "context"

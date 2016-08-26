@@ -1,7 +1,7 @@
 PY << EOF
 import os
 def preview_markdown(s):
-  if isinstance(s, str):
+  if isinstance(s, bytes):
     s = s.decode('utf8')
   templatePath = os.path.expanduser("~/Sites/markdown.template")
   import markdown
@@ -9,7 +9,7 @@ def preview_markdown(s):
   with open(templatePath) as f:
     template = f.read()
     s = template.replace("{{placeholder}}", html)
-  if isinstance(s, unicode):
+  if not isinstance(s, bytes):
     s = s.encode('utf8')
   import tempfile
   with tempfile.NamedTemporaryFile(suffix = '.htm',delete = False) as out:
