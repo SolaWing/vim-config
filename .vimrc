@@ -90,7 +90,7 @@
             autocmd FocusGained * checktime
         endif
 
-        " python
+        " python version
         if has('python3')
             let g:usepy = 3
         elseif has('python')
@@ -108,13 +108,8 @@
 import sys,os; sys.path.insert(0,os.path.expanduser('~/.vim/python')); u = {}
 EOF
         endif
-        source ~/.vim/bundles.vim " vundle related
 
-        " [FIX] disable H detect for cpp, so objc will possible
-        if has("fname_case")
-            au! filetypedetect BufNewFile,BufRead *.H
-        endif
-
+        source ~/.vim/bundles.vim " plugins
 
         "显示行号
         set number
@@ -192,13 +187,10 @@ EOF
         set winminwidth=0
         " backspace
         set backspace=indent,eol,start
-        " remove comment char when join
-        set formatoptions+=j
-        set formatoptions-=t
+        set formatoptions+=j " remove comment char when join
+        set formatoptions-=t " don't auto wrap text when beyond textwidth
         " list unvisible char in list option on
         set listchars=trail:·,tab:>-
-        " case statement in c indent style
-        set cinoptions+=l1
     "}}}
 
     " other setting {{{

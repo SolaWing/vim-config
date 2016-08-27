@@ -1,6 +1,8 @@
 if exists("b:did_ftplugin")
   finish
 endif
+" case statement in c indent style
+setl cinoptions+=l1
 
 com! -range=% CReFold <line1>,<line2>call <SID>refold()
 com! -range=% CFold silent! exe printf('norm! %dGV%dGzD', <line1>,<line2>) | <line1>,<line2>g/\v^[-+a-zA-Z]&[^;{]*%(\n+\s*%(\s[^;{]*)?)*\{[^;{}]*$/.,/\v(^\}\s*\n\zs^\s*$|^\})/fold
