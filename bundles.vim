@@ -453,7 +453,7 @@
         Plug 'vim-airline/vim-airline-themes'
         " }}
         " --- chriskempson/base16-vim "{{ color scheme(After Tomorrow)
-        " Plug 'chriskempson/base16-vim' still not good as solarized
+        Plug 'chriskempson/base16-vim' " still not good as solarized
         "}}
   "}}
     call plug#end()

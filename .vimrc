@@ -86,7 +86,8 @@
             set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.5/lib/libpython3.5m.dylib
             " py3 dir
         else " terminal
-            colorscheme solarized
+            " colorscheme solarized
+            colorscheme base16-solarized-custom
             autocmd FocusGained * checktime
         endif
 
