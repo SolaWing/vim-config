@@ -80,14 +80,12 @@
         let mapleader = ","
         " use bash shell
         let g:is_bash = 1
-
         if has("gui_macvim")
             let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.5"
             set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.5/lib/libpython3.5m.dylib
             " py3 dir
         else " terminal
             " colorscheme solarized
-            colorscheme base16-solarized-custom
             autocmd FocusGained * checktime
         endif
 
@@ -109,9 +107,9 @@
 import sys,os; sys.path.insert(0,os.path.expanduser('~/.vim/python')); u = {}
 EOF
         endif
-
         source ~/.vim/bundles.vim " plugins
 
+        colorscheme base16-solarized-custom
         "显示行号
         set number
         "显示相对行号
@@ -222,7 +220,6 @@ EOF
         hi link TrimWhiteSpace CursorLine
         augroup TrimWhiteSpace
             au ColorScheme * hi! link TrimWhiteSpace CursorLine
-            " au ColorScheme * highlight TrimWhiteSpace ctermbg=cyan guibg=cyan
             au Syntax * syn match TrimWhiteSpace /\s\+$/ display oneline containedin=ALLBUT,TrimWhiteSpace
         augroup END
     "}}}

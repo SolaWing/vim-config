@@ -4,8 +4,6 @@
     let g:ctags_command = "xtags -R ."
     " guicolorscheme
     " set bg=light
-    " colorscheme solarized
-    colorscheme base16-solarized-custom
     " gui font size
     set guifont=Menlo\ Regular:h14
 
