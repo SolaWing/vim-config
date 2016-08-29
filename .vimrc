@@ -222,6 +222,9 @@ EOF
             au ColorScheme * hi! link TrimWhiteSpace CursorLine
             au Syntax * syn match TrimWhiteSpace /\s\+$/ display oneline containedin=ALLBUT,TrimWhiteSpace
         augroup END
+
+        " get outer clipboard into unnameregister, but yank not into clipboard, unless specify explicitily
+        autocmd FocusGained * let @" = @*
     "}}}
 
     """"""""""" command {{{
