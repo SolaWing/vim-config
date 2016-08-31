@@ -174,7 +174,7 @@ EOF
         set linebreak
         " smart ignorecase
         set ignorecase smartcase
-        set fileignorecase
+        set wildignorecase
         " set fold method
         set foldmethod=manual
         set foldlevel=100
