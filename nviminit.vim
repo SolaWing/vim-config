@@ -23,12 +23,6 @@ tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 source ~/.vimrc
 
-" if has("gui_running")
-"     source ~/.gvimrc
-"     colorscheme Tomorrow-Night
-"     echom "gui_running"
-" end
-
 " ensure ~/.vim at first
 set rtp-=~/.vim
 set rtp^=~/.vim
