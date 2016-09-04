@@ -133,8 +133,8 @@ nmap <F7> <Space>pf
 nnoremap <Space>h  :<C-U>FZHistory<CR>
 nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
-nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
-vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <Space>p/ :<C-U>FZAg <C-R><C-W>
+vnoremap <Space>p/ :<C-U>FZAg <C-R>=GetVisualString()<CR>
 nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
 vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
 ""}}}

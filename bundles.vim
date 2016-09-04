@@ -452,6 +452,9 @@
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
         " }}
+        " octol/vim-cpp-enhanced-highlight"{{
+        Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
+        ""}}
         " --- chriskempson/base16-vim "{{ color scheme(After Tomorrow)
         Plug 'chriskempson/base16-vim' " still not good as solarized
         "}}
