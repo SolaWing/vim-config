@@ -278,8 +278,10 @@ nnoremap <Space><C-]> :<C-U>tjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>] :<C-U>stjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 
-nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
-vnoremap <Space><Tab> :<C-U>let pat=GetVisualString()<CR>:ilist /<C-R>=pat<CR>/<CR>:let n = input("Which one: ")<BAR>if n > 0<BAR>exe "ijump" n "/".pat."/"<BAR>endif<CR>
+nnoremap <Space><Tab> :<C-U>Unite line -start-insert<CR>
+vnoremap <Space><Tab> :<C-U>Unite line -start-insert<CR>
+" nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
+" vnoremap <Space><Tab> :<C-U>let pat=GetVisualString()<CR>:ilist /<C-R>=pat<CR>/<CR>:let n = input("Which one: ")<BAR>if n > 0<BAR>exe "ijump" n "/".pat."/"<BAR>endif<CR>
 
 nnoremap <Space>* :<C-U>Unite line -input=<C-R><C-W><CR>
 vnoremap <Space>* :<C-U>Unite line -input=<C-R>=GetVisualString()<CR><CR>

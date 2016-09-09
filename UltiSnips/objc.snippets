@@ -16,6 +16,12 @@ snippet sel "selector" w
 @selector($1)
 endsnippet
 
+snippet autoreleasepool "autoreleasepool" b
+@autoreleasepool {
+	$0
+}
+endsnippet
+
 snippet sync "@synchronized block" b
 @synchronized(${1:self}){
 	$0
