@@ -133,8 +133,8 @@ nmap <F7> <Space>pf
 nnoremap <Space>h  :<C-U>FZHistory<CR>
 nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
-nnoremap <Space>p/ :<C-U>FZAg <C-R><C-W>
-vnoremap <Space>p/ :<C-U>FZAg <C-R>=GetVisualString()<CR>
+nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
+vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
 vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
 ""}}}
@@ -188,6 +188,8 @@ vnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ search "{{{
 nmap <Space>sp <Space>p/
 vmap <Space>sp <Space>p/
+nnoremap <Space>s* :<C-U>FZAg <C-R><C-W>
+vnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR>
 nmap <Space>sm <Space>m/
 vmap <Space>sm <Space>m/
 " 取消搜索高亮
@@ -323,4 +325,4 @@ noremap <M-c> "*y
 nnoremap <leader>j    :let b:prevmore=&more <bar> set nomore <bar>
             \jumps <bar> let &more=b:prevmore<CR>
 ""}}}
-" 
+"

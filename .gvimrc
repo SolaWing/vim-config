@@ -1,4 +1,4 @@
-""" vim: set sw=4 ts=4 sts=4 et foldmarker={,} foldlevel=0 foldmethod=marker:
+""" vim: set sw=4 ts=4 sts=4 et foldmarker={,} foldlevel=1 foldmethod=marker:
 "gui{
     " ctags command
     let g:ctags_command = "xtags -R ."

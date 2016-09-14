@@ -427,9 +427,10 @@
         " Plug 'mitsuse/autocomplete-swift', {'for': 'swift'}
         "}}
         " --- kana/vim-operator-user  "{{
-        " Plug 'kana/vim-operator-user'
+        Plug 'kana/vim-operator-user'
         "}}
         " rhysd/vim-clang-format "{{
+        " depend on vim-operator-user
         let g:clang_format#detect_style_file = 1 " use .clang-format
         Plug 'rhysd/vim-clang-format', {'on': ['ClangFormat', '<Plug>(operator-clang-format)']}
         "}}

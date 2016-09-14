@@ -232,6 +232,7 @@ EOF
     command! -nargs=? -complete=dir Terminal silent exe printf( "!open -a /Applications/Utilities/Terminal.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
     command! -nargs=? -complete=dir ITerm silent exe printf( "!open -a /Applications/iTerm.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
     command! DiffOn windo diffthis
+    command! DiffOff windo diffoff
     command! Hitest runtime syntax/hitest.vim
     command! Colortest sp $VIMRUNTIME/syntax/colortest.vim|so %
     command! -nargs=? Scratch new +set\ bt=nowrite <args>
