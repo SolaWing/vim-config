@@ -176,6 +176,9 @@
         "}}
         " tpope/vim-unimpaired"{{
         Plug 'tpope/vim-unimpaired'
+        nnoremap coD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
+        nnoremap [oD :windo diffthis<CR>
+        nnoremap ]oD :windo diffoff<CR>
         nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
         nnoremap [oe :set ei=all<CR>
         nnoremap ]oe :set ei=<CR>
@@ -256,6 +259,7 @@
         " scrooloose/nerdtree {{
             let g:NERDTreeBookmarksFile = $HOME . "/.vim/bundle/nerdtree/.NERDTreeBookmarks"
             let g:NERDTreeShowLineNumbers = 1
+            let g:NERDTreeCascadeSingleChildDir=1
             let g:NERDTreeMapOpenSplit = 's'
             let g:NERDTreeMapOpenVSplit = 'v'
             Plug 'scrooloose/nerdtree' " enable to replace netrw , {'on':[ 'NERDTreeToggle', 'NERDTreeFind' ]}
@@ -398,7 +402,7 @@
             nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
             imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
             nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
-            imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+            imap <silent><buffer><expr> <C-s>     unite#do_action('splitswitch')
         endfunction "}}}
         "}}
         " Shougo/vimproc.vim {{

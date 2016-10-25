@@ -1,9 +1,12 @@
+priority 1
+
 snippet if "if statement" b
 if ${1:test -e $2}
 	${VISUAL}$0
 end
 endsnippet
-snippet else if "else if statement" b
+
+snippet eif "else if statement" b
 else if ${1:test -e $2}
 	${VISUAL}$0
 endsnippet
