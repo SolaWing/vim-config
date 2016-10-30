@@ -247,6 +247,17 @@ nnoremap <M-K> :m .-2<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" use c* to change current word. than can use . to repeat action
+nnoremap c* *Ncgn
+
+" visual @ execute on multilines
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+xnoremap @<esc> <Nop>
+
+function! ExecuteMacroOverVisualRange()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 nnoremap <Space>xw :TrimWhiteSpace<CR>
 vnoremap <Space>xw :TrimWhiteSpace<CR>
 nnoremap <Space>xl :TrimMultiEmptyLine<CR>
