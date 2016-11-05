@@ -220,6 +220,7 @@ noremap! <C-D> <Del>
 
 " alt + d, del word
 inoremap <M-d> <C-O>de
+noremap! <M-BS> <C-W>
 
 " easier horizontal scroll
 map zl zL

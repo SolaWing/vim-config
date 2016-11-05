@@ -117,7 +117,7 @@ def findAll(pat):
     s = "\n".join(vim.current.range)
     m = re.findall(pat , s)
     if m:
-        if isinstance(m[0], basestring):
+        if not isinstance(m[0], str):
             s = "\n".join(m)
         else:
             pat = vim.eval(r"inputdialog('input format pattern: ')")
