@@ -152,6 +152,7 @@ nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gl :Glog -n 30<CR>
 vnoremap <Space>gl :Glog -n 30<CR>
+nnoremap <Space>g<Space> :<C-U>FZGFiles?<CR>
 "}}}
 """ quickFix"{{{
 nnoremap <Space>Q :<C-U>cwin<CR>

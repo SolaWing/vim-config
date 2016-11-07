@@ -70,6 +70,11 @@
         " zap to char
         imap <M-z> <C-o>d<Plug>(easymotion-s)
         "}}
+        " justinmk/vim-sneak {{
+        Plug 'justinmk/vim-sneak'
+        map \ <Plug>Sneak_s
+        map | <Plug>Sneak_S
+        " }}
         " YouCompleteMe {{
             let g:ycm_allow_changing_updatetime = 1
             " let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -115,10 +120,10 @@
             nnoremap <leader>g :YcmCompleter GetType<CR>
             nnoremap <leader>gf :YcmCompleter FixIt<CR>
         " }}
-        " Shougo/neco-vim
+        " Shougo/neco-vim "{{
         Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
         let g:ycm_semantic_triggers.vim = ['$', '&']
-        "
+        ""}}
         " ---supertab {{
         " use this can use CR to confirm complete so can use tab as UltiSnips
             "let g:SuperTabDefaultCompletionType = "context"
@@ -152,22 +157,22 @@
         autocmd User UltiSnipsEnterFirstSnippet set completeopt-=preview
         autocmd User UltiSnipsExitLastSnippet set completeopt+=preview
         " }}
-        " ctrlp {{
-            let g:ctrlp_cache_dir = '~/.vim/bundle/ctrlp.vim/cache/'
-            let g:ctrlp_custom_ignore = '\v\.(git|hg|svn)$'
-            let g:ctrlp_buftag_ctags_bin = 'xtags'
-            let g:ctrlp_lazy_update = 1
-            let g:ctrlp_by_filename = 1
-            let g:ctrlp_clear_cache_on_exit = 0
-            let g:ctrlp_prompt_mappings = {
-                        \ 'PrtSelectMove("j")':   ['<c-j>', '<down>',   '<M-j>'],
-                        \ 'PrtSelectMove("k")':   ['<c-k>', '<up>',     '<M-k>'],
-                        \ 'PrtCurLeft()':         ['<c-h>', '<left>',   '<M-h>'],
-                        \ 'PrtCurRight()':        ['<c-l>', '<right>',  '<M-l>'],
-                        \ }
-            let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
-            Plug 'ctrlpvim/ctrlp.vim' ", {'on': ['CtrlPMRUFiles', 'CtrlP']}
-        " }}
+        " " ctrlp {{
+        "     let g:ctrlp_cache_dir = '~/.vim/bundle/ctrlp.vim/cache/'
+        "     let g:ctrlp_custom_ignore = '\v\.(git|hg|svn)$'
+        "     " let g:ctrlp_buftag_ctags_bin = 'xtags'
+        "     let g:ctrlp_lazy_update = 1
+        "     let g:ctrlp_by_filename = 1
+        "     let g:ctrlp_clear_cache_on_exit = 0
+        "     let g:ctrlp_prompt_mappings = {
+        "                 \ 'PrtSelectMove("j")':   ['<c-j>', '<down>',   '<M-j>'],
+        "                 \ 'PrtSelectMove("k")':   ['<c-k>', '<up>',     '<M-k>'],
+        "                 \ 'PrtCurLeft()':         ['<c-h>', '<left>',   '<M-h>'],
+        "                 \ 'PrtCurRight()':        ['<c-l>', '<right>',  '<M-l>'],
+        "                 \ }
+        "     let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
+        "     Plug 'ctrlpvim/ctrlp.vim' ", {'on': ['CtrlPMRUFiles', 'CtrlP']}
+        " " }}
         " tpope/vim-surround "{{
         Plug 'tpope/vim-surround'
         xnoremap S s
@@ -197,7 +202,10 @@
         vmap <cr> <Plug>(EasyAlign)
         nmap ga   <Plug>(EasyAlign)
         " }}
-        " -- junegunn/fzf.vim {{
+        " --- godlygeek/tabular {{
+        " Plugin 'godlygeek/tabular'
+        " "}}
+        " junegunn/fzf.vim {{
         " 易用性上还差一节, 而且需要集成到term里面..
         " ctrlp的自动定位git很有用.  unite的方便性比它好..
         " fzf 性能上有些优势.
@@ -245,7 +253,7 @@
         " ---lldb-plugin {{
         "Plugin 'gilligan/vim-lldb'
         " }}
-        " autopair {{
+        " jiangmiao/auto-pair {{
         let g:AutoPairsShortcutBackInsert = ""
         let g:AutoPairsShortcutToggle = ""
 
@@ -414,9 +422,6 @@
         " let g:neomru#do_validate = 0
         " Plugin 'Shougo/neomru.vim'
         " }}
-        " --- godlygeek/tabular {{
-        " Plugin 'godlygeek/tabular'
-        " "}}
         " hynek/vim-python-pep8-indent"{{
         Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
         "}}
@@ -430,7 +435,7 @@
         Plug '~/.vim/bundle/sourcekittendaemon.vim', {'for': 'swift'}
         " Plug 'mitsuse/autocomplete-swift', {'for': 'swift'}
         "}}
-        " --- kana/vim-operator-user  "{{
+        " kana/vim-operator-user  "{{
         Plug 'kana/vim-operator-user'
         "}}
         " rhysd/vim-clang-format "{{
@@ -449,7 +454,7 @@
         " let g:racer_cmd = $HOME."/.cargo/bin/racer"
         Plug 'racer-rust/vim-racer', {'for': 'rust'}
         "}}
-        " -- dag/vim-fish"{{
+        " dag/vim-fish"{{
         " slow, better than None
         Plug 'dag/vim-fish', {'for': 'fish'}
         ""}}
@@ -460,7 +465,7 @@
         " octol/vim-cpp-enhanced-highlight"{{
         Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
         ""}}
-        " --- chriskempson/base16-vim "{{ color scheme(After Tomorrow)
+        " chriskempson/base16-vim "{{ color scheme(After Tomorrow)
         Plug 'chriskempson/base16-vim' " still not good as solarized
         "}}
   "}}
