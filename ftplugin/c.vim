@@ -33,6 +33,9 @@ vnoremap <buffer> gq :ClangFormat<CR>
 " iMenu
 nnoremap <buffer> <Space>mm :<C-U>Unite line -start-insert -input=^[-+@a-zA-Z_]<CR>
 
+" ycmd mouse integrate
+nmap <2-LeftMouse> <M-g>
+
 if exists("*s:refold") | finish | endif
 function! s:refold() range
   " delete old fold
