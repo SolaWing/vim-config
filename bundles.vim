@@ -71,9 +71,11 @@
         imap <M-z> <C-o>d<Plug>(easymotion-s)
         "}}
         " justinmk/vim-sneak {{
+        let g:sneak#textobject_z = 0
         Plug 'justinmk/vim-sneak'
         map \ <Plug>Sneak_s
         map | <Plug>Sneak_S
+        map , <Plug>SneakPrevious
         " }}
         " YouCompleteMe {{
             let g:ycm_allow_changing_updatetime = 1
@@ -468,6 +470,9 @@
         " chriskempson/base16-vim "{{ color scheme(After Tomorrow)
         Plug 'chriskempson/base16-vim' " still not good as solarized
         "}}
+        " nathanaelkane/vim-indent-guides"{{
+        " Plug 'nathanaelkane/vim-indent-guides'
+        ""}}
   "}}
     call plug#end()
     " filetype plugin indent on     " required

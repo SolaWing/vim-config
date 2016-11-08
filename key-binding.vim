@@ -195,6 +195,9 @@ nmap <Space>sm <Space>m/
 vmap <Space>sm <Space>m/
 " 取消搜索高亮
 nnoremap z/    :noh<CR>
+
+nnoremap <Space><F3> :<C-U>FZBTags<CR>
+
 " n always foward, N always backward
 " noremap <expr> n 'Nn'[v:searchforward]
 " noremap <expr> N 'nN'[v:searchforward]
