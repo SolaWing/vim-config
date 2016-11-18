@@ -237,8 +237,6 @@ inoremap <D-S-CR> <C-O>O
 " alt + oO
 inoremap <M-o> <C-O>o
 inoremap <M-O> <C-O>O
-" map some EX completion
-inoremap <C-]> <C-X><C-]>
 
 " move line up or down. may add zv to prevent auto refold to level
 " ( test only in vim buffer, marker fold, and level )

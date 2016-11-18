@@ -115,15 +115,15 @@ def interactiveScriptAnywhere(output, isExec=None):
 def findAll(pat):
     """find all and may format according to fmt string"""
     s = "\n".join(vim.current.range)
-    m = re.findall(pat , s)
+    m = re.findall(pat , s, re.MULTILINE)
     if m:
-        if not isinstance(m[0], str):
+        if isinstance(m[0], str):
             s = "\n".join(m)
         else:
             pat = vim.eval(r"inputdialog('input format pattern: ')")
             def fmt(pat,x):
                 if pat:
-                    if isinstance(x, basestring): return pat.format(x)
+                    if isinstance(x, str): return pat.format(x)
                     return pat.format(*x)
                 else: return str(x)
             s = "\n".join(fmt(pat, l) for l in m)

@@ -66,6 +66,19 @@ $0
 @end
 endsnippet
 
+post_jump "if snip.tabstop == 2: vim.vars['oc_interface_name']=snip.tabstops[1].current_text;"
+snippet interface "objc interface" b
+@interface ${1:className} : ${2:NSObject}${3/^.+$/ </}${3:protocol}${3/^.+$/>/}
+$0
+@end
+endsnippet
+
+snippet implementation "objc implementation" b
+@implementation ${1:`!p snip.rv = vim.vars.get('oc_interface_name', 'className')`}
+$0
+@end
+endsnippet
+
 
 snippet implementation-category "objc implementation-category" b
 @implementation ${1:`!p snip.rv = vim.vars.get('oc_interface_name', 'className')`} (${2:`!p snip.rv = vim.vars.get('oc_category_name', "")`})
