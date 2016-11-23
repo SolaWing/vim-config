@@ -294,7 +294,8 @@
         " }}
         " mileszs/ack.vim"{{
         let g:ackhighlight = 1
-        let g:ackprg = 'ag --vimgrep'
+        " let g:ackprg = 'ag --vimgrep'
+        let g:ackprg = 'rg --vimgrep'
         " let g:ack_apply_qmappings = 0
         " let g:ack_apply_lmappings = 0
         " this seems to only set fcl = all, will affect other buffer
