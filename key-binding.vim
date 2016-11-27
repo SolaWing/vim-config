@@ -135,8 +135,8 @@ nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
-nnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R><C-W>'<Left>
-vnoremap <Space>m/ :<C-U>Ack! --<C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <Space>m/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R><C-W>'<Left>
+vnoremap <Space>m/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
 ""}}}
 """ git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>

@@ -265,6 +265,17 @@ snippet setter "a default setter" b
 }
 endsnippet
 
+snippet lock "custom lock macro" b
+Lock();
+$0
+Unlock();
+endsnippet
+
+snippet defineLock "custom define lock macro" b
+#define Lock() dispatch_semaphore_wait(${1:_lock}, DISPATCH_TIME_FOREVER)
+#define Unlock() dispatch_semaphore_signal($1)
+endsnippet
+
 snippet spinlock "OSSpinLockLock" b
 OSSpinLockLock(&${1:`!p
 if not snip.c:
@@ -394,4 +405,13 @@ endsnippet
 
 snippet new "new a object and set to a variable" b
 ${3:${1/\w*/$0*/}} ${4:obj} = [${1:UIView} ${2:new}];
+endsnippet
+
+snippet endBackgroundTask "endBackgroundTask helper method" b
+static void endBackgroundTask(UIBackgroundTaskIdentifier *bid) {
+	if (*bid != UIBackgroundTaskInvalid) {
+		[[UIApplication sharedApplication] endBackgroundTask:*bid];
+		*bid = UIBackgroundTaskInvalid;
+	}
+}
 endsnippet
