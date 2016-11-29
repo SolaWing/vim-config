@@ -209,7 +209,8 @@ EOF
         " because find the file in path will cost lot of time
         set complete-=i
         " grepprg
-        set grepprg=grep\ -nI\ $*\ --exclude-dir=.*\ /dev/null
+        " set grepprg=grep\ -nI\ $*\ --exclude-dir=.*\ /dev/null
+        set grepprg=rg\ --vimgrep
         " switchbuf, jump to exist or open new tab
         set switchbuf=usetab
         " ignore file pattern

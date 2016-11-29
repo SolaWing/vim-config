@@ -97,7 +97,7 @@
             " let g:ycm_key_list_previous_completion = [] "for use enter to confirm select
             " let g:ycm_key_list_select_completion = []
             " let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
-            " let g:ycm_python_binary_path = 'python3'
+            " let g:ycm_python_binary_path = 'python'
             " let g:ycm_server_log_level = 'debug'
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
@@ -454,7 +454,7 @@
         "}}
         " --- ivanov/vim-ipython"{{
         "  seem abandoned
-        " Plugin 'ivanov/vim-ipython'
+        " Plug 'ivanov/vim-ipython'
         "}}
         " keith/swift.vim "{{
         Plug 'keith/swift.vim', {'for': 'swift'}
@@ -498,6 +498,9 @@
         " nathanaelkane/vim-indent-guides"{{
         " Plug 'nathanaelkane/vim-indent-guides'
         ""}}
+        " skwp/greplace.vim"{{
+        " Plug 'skwp/greplace.vim'
+        "}}
   "}}
     call plug#end()
     " filetype plugin indent on     " required

@@ -1,5 +1,5 @@
-function! QuickFix#Do(cmd, hasbang, uselocal)
-  let l:old_hid = &hid
+function! QuickFix#Do(cmd, jumpFile, uselocal, bang)
+  let l:hid = &hid
   let l:ei = &eventignore
   set hid
   set eventignore=all
@@ -7,44 +7,39 @@ function! QuickFix#Do(cmd, hasbang, uselocal)
   " set switchbuf=usetab,newtab   " open newtab for each execute file
   " echom a:cmd
   try
-    let v:errmsg = ""
-    if a:hasbang
-      if a:uselocal
-        lfirst
-        let l:next = 'lnext'
-      else
-        cfirst
-        let l:next = 'cnext'
-      endif
-    else
-      if a:uselocal
-        lfirst!
-        let l:next = 'lnext!'
-      else
-        cfirst!
-        let l:next = 'cnext!'
-      endif
+    let l:prefix = a:uselocal? 'l':'c'
+    if exists(":cdo") == 2
+        exe printf("%s%sdo%s %s", l:prefix, 
+                    \ a:jumpFile? 'f' : '',
+                    \ a:bang, a:cmd)
+        return
     endif
 
+    let v:errmsg = ""
+    exe printf("%sfirst%s", l:prefix, a:bang)
+    let l:next = printf("%s%s%s",
+                \ a:uselocal? 'l':'c',
+                \ a:jumpFile? 'nfile' : 'next',
+                \ a:bang)
     while 1
       if v:errmsg != ''
         " echom v:errmsg
         return
       endif
 
-      let l:fen = &fen
-      set nofen
+      let l:foldenable = &foldenable
+      set nofoldenable
 
       exe a:cmd
 
-      let &fen = l:fen
+      let &foldenable = l:foldenable
 
       let v:errmsg = ""
       silent! exe l:next
     endwhile
   finally
     " let &switchbuf = l:old_swb
-    let &hid = l:old_hid
+    let &hid = l:hid
     let &eventignore = l:ei
   endtry
 endfunction
