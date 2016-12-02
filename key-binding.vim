@@ -148,6 +148,7 @@ nnoremap <Space>gf :Gfetch<CR>
 nnoremap <Space>gF :Gpull --rebase<CR>
 nnoremap <Space>gp :Git push<CR>
 nnoremap <Space>gw :Gwrite<CR>
+nnoremap <Space>ge :Gedit<CR>
 nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gl :Glog -n 30<CR>

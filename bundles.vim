@@ -195,6 +195,10 @@
         "}}
         " tpope/fugitive {{
         Plug 'tpope/vim-fugitive'
+        " re setf git to enable fugitive map
+        autocmd VimEnter * if expand('<amatch>')=='' && &filetype=='git' |
+                    \ call fugitive#detect(getcwd()) | setf git |
+                    \ endif
         " }}
         " junegunn/gv.vim {{
         Plug 'junegunn/gv.vim', {'on': 'GV'}
