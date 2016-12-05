@@ -1,14 +1,18 @@
+snippet l "local var" b
+local ${1:v} = $2
+endsnippet
+
 snippet cl "declare a new class" b
 local ${1:name} = class("$1"${2/.+/, /}${2:super})
 
 function $1:ctor()
-  $0
+	$0
 end
 
 return $1
 endsnippet
 
-snippet fun "new function" 
+snippet f "new function" 
 function $1($2)
 	$0
 end

@@ -115,7 +115,7 @@ nnoremap <Space>fS :<C-U>confirm wa<CR>
 noremap <M-s> :<C-U>confirm w<CR>
 inoremap <M-s> <C-o>:<C-U>confirm w<CR>
 noremap <M-S> :<C-U>confirm wa<CR>
-inoremap <C-c><C-c> <C-o>:confirm x<CR>
+inoremap <C-c><C-c> <Esc>:confirm x<CR>
 nnoremap Za :confirm qa<CR>
 nnoremap ZA :qa!<CR>
 nnoremap ZX :confirm xa<CR>
@@ -140,6 +140,9 @@ vnoremap <Space>m/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Lef
 ""}}}
 """ git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
+nnoremap <Space>gv :GV --since='3\ months'<CR>
+vnoremap <Space>gv :GV<CR>
+nnoremap <Space>gV :GV!<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gb :Gblame<CR>
@@ -151,8 +154,8 @@ nnoremap <Space>gw :Gwrite<CR>
 nnoremap <Space>ge :Gedit<CR>
 nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
-nnoremap <Space>gl :Glog -n 30<CR>
-vnoremap <Space>gl :Glog -n 30<CR>
+nnoremap <Space>gl :GV?<CR>
+vnoremap <Space>gl :GV?<CR>
 nnoremap <Space>g<Space> :<C-U>FZGFiles?<CR>
 "}}}
 """ quickFix"{{{
