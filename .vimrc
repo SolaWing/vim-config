@@ -103,9 +103,7 @@
             function! PYEVAL(expr)
                 return function(printf('py%seval', g:usepy))(a:expr)
             endfunction
-            PY << EOF
-import sys,os; sys.path.insert(0,os.path.expanduser('~/.vim/python')); u = {}
-EOF
+            PY u = {}
         endif
         source ~/.vim/bundles.vim " plugins
 
