@@ -145,6 +145,7 @@ vnoremap <Space>gv :GV<CR>
 nnoremap <Space>gV :GV!<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
+nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
 nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>

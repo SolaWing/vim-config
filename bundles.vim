@@ -219,10 +219,11 @@
         let g:fzf_launcher='~/.vim/bin/fzfIterm.js %s'
         let g:fzf_history_dir='~/.vim/bundle/fzf.vim/.history'
         let g:fzf_command_prefix = 'FZ'
-        let $FZF_DEFAULT_OPTS=' --bind '.join([
+        let $FZF_DEFAULT_OPTS=' --bind="'.join([
         \    'alt-j:down,alt-k:up',
         \    'alt-h:backward-char,alt-l:forward-char',
-        \], ',')
+        \    'alt-space:jump,`:jump-accept',
+        \], ',') . '" --color="pointer:15" '
         Plug '/usr/local/opt/fzf'
         Plug 'junegunn/fzf.vim'
         " "}}
