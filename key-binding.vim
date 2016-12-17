@@ -142,7 +142,7 @@ vnoremap <Space>m/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Lef
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
 vnoremap <Space>gv :GV<CR>
-nnoremap <Space>gV :GV!<CR>
+nnoremap <Space>gV :Git! log -p -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
@@ -343,5 +343,18 @@ noremap <M-c> "*y
 
 nnoremap <leader>j    :let b:prevmore=&more <bar> set nomore <bar>
             \jumps <bar> let &more=b:prevmore<CR>
+
+
+function! SetRegister() range
+    let char = getchar()
+    if type(char) == type(0)
+        let char = nr2char(char)
+        if char =~# '^[0-9a-zA-Z/*+~]$'
+            exe printf('let @%s = @"', char)
+        endif
+    endif
+endfunction
+
+nnoremap <silent> M :call SetRegister()<CR>
+
 ""}}}
-"

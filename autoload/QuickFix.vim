@@ -1,4 +1,4 @@
-function! QuickFix#Do(cmd, jumpFile, uselocal, bang)
+function! QuickFix#Do(cmd, jumpFile, uselocal, bang) range
   let l:hid = &hid
   let l:ei = &eventignore
   set hid
