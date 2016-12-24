@@ -1,3 +1,9 @@
+snippet f "function"
+function${1/.+/ /}$1($2) {
+	$0
+}
+endsnippet
+
 snippet dowhile "do while loop" b
 do {
 	${VISUAL}$0
