@@ -75,9 +75,9 @@
        endfunction
     " }}}
     """"""" 基本不会动的全局设定 {{{
-
         " set a map leader
-        let mapleader = ","
+        let mapleader = "\<Space>"
+        let maplocalleader = ","
         " use bash shell
         let g:is_bash = 1
         if has("gui_macvim")

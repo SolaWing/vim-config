@@ -1,9 +1,9 @@
 if exists("b:did_ftplugin") | finish | endif
 
-nnoremap <buffer> <Space>me :<C-U>let tmp = system("python", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
-vnoremap <buffer> <Space>me :w !python<CR>
-nnoremap <buffer> <Space>ms :PY exec("\n".join(vim.current.range))<CR>
-vnoremap <buffer> <Space>ms :PY exec("\n".join(vim.current.range))<CR>
+nnoremap <buffer> <LocalLeader>e :<C-U>let tmp = system("python", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
+vnoremap <buffer> <LocalLeader>e :w !python<CR>
+nnoremap <buffer> <LocalLeader>s :PY exec("\n".join(vim.current.range))<CR>
+vnoremap <buffer> <LocalLeader>s :PY exec("\n".join(vim.current.range))<CR>
 " smartinent with pep8 indent, cause # to first column
 setl formatoptions-=t nosmartindent
 
@@ -33,5 +33,5 @@ function! PythonFold() range
 endfunction
 
 com! -range=% PythonFold <line1>,<line2>call PythonFold()
-nnoremap <space>mf :%call PythonFold()<CR>
-vnoremap <space>mf :call PythonFold()<CR>
+nnoremap <LocalLeader>z :%call PythonFold()<CR>
+vnoremap <LocalLeader>z :call PythonFold()<CR>

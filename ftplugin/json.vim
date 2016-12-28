@@ -3,5 +3,5 @@ if exists("b:did_ftplugin")
 endif
 
 setl fdm=syntax
-nnoremap <buffer> <Space>mf :<C-U>%!$HOME/bin/jsontool.py<CR>
-vnoremap <buffer> <Space>mf :!$HOME/bin/jsontool.py<CR>
+nnoremap <buffer> gq :<C-U>%!$HOME/bin/jsontool.py<CR>
+vnoremap <buffer> gq :!$HOME/bin/jsontool.py<CR>

@@ -6,11 +6,11 @@ let b:AutoPairs = {'(':')', '[':']', '{':'}', "<":">", '"':'"', '`':'`'}
 "setl makeprg=cargo
 " compiler cargo
 setl fdm=syntax
-nnoremap <buffer> <Space>mb :update <bar> make build<CR>
-nnoremap <buffer> <Space>mr :update <bar> make run<CR>
-nnoremap <buffer> <Space>mt :update <bar> make test<CR>
-nnoremap <buffer> <Space>mp :update <bar> make bench<CR>
-nnoremap <buffer> <Space>mc :make clean<CR>
+nnoremap <buffer> <LocalLeader>b :update <bar> make build<CR>
+nnoremap <buffer> <LocalLeader>r :update <bar> make run<CR>
+nnoremap <buffer> <LocalLeader>t :update <bar> make test<CR>
+nnoremap <buffer> <LocalLeader>p :update <bar> make bench<CR>
+nnoremap <buffer> <LocalLeader>c :make clean<CR>
 
 if exists("g:racer_no_default_keymappings") && g:racer_no_default_keymappings == 1
     nmap <buffer> <M-g> <Plug>RacerGoToDefinitionDrect

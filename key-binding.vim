@@ -21,9 +21,9 @@ cabbrev w!! w !sudo tee % >/dev/null
 " in insert mode, leader is <M-m>
 " in other mode, leader is <Space>
 imap <M-m> <C-o><Space>
-" filetype reserved key <Space>m
-imap <M-CR> <C-o><Space>m
-map <M-CR> <Space>m
+
+" filetype reserved key <LocalLeader>
+imap <M-CR> <C-o><LocalLeader>
 
 """ tab keys "{{{
 nmap <C-t> <Space>t
@@ -75,6 +75,7 @@ map <Space>w <C-W>
 nnoremap <C-W>e :<C-U>sp<Space>
 nnoremap <C-W>o :<C-U>confirm =v:count?v:count :""only<CR>
 nnoremap <C-W><C-O> :<C-U>confirm =v:count?v:count :""only<CR>
+nnoremap <C-W>: :<C-U>windo<Space>
 
 " window convenience control
 " focus window
@@ -120,7 +121,7 @@ nnoremap Za :confirm qa<CR>
 nnoremap ZA :qa!<CR>
 nnoremap ZX :confirm xa<CR>
 
-nnoremap <Space>ft :<C-U>sp ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
+nnoremap <Space>et :<C-U>sp ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
 nnoremap <Space>fr :<C-U>CtrlPMRUFiles<CR>
 nnoremap <Space>ff :<C-U>CtrlP<CR>
 "}}}
@@ -135,8 +136,8 @@ nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
-nnoremap <Space>m/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R><C-W>'<Left>
-vnoremap <Space>m/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R><C-W>'<Left>
+vnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
 ""}}}
 """ git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
@@ -196,8 +197,8 @@ nmap <Space>sp <Space>p/
 vmap <Space>sp <Space>p/
 nnoremap <Space>s* :<C-U>FZAg <C-R><C-W>
 vnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR>
-nmap <Space>sm <Space>m/
-vmap <Space>sm <Space>m/
+nmap <Space>sm <LocalLeader>/
+vmap <Space>sm <LocalLeader>/
 " 取消搜索高亮
 nnoremap z/    :noh<CR>
 
@@ -291,9 +292,9 @@ vnoremap <Space>x[ :call SurroundSpaceBetweenPairs('\[','\]')<CR>
 vnoremap <Space>x] :call SurroundSpaceBetweenPairs('\[','\]')<CR>
 "}}}
 """ misc"{{{
-nnoremap <leader><Space>s :<C-U>Scratch<Space>
-nnoremap <leader><Space>sp :<C-U>Scratch<Space>tmp.py<CR>
-nnoremap <leader><Space>ss :<C-U>Scratch<Space>tmp.sh<CR>
+nnoremap <LocalLeader><Space>s :<C-U>Scratch<Space>
+nnoremap <LocalLeader><Space>sp :<C-U>Scratch<Space>tmp.py<CR>
+nnoremap <LocalLeader><Space>ss :<C-U>Scratch<Space>tmp.sh<CR>
 
 nnoremap <Space><C-]> :<C-U>tjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>] :<C-U>stjump /.*<C-R><C-W>.*<CR>
@@ -341,7 +342,7 @@ inoremap jk <ESC>
 noremap <M-a> <C-\><C-N>ggVG
 noremap <M-c> "*y
 
-nnoremap <leader>j    :let b:prevmore=&more <bar> set nomore <bar>
+nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar>
             \jumps <bar> let &more=b:prevmore<CR>
 
 

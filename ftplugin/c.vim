@@ -10,20 +10,20 @@ com! -range=% CFold silent! exe printf('norm! %dGV%dGzD', <line1>,<line2>) | <li
 inoremap <buffer> <M-;> <End>;<CR>
 inoremap <buffer> <M-:> <End>;<Esc>
 
-nnoremap <buffer> <leader>h      :call <SID>toggleHeader(1)<CR>
-nnoremap <buffer> <C-W><leader>h :call <SID>toggleHeader(0)<CR>
-nnoremap <buffer> <Space>mf :CReFold<CR>
-vnoremap <buffer> <Space>mf :CReFold<CR>
+nnoremap <buffer> <LocalLeader>h      :call <SID>toggleHeader(1)<CR>
+nnoremap <buffer> <C-W><LocalLeader>h :call <SID>toggleHeader(0)<CR>
+nnoremap <buffer> <LocalLeader>z :CReFold<CR>
+vnoremap <buffer> <LocalLeader>z :CReFold<CR>
 " comment
-" nnoremap <buffer> <Space>m/ I//<esc>
-" vnoremap <buffer> <Space>m/ :s'\m^'//<CR>
-" nnoremap <buffer> <Space>m? :<C-U>s'\m^\s*\zs//\+'<CR>
-" vnoremap <buffer> <Space>m? :s'\m^\s*\zs//\+'<CR>
+" nnoremap <buffer> <LocalLeader>/ I//<esc>
+" vnoremap <buffer> <LocalLeader>/ :s'\m^'//<CR>
+" nnoremap <buffer> <LocalLeader>? :<C-U>s'\m^\s*\zs//\+'<CR>
+" vnoremap <buffer> <LocalLeader>? :s'\m^\s*\zs//\+'<CR>
 " compile
-nnoremap <buffer> <Space>mc :<C-U>YcmDiags<CR>
+nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 
-nnoremap <buffer> <Space>mh :call <SID>moveImportToList()<CR>
-vnoremap <buffer> <Space>mh :call <SID>moveImportToList()<CR>
+nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
+vnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 
 " Clang-Format integrate
 nmap <buffer> gq <Plug>(operator-clang-format)
@@ -31,7 +31,7 @@ vnoremap <buffer> gq :ClangFormat<CR>
 
 " Unite integrate
 " iMenu
-nnoremap <buffer> <Space>mm :<C-U>Unite line -start-insert -input=^[-+@a-zA-Z_]<CR>
+nnoremap <buffer> <LocalLeader>m :<C-U>Unite line -start-insert -input=^[-+@a-zA-Z_]<CR>
 
 " ycmd mouse integrate
 " nmap <2-LeftMouse> <M-g>

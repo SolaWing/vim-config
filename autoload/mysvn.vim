@@ -14,16 +14,16 @@ function! mysvn#commit(args)
         augroup END
 
         " map {
-        nnoremap <buffer> <leader>y :call <SID>changeLines(1)<CR>
-        nnoremap <buffer> <leader>n :call <SID>changeLines(0)<CR>
-        nnoremap <buffer><special> <space> :call <SID>changeLines(2)<CR>
-        vnoremap <buffer> <leader>y :call <SID>changeLines(1)<CR>gv
-        vnoremap <buffer> <leader>n :call <SID>changeLines(0)<CR>gv
-        vnoremap <buffer><special> <space> :call <SID>changeLines(2)<CR>gv
-        nnoremap <buffer> <leader>d :call <SID>command('diff')<CR>
-        vnoremap <buffer> <leader>d :call <SID>command('diff')<CR><ESC>gv
-        nnoremap <buffer> <leader>r :call <SID>command('revert')<CR>
-        vnoremap <buffer> <leader>r :call <SID>command('revert')<CR>
+        nnoremap <buffer> <LocalLeader>y :call <SID>changeLines(1)<CR>
+        nnoremap <buffer> <LocalLeader>n :call <SID>changeLines(0)<CR>
+        nnoremap <buffer><special> - :call <SID>changeLines(2)<CR>
+        vnoremap <buffer> <LocalLeader>y :call <SID>changeLines(1)<CR>gv
+        vnoremap <buffer> <LocalLeader>n :call <SID>changeLines(0)<CR>gv
+        vnoremap <buffer><special> - :call <SID>changeLines(2)<CR>gv
+        nnoremap <buffer> <LocalLeader>d :call <SID>command('diff')<CR>
+        vnoremap <buffer> <LocalLeader>d :call <SID>command('diff')<CR><ESC>gv
+        nnoremap <buffer> <LocalLeader>r :call <SID>command('revert')<CR>
+        vnoremap <buffer> <LocalLeader>r :call <SID>command('revert')<CR>
         " }
     else
         exe 'silent vert sb ' . l:bufnr
@@ -63,11 +63,11 @@ function! mysvn#commit(args)
          \\"\n------------------------------------------------\n
              \the message above will be used as commit message\n
              \\n
-             \use <leader>y to enable item,\n
-             \  <leader>n to disable item,\n
-             \  space to toggle item\n
-             \  <leader>d to diff item\n
-             \  <leader>r to revert item\n
+             \use <LocalLeader>y to enable item,\n
+             \  <LocalLeader>n to disable item,\n
+             \  - to toggle item\n
+             \  <LocalLeader>d to diff item\n
+             \  <LocalLeader>r to revert item\n
              \the flags at the first,\n
              \the x before filepath show the file will be commit\n
              \\n
@@ -236,14 +236,14 @@ function! mysvn#revert(args)
         augroup END
 
         " map {
-        nnoremap <buffer> <leader>y :call <SID>changeLines(1)<CR>
-        nnoremap <buffer> <leader>n :call <SID>changeLines(0)<CR>
-        nnoremap <buffer><special> <space> :call <SID>changeLines(2)<CR>
-        vnoremap <buffer> <leader>y :call <SID>changeLines(1)<CR>gv
-        vnoremap <buffer> <leader>n :call <SID>changeLines(0)<CR>gv
-        vnoremap <buffer><special> <space> :call <SID>changeLines(2)<CR>gv
-        nnoremap <buffer> <leader>d :call <SID>command('diff')<CR>
-        vnoremap <buffer> <leader>d :call <SID>command('diff')<CR><ESC>gv
+        nnoremap <buffer> <LocalLeader>y :call <SID>changeLines(1)<CR>
+        nnoremap <buffer> <LocalLeader>n :call <SID>changeLines(0)<CR>
+        nnoremap <buffer><special> - :call <SID>changeLines(2)<CR>
+        vnoremap <buffer> <LocalLeader>y :call <SID>changeLines(1)<CR>gv
+        vnoremap <buffer> <LocalLeader>n :call <SID>changeLines(0)<CR>gv
+        vnoremap <buffer><special> - :call <SID>changeLines(2)<CR>gv
+        nnoremap <buffer> <LocalLeader>d :call <SID>command('diff')<CR>
+        vnoremap <buffer> <LocalLeader>d :call <SID>command('diff')<CR><ESC>gv
         " }
     else
         exe 'silent vert sb ' . l:bufnr
@@ -256,10 +256,10 @@ function! mysvn#revert(args)
 
     silent 0put = 
              \\"------------------------------------------------\n
-             \use <leader>y to revert item,\n
-             \  <leader>n to ignore item,\n
+             \use <LocalLeader>y to revert item,\n
+             \  <LocalLeader>n to ignore item,\n
              \  space to toggle item\n
-             \  <leader>d to diff item\n
+             \  <LocalLeader>d to diff item\n
              \the flags at the first,\n
              \the x before filepath show the file will be revert\n
              \================================================\"

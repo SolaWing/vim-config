@@ -48,7 +48,6 @@
                 \ }
         let g:tagbar_type_objcpp = g:tagbar_type_objc
         Plug 'majutsushi/tagbar' ", { 'on': 'TagbarToggle'}
-        nnoremap <leader>t :TagbarToggle<CR>
         nnoremap <F3> :TagbarToggle<CR>
         " }}
         " Lokaltog/vim-easymotion"{{
@@ -90,6 +89,7 @@
             let g:ycm_additional_flags = []
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             let g:ycm_key_invoke_completion = '<M-.>'
+            let g:ycm_key_detailed_diagnostics = '<LocalLeader>d'
             let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
             let g:ycm_semantic_triggers = {
                         \ 'swift' : ['.']
@@ -104,23 +104,26 @@
             let g:ycm_use_ultisnips_completer = 1
             let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
             Plug '~/.vim/bundle/YouCompleteMe'
-            nnoremap <C-W><leader>ggi <C-W>s:YcmCompleter GoToDeclaration<CR>
-            nnoremap <C-W><leader>ggd <C-W>s:YcmCompleter GoToDefinition<CR>
-            nnoremap <C-W><leader>ggr <C-W>s:YcmCompleter GoToReferences<CR>
-            nnoremap <C-W><leader>gg <C-W>s:YcmCompleter GoTo<CR>
-            nnoremap <C-W><leader>gh <C-W>s:YcmCompleter GoToImprecise<CR>
+
+            nnoremap <C-W><LocalLeader>gi <C-W>s:YcmCompleter GoToDeclaration<CR>
+            nnoremap <C-W><LocalLeader>gd <C-W>s:YcmCompleter GoToDefinition<CR>
+            nnoremap <C-W><LocalLeader>gr <C-W>s:YcmCompleter GoToReferences<CR>
+            nnoremap <C-W><LocalLeader>gg <C-W>s:YcmCompleter GoTo<CR>
+            nnoremap <C-W><LocalLeader>gh <C-W>s:YcmCompleter GoToImprecise<CR>
             nnoremap <C-W><M-g> <C-W>s:YcmCompleter GoTo<CR>
             nnoremap <Space>t<M-g> <C-W>s<C-W>T:YcmCompleter GoTo<CR>
-            nnoremap <leader>ggi :YcmCompleter GoToDeclaration<CR>
-            nnoremap <leader>ggd :YcmCompleter GoToDefinition<CR>
-            nnoremap <leader>ggr :YcmCompleter GoToReferences<CR>
-            nnoremap <leader>gg :YcmCompleter GoTo<CR>
+            nnoremap <LocalLeader>gi :YcmCompleter GoToDeclaration<CR>
+            nnoremap <LocalLeader>gd :YcmCompleter GoToDefinition<CR>
+            nnoremap <LocalLeader>gr :YcmCompleter GoToReferences<CR>
+            nnoremap <LocalLeader>gg :YcmCompleter GoTo<CR>
+            nnoremap <LocalLeader>gh :YcmCompleter GoToImprecise<CR>
             nnoremap <M-g> :YcmCompleter GoTo<CR>
-            nnoremap <leader>gh :YcmCompleter GoToImprecise<CR>
-            nnoremap <leader>gt :YcmCompleter GetType<CR>
-            nnoremap <leader>gp :YcmCompleter GetParent<CR>
-            nnoremap <leader>g :YcmCompleter GetType<CR>
-            nnoremap <leader>gf :YcmCompleter FixIt<CR>
+
+            nnoremap <LocalLeader>gt :YcmCompleter GetType<CR>
+            nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
+            nnoremap <LocalLeader>g :YcmCompleter GetType<CR>
+            nnoremap <LocalLeader>gf :YcmCompleter FixIt<CR>
+            nnoremap <LocalLeader>gc :YcmDiags<CR>
         " }}
         " Shougo/neco-vim "{{
         Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
@@ -152,8 +155,8 @@
         let g:ultisnips_python_style = 'jedi'
 
         com! UltiTmpSnippet call UltiSnips#AddFiletypes("tmp") | UltiSnipsEdit tmp
-        nnoremap <leader>st :UltiTmpSnippet<CR>
-        nnoremap <leader>se :UltiSnipsEdit<CR>
+        nnoremap <Leader>eS :UltiTmpSnippet<CR>
+        nnoremap <Leader>es :UltiSnipsEdit<CR>
 
         " preview auto stop snippet. so disable it
         autocmd User UltiSnipsEnterFirstSnippet set completeopt-=preview
@@ -240,7 +243,7 @@
         " }}
         " dash {{
         Plug 'rizzatti/dash.vim', {'on': '<Plug>DashSearch'}
-        nmap <leader>K <Plug>DashSearch
+        nmap <LocalLeader>K <Plug>DashSearch
         let g:dash_map = {
             \ 'objc' : ['ios', 'c', 'manpages'],
             \ 'objcpp' : ['ios', 'cpp', 'c', 'manpages'],
@@ -278,12 +281,10 @@
             let g:NERDTreeMapOpenSplit = 's'
             let g:NERDTreeMapOpenVSplit = 'v'
             Plug 'scrooloose/nerdtree' " enable to replace netrw , {'on':[ 'NERDTreeToggle', 'NERDTreeFind' ]}
-            nnoremap <leader>e :let g:NERDTreeQuitOnOpen = 0 <bar> NERDTreeToggle<CR>
             nnoremap <F2> :let g:NERDTreeQuitOnOpen = 0 <bar> NERDTreeToggle<CR>
-            nnoremap <leader><C-e> :let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
             nnoremap <S-F2> :let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
             nmap <F14> <S-F2>
-            nmap <leader><F2> <S-F2>
+            nmap <Leader><F2> <S-F2>
         " }}
         " scrooloose/syntastic {{
         let g:syntastic_python_checkers = ["python"]
@@ -294,6 +295,8 @@
         " }}
         " scrooloose/nerdcommenter {{
         let g:NERDSpaceDelims = 1
+        " default map to <leader>c
+        " let g:NERDCreateDefaultMappings = 0
         Plug 'scrooloose/nerdcommenter'
         imap <C-c> <HOME><Plug>NERDCommenterInsert
         " }}
