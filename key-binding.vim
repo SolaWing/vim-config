@@ -20,9 +20,9 @@ cabbrev w!! w !sudo tee % >/dev/null
 " use a leader as group map. inspired by Spacemacs
 " in insert mode, leader is <M-m>
 " in other mode, leader is <Space>
-imap <M-m> <C-o><Space>
+imap <M-m> <C-o><Leader>
 
-" filetype reserved key <LocalLeader>
+" NOTE: filetype reserved key <LocalLeader>
 imap <M-CR> <C-o><LocalLeader>
 
 """ tab keys "{{{
@@ -94,7 +94,7 @@ nnoremap <M-Down> <C-W>j
 nnoremap <F5> :cwin<cr>
 nnoremap <S-F5> :lwin<cr>
 nmap <F17> <S-F5>
-nmap <Leader><F5> <S-F5>
+nmap <LocalLeader><F5> <S-F5>
 "}}}
 """ buffer"{{{
 nnoremap <Space>bw :<C-U>confirm w<CR>
@@ -167,13 +167,6 @@ nnoremap <Space>qs :<C-U>lvim/<C-R><C-W>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(
 nnoremap <Space>qgs :<C-U>lvimgrepadd/<C-R><C-W>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(13)<CR><BS>
 vnoremap <Space>qs :<C-U>lvim/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(6)<CR><BS>
 vnoremap <Space>qgs :<C-U>lvimgrepadd/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(13)<CR><BS>
-" navigate at item
-nnoremap <Space>qn :<C-U><C-R>=v:count1<CR>lnext<CR>
-nnoremap <Space>Qn :<C-U><C-R>=v:count1<CR>cnext<CR>
-nnoremap <Space>qp :<C-U><C-R>=v:count1<CR>lNext<CR>
-nnoremap <Space>Qp :<C-U><C-R>=v:count1<CR>cNext<CR>
-nnoremap <Space>qq :<C-U>ll<C-R>=v:count1<CR><CR>
-nnoremap <Space>QQ :<C-U>cc<C-R>=v:count1<CR><CR>
 " quick window undo and redo
 nnoremap <Space>Qu :<C-U>colder <C-R>=v:count1<CR><CR>
 nnoremap <Space>Q<C-R> :<C-U>cnewer <C-R>=v:count1<CR><CR>
@@ -202,7 +195,7 @@ vmap <Space>sm <LocalLeader>/
 " 取消搜索高亮
 nnoremap z/    :noh<CR>
 
-nnoremap <Space><F3> :<C-U>FZBTags<CR>
+nnoremap <LocalLeader><F3> :<C-U>FZBTags<CR>
 
 " n always foward, N always backward
 " noremap <expr> n 'Nn'[v:searchforward]
@@ -305,8 +298,10 @@ vnoremap <Space><Tab> :<C-U>Unite line -start-insert<CR>
 " nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
 " vnoremap <Space><Tab> :<C-U>let pat=GetVisualString()<CR>:ilist /<C-R>=pat<CR>/<CR>:let n = input("Which one: ")<BAR>if n > 0<BAR>exe "ijump" n "/".pat."/"<BAR>endif<CR>
 
-nnoremap <Space>* :<C-U>Unite line -input=<C-R><C-W><CR>
-vnoremap <Space>* :<C-U>Unite line -input=<C-R>=GetVisualString()<CR><CR>
+nnoremap <Leader>* :<C-U>Unite line -input=<C-R><C-W><CR>
+vnoremap <Leader>* :<C-U>Unite line -input=<C-R>=GetVisualString()<CR><CR>
+nmap <Leader>8 <Leader>*
+vmap <Leader>8 <Leader>*
 
 " <M-x> cmdline window
 nnoremap <M-x> q:i
