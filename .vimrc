@@ -73,8 +73,14 @@
            endif
            return l:ret
        endfunction
+       function! KeepCursor(cmd)
+           let l:cursor = getcurpos()
+           exe "keepjumps" a:cmd
+           call setpos('.', l:cursor)
+       endfunction
     " }}}
     """"""" 基本不会动的全局设定 {{{
+        command! -nargs=1 KeepCursor call KeepCursor(<q-args>)
         " set a map leader
         let mapleader = "\<Space>"
         let maplocalleader = ","

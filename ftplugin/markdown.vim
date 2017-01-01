@@ -2,7 +2,7 @@ if exists("b:did_ftplugin")
   finish
 endif
 
-nnoremap <buffer> <LocalLeader>p :<C-U>%call markdown#preview()<CR>
+nnoremap <buffer> <LocalLeader>p :<C-U>KeepCursor %call markdown#preview()<CR>
 vnoremap <buffer> <LocalLeader>p :call markdown#preview()<CR>
 vnoremap <buffer> <LocalLeader>o :<C-U>call system('open '.'<C-R>=GetVisualString()<CR>')<CR>
 
@@ -17,5 +17,4 @@ function! s:header_line(char)
         norm! j$
     endif
 endfunction
-
 

@@ -31,7 +31,7 @@ vnoremap <buffer> gq :ClangFormat<CR>
 
 " Unite integrate
 " iMenu
-nnoremap <buffer> <LocalLeader>m :<C-U>Unite line -start-insert -input=^[-+@a-zA-Z_]<CR>
+nnoremap <buffer> <LocalLeader>m :<C-U>Unite line -start-insert -input=^[-+@a-zA-Z_]\ <CR>
 
 " ycmd mouse integrate
 " nmap <2-LeftMouse> <M-g>

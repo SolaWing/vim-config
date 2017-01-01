@@ -3,19 +3,18 @@ import os
 def preview_markdown(s):
   if isinstance(s, bytes):
     s = s.decode('utf8')
-  templatePath = os.path.expanduser("~/Sites/markdown.template")
-  import markdown
-  html = markdown.markdown(s, extensions=['markdown.extensions.tables'])
-  with open(templatePath) as f:
-    template = f.read()
-    s = template.replace("{{placeholder}}", html)
-  if not isinstance(s, bytes):
-    s = s.encode('utf8')
-  import tempfile
-  with tempfile.NamedTemporaryFile(suffix = '.htm',delete = False) as out:
-    out.write(s)
-    out.close()
-  os.system("open '%s'"%out.name)
+  import subprocess, tempfile
+  cssPath = os.path.expanduser("~/Sites/github-pandoc.css")
+  tempdir = tempfile.gettempdir()
+  tmpName = os.path.join(tempdir, "vim-md-preview.html")
+  sp = subprocess.Popen(['pandoc', '-f', 'markdown', '-o', tmpName, '--toc', '-c', cssPath]
+                        , stdin=subprocess.PIPE, universal_newlines=True)
+  (o, e) = sp.communicate(s)
+  code = sp.wait()
+  if code == 0:
+      os.system("open '%s'"%tmpName)
+  else:
+      print( "error: ", e )
 EOF
 function! markdown#preview() range
 exe printf('%d,%dPY << EOF', a:firstline, a:lastline)

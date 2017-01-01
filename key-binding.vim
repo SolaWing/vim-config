@@ -94,7 +94,7 @@ nnoremap <M-Down> <C-W>j
 nnoremap <F5> :cwin<cr>
 nnoremap <S-F5> :lwin<cr>
 nmap <F17> <S-F5>
-nmap <LocalLeader><F5> <S-F5>
+nmap <Leader><F5> <S-F5>
 "}}}
 """ buffer"{{{
 nnoremap <Space>bw :<C-U>confirm w<CR>
@@ -195,7 +195,7 @@ vmap <Space>sm <LocalLeader>/
 " 取消搜索高亮
 nnoremap z/    :noh<CR>
 
-nnoremap <LocalLeader><F3> :<C-U>FZBTags<CR>
+nnoremap <Leader><F3> :<C-U>FZBTags<CR>
 
 " n always foward, N always backward
 " noremap <expr> n 'Nn'[v:searchforward]
