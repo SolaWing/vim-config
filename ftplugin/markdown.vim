@@ -9,6 +9,8 @@ vnoremap <buffer> <LocalLeader>o :<C-U>call system('open '.'<C-R>=GetVisualStrin
 nnoremap <buffer> <LocalLeader>h :<C-U>call <SID>header_line('-')<CR>
 nnoremap <buffer> <LocalLeader>H :<C-U>call <SID>header_line('=')<CR>
 
+nnoremap <buffer> <LocalLeader>m :<C-U>Toc<CR>
+
 function! s:header_line(char)
     let vc = virtcol('$')
     if vc > 0

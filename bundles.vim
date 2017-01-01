@@ -11,7 +11,7 @@
             "nnoremap <leader>t :TlistToggle<CR>
         " }}
         " tagbar {{
-        let g:tagbar_ctags_bin = 'xtags'
+        " let g:tagbar_ctags_bin = 'xtags'
         let g:tagbar_autoclose = 1
         let g:tagbar_type_objc = {
                     \ 'ctagstype' : 'ObjectiveC',
