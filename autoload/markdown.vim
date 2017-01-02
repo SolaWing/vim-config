@@ -7,7 +7,7 @@ def preview_markdown(s):
   cssPath = os.path.expanduser("~/Sites/github-pandoc.css")
   tempdir = tempfile.gettempdir()
   tmpName = os.path.join(tempdir, "vim-md-preview.html")
-  sp = subprocess.Popen(['pandoc', '-f', 'markdown', '-o', tmpName, '--toc', '-c', cssPath]
+  sp = subprocess.Popen(['pandoc', '-f', 'markdown+hard_line_breaks', '-o', tmpName, '--toc', '-c', cssPath]
                         , stdin=subprocess.PIPE, universal_newlines=True)
   (o, e) = sp.communicate(s)
   code = sp.wait()
