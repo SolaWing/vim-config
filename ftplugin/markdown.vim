@@ -2,6 +2,8 @@ if exists("b:did_ftplugin")
   finish
 endif
 
+setl textwidth=120
+
 nnoremap <buffer> <LocalLeader>p :<C-U>KeepCursor %call markdown#preview()<CR>
 vnoremap <buffer> <LocalLeader>p :call markdown#preview()<CR>
 vnoremap <buffer> <LocalLeader>o :<C-U>call system('open '.'<C-R>=GetVisualString()<CR>')<CR>
@@ -15,6 +17,7 @@ nnoremap <buffer> <LocalLeader>2 :<C-U>call <SID>toggle_header(2)<CR>
 nnoremap <buffer> <LocalLeader>3 :<C-U>call <SID>toggle_header(3)<CR>
 nnoremap <buffer> <LocalLeader>4 :<C-U>call <SID>toggle_header(4)<CR>
 nnoremap <buffer> <LocalLeader>5 :<C-U>call <SID>toggle_header(5)<CR>
+nnoremap <buffer> <LocalLeader>6 :<C-U>call <SID>toggle_header(6)<CR>
 
 vmap <buffer> <LocalLeader>b s*gvs*
 

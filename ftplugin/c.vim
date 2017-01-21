@@ -12,7 +12,7 @@ inoremap <buffer> <M-:> <End>;<Esc>
 
 nnoremap <buffer> <LocalLeader>h      :call <SID>toggleHeader(1)<CR>
 nnoremap <buffer> <C-W><LocalLeader>h :call <SID>toggleHeader(0)<CR>
-nnoremap <buffer> <LocalLeader>z :CReFold<CR>
+nnoremap <buffer> <LocalLeader>z :CReFold<HOME>KeepCursor <CR>zz
 vnoremap <buffer> <LocalLeader>z :CReFold<CR>
 " comment
 " nnoremap <buffer> <LocalLeader>/ I//<esc>
@@ -31,7 +31,7 @@ vnoremap <buffer> gq :ClangFormat<CR>
 
 " Unite integrate
 " iMenu
-nnoremap <buffer> <LocalLeader>m :<C-U>Unite line -start-insert -input=^[-+@a-zA-Z_]\ <CR>
+nnoremap <buffer> <LocalLeader>m :<C-U>Unite line -start-insert -input=^[-+@a-zA-Z_]<CR>
 
 " ycmd mouse integrate
 " nmap <2-LeftMouse> <M-g>

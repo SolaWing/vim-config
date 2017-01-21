@@ -24,7 +24,7 @@ function! ObjcBracketSurround()
     call setpos('.', l:savepos)
     while 1
       " search identifier, but not followed by :, or [] pair as entity
-      let [l:r, l:c, l:m] = searchpos('\m\(\%([a-zA-Z0-9_.]\+\)\@>:\@!\)\|\(\]\)', 'bWp')
+      let [l:r, l:c, l:m] = searchpos('\m\(\%([a-zA-Z0-9_.->]\+\)\@>:\@!\)\|\(\]\)', 'bWp')
       " echom 'first' l:r l:c l:m
       if l:m < 2 " no match
         " beep
