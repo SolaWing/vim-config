@@ -229,7 +229,8 @@
         augroup END
 
         " get outer clipboard into unnameregister, but yank not into clipboard, unless specify explicitily
-        autocmd FocusGained * let @" = @*
+        " NOTE: let @" will change @0..
+        " autocmd FocusGained * let @" = @*
     "}}}
 
     """"""""""" command {{{

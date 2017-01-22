@@ -15,6 +15,8 @@ cnoremap <M-]> <C-\>eSearchCharInCmd(0,0, 2)<CR>
 cnoremap <M-d> <C-\>eForwordDeleteWordInCmd()<CR>
 " sudo
 cabbrev w!! w !sudo tee % >/dev/null
+" search occur
+" cnoremap <C-o> <CR>:lvim//j % <bar>lwin<CR>
 "}}}
 
 " use a leader as group map. inspired by Spacemacs
@@ -336,6 +338,7 @@ inoremap jk <ESC>
 
 noremap <M-a> <C-\><C-N>ggVG
 noremap <M-c> "*y
+noremap <M-v> "*p
 
 nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar>
             \jumps <bar> let &more=b:prevmore<CR>
