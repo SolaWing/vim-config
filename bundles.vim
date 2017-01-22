@@ -227,6 +227,7 @@
         \    'alt-h:backward-char,alt-l:forward-char',
         \    'alt-space:jump,`:jump-accept',
         \], ',') . '" --color="pointer:15" '
+        let g:fzf_layout = { 'up' : '~40%'  }
         Plug '/usr/local/opt/fzf'
         Plug 'junegunn/fzf.vim'
         " "}}
