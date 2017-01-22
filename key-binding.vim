@@ -101,11 +101,11 @@ nnoremap <Space>bw :<C-U>confirm w<CR>
 nnoremap <Space>bx :<C-U>confirm x<CR>
 
 nnoremap <Space>bd :<C-U>confirm bdelete<CR>
-nnoremap <Space>bb :<C-U>Unite buffer<CR>
+nnoremap <Space>bb :<C-U>FZBuffers<CR>
 nnoremap <Space>bs :<C-U>sb<Space>
 nnoremap <Space>bv :<C-U>vert sb<Space>
 nnoremap <Space>bt :<C-U>tab sb<Space>
-nnoremap <Space>bl :<C-U>Unite -start-insert buffer<CR>
+nnoremap <Space>bl :<C-U>FZBuffers<CR>
 nmap <M-tab> <Space>bl
 " quit buffer and open previous buffer
 nnoremap <Space>bq <C-^>:bd #<CR>
@@ -293,13 +293,13 @@ nnoremap <Space><C-]> :<C-U>tjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>] :<C-U>stjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 
-nnoremap <Space><Tab> :<C-U>Unite line -start-insert<CR>
-vnoremap <Space><Tab> :<C-U>Unite line -start-insert<CR>
+nnoremap <Space><Tab> :<C-U>FZBLines<CR>
+vnoremap <Space><Tab> :<C-U>FZBLines<CR>
 " nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
 " vnoremap <Space><Tab> :<C-U>let pat=GetVisualString()<CR>:ilist /<C-R>=pat<CR>/<CR>:let n = input("Which one: ")<BAR>if n > 0<BAR>exe "ijump" n "/".pat."/"<BAR>endif<CR>
 
-nnoremap <Leader>* :<C-U>Unite line -input=<C-R><C-W><CR>
-vnoremap <Leader>* :<C-U>Unite line -input=<C-R>=GetVisualString()<CR><CR>
+nnoremap <Leader>* :<C-U>FZBLines <C-R><C-W><CR>
+vnoremap <Leader>* :<C-U>FZBLines <C-R>=GetVisualString()<CR><CR>
 nmap <Leader>8 <Leader>*
 vmap <Leader>8 <Leader>*
 

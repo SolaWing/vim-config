@@ -393,36 +393,36 @@
         Plug 'terryma/vim-multiple-cursors'
         "}}
         " Shougo/unite.vim"{{
-            " Using ag as recursive command.
-            Plug 'Shougo/unite.vim' ", {'on': 'Unite'}
-            " Plugin 'Shougo/unite-outline'
-            " execute command return false when have arg, this should a bug
-            autocmd User unite.vim call s:unite_init()
-            function! s:unite_init() range
-                call unite#custom#source('buffer, file_rec/neovim, file_rec/git',
-                            \ 'matchers', ['converter_tail', 'matcher_fuzzy'])
-            endfunction
-            let g:unite_source_rec_async_command = 'find'
-            nnoremap <Space>ub :<C-U>Unite buffer<CR>
-            nnoremap <Space>um :<C-U>Unite bookmarks<CR>
-            nnoremap <Space>u; :<C-U>Unite command -start-insert<CR>
-            nnoremap <Space>u: :<C-U>Unite command<CR>
-            nnoremap <Space>ul :<C-U>Unite line -start-insert<CR>
-            nnoremap <Space>uu :<C-U>UniteResume -no-start-insert<CR>
-            " search like occur
-            cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR><CR>
+            " " Using ag as recursive command.
+            " Plug 'Shougo/unite.vim' ", {'on': 'Unite'}
+            " " Plugin 'Shougo/unite-outline'
+            " " execute command return false when have arg, this should a bug
+            " autocmd User unite.vim call s:unite_init()
+            " function! s:unite_init() range
+            "     call unite#custom#source('buffer, file_rec/neovim, file_rec/git',
+            "                 \ 'matchers', ['converter_tail', 'matcher_fuzzy'])
+            " endfunction
+            " let g:unite_source_rec_async_command = 'find'
+            " nnoremap <Space>ub :<C-U>Unite buffer<CR>
+            " nnoremap <Space>um :<C-U>Unite bookmarks<CR>
+            " nnoremap <Space>u; :<C-U>Unite command -start-insert<CR>
+            " nnoremap <Space>u: :<C-U>Unite command<CR>
+            " nnoremap <Space>ul :<C-U>Unite line -start-insert<CR>
+            " nnoremap <Space>uu :<C-U>UniteResume -no-start-insert<CR>
+            " " search like occur
+            " cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR><CR>
 
-            autocmd FileType unite call s:unite_my_settings()
-            function! s:unite_my_settings() "{{{
-                imap <buffer> '     <Plug>(unite_quick_match_default_action)
-                nmap <buffer> '     <Plug>(unite_quick_match_default_action)
-                imap <buffer> <C-J>     <Plug>(unite_quick_match_jump)
-                nmap <buffer> J     <Plug>(unite_quick_match_jump)
-                nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-                imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-                nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
-                imap <silent><buffer><expr> <C-s>     unite#do_action('splitswitch')
-            endfunction "}}}
+            " autocmd FileType unite call s:unite_my_settings()
+            " function! s:unite_my_settings() "{{{
+            "     imap <buffer> '     <Plug>(unite_quick_match_default_action)
+            "     nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+            "     imap <buffer> <C-J>     <Plug>(unite_quick_match_jump)
+            "     nmap <buffer> J     <Plug>(unite_quick_match_jump)
+            "     nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+            "     imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+            "     nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+            "     imap <silent><buffer><expr> <C-s>     unite#do_action('splitswitch')
+            " endfunction "}}}
         "}}
         " " Shougo/denite.vim"{{
         "     " Using ag as recursive command.
