@@ -87,8 +87,8 @@
         " use bash shell
         let g:is_bash = 1
         if has("gui_macvim")
-            let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.5"
-            set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.5/lib/libpython3.5m.dylib
+            " let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
+            " set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6m.dylib
             " py3 dir
         else " terminal
             " colorscheme solarized

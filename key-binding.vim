@@ -198,6 +198,7 @@ vmap <Space>sm <LocalLeader>/
 nnoremap z/    :noh<CR>
 
 nnoremap <Leader><F3> :<C-U>FZBTags<CR>
+nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
 
 " n always foward, N always backward
 " noremap <expr> n 'Nn'[v:searchforward]

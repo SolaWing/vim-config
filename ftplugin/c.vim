@@ -29,10 +29,6 @@ vnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 nmap <buffer> gq <Plug>(operator-clang-format)
 vnoremap <buffer> gq :ClangFormat<CR>
 
-" Unite integrate
-" iMenu
-nnoremap <buffer> <LocalLeader>m :<C-U>FZBTags<CR>
-
 " ycmd mouse integrate
 " nmap <2-LeftMouse> <M-g>
 
