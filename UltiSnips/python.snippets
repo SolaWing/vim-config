@@ -7,11 +7,21 @@ ${4:rtype:class}
 
 endsnippet
 
+snippet l "lambda"
+lambda $1: $0
+endsnippet
+
 snippet f "quick function" b
 def ${1:function}(`!p
 if snip.indent:
     snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
 	${0:${VISUAL:pass}}
+endsnippet
+
+snippet cl "short class def" b
+class ${1:Name}(${2:object}):
+	def __init__(self, ${3:*arg}):
+		${0:pass}
 endsnippet
 
 snippet cf "class function" b

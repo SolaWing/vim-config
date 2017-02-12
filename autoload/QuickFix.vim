@@ -9,7 +9,7 @@ function! QuickFix#Do(cmd, jumpFile, uselocal, bang) range
   try
     let l:prefix = a:uselocal? 'l':'c'
     if exists(":cdo") == 2
-        exe printf("%s%sdo%s %s", l:prefix, 
+        exe printf("%s%sdo%s %s", l:prefix,
                     \ a:jumpFile? 'f' : '',
                     \ a:bang, a:cmd)
         return

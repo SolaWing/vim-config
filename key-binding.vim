@@ -124,6 +124,8 @@ nnoremap ZA :qa!<CR>
 nnoremap ZX :confirm xa<CR>
 
 nnoremap <Space>et :<C-U>sp ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
+nnoremap <Space>ep :<C-U>sp ~/.vim/bundles.vim<CR>
+nnoremap <Space>ek :<C-U>sp ~/.vim/key-binding.vim<CR>
 nnoremap <Space>fr :<C-U>CtrlPMRUFiles<CR>
 nnoremap <Space>ff :<C-U>CtrlP<CR>
 "}}}
@@ -286,6 +288,9 @@ vnoremap <Space>x( :call SurroundSpaceBetweenPairs('(',')')<CR>
 vnoremap <Space>x) :call SurroundSpaceBetweenPairs('(',')')<CR>
 vnoremap <Space>x[ :call SurroundSpaceBetweenPairs('\[','\]')<CR>
 vnoremap <Space>x] :call SurroundSpaceBetweenPairs('\[','\]')<CR>
+
+imap <C-x>f <plug>(fzf-complete-path)
+imap <C-x>l <plug>(fzf-complete-line)
 "}}}
 """ misc"{{{
 nnoremap <LocalLeader><Space>s :<C-U>Scratch<Space>

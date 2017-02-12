@@ -1,9 +1,11 @@
 if exists("b:did_ftplugin") | finish | endif
 
 nnoremap <buffer> <LocalLeader>e :<C-U>let tmp = system("python", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
-vnoremap <buffer> <LocalLeader>e :w !python<CR>
+xnoremap <buffer> <LocalLeader>e :w !python<CR>
 nnoremap <buffer> <LocalLeader>s :PY exec("\n".join(vim.current.range))<CR>
-vnoremap <buffer> <LocalLeader>s :PY exec("\n".join(vim.current.range))<CR>
+xnoremap <buffer> <LocalLeader>s :PY exec("\n".join(vim.current.range))<CR>
+nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
+xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 " smartinent with pep8 indent, cause # to first column
 setl formatoptions-=t nosmartindent
 

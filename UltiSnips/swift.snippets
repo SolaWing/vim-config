@@ -11,3 +11,37 @@ snippet /* "doc comment" b
  * $2
  */
 endsnippet
+
+snippet v "var declare" b
+var ${1:name} = ${2:nil}
+endsnippet
+
+snippet l "let declare" b
+let ${1:name} = ${2:nil}
+endsnippet
+
+snippet f "func def"
+func ${1:name}($2)${3/^.+$/ -> /}$3 {
+	$0
+}
+endsnippet
+
+snippet t "type of"
+type(of: ${VISUAL}$0)
+endsnippet
+
+snippet wh "while" b
+while ${1:true} {
+	$0
+}
+endsnippet
+
+snippet for "for in" b
+for ${1:i} in ${2:0..<10} {
+	$0
+}
+endsnippet
+
+snippet mark "xcode mark" b
+// MARK: $0
+endsnippet

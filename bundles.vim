@@ -465,10 +465,20 @@
         "  seem abandoned
         " Plug 'ivanov/vim-ipython'
         "}}
+        " -- jpalardy/vim-slime "{{
+        let g:slime_no_mappings = 1
+        if has('nvim')
+            let g:slime_target = "neovim"
+        else
+            let g:slime_target = "tmux"
+        endif
+        let g:slime_paste_file = tempname()
+        Plug 'jpalardy/vim-slime', {'for': 'python'}
+        "}}
         " keith/swift.vim "{{
         Plug 'keith/swift.vim', {'for': 'swift'}
         " 现在支持还不够好. 以后真的需要再说吧. 暂时用xcode开发swift
-        Plug '~/.vim/bundle/sourcekittendaemon.vim', {'for': 'swift'}
+        " Plug '~/.vim/bundle/sourcekittendaemon.vim', {'for': 'swift'}
         " Plug 'mitsuse/autocomplete-swift', {'for': 'swift'}
         "}}
         " kana/vim-operator-user  "{{
