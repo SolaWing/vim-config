@@ -3,6 +3,7 @@ if exists("b:did_ftplugin")
 endif
 
 setl textwidth=120
+setl formatoptions-=t
 
 nnoremap <buffer> <LocalLeader>p :<C-U>KeepCursor %call markdown#preview()<CR>
 vnoremap <buffer> <LocalLeader>p :call markdown#preview()<CR>
@@ -20,6 +21,8 @@ nnoremap <buffer> <LocalLeader>5 :<C-U>call <SID>toggle_header(5)<CR>
 nnoremap <buffer> <LocalLeader>6 :<C-U>call <SID>toggle_header(6)<CR>
 
 vmap <buffer> <LocalLeader>b s*gvs*
+
+nnoremap <buffer> <LocalLeader>a| :silent KeepCursor ?^\s*\n?+1,/^\s*\n/-1 EasyAlign * |<CR>
 
 function! s:header_line(char)
     let vc = virtcol('$')
