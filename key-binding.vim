@@ -306,8 +306,8 @@ vnoremap <Space><Tab> :<C-U>FZBLines<CR>
 " nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
 " vnoremap <Space><Tab> :<C-U>let pat=GetVisualString()<CR>:ilist /<C-R>=pat<CR>/<CR>:let n = input("Which one: ")<BAR>if n > 0<BAR>exe "ijump" n "/".pat."/"<BAR>endif<CR>
 
-nnoremap <Leader>* :<C-U>FZBLines <C-R><C-W><CR>
-vnoremap <Leader>* :<C-U>FZBLines <C-R>=GetVisualString()<CR><CR>
+nnoremap <Leader>* :<C-U>FZBLines '<C-R><C-W><CR>
+vnoremap <Leader>* :<C-U>FZBLines '<C-R>=GetVisualString()<CR><CR>
 nmap <Leader>8 <Leader>*
 vmap <Leader>8 <Leader>*
 

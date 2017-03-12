@@ -120,12 +120,12 @@ def findAll(pat):
         if isinstance(m[0], str):
             s = "\n".join(m)
         else:
-            pat = vim.eval(r"inputdialog('input format pattern: ')")
+            pat = vim.eval(r"inputdialog('input format pattern(group pass as args): ')")
             def fmt(pat,x):
                 if pat:
                     if isinstance(x, str): return pat.format(x)
                     return pat.format(*x)
                 else: return str(x)
-            s = "\n".join(fmt(pat, l) for l in m)
+            s = "\n".join(fmt(pat, x) for x in m)
 
         myutil.preview(s, '[python-output]')

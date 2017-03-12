@@ -20,9 +20,15 @@ nnoremap <buffer> <LocalLeader>4 :<C-U>call <SID>toggle_header(4)<CR>
 nnoremap <buffer> <LocalLeader>5 :<C-U>call <SID>toggle_header(5)<CR>
 nnoremap <buffer> <LocalLeader>6 :<C-U>call <SID>toggle_header(6)<CR>
 
+" strong, stroke through
 vmap <buffer> <LocalLeader>b s*gvs*
+vmap <buffer> <LocalLeader>s s~gvs~
 
 nnoremap <buffer> <LocalLeader>a| :silent KeepCursor ?^\s*\n?+1,/^\s*\n/-1 EasyAlign * |<CR>
+nnoremap <buffer> <LocalLeader>at :TableFormat<CR>
+
+nnoremap <buffer> <LocalLeader>^ :sort /^.*\%=virtcol('.')-1v/
+xnoremap <buffer> <LocalLeader>^ :'<,'>sort /^.*\%=virtcol('.')-1v/
 
 function! s:header_line(char)
     let vc = virtcol('$')

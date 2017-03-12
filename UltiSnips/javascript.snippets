@@ -26,7 +26,7 @@ for (var ${2:key} in ${1:container}) {
 }
 endsnippet
 snippet foritem "for item in array" b
-for (var $1_idx = 0, $1_len = $2.length; $1_idx < $1_len; $1_idx++) {
+for (var $1_idx = 0, $1_len = $2.length; $1_idx < $1_len; ++$1_idx) {
 	var ${1:item} = ${2:array}[$1_idx];
 	${VISUAL}$0
 }
@@ -84,4 +84,36 @@ snippet reduce "do reduce element. return false to break"
 $1.reduce( ${2:function (${4:sum, item, idx}) \{
 	return $0
 \}}, ${3:[]})
+endsnippet
+
+snippet getclass "get class" w
+getElementsByClassName($1)
+endsnippet
+snippet gettag "get tag" w
+getElementsByTagName($1)
+endsnippet
+snippet getid "get id" w
+getElementById($1)
+endsnippet
+
+snippet try "try catch" b
+try {
+	$1
+} catch (error) {
+	$0
+}
+endsnippet
+
+snippet typeof "typeof operator"
+typeof $0
+endsnippet
+
+snippet ? "exist check"
+typeof $1 !== "undefined" && $1 !== null
+endsnippet
+
+snippet property "property declare"
+Object.defineProperty($1, "${2:name}", {
+	$0
+})
 endsnippet
