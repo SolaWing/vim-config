@@ -147,19 +147,19 @@ vnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
 vnoremap <Space>gv :GV<CR>
-nnoremap <Space>gV :Git! log -p -- %<CR>
+nnoremap <Space>gV :Gtabedit! log -p -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
 nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>
-nnoremap <Space>gF :Gpull --rebase<CR>
-nnoremap <Space>gp :Git push<CR>
+nnoremap <Space>gF :Gpedit! pull --rebase<CR>
+nnoremap <Space>gp :Gpedit! push<CR>
 nnoremap <Space>gw :Gwrite<CR>
 nnoremap <Space>ge :Gedit<CR>
 nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
-vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
+" vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gl :GV?<CR>
 vnoremap <Space>gl :GV?<CR>
 nnoremap <Space>g<Space> :<C-U>FZGFiles?<CR>

@@ -313,6 +313,7 @@
         let g:ale_lint_delay = 5000
         let g:ale_lint_on_text_changed = 0
         let g:ale_lint_on_save = 1
+        let g:ale_lint_on_enter = 0
         Plug 'w0rp/ale'
         " }}
 
@@ -543,9 +544,12 @@
         Plug 'dag/vim-fish', {'for': 'fish'}
         ""}}
 
-        " vim-airline {{
+        " " vim-airline {{
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
+        " " }}
+        " itchyny/lightline.vim {{
+        " Plug 'itchyny/lightline.vim'
         " }}
 
         " octol/vim-cpp-enhanced-highlight"{{

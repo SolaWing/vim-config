@@ -87,7 +87,8 @@
         " use bash shell
         let g:is_bash = 1
         if has("gui_macvim")
-            " let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
+            "     let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
+            set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.6
             " set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6m.dylib
             " py3 dir
         else " terminal
