@@ -2,7 +2,8 @@ if exists("b:did_ftplugin")
   finish
 endif
 
-let b:AutoPairs = {'(':')', '[':']', '{':'}', "<":">", '"':'"', '`':'`'}
+let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"', '`':'`'}
+inoremap <buffer> <M-<> <><left>
 "setl makeprg=cargo
 " compiler cargo
 setl fdm=syntax
