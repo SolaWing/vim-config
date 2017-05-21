@@ -96,6 +96,14 @@ snippet img "get image by name" w
 [UIImage imageNamed:${2:@"${1:name}.png"}]
 endsnippet
 
+snippet dc "DYNAMIC_CAST"
+DYNAMIC_CAST(${1:${VISUAL:obj}}, ${2:cls})
+endsnippet
+
+snippet dcv "DYNAMIC_CAST var" b
+$2* ${3:name} = DYNAMIC_CAST(${1:${VISUAL:obj}}, ${2:cls});
+endsnippet
+
 snippet weakify "weakify macro" b
 WEAKIFY(${1:self});
 endsnippet
@@ -330,11 +338,11 @@ snippet nsproxy "nsproxy definition" b
 
 endsnippet
 
-snippet KVCArrayInterface "interface of KVC array" b
-#pragma mark - KVC array accessors for ${1:key}
+snippet kvc "kvc interface and implementation" b
+#pragma mark - KVC interface array accessors for ${1:key}
 - (NSUInteger)countOf${1/^\w/\u$0/};
 - (${2:id})objectIn${1/^\w/\u$0/}AtIndex:(NSUInteger)index;
-- (void)get${1/^\w/\u$0/}:($2 __unsafe_unretained [])buffer range:(NSRange)range;
+- (void)get${1/^\w/\u$0/}:(${2:id} __unsafe_unretained [])buffer range:(NSRange)range;
 
 #pragma mark Mutable accessors for $1
 - (void)insertObject:($2)object in${1/^\w/\u$0/}AtIndex:(NSUInteger)index;
@@ -343,14 +351,15 @@ snippet KVCArrayInterface "interface of KVC array" b
 - (void)remove${1/^\w/\u$0/}AtIndexes:(NSIndexSet *)indexes;
 - (void)replaceObjectIn${1/^\w/\u$0/}AtIndex:(NSUInteger)index withObject:($2)object;
 - (void)replace${1/^\w/\u$0/}AtIndexes:(NSIndexSet *)indexes with${1/^\w/\u$0/}:(NSArray *)array;
+
+- (void)add${1/^\w/\u$0/}:(NSArray*)array;
+- (void)addObjectTo${1/^\w/\u$0/}:($2)object;
 #pragma mark end $1
 #pragma mark -
-endsnippet
 
-snippet KVCArrayImp "implementation of KVC array" b
-#pragma mark - KVC array accessors for ${1:key}
+#pragma mark - KVC array accessors for $1
 - (NSUInteger)countOf${1/^\w/\u$0/} { return _$1.count; }
-- (${2:id})objectIn${1/^\w/\u$0/}AtIndex:(NSUInteger)index { return _$1[index]; }
+- ($2)objectIn${1/^\w/\u$0/}AtIndex:(NSUInteger)index { return _$1[index]; }
 - (void)get${1/^\w/\u$0/}:($2 __unsafe_unretained [])buffer range:(NSRange)range {
 	[_$1 getObjects:buffer range:range];
 }
@@ -379,8 +388,14 @@ snippet KVCArrayImp "implementation of KVC array" b
 - (void)replace${1/^\w/\u$0/}AtIndexes:(NSIndexSet *)indexes with${1/^\w/\u$0/}:(NSArray *)array {
 	[_$1 replaceObjectsAtIndexes:indexes withObjects:array];
 }
-#pragma mark end $1
-#pragma mark -
+
+
+- (void)add${1/^\w/\u$0/}:(NSArray*)array {
+	[self insert${1/^\w/\u$0/}:array atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(_$1.count, array.count)]];
+}
+- (void)addObjectTo${1/^\w/\u$0/}:($2)object {
+	[self insertObject:object in${1/^\w/\u$0/}AtIndex:_$1.count];
+}
 
 endsnippet
 
@@ -414,4 +429,8 @@ static void endBackgroundTask(UIBackgroundTaskIdentifier *bid) {
 		*bid = UIBackgroundTaskInvalid;
 	}
 }
+endsnippet
+
+snippet assertMain "assert main thread" b
+NSParameterAssert( [NSThread isMainThread] );
 endsnippet

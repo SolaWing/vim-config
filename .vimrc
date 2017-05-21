@@ -145,7 +145,7 @@
         set scrolloff=3
         set sidescroll=5
         " fileencodings
-        set fileencodings=ucs-bom,utf-8,default,gbk,latin1
+        set fileencodings=ucs-bom,utf-8,gbk,default,latin1
         " showmatch
         set showmatch
         " virtualedit, add onemore for more consistency

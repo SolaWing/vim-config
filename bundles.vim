@@ -40,6 +40,42 @@
                     \ }
                 \ }
         let g:tagbar_type_objcpp = g:tagbar_type_objc
+        let g:tagbar_type_rust = {
+                    \ 'ctagstype' : 'Rust',
+                    \ 'kinds' : [
+                    \       'n:module:1:0',
+                    \       's:struct:0:1',
+                    \       'i:trait:0:1',
+                    \       'c:implementation:0:0',
+                    \       'f:function:0:1',
+                    \       'g:enum:0:1',
+                    \       't:type alias:0:1',
+                    \       'v:global variable:0:1',
+                    \       'M:macro:0:1',
+                    \       'm:struct field:0:1',
+                    \       'e:enum variant:0:1',
+                    \       'F:method:0:1',
+                    \ ],
+                    \ 'sro' : '::',
+                    \ 'kind2scope' : {
+                        \ 'n' : 'module',
+                        \ 's' : 'struct',
+                        \ 'i' : 'interface',
+                        \ 'c' : 'implementation',
+                        \ 'f' : 'function',
+                        \ 'g' : 'enum',
+                        \ 'F' : 'method',
+                    \ },
+                    \ 'scope2kind' : {
+                        \ 'module'        : 'n',
+                        \ 'struct'        : 's',
+                        \ 'interface'     : 'i',
+                        \ 'implementation': 'c',
+                        \ 'function'      : 'f',
+                        \ 'enum'          : 'g',
+                        \ 'method'        : 'F',
+                    \ }
+                    \}
         Plug 'majutsushi/tagbar' ", { 'on': 'TagbarToggle'}
         nnoremap <F3> :TagbarToggle<CR>
         " }}
@@ -98,18 +134,20 @@
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
-            let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
+            " let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
             Plug '~/.vim/bundle/YouCompleteMe'
 
             nnoremap <C-W><LocalLeader>gr <C-W>s:YcmCompleter GoToReferences<CR>
             nnoremap <C-W><LocalLeader>gg <C-W>s:YcmCompleter GoTo<CR>
             nnoremap <C-W><LocalLeader>gh <C-W>s:YcmCompleter GoToImprecise<CR>
-            nnoremap <C-W><M-g> <C-W>s:YcmCompleter GoTo<CR>
-            nnoremap <Space>t<M-g> <C-W>s<C-W>T:YcmCompleter GoTo<CR>
+
+            nmap <C-W><M-g> <C-W>s<LocalLeader>gg
+            nmap <Space>t<M-g> <C-W>s<C-W>T<LocalLeader>gg
+            nmap <M-g> <LocalLeader>gg
+
             nnoremap <LocalLeader>gr :YcmCompleter GoToReferences<CR>
             nnoremap <LocalLeader>gg :YcmCompleter GoTo<CR>
             nnoremap <LocalLeader>gh :YcmCompleter GoToImprecise<CR>
-            nnoremap <M-g> :YcmCompleter GoTo<CR>
 
             nnoremap <LocalLeader>gd :YcmCompleter GetDoc<CR>
             nnoremap <LocalLeader>gt :YcmCompleter GetType<CR>
@@ -314,6 +352,9 @@
         let g:ale_lint_on_text_changed = 0
         let g:ale_lint_on_save = 1
         let g:ale_lint_on_enter = 0
+        let g:ale_linters = {
+                    \ 'c' : [], 'cpp' : []
+                    \ }
         Plug 'w0rp/ale'
         " }}
 
@@ -531,12 +572,12 @@
         "}}
 
         "racer-rust/vim-racer"{{
-        let g:racer_insert_paren = 0
-        let g:racer_experimental_completer = 1
-        let g:racer_no_default_keymappings = 1 " this option use custom mapping in filetype
         let $RUST_SRC_PATH=$HOME."/Documents/github/rust/src/"
-        " let g:racer_cmd = $HOME."/.cargo/bin/racer"
-        Plug 'racer-rust/vim-racer', {'for': 'rust'}
+        " let g:racer_insert_paren = 0
+        " let g:racer_experimental_completer = 1
+        " let g:racer_no_default_keymappings = 1 " this option use custom mapping in filetype
+        " " let g:racer_cmd = $HOME."/.cargo/bin/racer"
+        " Plug 'racer-rust/vim-racer', {'for': 'rust'}
         "}}
 
         " dag/vim-fish"{{

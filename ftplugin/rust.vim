@@ -13,9 +13,7 @@ nnoremap <buffer> <LocalLeader>p :update <bar> make bench<CR>
 nnoremap <buffer> <LocalLeader>c :make clean<CR>
 
 if exists("g:racer_no_default_keymappings") && g:racer_no_default_keymappings == 1
-    nmap <buffer> <M-g> <Plug>RacerGoToDefinitionDrect
-    nmap <buffer> <Space>t<M-g> <C-W>s<C-W>T<Plug>RacerGoToDefinitionDrect
-    nmap <buffer> <C-W><M-g> <Plug>RacerGoToDefinitionSplit
+    nmap <buffer> <LocalLeader>gg <Plug>(rust-def)
     " nmap <buffer> gv <Plug>RacerGoToDefinitionVSplit
-    nmap <buffer> K  <Plug>RacerShowDocumentation
+    nmap <buffer> K  <Plug>(rust-doc)
 endif
