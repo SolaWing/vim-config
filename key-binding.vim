@@ -192,8 +192,10 @@ vnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ search "{{{
 nmap <Space>sp <Space>p/
 vmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZAg <C-R><C-W>
-vnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR>
+nnoremap <Space>s* :<C-U>FZAg <C-R><C-W><CR>
+vnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s8 :<C-U>FZAg <C-R><C-W><CR>
+vnoremap <Space>s8 :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/
 vmap <Space>sm <LocalLeader>/
 " 取消搜索高亮
@@ -201,6 +203,10 @@ nnoremap z/    :noh<CR>
 
 nnoremap <Leader><F3> :<C-U>FZBTags<CR>
 nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
+
+nnoremap <F6> :<C-U>FZTags<CR>
+nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W><CR>
+vnoremap <Leader><F6> :<C-U>FZTags <C-R>=GetVisualString()<CR><CR>
 
 " n always foward, N always backward
 " noremap <expr> n 'Nn'[v:searchforward]

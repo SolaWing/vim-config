@@ -120,7 +120,7 @@
             let g:ycm_extra_conf_vim_data = [['ycm_additional_flags','get(b:, "ycm_additional_flags", g:ycm_additional_flags)']]
             let g:ycm_additional_flags = []
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
-            let g:ycm_key_invoke_completion = '<M-.>'
+            " let g:ycm_key_invoke_completion = '<M-.>'
             let g:ycm_key_detailed_diagnostics = '<LocalLeader>d'
             let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
             let g:ycm_semantic_triggers = {
@@ -134,7 +134,7 @@
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
-            " let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
+            let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
             Plug '~/.vim/bundle/YouCompleteMe'
 
             nnoremap <C-W><LocalLeader>gr <C-W>s:YcmCompleter GoToReferences<CR>
@@ -353,7 +353,7 @@
         let g:ale_lint_on_save = 1
         let g:ale_lint_on_enter = 0
         let g:ale_linters = {
-                    \ 'c' : [], 'cpp' : []
+                    \ 'c' : [], 'cpp' : [], 'objc' : [], 'objcpp' : [],
                     \ }
         Plug 'w0rp/ale'
         " }}
@@ -384,12 +384,12 @@
 
         " --- sjl/gundo.vim"{{
         " Plug 'sjl/gundo.vim', {'on': 'GundoToggle'} " undo tree
-        " nnoremap <F6> :GundoToggle<CR>
+        " nnoremap <F4> :GundoToggle<CR>
         "}}
 
         " mbbill/undotree "{{
         Plug 'mbbill/undotree' ",             { 'on': 'UndotreeToggle'   }
-        nnoremap <F6> :UndotreeToggle<CR>
+        nnoremap <F4> :UndotreeToggle<CR>
         "}}
 
         " kana/vim-submode"{{
@@ -397,6 +397,7 @@
         let g:submode_keep_leaving_key = 1
         Plug 'kana/vim-submode'
         au VimEnter * call s:submode_init()
+        let $ABC = 1
     function! s:submode_init()
         function! SubmodeMap(name, mode, maps)
             for [enter, short, rhs, opt] in a:maps

@@ -9,6 +9,7 @@ com! -range=% CFold silent! exe printf('norm! %dGV%dGzD', <line1>,<line2>) | <li
 
 inoremap <buffer> <M-;> <End>;<CR>
 inoremap <buffer> <M-:> <End>;<Esc>
+inoremap <buffer> <M-.> ->
 
 nnoremap <buffer> <LocalLeader>h      :call <SID>toggleHeader(1)<CR>
 nnoremap <buffer> <C-W><LocalLeader>h :call <SID>toggleHeader(0)<CR>

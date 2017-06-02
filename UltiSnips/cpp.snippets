@@ -1,5 +1,19 @@
 snippet foreach "range-for" b
 for (auto&& ${1:obj} : ${2:container}){
-  ${VISUAL}$0
+	${VISUAL}$0
+}
+endsnippet
+
+snippet using "using namespace" b
+using namespace ${1:std};
+endsnippet
+
+snippet static_cast "static_cast"
+static_cast<${1:T}>(${2:${VISUAL}})
+endsnippet
+
+snippet forit "for iter loop" b
+for (auto it = ${1:s}.${2:c}begin(), e = $1.$2end(); it != e; ++it) {
+	$0
 }
 endsnippet
