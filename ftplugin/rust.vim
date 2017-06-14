@@ -5,7 +5,7 @@ endif
 let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"', '`':'`'}
 inoremap <buffer> <M-<> <><left>
 "setl makeprg=cargo
-" compiler cargo
+compiler cargo
 setl fdm=syntax
 nnoremap <buffer> <LocalLeader>b :update <bar> make build<CR>
 nnoremap <buffer> <LocalLeader>r :update <bar> make run<CR>

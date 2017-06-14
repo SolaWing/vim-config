@@ -434,3 +434,8 @@ endsnippet
 snippet assertMain "assert main thread" b
 NSParameterAssert( [NSThread isMainThread] );
 endsnippet
+
+snippet paramassert_or_ret "NSParameterAssert or ret" b
+NSParameterAssert( $1 );
+if (!$1) { return; }
+endsnippet

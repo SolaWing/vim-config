@@ -12,11 +12,22 @@ macro_rules! ${1:name} {
 }
 endsnippet
 
+snippet tests "test mod" b
+#[cfg(test)]
+mod ${1:tests} {
+	$0
+}
+endsnippet
+
 snippet test "a test func" b
 #[test]
 fn ${1:name}() {
 	$0
 }
+endsnippet
+
+snippet assert "assert!" b
+assert!($0);
 endsnippet
 
 snippet trait "a trait" b
@@ -34,6 +45,14 @@ endsnippet
 snippet impl "implementation" b
 impl$1 ${2:Trait}${2/.+/ for /}${3:Type} {
 	$0
+}
+endsnippet
+
+snippet impl_drop "impl drop of type" b
+impl Drop for ${1:name} {
+	fn drop(&mut self) {
+		$0
+	}
 }
 endsnippet
 
@@ -72,8 +91,23 @@ while $1 {
 }
 endsnippet
 
+snippet for "for" b
+for $1 in $2 {
+	$0
+}
+
+endsnippet
+
 snippet f "fn define" b
 fn ${1:name}($2) {
 	$0
 }
+endsnippet
+
+snippet l "let expr" b
+let $1 = $2;
+endsnippet
+
+snippet v "let mut expr" b
+let mut $1 = $2;
 endsnippet

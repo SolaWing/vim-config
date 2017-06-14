@@ -196,6 +196,8 @@ nnoremap <Space>s* :<C-U>FZAg <C-R><C-W><CR>
 vnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
 nnoremap <Space>s8 :<C-U>FZAg <C-R><C-W><CR>
 vnoremap <Space>s8 :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s] :<C-U>FZTags <C-R><C-W><CR>
+vnoremap <Space>s] :<C-U>FZTags <C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/
 vmap <Space>sm <LocalLeader>/
 " 取消搜索高亮
@@ -207,6 +209,9 @@ nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
 nnoremap <F6> :<C-U>FZTags<CR>
 nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W><CR>
 vnoremap <Leader><F6> :<C-U>FZTags <C-R>=GetVisualString()<CR><CR>
+
+nnoremap n nzz
+nnoremap N Nzz
 
 " n always foward, N always backward
 " noremap <expr> n 'Nn'[v:searchforward]

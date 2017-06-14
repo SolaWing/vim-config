@@ -352,9 +352,11 @@
         let g:ale_lint_on_text_changed = 0
         let g:ale_lint_on_save = 1
         let g:ale_lint_on_enter = 0
+        let g:ale_set_highlights = 0
         let g:ale_linters = {
                     \ 'c' : [], 'cpp' : [], 'objc' : [], 'objcpp' : [],
                     \ }
+        let g:ale_rust_cargo_use_check = 1
         Plug 'w0rp/ale'
         " }}
 

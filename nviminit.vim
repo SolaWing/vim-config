@@ -2,7 +2,7 @@
 "{
 "exe printf("set rtp=%s,%s,%s", expand('~/.vim'), &rtp, expand('~/.vim/after'))
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let tmp = $COLORFGBG[strridx($COLORFGBG, ";")+1:]
 if !empty("tmp")
