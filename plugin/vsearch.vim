@@ -1,5 +1,7 @@
 " Search for selected text.
 " http://vim.wikia.com/wiki/VimTip171
+finish " disable"
+
 if exists("loaded_vsearch")
   finish
 endif

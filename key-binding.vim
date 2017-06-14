@@ -210,8 +210,8 @@ nnoremap <F6> :<C-U>FZTags<CR>
 nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W><CR>
 vnoremap <Leader><F6> :<C-U>FZTags <C-R>=GetVisualString()<CR><CR>
 
-nnoremap n nzz
-nnoremap N Nzz
+" nnoremap n nzz
+" nnoremap N Nzz
 
 " n always foward, N always backward
 " noremap <expr> n 'Nn'[v:searchforward]

@@ -274,6 +274,13 @@
         " junegunn/goyo.vim {{
         Plug 'junegunn/goyo.vim'
         " }}
+        
+        " junegunn/vim-slash {{
+        Plug 'junegunn/vim-slash'
+        if has('timers') && !has('nvim')
+            noremap <expr> <plug>(slash-after) slash#blink(2, 50)
+        endif
+        " }}
 
         " kshenoy/vim-signature"{{
         let g:SignaturePeriodicRefresh = 0
@@ -283,7 +290,7 @@
         "}}
 
         " restore_view {{
-        Plug 'restore_view.vim'
+        Plug 'vim-scripts/restore_view.vim'
         set viewoptions=folds,cursor
         let g:skipview_files = ['.*\.vim']
         " }}
