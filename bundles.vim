@@ -323,6 +323,7 @@
         " jiangmiao/auto-pair {{
         let g:AutoPairsShortcutBackInsert = ""
         let g:AutoPairsShortcutToggle = ""
+        let g:AutoPairsMoveCharacter = ""
 
         let g:ycm_key_param_template = 0
         " put here for compatibility
@@ -369,7 +370,7 @@
 
         " scrooloose/nerdcommenter {{
         let g:NERDSpaceDelims = 1
-        let g:NERDAltDelims_swift = 1
+        " let g:NERDAltDelims_swift = 1
         " default map to <leader>c
         " let g:NERDCreateDefaultMappings = 0
         Plug 'scrooloose/nerdcommenter'

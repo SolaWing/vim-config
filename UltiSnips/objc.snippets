@@ -431,6 +431,10 @@ static void endBackgroundTask(UIBackgroundTaskIdentifier *bid) {
 }
 endsnippet
 
+snippet unreachable "assert unreachable" b
+NSAssert(false, @"$1");
+endsnippet
+
 snippet assertMain "assert main thread" b
 NSParameterAssert( [NSThread isMainThread] );
 endsnippet
