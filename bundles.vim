@@ -591,27 +591,27 @@
         " Plug 'vim-airline/vim-airline'
         " Plug 'vim-airline/vim-airline-themes'
 
-        function! Sstatusline_expr()
-            let mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
-            let ro  = "%{&readonly ? '[RO] ' : ''}"
-            let ft  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
-            let enc = "%{}"
-            let fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
-            let sep = ' %= '
-            let pos = ' %-12(%l : %c%V%) '
-            let pct = ' %P'
+        " function! Sstatusline_expr()
+        "     let mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
+        "     let ro  = "%{&readonly ? '[RO] ' : ''}"
+        "     let ft  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
+        "     let enc = "%{}"
+        "     let fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
+        "     let sep = ' %= '
+        "     let pos = ' %-12(%l : %c%V%) '
+        "     let pct = ' %P'
 
-            return '[%n] %F %<'.mod.ro.ft.fug.sep.pos.'%*'.pct
-        endfunction
-        let &statusline = Sstatusline_expr()
+        "     return '[%n] %F %<'.mod.ro.ft.fug.sep.pos.'%*'.pct
+        " endfunction
+        " let &statusline = Sstatusline_expr()
         " 
         " " }}
         " itchyny/lightline.vim {{
-        " Plug 'itchyny/lightline.vim'
+        Plug 'itchyny/lightline.vim'
         " 颜色和base16-sorloarized配合不好, 回头有空再研究
-        " let g:lightline = {
-        "     \ 'colorscheme' : 
-        " }
+        let g:lightline = {
+            \ 'colorscheme' : 'base16_solarized_custom'
+            \ }
         " }}
         " octol/vim-cpp-enhanced-highlight"{{
         Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
