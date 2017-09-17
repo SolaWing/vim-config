@@ -161,16 +161,6 @@
         Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
         let g:ycm_semantic_triggers.vim = ['$', '&']
         ""}}
-
-        " ---supertab {{
-        " use this can use CR to confirm complete so can use tab as UltiSnips
-            "let g:SuperTabDefaultCompletionType = "context"
-            "let g:SuperTabContextDefaultCompletionType = "<c-n>"
-            "let g:SuperTabLongestEnhanced = 1
-            "let g:SuperTabLongestHighlight = 1
-            "Plugin 'ervandew/supertab'
-        " }}
-
         " SirVer/ultisnips {{
         let g:UltiSnipsExpandTrigger="<M-'>" " M-'
         let g:UltiSnipsJumpForwardTrigger="<C-j>"
@@ -508,30 +498,30 @@
             " endfunction "}}
         "}}
 
-        " " Shougo/denite.vim"{{
-        "     " Using ag as recursive command.
-        "     Plug 'Shougo/denite.nvim' ", {'on': 'Unite'}
-        "     " Plugin 'Shougo/unite-outline'
-        "     " execute command return false when have arg, this should a bug
-        "     autocmd User denite.nvim call s:denite_init()
-        "     function! s:denite_init() range
-        "         call denite#custom#source('buffer, file_rec',
-        "                     \ 'matchers', ['converter_tail', 'matcher_fuzzy'])
-        "         call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-        "         call denite#custom#var('file_rec/git', 'command',
-        "                     \ ['git', 'ls-files'])
-        "         " Change mappings.
-        "         call denite#custom#map('insert', '<M-j>', 'move_to_next_line')
-        "         call denite#custom#map('insert', '<M-k>', 'move_to_prev_line')
-        "         call denite#custom#map('insert', '<C-g>', 'quit')
-        "     endfunction
-        "     nnoremap <Space>ub :<C-U>Denite buffer<CR>
-        "     nnoremap <Space>u; :<C-U>Denite command<CR>
-        "     nnoremap <Space>ul :<C-U>Denite line<CR>
-        "     nnoremap <Space>uu :<C-U>DeniteResume -no-start-insert<CR>
-        "     " search like occur
-        "     cnoremap <C-o> <CR>:<C-U>Denite line -input=<C-R>=escape(@/," ")<CR><CR>
-        " "}}
+        " Shougo/denite.vim"{{
+            " fzf性能好得多, 带来的就是响应体验会好很多. denite有些卡
+            " Plug 'Shougo/denite.nvim' ", {'on': 'Unite'}
+            " " Plugin 'Shougo/unite-outline'
+            " " execute command return false when have arg, this should a bug
+            " autocmd User denite.nvim call s:denite_init()
+            " function! s:denite_init() range
+            "     call denite#custom#source('buffer, file_rec',
+            "                 \ 'matchers', ['converter_tail', 'matcher_fuzzy'])
+            "     call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+            "     call denite#custom#var('file_rec/git', 'command',
+            "                 \ ['git', 'ls-files'])
+            "     " Change mappings.
+            "     call denite#custom#map('insert', '<M-j>', 'move_to_next_line')
+            "     call denite#custom#map('insert', '<M-k>', 'move_to_prev_line')
+            "     call denite#custom#map('insert', '<C-g>', 'quit')
+            " endfunction
+            " nnoremap <Space>ub :<C-U>Denite buffer<CR>
+            " nnoremap <Space>u; :<C-U>Denite command<CR>
+            " nnoremap <Space>ul :<C-U>Denite line<CR>
+            " nnoremap <Space>uu :<C-U>DeniteResume -no-start-insert<CR>
+            " " search like occur
+            " cnoremap <C-o> <CR>:<C-U>Denite line -input=<C-R>=escape(@/," ")<CR><CR>
+        "}}
 
         " Shougo/vimproc.vim {{
         Plug 'Shougo/vimproc.vim'
@@ -597,13 +587,32 @@
         ""}}
 
         " " vim-airline {{
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
+        " airline 使用时间长了会花费大量时间检查样式, 先禁用
+        " Plug 'vim-airline/vim-airline'
+        " Plug 'vim-airline/vim-airline-themes'
+
+        function! Sstatusline_expr()
+            let mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
+            let ro  = "%{&readonly ? '[RO] ' : ''}"
+            let ft  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
+            let enc = "%{}"
+            let fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
+            let sep = ' %= '
+            let pos = ' %-12(%l : %c%V%) '
+            let pct = ' %P'
+
+            return '[%n] %F %<'.mod.ro.ft.fug.sep.pos.'%*'.pct
+        endfunction
+        let &statusline = Sstatusline_expr()
+        " 
         " " }}
         " itchyny/lightline.vim {{
         " Plug 'itchyny/lightline.vim'
+        " 颜色和base16-sorloarized配合不好, 回头有空再研究
+        " let g:lightline = {
+        "     \ 'colorscheme' : 
+        " }
         " }}
-
         " octol/vim-cpp-enhanced-highlight"{{
         Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
         ""}}
@@ -630,6 +639,9 @@
         " Plug 'skwp/greplace.vim'
         "}}
 
+        " wannesm/wmgraphviz.vim  {{
+        Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
+        "}}
   "}}
 
     call plug#end()
