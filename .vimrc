@@ -220,7 +220,7 @@
         set switchbuf=usetab
         " ignore file pattern
         set wildignore+=*.obj,*.o,*.a,*.dylib,*.app,*.pyc
-        set textwidth=80
+        set textwidth=120
         set colorcolumn=+1
         "highlight trim whitespace
         hi link TrimWhiteSpace CursorLine

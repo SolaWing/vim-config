@@ -5,7 +5,7 @@ endif
 setl cinoptions+=l1
 
 com! -range=% CReFold <line1>,<line2>call <SID>refold()
-com! -range=% CFold silent! exe printf('norm! %dGV%dGzD', <line1>,<line2>) | <line1>,<line2>g/\v^[-+a-zA-Z]&[^;{]*%(\n+\s*%(\s[^;{]*)?)*\{[^;{}]*$/.,/\v(^\}\s*\n\zs^\s*$|^\})/fold
+com! -range=% CFold silent! exe printf('norm! %dGV%dGzD', <line1>,<line2>) | <line1>,<line2>g/\v^[-+a-zA-Z]&[^;{(]*\([^;{]*%(\n+\s*%(\s[^;{]*)?)*\{[^;{}]*$/.,/\v(^\}\s*\n\zs^\s*$|^\})/fold
 
 inoremap <buffer> <M-;> <End>;<CR>
 inoremap <buffer> <M-:> <End>;<Esc>
@@ -46,7 +46,10 @@ function! s:refold() range
   silent exe printf('%d,%dg/^}\n\ze\S/norm! o', a:firstline, a:lastline)
   let l:c = line("$") - l:c + a:lastline
   " create function fold
-  let l:s = printf('%d,%dg/\v^[-+a-zA-Z]&[^;{]*(\n+\s*(\s[^;{]*)?)*\{[^;{}]*$/.,/^}/+1fold', a:firstline, l:c)
+  let l:validDeclareBegin = '^[-+a-zA-Z]'
+  " 先有(, 然后以{ 结尾的
+  let l:validToDeclareEnd = '[^;{(]*\([^;{]*%(\n+\s*%(\s[^;{]*)?)*\{[^;{}]*$'
+  let l:s = printf('%d,%dg/\v%s&%s/  .,/^}/+1fold', a:firstline, l:c, l:validDeclareBegin, l:validToDeclareEnd)
   " echom l:s
   silent exe l:s
 endfunction

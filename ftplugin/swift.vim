@@ -1,3 +1,6 @@
+if exists("b:did_ftplugin")
+  finish
+endif
 setl fdm=indent
 
 nnoremap <buffer> <LocalLeader>m :<C-U>call fzf#vim#buffer_lines("'func | 'class | 'struct | 'MARK: ", {'options': '+s'})<CR>

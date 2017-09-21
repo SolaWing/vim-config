@@ -352,7 +352,7 @@
         let g:ale_lint_on_enter = 0
         let g:ale_set_highlights = 0
         let g:ale_linters = {
-                    \ 'c' : [], 'cpp' : [], 'objc' : [], 'objcpp' : [],
+                    \ 'c' : [], 'cpp' : [], 'objc' : [], 'objcpp' : [], 'python' : ['pylint'],
                     \ }
         let g:ale_rust_cargo_use_check = 1
         Plug 'w0rp/ale'
@@ -607,11 +607,21 @@
         " 
         " " }}
         " itchyny/lightline.vim {{
-        Plug 'itchyny/lightline.vim'
-        " 颜色和base16-sorloarized配合不好, 回头有空再研究
         let g:lightline = {
-            \ 'colorscheme' : 'base16_solarized_custom'
-            \ }
+                    \   'colorscheme' : 'base16_solarized_custom',
+                    \   'active': {
+                    \     'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ], [ 'gitbranch' ] ],
+                    \     'right': [ [ 'percent' ], [ 'lineinfo' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+                    \   },
+                    \   'inactive': {
+                    \     'left': [ [ 'filename' ] ],
+                    \     'right': [ [ 'percent' ], [ 'lineinfo' ] ]
+                    \   },
+                    \   'component_function': {
+                    \     'gitbranch': 'fugitive#head'
+                    \   }
+                    \ }
+        Plug 'itchyny/lightline.vim'
         " }}
         " octol/vim-cpp-enhanced-highlight"{{
         Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
