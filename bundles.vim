@@ -115,6 +115,7 @@
             let g:ycm_collect_identifiers_from_tags_files = 1
             let g:ycm_seed_identifiers_with_syntax = 1
             let g:ycm_complete_in_comments = 1
+            let g:ycm_max_num_candidates = 0 " 先不用这功能, 会导致依次衰减失效
             let g:ycm_enable_diagnostic_highlighting = 0
             " can pass same extra data to global conf
             let g:ycm_extra_conf_vim_data = [['ycm_additional_flags','get(b:, "ycm_additional_flags", g:ycm_additional_flags)']]
@@ -314,11 +315,12 @@
         let g:AutoPairsShortcutBackInsert = ""
         let g:AutoPairsShortcutToggle = ""
         let g:AutoPairsMoveCharacter = ""
-
+        " let g:AutoPairsMapCR = 0
         let g:ycm_key_param_template = 0
         " put here for compatibility
-        silent! inoremap <expr> <CR> pumvisible()?"<C-y><C-r>=youcompleteme#OnCompleteAction()<CR>"
-                    \ : "\<CR>"
+        silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
+        " silent! inoremap <expr> <CR> pumvisible()?"<C-y><C-r>=youcompleteme#OnCompleteAction()<CR>"
+        "             \ : "\<CR>"
 
         Plug 'jiangmiao/auto-pairs'
         " }}
@@ -352,7 +354,7 @@
         let g:ale_lint_on_enter = 0
         let g:ale_set_highlights = 0
         let g:ale_linters = {
-                    \ 'c' : [], 'cpp' : [], 'objc' : [], 'objcpp' : [], 'python' : ['pylint'],
+                    \ 'c' : [], 'cpp' : [], 'objc' : [], 'objcpp' : [], 'python' : ['flake8'], 'vim': [],
                     \ }
         let g:ale_rust_cargo_use_check = 1
         Plug 'w0rp/ale'
