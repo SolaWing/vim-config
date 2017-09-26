@@ -80,6 +80,11 @@ nnoremap <C-W><C-O> :<C-U>confirm =v:count?v:count :""only<CR>
 nnoremap <C-W>: :<C-U>windo<Space>
 
 " window convenience control
+nnoremap <Space>1 1<C-W><C-W>
+nnoremap <Space>2 2<C-W><C-W>
+nnoremap <Space>3 3<C-W><C-W>
+nnoremap <Space>4 4<C-W><C-W>
+nnoremap <Space>5 5<C-W><C-W>
 " focus window
 nnoremap <C-J>    <C-W>j<C-W>_
 nnoremap <C-K>    <C-W>k<C-W>_
@@ -283,8 +288,8 @@ vnoremap <Space>xw :TrimWhiteSpace<CR>
 nnoremap <Space>xl :TrimMultiEmptyLine<CR>
 vnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
-nnoremap <Space>xs :s/\V\<<C-R><C-W>\>//gc<Left><Left><Left><C-F>i
-vnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>s/\V<C-R>=GetVisualString()<CR>//gc<Left><Left><Left><C-F>i
+nnoremap <Space>xs :s/\V\<<C-R><C-W>\>/<C-R><C-W>/gc<Left><Left><Left><C-F>i
+vnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>s/\V<C-R>=GetVisualString()<CR>/<C-R>=GetVisualString()<CR>/gc<Left><Left><Left><C-F>i
 vnoremap g& :s//~/&<CR>
 
 nnoremap <Space>xS :s/ /\r/g<CR>

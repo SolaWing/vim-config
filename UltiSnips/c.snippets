@@ -137,3 +137,9 @@ endsnippet
 snippet Inc "#include" b
 #include <$0>
 endsnippet
+
+snippet va_list "va_list declare" b
+va_list ap; va_start(ap, $1);
+$0
+va_end(ap);
+endsnippet

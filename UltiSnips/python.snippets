@@ -65,6 +65,16 @@ with ${1:open($2)} ${3/.+/as/} ${3:f}:
 	$0
 endsnippet
 
+# jedi hint
 snippet hint "type hint"
 # type: $1
 endsnippet
+
+snippet h "type hint"
+# type: $1
+endsnippet
+
+snippet functionHint "function hint" b
+# type: ($1) -> ${2:None}
+endsnippet
+
