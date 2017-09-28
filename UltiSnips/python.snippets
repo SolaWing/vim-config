@@ -38,7 +38,7 @@ if snip.indent:
 endsnippet
 
 snippet fori "for i loop"
-for ${1:i} in xrange(${2:10}):
+for ${1:i} in range(${2:10}):
 	${0:pass}
 endsnippet
 
@@ -78,3 +78,6 @@ snippet functionHint "function hint" b
 # type: ($1) -> ${2:None}
 endsnippet
 
+snippet noqa "flake8 error ignore"
+# noqa
+endsnippet

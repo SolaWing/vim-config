@@ -131,7 +131,7 @@
             " let g:ycm_key_list_select_completion = []
             " let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
             " let g:ycm_python_binary_path = 'python'
-            " let g:ycm_server_log_level = 'debug'
+            " let g:ycm_log_level = 'debug'
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1

@@ -290,22 +290,6 @@ snippet defineLock "custom define lock macro" b
 #define Unlock() dispatch_semaphore_signal($1)
 endsnippet
 
-snippet spinlock "OSSpinLockLock" b
-OSSpinLockLock(&${1:`!p
-if not snip.c:
-  def findLock():
-    pat = re.compile(r'OSSpinLock\s+(\w+)')
-    buf = vim.current.buffer
-    for i in range(vim.current.range.start, 0, -1):
-      m = pat.search(buf[i])
-      if m: return m.group(1)
-    return '_lock'
-  snip.rv = findLock()
-`});
-	${VISUAL}$0
-OSSpinLockUnlock(&$1);
-endsnippet
-
 snippet nsproxy "nsproxy definition" b
 @interface ${1:ProxyName} : NSProxy
 
