@@ -352,9 +352,9 @@ nnoremap <silent> K      :<C-r>=&keywordprg==':help' <bar><bar> &keywordprg=='' 
 vnoremap <silent> K      <esc>:<C-r>=line("'<") == line("'>") ? &keywordprg==':help' <bar><bar> &keywordprg=='' ? printf("help %s", getline("'<")[col("'<")-1:col("'>")-1] ) : printf("!%s %s <bar> less", &keywordprg, getline("'<")[col("'<")-1:col("'>")-1]) : "norm! gv" <cr><CR><CR>
 
 " insert visual mode
-inoremap <M-v> <C-O>v
-inoremap <M-V> <C-O>V
-inoremap <M-C-v> <C-O><C-v>
+" inoremap <M-v> <C-O>v
+" inoremap <M-V> <C-O>V
+" inoremap <M-C-v> <C-O><C-v>
 
 " ii,jf,fj,jk 退出插入模式
 " left hand have too many work. here use right hand
@@ -363,6 +363,7 @@ inoremap jk <ESC>
 noremap <M-a> <C-\><C-N>ggVG
 noremap <M-c> "*y
 noremap <M-v> "*p
+inoremap <M-v> <C-R><C-O>*
 
 nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar>
             \jumps <bar> let &more=b:prevmore<CR>

@@ -1,5 +1,10 @@
 if exists("b:did_ftplugin") | finish | endif
 
+" if !exists("g:python_recommended_style")
+"     let g:python_recommended_style = 0
+"     setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=4
+" endif
+
 nnoremap <buffer> <LocalLeader>e :<C-U>let tmp = system("python", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
 xnoremap <buffer> <LocalLeader>e :w !python<CR>
 nnoremap <buffer> <LocalLeader>s :PY exec("\n".join(vim.current.range))<CR>

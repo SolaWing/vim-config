@@ -537,6 +537,7 @@
             let g:slime_target = "tmux"
         endif
         let g:slime_paste_file = tempname()
+        let g:slime_python_ipython = 1
         Plug 'jpalardy/vim-slime', {'for': ['python', 'coffee']}
         "}}
 
