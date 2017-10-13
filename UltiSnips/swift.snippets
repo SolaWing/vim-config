@@ -30,6 +30,12 @@ func ${1:name}($2)${3/^.+$/ -> /}$3 {
 }
 endsnippet
 
+snippet cl "closure define"
+{ ($1)${2/.+/ -> /}${2:Void} in 
+	$0
+}
+endsnippet
+
 snippet t "type of"
 type(of: ${VISUAL}$0)
 endsnippet
@@ -47,7 +53,7 @@ repeat {
 endsnippet
 
 snippet for "for in" b
-for ${1:i} in ${2:0..<10} {
+for ${1:i} in ${2:0..<${3:10}} {
 	$0
 }
 endsnippet
@@ -66,4 +72,18 @@ endsnippet
 
 snippet keyPath "#keyPath"
 #keyPath($0)
+endsnippet
+
+snippet #if "#if declare" b
+#if ${1:DEBUG}
+	$0
+#endif
+endsnippet
+
+snippet sw "switch statement" b
+switch ${1:v} {
+	case ${2:pattern}:
+		$0
+	default: ;
+}
 endsnippet

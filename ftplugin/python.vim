@@ -14,6 +14,12 @@ xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 " smartinent with pep8 indent, cause # to first column
 setl formatoptions-=t nosmartindent
 
+com! -range=% PythonFold <line1>,<line2>call PythonFold()
+nnoremap <LocalLeader>z :%call PythonFold()<CR>
+vnoremap <LocalLeader>z :call PythonFold()<CR>
+nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
+vnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
+
 " in one command use fold will close text and cause include fold fail!!
 function! PythonFold() range
   exe printf('silent! norm! %dGV%dGzD', a:firstline,a:lastline)
@@ -39,6 +45,14 @@ function! PythonFold() range
   endfor
 endfunction
 
-com! -range=% PythonFold <line1>,<line2>call PythonFold()
-nnoremap <LocalLeader>z :%call PythonFold()<CR>
-vnoremap <LocalLeader>z :call PythonFold()<CR>
+
+function! s:moveImportToList() range
+    exe printf('%d,%ds/^\s*//', a:firstline, a:lastline)
+    exe printf('%d,%dd', a:firstline, a:lastline)
+
+    let l:line = search('^\%(import\|from\)', 'b')
+    " echom "lineis". l:line
+    exe l:line . 'put'
+
+    call cursor(a:lastline, 1)
+endfunction

@@ -118,6 +118,7 @@ nmap <M-tab> <Space>bl
 nnoremap <Space>bq <C-^>:bd #<CR>
 ""}}}
 """ file"{{{
+nnoremap <Space>fd :!open '%:h'<CR>
 nnoremap <Space>fs :<C-U>confirm w<CR>
 nnoremap <Space>fS :<C-U>confirm wa<CR>
 noremap <M-s> :<C-U>confirm w<CR>
@@ -147,6 +148,7 @@ nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R><C-W>'<Left>
 vnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <Space>pt :<C-U>!ctags -R '=getcwd()'
 ""}}}
 """ git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>

@@ -17,3 +17,12 @@ for (auto it = ${1:s}.${2:c}begin(), e = $1.$2end(); it != e; ++it) {
 	$0
 }
 endsnippet
+
+snippet try "try catch" b
+try {
+	${VISUAL}$0
+} catch (const ${1:std::exception} &${2:e}) {
+	// TODO: exception
+}
+
+endsnippet

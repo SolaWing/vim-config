@@ -30,6 +30,11 @@ vnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 nmap <buffer> gq <Plug>(operator-clang-format)
 vnoremap <buffer> gq :ClangFormat<CR>
 
+" select next () or {}
+" nnoremap <buffer> ]p /[({]v/[)}]
+" select preview () or {}
+" nnoremap <buffer> [p ?[)}]v?[({]
+
 " ycmd mouse integrate
 " nmap <2-LeftMouse> <M-g>
 

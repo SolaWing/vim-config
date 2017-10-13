@@ -553,6 +553,9 @@
         " kchmck/vim-coffee-script"{{
         Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
         "}}
+        "cespare/vim-toml "{{
+        Plug 'cespare/vim-toml'
+        "}}"
 
         " keith/swift.vim "{{
         Plug 'keith/swift.vim', {'for': 'swift'}

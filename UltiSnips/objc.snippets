@@ -6,6 +6,14 @@ priority 0
 
 clearsnippets array dict forarray objacc
 
+snippet has_include "#if __has_include()" b
+#if __has_include(${1:<$2/$3>})
+#import $1
+#else
+#import "${1/.*?\/(.*?)>/$1/}"
+#endif
+endsnippet
+
 snippet cl "closure define" b
 $2(^__unsafe_unretained ${3:block})($1) = ^${2:void}(${1}) {
 	${VISUAL}$0
