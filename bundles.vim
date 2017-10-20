@@ -571,7 +571,8 @@
         " rhysd/vim-clang-format "{{
         " depend on vim-operator-user
         let g:clang_format#detect_style_file = 1 " use .clang-format
-        Plug 'rhysd/vim-clang-format', {'on': ['ClangFormat', '<Plug>(operator-clang-format)']}
+        Plug 'rhysd/vim-clang-format', {'on': ['<Plug>(operator-clang-format)']}
+        command! -range=% -nargs=0 ClangFormat call plug#load('vim-clang-format') | call clang_format#replace(<line1>, <line2>)
         "}}
 
         " rust-lang/rust.vim"{{
