@@ -153,7 +153,7 @@ nnoremap <Space>pt :<C-U>!ctags -R '=getcwd()'
 """ git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
-vnoremap <Space>gv :GV<CR>
+vnoremap <Space>gV :GV<CR>
 nnoremap <Space>gV :Gtabedit! log -p -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>

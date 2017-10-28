@@ -4,7 +4,6 @@
     call plug#begin('~/.vim/bundle')
     " my bundles here {{
         " tagbar {{
-        " let g:tagbar_ctags_bin = 'xtags'
         let g:tagbar_autoclose = 1
         let g:tagbar_type_objc = {
                     \ 'ctagstype' : 'ObjectiveC',
@@ -317,7 +316,7 @@
         let g:AutoPairsMoveCharacter = ""
         " let g:AutoPairsMapCR = 0
         let g:ycm_key_param_template = 0
-        " put here for compatibility
+        " put here for compatibility, autopair's bufenter will prior to ycm's vimenter
         silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
         " silent! inoremap <expr> <CR> pumvisible()?"<C-y><C-r>=youcompleteme#OnCompleteAction()<CR>"
         "             \ : "\<CR>"
