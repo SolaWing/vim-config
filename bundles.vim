@@ -97,6 +97,7 @@
         nmap <C-W><M-/> <Plug>(easymotion-overwin-w)
         " zap to char
         imap <M-z> <C-o>d<Plug>(easymotion-s)
+
         "}}
 
         " justinmk/vim-sneak {{
@@ -296,6 +297,7 @@
         " }}
 
         " my plugin" {{
+        Plug '~/.vim/bundle/vim-grepeditor'
         Plug '~/.vim/bundle/vim-objc-syntax', {'for': ['objc', 'objcpp']},
         Plug '~/.vim/bundle/quick-ultisnip'
         " <C-r><CR> has problem, may not recognized
@@ -381,6 +383,7 @@
         " when there have thousands of unlisted buffers,
         " YCM will work extremly slow, I have fix it
         Plug 'mileszs/ack.vim', { 'on': 'Ack'}
+        " Plug 'dyng/ctrlsf.vim'
         "}}
 
         " --- sjl/gundo.vim"{{

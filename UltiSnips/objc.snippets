@@ -460,3 +460,12 @@ endsnippet
 snippet d "my extension Defer syntax" b
 Defer = ^{ $0 };
 endsnippet
+
+snippet CATransaction "CATransaction declare" b
+[CATransaction begin];
+[CATransaction setAnimationDuration:${1:0.25}];
+[CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:${2:kCAMediaTimingFunctionEaseInEaseOut}]];
+[CATransaction setCompletionBlock:^(void){$0}];
+$3
+[CATransaction commit];
+endsnippet

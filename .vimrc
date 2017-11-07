@@ -116,9 +116,9 @@
 
         colorscheme base16-solarized-custom
         "显示行号
-        set number
+        set nonumber
         "显示相对行号
-        set relativenumber
+        set norelativenumber
         "右下角显示位置
         set ruler
         "在Vim窗口右下角显示未完成的命令

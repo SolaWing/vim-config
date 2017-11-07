@@ -367,10 +367,11 @@ noremap <M-c> "*y
 noremap <M-v> "*p
 inoremap <M-v> <C-R><C-O>*
 
-nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar>
-            \jumps <bar> let &more=b:prevmore<CR>
+nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar> jumps <bar> let &more=b:prevmore<CR>
+map <Leader><CR> <Plug>(easymotion-jumptoanywhere)
 
 
+" write " to specify register
 function! SetRegister() range
     let char = getchar()
     if type(char) == type(0)
