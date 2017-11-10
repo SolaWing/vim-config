@@ -84,7 +84,7 @@
         " let g:EasyMotion_use_upper = 1
         " let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
         Plug 'easymotion/vim-easymotion'
-        map <S-Space> <Plug>(easymotion-bd-w)
+        map  <S-Space> <Plug>(easymotion-bd-w)
         imap <S-Space> <C-o><Plug>(easymotion-bd-w)
         " <M-/>
         map  <M-/> <Plug>(easymotion-bd-w)
@@ -92,9 +92,11 @@
         map  <M-?> <Plug>(easymotion-s)
         imap <M-?> <C-o><Plug>(easymotion-s)
 
-        map <Space><Space> <Plug>(easymotion-s)
-        nmap <C-W><Space> <Plug>(easymotion-overwin-f)
-        nmap <C-W><M-/> <Plug>(easymotion-overwin-w)
+        map  <Space><CR>    <Plug>(easymotion-bd-jk)
+        map  <Space><Space> <Plug>(easymotion-s)
+        nmap <C-W><Space>   <Plug>(easymotion-overwin-f)
+        nmap <C-W><M-/>     <Plug>(easymotion-overwin-w)
+        nmap <C-W><CR>      <Plug>(easymotion-overwin-line)
         " zap to char
         imap <M-z> <C-o>d<Plug>(easymotion-s)
 
@@ -533,11 +535,11 @@
 
         " jpalardy/vim-slime "{{
         let g:slime_no_mappings = 1
-        if has('nvim')
-            let g:slime_target = "neovim"
-        else
+        " if has('nvim')
+        "     let g:slime_target = "neovim"
+        " else
             let g:slime_target = "tmux"
-        endif
+        " endif
         let g:slime_paste_file = tempname()
         let g:slime_python_ipython = 1
         Plug 'jpalardy/vim-slime', {'for': ['python', 'coffee']}

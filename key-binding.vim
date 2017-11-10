@@ -74,6 +74,7 @@ nnoremap <Space>t: :<C-U>tabdo<Space>
 "}}}
 """ windows"{{{
 map <Space>w <C-W>
+nnoremap <C-W>w :<C-U>FZWindows<CR>
 nnoremap <C-W>e :<C-U>sp<Space>
 nnoremap <C-W>o :<C-U>confirm =v:count?v:count :""only<CR>
 nnoremap <C-W><C-O> :<C-U>confirm =v:count?v:count :""only<CR>
@@ -321,6 +322,7 @@ nnoremap <Space><C-]> :<C-U>tjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>] :<C-U>stjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 
+nnoremap <C-W><Tab> :<C-U>FZLines<CR>
 nnoremap <Space><Tab> :<C-U>FZBLines<CR>
 vnoremap <Space><Tab> :<C-U>FZBLines<CR>
 " nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
@@ -368,7 +370,7 @@ noremap <M-v> "*p
 inoremap <M-v> <C-R><C-O>*
 
 nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar> jumps <bar> let &more=b:prevmore<CR>
-map <Leader><CR> <Plug>(easymotion-jumptoanywhere)
+map <Leader><CR> <Plug>(easymotion-bd-jk)
 
 
 " write " to specify register

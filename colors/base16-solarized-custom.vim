@@ -7,6 +7,12 @@ if &background == 'light'
                 \           1, 9, 3, 2, 6, 4, 13, 5],
                 \ 'scheme_slug': 'solarized-custom'
                 \ })
+    if !has('gui_running')
+        " hi EasyMotionTarget2FirstDefault
+        hi EasyMotionTarget2First cterm=bold ctermfg=214
+        " hi EasyMotionTarget2SecondDefault
+        hi EasyMotionTarget2Second cterm=bold ctermfg=1
+    endif
 else
     call base16#setup({ 'gui': ['002b36', '073642', '586e75', '657b83', '839496', '93a1a1', 'eee8d5', 'fdf6e3',
                 \               'dc322f', 'cb4b16', 'b58900', '859900', '2aa198', '268bd2', '6c71c4', 'd33682'],
@@ -14,4 +20,10 @@ else
                 \           1, 9, 3, 2, 6, 4, 13, 5],
                 \ 'scheme_slug': 'solarized-custom'
                 \ })
+    if !has('gui_running')
+        " hi EasyMotionTarget2FirstDefault
+        hi EasyMotionTarget2First cterm=bold ctermfg=214
+        " hi EasyMotionTarget2SecondDefault
+        hi EasyMotionTarget2Second cterm=bold ctermfg=1
+    endif
 endif
