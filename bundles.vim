@@ -1,9 +1,9 @@
-""" vim: set sw=4 ts=4 sts=4 et foldmarker={{,}} foldlevel=1 foldmethod=marker:
+""" vim: set sw=4 ts=4 sts=4 et foldlevel=1 foldmethod=marker:
 " vundle manager
     set nocompatible              " be iMproved, required
     call plug#begin('~/.vim/bundle')
-    " my bundles here {{
-        " tagbar {{
+    " my bundles here {{{
+        " tagbar {{{
         let g:tagbar_autoclose = 1
         let g:tagbar_type_objc = {
                     \ 'ctagstype' : 'ObjectiveC',
@@ -77,9 +77,9 @@
                     \}
         Plug 'majutsushi/tagbar' ", { 'on': 'TagbarToggle'}
         nnoremap <F3> :TagbarToggle<CR>
-        " }}
+        " }}}
 
-        " Lokaltog/vim-easymotion"{{
+        " Lokaltog/vim-easymotion"{{{
         let g:EasyMotion_do_mapping = 0
         " let g:EasyMotion_use_upper = 1
         " let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
@@ -100,17 +100,17 @@
         " zap to char
         imap <M-z> <C-o>d<Plug>(easymotion-s)
 
-        "}}
+        "}}}
 
-        " justinmk/vim-sneak {{
+        " justinmk/vim-sneak {{{
         let g:sneak#textobject_z = 0
         Plug 'justinmk/vim-sneak'
         map \ <Plug>Sneak_s
         map | <Plug>Sneak_S
         map , <Plug>SneakPrevious
-        " }}
+        " }}}
 
-        " YouCompleteMe {{
+        " YouCompleteMe {{{
             let g:ycm_allow_changing_updatetime = 1
             " let g:ycm_autoclose_preview_window_after_insertion = 1
             let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -158,18 +158,18 @@
             nnoremap <LocalLeader>g :YcmCompleter GetType<CR>
             nnoremap <LocalLeader>gf :YcmCompleter FixIt<CR>
             nnoremap <LocalLeader>gc :YcmDiags<CR>
-        " }}
+        " }}}
 
-        " Shougo/neco-vim "{{
+        " Shougo/neco-vim "{{{
         Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
         let g:ycm_semantic_triggers.vim = ['$', '&']
-        ""}}
-        " SirVer/ultisnips {{
+        ""}}}
+        " SirVer/ultisnips {{{
+        let g:UltiSnipsListSnippets="<M-\">"   " M-S-"
         let g:UltiSnipsExpandTrigger="<M-'>" " M-'
         let g:UltiSnipsJumpForwardTrigger="<C-j>"
         let g:UltiSnipsJumpBackwardTrigger="<C-k>"
         let g:UltiSnipsEditSplit = "horizontal"
-        let g:UltiSnipsListSnippets="<M-\">"   " M-S-"
         let g:UltiSnipsEnableSnipMate = 0
         " nvim have a different location, so set it
         let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
@@ -188,9 +188,9 @@
         " preview auto stop snippet. so disable it
         autocmd User UltiSnipsEnterFirstSnippet set completeopt-=preview
         autocmd User UltiSnipsExitLastSnippet set completeopt+=preview
-        " }}
+        " }}}
 
-        " " ctrlp {{
+        " " ctrlp {{{
         "     let g:ctrlp_cache_dir = '~/.vim/bundle/ctrlp.vim/cache/'
         "     let g:ctrlp_custom_ignore = '\v\.(git|hg|svn)$'
         "     " let g:ctrlp_buftag_ctags_bin = 'xtags'
@@ -205,16 +205,17 @@
         "                 \ }
         "     let g:ctrlp_user_command = 'find %s -type f'       " MacOSX/Linux
         "     Plug 'ctrlpvim/ctrlp.vim' ", {'on': ['CtrlPMRUFiles', 'CtrlP']}
-        " " }}
+        " " }}}
 
-        " tpope/vim-surround "{{
+        " tpope/vim-surround "{{{
+        let g:surround_no_insert_mappings = 1
         Plug 'tpope/vim-surround'
         xnoremap S s
         xmap s <Plug>VSurround
         xmap gs <Plug>VgSurround
-        "}}
+        "}}}
 
-        " tpope/vim-unimpaired"{{
+        " tpope/vim-unimpaired"{{{
         Plug 'tpope/vim-unimpaired'
         nnoremap coD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
         nnoremap [oD :windo diffthis<CR>
@@ -222,31 +223,31 @@
         nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
         nnoremap [oe :set ei=all<CR>
         nnoremap ]oe :set ei=<CR>
-        "}}
+        "}}}
 
-        " tpope/vim-repeat"{{
+        " tpope/vim-repeat"{{{
         Plug 'tpope/vim-repeat'
-        "}}
+        "}}}
 
-        " tpope/fugitive {{
+        " tpope/fugitive {{{
         Plug 'tpope/vim-fugitive'
         " re setf git to enable fugitive map
         autocmd VimEnter * if expand('<amatch>')=='' && &filetype=='git' |
                     \ call fugitive#detect(getcwd()) | setf git |
                     \ endif
-        " }}
+        " }}}
 
-        " junegunn/gv.vim {{
+        " junegunn/gv.vim {{{
         Plug 'junegunn/gv.vim', {'on': 'GV'}
-        " }}
+        " }}}
 
-        " junegunn/vim-easy-align {{
+        " junegunn/vim-easy-align {{{
         Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
         vmap <cr> <Plug>(EasyAlign)
         nmap ga   <Plug>(EasyAlign)
-        " }}
+        " }}}
 
-        " junegunn/fzf.vim {{
+        " junegunn/fzf.vim {{{
         " 易用性上还差一节, 而且需要集成到term里面..
         " ctrlp的自动定位git很有用.  unite的方便性比它好..
         " fzf 性能上有些优势.
@@ -262,33 +263,33 @@
         let g:fzf_layout = { 'up' : '~40%'  }
         Plug '/usr/local/opt/fzf'
         Plug 'junegunn/fzf.vim'
-        " "}}
+        " "}}}
         " 
-        " junegunn/goyo.vim {{
+        " junegunn/goyo.vim {{{
         Plug 'junegunn/goyo.vim'
-        " }}
+        " }}}
         
-        " junegunn/vim-slash {{
+        " junegunn/vim-slash {{{
         Plug 'junegunn/vim-slash'
         if has('timers') && !has('nvim')
             noremap <expr> <plug>(slash-after) slash#blink(2, 50)
         endif
-        " }}
+        " }}}
 
-        " kshenoy/vim-signature"{{
+        " kshenoy/vim-signature"{{{
         let g:SignaturePeriodicRefresh = 0
         "let g:SignatureEnabledAtStartup = 0
         let g:SignatureUnconditionallyRecycleMarks = 1
         Plug 'kshenoy/vim-signature'
-        "}}
+        "}}}
 
-        " restore_view {{
+        " restore_view {{{
         Plug 'vim-scripts/restore_view.vim'
         set viewoptions=folds,cursor
         let g:skipview_files = ['.*\.vim']
-        " }}
+        " }}}
 
-        " dash {{
+        " dash {{{
         Plug 'rizzatti/dash.vim', {'on': '<Plug>DashSearch'}
         nmap <LocalLeader>K <Plug>DashSearch
         let g:dash_map = {
@@ -296,9 +297,9 @@
             \ 'objcpp' : ['ios', 'cpp', 'c', 'manpages'],
             \ 'lua'  : ['lua','cocos2dx']
             \}
-        " }}
+        " }}}
 
-        " my plugin" {{
+        " my plugin" {{{
         Plug '~/.vim/bundle/vim-grepeditor'
         Plug '~/.vim/bundle/vim-objc-syntax', {'for': ['objc', 'objcpp']},
         Plug '~/.vim/bundle/quick-ultisnip'
@@ -308,13 +309,13 @@
         vmap <M-y> <Plug>quickUltiSnipYankVisual
         nmap <M-Y> <Plug>quickUltiSnipYankLineWise
         nmap <M-y> <Plug>quickUltiSnipYankOperator
-        " }}
+        " }}}
 
-        " ---lldb-plugin {{
+        " ---lldb-plugin {{{
         "Plugin 'gilligan/vim-lldb'
-        " }}
+        " }}}
 
-        " jiangmiao/auto-pair {{
+        " jiangmiao/auto-pair {{{
         let g:AutoPairsShortcutBackInsert = ""
         let g:AutoPairsShortcutToggle = ""
         let g:AutoPairsMoveCharacter = ""
@@ -326,9 +327,9 @@
         "             \ : "\<CR>"
 
         Plug 'jiangmiao/auto-pairs'
-        " }}
+        " }}}
 
-        " scrooloose/nerdtree {{
+        " scrooloose/nerdtree {{{
             let g:NERDTreeBookmarksFile = $HOME . "/.vim/bundle/nerdtree/.NERDTreeBookmarks"
             let g:NERDTreeShowLineNumbers = 1
             let g:NERDTreeCascadeSingleChildDir=1
@@ -339,9 +340,9 @@
             nnoremap <S-F2> :let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
             nmap <F14> <S-F2>
             nmap <Leader><F2> <S-F2>
-        " }}
+        " }}}
 
-        " " scrooloose/syntastic {{
+        " " scrooloose/syntastic {{{
         " let g:syntastic_python_checkers = ["python"]
         " let g:syntastic_python_python_exec = 'python'.g:usepy
         " " let g:syntastic_swift_checkers = ["swiftlint"]
@@ -349,8 +350,8 @@
         " let g:syntastic_auto_loc_list = 0
         " let g:syntastic_always_populate_loc_list = 1
         " Plug 'scrooloose/syntastic'
-        " " }}
-        " w0rp/ale async lint engine{{
+        " " }}}
+        " w0rp/ale async lint engine{{{
         let g:ale_lint_delay = 5000
         let g:ale_lint_on_text_changed = 0
         let g:ale_lint_on_save = 1
@@ -361,18 +362,18 @@
                     \ }
         let g:ale_rust_cargo_use_check = 1
         Plug 'w0rp/ale'
-        " }}
+        " }}}
 
-        " scrooloose/nerdcommenter {{
+        " scrooloose/nerdcommenter {{{
         let g:NERDSpaceDelims = 1
         " let g:NERDAltDelims_swift = 1
         " default map to <leader>c
         " let g:NERDCreateDefaultMappings = 0
         Plug 'scrooloose/nerdcommenter'
         imap <C-c> <HOME><Plug>NERDCommenterInsert
-        " }}
+        " }}}
 
-        " mileszs/ack.vim"{{
+        " mileszs/ack.vim"{{{
         let g:ackhighlight = 1
         " let g:ackprg = 'ag --vimgrep'
         let g:ackprg = 'rg --vimgrep -g "!*.xcodeproj"'
@@ -386,19 +387,19 @@
         " YCM will work extremly slow, I have fix it
         Plug 'mileszs/ack.vim', { 'on': 'Ack'}
         " Plug 'dyng/ctrlsf.vim'
-        "}}
+        "}}}
 
-        " --- sjl/gundo.vim"{{
+        " --- sjl/gundo.vim"{{{
         " Plug 'sjl/gundo.vim', {'on': 'GundoToggle'} " undo tree
         " nnoremap <F4> :GundoToggle<CR>
-        "}}
+        "}}}
 
-        " mbbill/undotree "{{
+        " mbbill/undotree "{{{
         Plug 'mbbill/undotree' ",             { 'on': 'UndotreeToggle'   }
         nnoremap <F4> :UndotreeToggle<CR>
-        "}}
+        "}}}
 
-        " kana/vim-submode"{{
+        " kana/vim-submode"{{{
         let g:submode_timeout = 0
         let g:submode_keep_leaving_key = 1
         Plug 'kana/vim-submode'
@@ -465,13 +466,13 @@
                     \ ,['',           'u',     '<C-U>',   '']
                     \ ])
     endfunction
-        "}}
+        "}}}
 
-        " terryma/vim-multiple-cursors "{{
+        " terryma/vim-multiple-cursors "{{{
         Plug 'terryma/vim-multiple-cursors'
-        "}}
+        "}}}
 
-        " Shougo/unite.vim"{{
+        " Shougo/unite.vim"{{{
             " " Using ag as recursive command.
             " Plug 'Shougo/unite.vim' ", {'on': 'Unite'}
             " " Plugin 'Shougo/unite-outline'
@@ -492,7 +493,7 @@
             " cnoremap <C-o> <CR>:<C-U>Unite line -input=<C-R>=escape(@/," ")<CR><CR>
 
             " autocmd FileType unite call s:unite_my_settings()
-            " function! s:unite_my_settings() "{{
+            " function! s:unite_my_settings() "{{{
             "     imap <buffer> '     <Plug>(unite_quick_match_default_action)
             "     nmap <buffer> '     <Plug>(unite_quick_match_default_action)
             "     imap <buffer> <C-J>     <Plug>(unite_quick_match_jump)
@@ -501,10 +502,10 @@
             "     imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
             "     nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
             "     imap <silent><buffer><expr> <C-s>     unite#do_action('splitswitch')
-            " endfunction "}}
-        "}}
+            " endfunction "}}}
+        "}}}
 
-        " Shougo/denite.vim"{{
+        " Shougo/denite.vim"{{{
             " fzf性能好得多, 带来的就是响应体验会好很多. denite有些卡
             " Plug 'Shougo/denite.nvim' ", {'on': 'Unite'}
             " " Plugin 'Shougo/unite-outline'
@@ -527,13 +528,13 @@
             " nnoremap <Space>uu :<C-U>DeniteResume -no-start-insert<CR>
             " " search like occur
             " cnoremap <C-o> <CR>:<C-U>Denite line -input=<C-R>=escape(@/," ")<CR><CR>
-        "}}
+        "}}}
 
-        " Shougo/vimproc.vim {{
+        " Shougo/vimproc.vim {{{
         Plug 'Shougo/vimproc.vim'
-        " }}
+        " }}}
 
-        " jpalardy/vim-slime "{{
+        " jpalardy/vim-slime "{{{
         let g:slime_no_mappings = 1
         " if has('nvim')
         "     let g:slime_target = "neovim"
@@ -543,61 +544,61 @@
         let g:slime_paste_file = tempname()
         let g:slime_python_ipython = 1
         Plug 'jpalardy/vim-slime', {'for': ['python', 'coffee']}
-        "}}
+        "}}}
 
-        " hynek/vim-python-pep8-indent"{{
+        " hynek/vim-python-pep8-indent"{{{
         Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
-        "}}
+        "}}}
 
-        " --- ivanov/vim-ipython"{{
+        " --- ivanov/vim-ipython"{{{
         "  seem abandoned
         " Plug 'ivanov/vim-ipython'
-        "}}
+        "}}}
 
-        " kchmck/vim-coffee-script"{{
+        " kchmck/vim-coffee-script"{{{
         Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-        "}}
-        "cespare/vim-toml "{{
+        "}}}
+        "cespare/vim-toml "{{{
         Plug 'cespare/vim-toml'
-        "}}"
+        "}}}"
 
-        " keith/swift.vim "{{
+        " keith/swift.vim "{{{
         Plug 'keith/swift.vim', {'for': 'swift'}
         " 现在支持还不够好. 以后真的需要再说吧. 暂时用xcode开发swift
         " Plug '~/.vim/bundle/sourcekittendaemon.vim', {'for': 'swift'}
         " Plug 'mitsuse/autocomplete-swift', {'for': 'swift'}
-        "}}
+        "}}}
 
-        " kana/vim-operator-user  "{{
+        " kana/vim-operator-user  "{{{
         Plug 'kana/vim-operator-user'
-        "}}
+        "}}}
 
-        " rhysd/vim-clang-format "{{
+        " rhysd/vim-clang-format "{{{
         " depend on vim-operator-user
         let g:clang_format#detect_style_file = 1 " use .clang-format
         Plug 'rhysd/vim-clang-format', {'on': ['<Plug>(operator-clang-format)']}
         command! -range=% -nargs=0 ClangFormat call plug#load('vim-clang-format') | call clang_format#replace(<line1>, <line2>)
-        "}}
+        "}}}
 
-        " rust-lang/rust.vim"{{
+        " rust-lang/rust.vim"{{{
         Plug 'rust-lang/rust.vim', {'for': 'rust'}
-        "}}
+        "}}}
 
-        "racer-rust/vim-racer"{{
+        "racer-rust/vim-racer"{{{
         let $RUST_SRC_PATH=$HOME."/Documents/github/rust/src/"
         " let g:racer_insert_paren = 0
         " let g:racer_experimental_completer = 1
         " let g:racer_no_default_keymappings = 1 " this option use custom mapping in filetype
         " " let g:racer_cmd = $HOME."/.cargo/bin/racer"
         " Plug 'racer-rust/vim-racer', {'for': 'rust'}
-        "}}
+        "}}}
 
-        " dag/vim-fish"{{
+        " dag/vim-fish"{{{
         " slow, better than None
         Plug 'dag/vim-fish', {'for': 'fish'}
-        ""}}
+        ""}}}
 
-        " " vim-airline {{
+        " " vim-airline {{{
         " airline 使用时间长了会花费大量时间检查样式, 先禁用
         " Plug 'vim-airline/vim-airline'
         " Plug 'vim-airline/vim-airline-themes'
@@ -616,8 +617,8 @@
         " endfunction
         " let &statusline = Sstatusline_expr()
         " 
-        " " }}
-        " itchyny/lightline.vim {{
+        " " }}}
+        " itchyny/lightline.vim {{{
         let g:lightline = {
                     \   'colorscheme' : 'base16_solarized_custom',
                     \   'active': {
@@ -659,12 +660,12 @@
         endfunction
 
         autocmd User ALELint call lightline#update()
-        " }}
-        " octol/vim-cpp-enhanced-highlight"{{
+        " }}}
+        " octol/vim-cpp-enhanced-highlight"{{{
         Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
-        ""}}
+        ""}}}
 
-        " plasticboy/vim-markdown "{{
+        " plasticboy/vim-markdown "{{{
         " 体验不够好
         Plug 'godlygeek/tabular', {'for': 'markdown'}
         Plug 'plasticboy/vim-markdown'
@@ -672,24 +673,24 @@
         let g:vim_markdown_math = 1
         let g:vim_markdown_folding_style_pythonic = 1
         " let g:vim_markdown_new_list_item_indent = 2
-        "}}
+        "}}}
 
-        " chriskempson/base16-vim "{{ color scheme(After Tomorrow)
+        " chriskempson/base16-vim "{{{ color scheme(After Tomorrow)
         Plug 'chriskempson/base16-vim' " still not good as solarized
-        "}}
+        "}}}
 
-        " nathanaelkane/vim-indent-guides"{{
+        " nathanaelkane/vim-indent-guides"{{{
         " Plug 'nathanaelkane/vim-indent-guides'
-        ""}}
+        ""}}}
 
-        " skwp/greplace.vim"{{
+        " skwp/greplace.vim"{{{
         " Plug 'skwp/greplace.vim'
-        "}}
+        "}}}
 
-        " wannesm/wmgraphviz.vim  {{
+        " wannesm/wmgraphviz.vim  {{{
         Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
-        "}}
-  "}}
+        "}}}
+  "}}}
 
     call plug#end()
     " filetype plugin indent on     " required
