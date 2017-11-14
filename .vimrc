@@ -240,7 +240,7 @@
     command! -nargs=? -complete=dir ITerm silent exe printf( "!open -a /Applications/iTerm.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
     command! DiffOn windo diffthis
     command! DiffOff windo diffoff
-    command! Hitest runtime syntax/hitest.vim
+    command! Hitest sp $VIMRUNTIME/syntax/hitest.vim | so %
     command! Colortest sp $VIMRUNTIME/syntax/colortest.vim|so %
     command! -nargs=? Scratch new +set\ bt=nowrite <args>
     command! -range=% TrimWhiteSpace <line1>,<line2>s/\m\s\+$//e

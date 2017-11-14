@@ -231,7 +231,7 @@
 
         " tpope/fugitive {{{
         Plug 'tpope/vim-fugitive'
-        " re setf git to enable fugitive map
+        " re setf git to enable fugitive map, fugitive#detect need a path to detect
         autocmd VimEnter * if expand('<amatch>')=='' && &filetype=='git' |
                     \ call fugitive#detect(getcwd()) | setf git |
                     \ endif
@@ -331,11 +331,12 @@
 
         " scrooloose/nerdtree {{{
             let g:NERDTreeBookmarksFile = $HOME . "/.vim/bundle/nerdtree/.NERDTreeBookmarks"
-            let g:NERDTreeShowLineNumbers = 1
+            " let g:NERDTreeShowLineNumbers = 1
             let g:NERDTreeCascadeSingleChildDir=1
             let g:NERDTreeMapOpenSplit = 's'
             let g:NERDTreeMapOpenVSplit = 'v'
             Plug 'scrooloose/nerdtree' " enable to replace netrw , {'on':[ 'NERDTreeToggle', 'NERDTreeFind' ]}
+            " Plug 'justinmk/vim-dirvish'
             nnoremap <F2> :let g:NERDTreeQuitOnOpen = 0 <bar> NERDTreeToggle<CR>
             nnoremap <S-F2> :let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
             nmap <F14> <S-F2>

@@ -130,9 +130,9 @@ nnoremap Za :confirm qa<CR>
 nnoremap ZA :qa!<CR>
 nnoremap ZX :confirm xa<CR>
 
-nnoremap <Space>et :<C-U>sp ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
-nnoremap <Space>ep :<C-U>sp ~/.vim/bundles.vim<CR>
-nnoremap <Space>ek :<C-U>sp ~/.vim/key-binding.vim<CR>
+nnoremap <Space>et :<C-U>0tabe ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
+nnoremap <Space>ep :<C-U>0tabe ~/.vim/bundles.vim<CR>
+nnoremap <Space>ek :<C-U>0tabe ~/.vim/key-binding.vim<CR>
 nnoremap <Space>fr :<C-U>CtrlPMRUFiles<CR>
 nnoremap <Space>ff :<C-U>CtrlP<CR>
 "}}}
@@ -362,7 +362,10 @@ vnoremap <silent> K      <esc>:<C-r>=line("'<") == line("'>") ? &keywordprg==':h
 
 " ii,jf,fj,jk 退出插入模式
 " left hand have too many work. here use right hand
-inoremap jk <ESC>
+noremap! jk <ESC>
+
+" make Y consistent with D, C, yank line can use yy
+nnoremap Y y$
 
 noremap <M-a> <C-\><C-N>ggVG
 noremap <M-c> "*y
