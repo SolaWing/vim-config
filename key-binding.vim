@@ -67,7 +67,7 @@ vnoremap <Space>t] :<C-U>tab tag <C-R>=GetVisualString()<CR><CR>
 vnoremap <Space>tg] :<C-U>tab tjump <C-R>=GetVisualString()<CR><CR>
 " close tab
 nnoremap <Space>tc :<C-U>confirm =v:count?v:count :""tabclose<CR>
-nnoremap <Space>tC :<C-U>silent windo quit!<CR>
+nnoremap <Space>tC :<C-U>call misc#tabclose_right(v:count)<CR>
 nnoremap <Space>to :<C-U>confirm =v:count?v:count :""tabonly<CR>
 " tab do
 nnoremap <Space>t: :<C-U>tabdo<Space>
