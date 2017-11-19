@@ -17,7 +17,7 @@ function! MyVIMComplete( findstart, base )
     " echom "prefix: ". l:line_prefix
     if a:findstart
         let l:ret = necovim#get_complete_position(l:line_prefix)
-        if l:ret < 0 | let l:ret = col('.') | endif " default to current
+        " if l:ret < 0 | let l:ret = col('.') | endif " default to current
         " echom "complete at ". l:ret
         return l:ret
     else

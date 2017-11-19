@@ -4,6 +4,7 @@ endif
 
 setl textwidth=120
 setl formatoptions-=t
+setl cursorline
 
 nnoremap <buffer> <LocalLeader>p :<C-U>KeepCursor %call markdown#preview()<CR>
 vnoremap <buffer> <LocalLeader>p :call markdown#preview()<CR>
