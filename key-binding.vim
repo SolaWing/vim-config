@@ -200,10 +200,10 @@ vnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ search "{{{
 nmap <Space>sp <Space>p/
 vmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZAg '<C-R><C-W><CR>
-vnoremap <Space>s* :<C-U>FZAg '<C-R>=GetVisualString()<CR><CR>
-nnoremap <Space>s8 :<C-U>FZAg '<C-R><C-W><CR>
-vnoremap <Space>s8 :<C-U>FZAg '<C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s* :<C-U>FZAg <C-R><C-W><CR>
+vnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s8 :<C-U>FZAg <C-R><C-W><CR>
+vnoremap <Space>s8 :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 vnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/
