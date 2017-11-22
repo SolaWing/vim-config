@@ -75,7 +75,7 @@
                         \ 'method'        : 'F',
                     \ }
                     \}
-        Plug 'majutsushi/tagbar' ", { 'on': 'TagbarToggle'}
+        Plug 'majutsushi/tagbar' , { 'on': 'TagbarToggle'}
         nnoremap <F3> :TagbarToggle<CR>
         " }}}
 
@@ -320,7 +320,18 @@
             let g:NERDTreeCascadeSingleChildDir=1
             let g:NERDTreeMapOpenSplit = 's'
             let g:NERDTreeMapOpenVSplit = 'v'
-            Plug 'scrooloose/nerdtree' " enable to replace netrw , {'on':[ 'NERDTreeToggle', 'NERDTreeFind' ]}
+            " enable to replace netrw
+            let g:loaded_netrwPlugin = 1
+            Plug 'scrooloose/nerdtree', {'on':[ 'NERDTreeToggle', 'NERDTreeFind' ]}
+            augroup nerd_loader
+                autocmd!
+                autocmd VimEnter * silent! autocmd! FileExplorer
+                autocmd BufEnter,BufNew *
+                            \  if isdirectory(expand('<amatch>'))
+                            \|   call plug#load('nerdtree')
+                            \|   execute 'autocmd! nerd_loader'
+                            \| endif
+            augroup END
             " Plug 'justinmk/vim-dirvish'
             nnoremap <F2> :let g:NERDTreeQuitOnOpen = 0 <bar> NERDTreeToggle<CR>
             nnoremap <S-F2> :let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
@@ -457,6 +468,9 @@
         " terryma/vim-multiple-cursors "{{{
         Plug 'terryma/vim-multiple-cursors'
         "}}}
+        " terryma/vim-expand-region {{{
+        Plug 'terryma/vim-expand-region'
+        " }}}
 
         " jpalardy/vim-slime "{{{
         let g:slime_no_mappings = 1

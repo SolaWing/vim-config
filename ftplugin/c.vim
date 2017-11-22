@@ -30,6 +30,9 @@ vnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 nmap <buffer> gq <Plug>(operator-clang-format)
 vnoremap <buffer> gq :ClangFormat<CR>
 
+" use / to surround /* block comment
+let b:surround_47 = "/* \r */"
+
 " select next () or {}
 " nnoremap <buffer> ]p /[({]v/[)}]
 " select preview () or {}
