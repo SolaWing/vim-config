@@ -200,12 +200,12 @@ vnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ search "{{{
 nmap <Space>sp <Space>p/
 vmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZAg <C-R><C-W><CR>
-vnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
-nnoremap <Space>s8 :<C-U>FZAg <C-R><C-W><CR>
-vnoremap <Space>s8 :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
-nnoremap <Space>s] :<C-U>FZTags <C-R><C-W><CR>
-vnoremap <Space>s] :<C-U>FZTags <C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s* :<C-U>FZAg '<C-R><C-W><CR>
+vnoremap <Space>s* :<C-U>FZAg '<C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s8 :<C-U>FZAg '<C-R><C-W><CR>
+vnoremap <Space>s8 :<C-U>FZAg '<C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
+vnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/
 vmap <Space>sm <LocalLeader>/
 " 取消搜索高亮
@@ -215,8 +215,8 @@ nnoremap <Leader><F3> :<C-U>FZBTags<CR>
 nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
 
 nnoremap <F6> :<C-U>FZTags<CR>
-nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W><CR>
-vnoremap <Leader><F6> :<C-U>FZTags <C-R>=GetVisualString()<CR><CR>
+nnoremap <Leader><F6> :<C-U>FZTags '<C-R><C-W><CR>
+vnoremap <Leader><F6> :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 
 " nnoremap n nzz
 " nnoremap N Nzz
@@ -313,7 +313,7 @@ vnoremap <Space>x] :call SurroundSpaceBetweenPairs('\[','\]')<CR>
 imap <C-x>f <plug>(fzf-complete-path)
 imap <C-x>l <plug>(fzf-complete-line)
 "}}}
-""" misc"{{{
+""" tags {{{
 nnoremap <LocalLeader><Space>s :<C-U>Scratch<Space>
 nnoremap <LocalLeader><Space>sp :<C-U>Scratch<Space>tmp.py<CR>
 nnoremap <LocalLeader><Space>ss :<C-U>Scratch<Space>tmp.sh<CR>
@@ -321,7 +321,8 @@ nnoremap <LocalLeader><Space>ss :<C-U>Scratch<Space>tmp.sh<CR>
 nnoremap <Space><C-]> :<C-U>tjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>] :<C-U>stjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
-
+" }}}
+""" misc"{{{
 nnoremap <C-W><Tab> :<C-U>FZLines<CR>
 nnoremap <Space><Tab> :<C-U>FZBLines<CR>
 vnoremap <Space><Tab> :<C-U>FZBLines<CR>
