@@ -291,8 +291,8 @@ vnoremap <Space>xw :TrimWhiteSpace<CR>
 nnoremap <Space>xl :TrimMultiEmptyLine<CR>
 vnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
-nnoremap <Space>xs :s/\V\<<C-R><C-W>\>/<C-R><C-W>/gc<Left><Left><Left><C-F>i
-vnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>s/\V<C-R>=GetVisualString()<CR>/<C-R>=GetVisualString()<CR>/gc<Left><Left><Left><C-F>i
+nnoremap <Space>xs :sno/\<<C-R><C-W>\>/<C-R><C-W>/gc<Left><Left><Left>
+vnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>sno/<C-R>=GetVisualString()<CR>/<C-R>=GetVisualString()<CR>/gc<Left><Left><Left>
 vnoremap g& :s//~/&<CR>
 
 nnoremap <Space>xS :s/ /\r/g<CR>
