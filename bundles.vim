@@ -120,9 +120,6 @@
             let g:ycm_complete_in_comments = 1
             let g:ycm_max_num_candidates = 0 " 先不用这功能, 会导致依次衰减失效
             let g:ycm_enable_diagnostic_highlighting = 0
-            " can pass same extra data to global conf
-            let g:ycm_extra_conf_vim_data = [['ycm_additional_flags','get(b:, "ycm_additional_flags", g:ycm_additional_flags)']]
-            let g:ycm_additional_flags = []
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             " let g:ycm_key_invoke_completion = '<M-.>'
             let g:ycm_key_detailed_diagnostics = '<LocalLeader>d'
@@ -170,10 +167,10 @@
         ""}}}
 
         " SirVer/ultisnips {{{
-        let g:UltiSnipsListSnippets="<M-\">"   " M-S-"
-        let g:UltiSnipsExpandTrigger="<M-'>" " M-'
-        let g:UltiSnipsJumpForwardTrigger="<C-j>"
-        let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+        let g:UltiSnipsListSnippets        = "<M-\">"   " M-S-"
+        let g:UltiSnipsExpandTrigger       = "<M-'>" " M-'
+        let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
+        let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
         let g:UltiSnipsEditSplit = "horizontal"
         let g:UltiSnipsEnableSnipMate = 0
         " nvim have a different location, so set it
@@ -197,6 +194,7 @@
 
         " tpope/vim-surround "{{{
         let g:surround_no_insert_mappings = 1
+        let g:surround_indent = 0
         Plug 'tpope/vim-surround'
         xnoremap S s
         xmap s <Plug>VSurround
