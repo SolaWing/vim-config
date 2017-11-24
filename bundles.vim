@@ -162,13 +162,8 @@
         " }}}
 
         " roxma/nvim-completion-manager{{{
-        let g:cm_matcher = { "module" : "cm_matchers.abbrev_matcher" }
+        let g:cm_matcher = { "module" : "cm_matchers.abbrev_matcher", "case" : "smartcase" }
         Plug 'roxma/nvim-completion-manager'
-        if !has('nvim')
-            Plug 'roxma/vim-hug-neovim-rpc'
-        else
-            imap <Nul> <C-Space>
-        endif
         inoremap <expr> <tab> pumvisible() ? "\<C-N>" : "\<tab>"
         inoremap <expr> <S-tab> pumvisible() ? "\<C-P>" : "\<S-tab>"
         function! NCM_Expand() range
@@ -182,6 +177,20 @@
         imap <expr> <Plug>(ncm_expand_key) (cm#completed_is_snippet() ? "\<M-'>":"\<CR>")
         " imap <expr> <CR>  (pumvisible() ?  "\<C-Y>\<Plug>(expand_or_nl)" : "\<CR>")
         imap <expr> <CR> NCM_Expand()
+
+        " Automatically start language servers.
+        let g:LanguageClient_autoStart = 1
+        let g:LanguageClient_serverCommands = {
+                    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+                    \ }
+
+        Plug 'autozimu/LanguageClient-neovim', { 'for': 'rust' }
+        if !has('nvim')
+            Plug 'roxma/vim-hug-neovim-rpc'
+            Plug 'roxma/nvim-yarp' " need by LanguageClient
+        else
+            imap <Nul> <C-Space>
+        endif
         "}}}
 
         " Shougo/neco-vim "{{{
