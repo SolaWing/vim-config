@@ -23,6 +23,7 @@ set rtp+=~/.vim/after
 set vdir=~/.vim/view
 
 let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
