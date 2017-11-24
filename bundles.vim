@@ -136,7 +136,7 @@
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
             let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
-            Plug '~/.vim/bundle/YouCompleteMe'
+            " Plug '~/.vim/bundle/YouCompleteMe'
 
             nnoremap <C-W><LocalLeader>gr <C-W>s:YcmCompleter GoToReferences<CR>
             nnoremap <C-W><LocalLeader>gg <C-W>s:YcmCompleter GoTo<CR>
@@ -158,8 +158,31 @@
             nnoremap <LocalLeader>gc :YcmDiags<CR>
 
             " put here for compatibility, autopair's bufenter will prior to ycm's vimenter, so need to define first
-            silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
+            " silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
         " }}}
+
+        " roxma/nvim-completion-manager{{{
+        let g:cm_matcher = { "module" : "cm_matchers.abbrev_matcher" }
+        Plug 'roxma/nvim-completion-manager'
+        if !has('nvim')
+            Plug 'roxma/vim-hug-neovim-rpc'
+        else
+            imap <Nul> <C-Space>
+        endif
+        inoremap <expr> <tab> pumvisible() ? "\<C-N>" : "\<tab>"
+        inoremap <expr> <S-tab> pumvisible() ? "\<C-P>" : "\<S-tab>"
+        function! NCM_Expand() range
+            if pumvisible()
+                call feedkeys("\<Plug>(ncm_expand_key)", "m")
+                return "\<C-Y>"
+            endif
+            return "\<CR>"
+        endfunction
+        imap <C-Space> <Plug>(cm_force_refresh)
+        imap <expr> <Plug>(ncm_expand_key) (cm#completed_is_snippet() ? "\<M-'>":"\<CR>")
+        " imap <expr> <CR>  (pumvisible() ?  "\<C-Y>\<Plug>(expand_or_nl)" : "\<CR>")
+        imap <expr> <CR> NCM_Expand()
+        "}}}
 
         " Shougo/neco-vim "{{{
         Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
