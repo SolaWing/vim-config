@@ -159,6 +159,9 @@
             nnoremap <LocalLeader>g :YcmCompleter GetType<CR>
             nnoremap <LocalLeader>gf :YcmCompleter FixIt<CR>
             nnoremap <LocalLeader>gc :YcmDiags<CR>
+
+            " put here for compatibility, autopair's bufenter will prior to ycm's vimenter, so need to define first
+            silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
         " }}}
 
         " Shougo/neco-vim "{{{
@@ -306,10 +309,6 @@
         let g:AutoPairsMoveCharacter = ""
         " let g:AutoPairsMapCR = 0
         let g:ycm_key_param_template = 0
-        " put here for compatibility, autopair's bufenter will prior to ycm's vimenter
-        silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
-        " silent! inoremap <expr> <CR> pumvisible()?"<C-y><C-r>=youcompleteme#OnCompleteAction()<CR>"
-        "             \ : "\<CR>"
 
         Plug 'jiangmiao/auto-pairs'
         " }}}

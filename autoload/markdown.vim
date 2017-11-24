@@ -7,14 +7,14 @@ def preview_markdown(name, s):
   cssPath = os.path.expanduser("~/Sites/github-pandoc.css")
   tempdir = tempfile.gettempdir()
   tmpName = os.path.join(tempdir, "preview-{}.html".format(name))
-  sp = subprocess.Popen(['pandoc', '-f', 'markdown+hard_line_breaks', '-o', tmpName, '--toc', '-c', cssPath]
-                        , stdin=subprocess.PIPE, universal_newlines=True)
+  sp = subprocess.Popen(['pandoc', '--standalone', '-f', 'markdown+hard_line_breaks', '-o', tmpName, '--toc', '-c', cssPath]
+                        , stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
   (o, e) = sp.communicate(s)
   code = sp.wait()
   if code == 0:
       os.system("open '%s'"%tmpName)
   else:
-      print( "error: ", e )
+      print( "error", code, ":", e )
 EOF
 function! markdown#preview() range
 exe printf('%d,%dPY << EOF', a:firstline, a:lastline)
