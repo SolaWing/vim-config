@@ -163,6 +163,8 @@
 
         " roxma/nvim-completion-manager{{{
         let g:cm_matcher = { "module" : "cm_matchers.abbrev_matcher", "case" : "smartcase" }
+        let g:cm_complete_start_delay = 0
+        let g:cm_auto_popup = 1
         Plug 'roxma/nvim-completion-manager'
         inoremap <expr> <tab> pumvisible() ? "\<C-N>" : "\<tab>"
         inoremap <expr> <S-tab> pumvisible() ? "\<C-P>" : "\<S-tab>"
