@@ -2,8 +2,7 @@
 "{{{
     """"""" 基本不会动的全局设定 {{{
         augroup mine | augroup end
-        source ~/.vim/functions.vim
-        command! -nargs=1 KeepCursor call KeepCursor(<q-args>)
+
         " set a map leader
         let mapleader = "\<Space>"
         let maplocalleader = ","
@@ -34,7 +33,15 @@
                 return function(printf('py%seval', g:usepy))(a:expr)
             endfunction
             PY u = {}
+            if has('nvim')
+                " according to https://github.com/neovim/neovim/issues/7063#issuecomment-340590539
+                " vim.api.eval is twice fast as vim.eval by not coercing number to string.
+                PY import vim; vim.eval = vim.api.eval
+            endif
         endif
+
+        source ~/.vim/functions.vim
+        command! -nargs=1 KeepCursor call KeepCursor(<q-args>)
         source ~/.vim/bundles.vim " plugins
 
         colorscheme base16-solarized-custom
@@ -53,10 +60,6 @@
         " 启用鼠标
         if has('mouse')
           set mouse=a
-        endif
-        "设置语法高亮
-        if &t_Co > 2 || has("gui_running")
-        syntax on
         endif
         "打开搜索高亮
         set hlsearch
