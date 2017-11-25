@@ -30,6 +30,6 @@ function! CacheWrap(func, ...) abort
 endfunction
 
 function! CacheClear(func) range
-    unlet! s:CachedProperty[string(a:func)]
+    silent! unlet s:CachedProperty[string(a:func)]
 endfunction
 " }}}

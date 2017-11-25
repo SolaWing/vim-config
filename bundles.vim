@@ -534,7 +534,7 @@
         ""}}}
 
         " itchyny/lightline.vim {{{
-        autocmd mine BufWinEnter * call CacheClear("fugitive#head")
+        autocmd mine BufEnter,FileChangedShellPost * call CacheClear("fugitive#head")
         function! CachedFugitiveHead()
             return CacheWrap("fugitive#head")
         endfunction
