@@ -166,6 +166,8 @@
         Plug 'roxma/nvim-completion-manager'
         inoremap <expr> <tab> pumvisible() ? "\<C-N>" : "\<tab>"
         inoremap <expr> <S-tab> pumvisible() ? "\<C-P>" : "\<S-tab>"
+        inoremap <silent> <M-'> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+
         function! NCM_Expand() range
             if pumvisible()
                 call feedkeys("\<Plug>(ncm_expand_key)", "m")
@@ -200,7 +202,8 @@
 
         " SirVer/ultisnips {{{
         let g:UltiSnipsListSnippets        = "<M-\">"   " M-S-"
-        let g:UltiSnipsExpandTrigger       = "<M-'>" " M-'
+        " let g:UltiSnipsExpandTrigger       = "<M-'>" " M-'
+        let g:UltiSnipsExpandTrigger       = "<Plug>(ultisnips_expand)" " M-'
         let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
         let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
         let g:UltiSnipsEditSplit = "horizontal"
