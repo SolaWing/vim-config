@@ -6,13 +6,13 @@ cnoremap <C-X><C-L> <C-L>
 cnoremap <C-X><C-A> <C-A>
 " use ctrl-A to move to begin, according to term
 cnoremap <C-A> <C-B>
-cnoremap <C-]> <C-\>eSearchCharInCmd(1,1, 2)<CR>
+cnoremap <C-]> <C-\>ecmdline#SearchChar(1,1, 2)<CR>
 " ctrl-K kill line
 cnoremap <C-K> <C-\>egetcmdpos()==1?"" :getcmdline()[:getcmdpos()-2]<CR>
 cnoremap <C-X><C-K> <C-K>
 " <M-]> to search backword
-cnoremap <M-]> <C-\>eSearchCharInCmd(0,0, 2)<CR>
-cnoremap <M-d> <C-\>eForwordDeleteWordInCmd()<CR>
+cnoremap <M-]> <C-\>ecmdline#SearchChar(0,0, 2)<CR>
+cnoremap <M-d> <C-\>ecmdline#ForwordDeleteWord()<CR>
 " sudo
 cabbrev w!! w !sudo tee % >/dev/null
 " search occur
@@ -298,17 +298,17 @@ vnoremap g& :s//~/&<CR>
 nnoremap <Space>xS :s/ /\r/g<CR>
 vnoremap <Space>xS :s/ /\r/g<CR>
 
-nnoremap <Space>xc :s/\V\<<C-R><C-W>\>/<C-R>=ToggleCamelOrUnderline("<C-R><C-W>")<CR>/gc
-vnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>s/\V<C-R>=tmp<CR>/<C-R>=ToggleCamelOrUnderline(tmp)<CR>/gc
+nnoremap <Space>xc :s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/gc
+vnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>s/\V<C-R>=tmp<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/gc
 
-nnoremap <Space>x( :call SurroundSpaceBetweenPairs('(',')')<CR>
-nnoremap <Space>x) :call SurroundSpaceBetweenPairs('(',')')<CR>
-nnoremap <Space>x[ :call SurroundSpaceBetweenPairs('\[','\]')<CR>
-nnoremap <Space>x] :call SurroundSpaceBetweenPairs('\[','\]')<CR>
-vnoremap <Space>x( :call SurroundSpaceBetweenPairs('(',')')<CR>
-vnoremap <Space>x) :call SurroundSpaceBetweenPairs('(',')')<CR>
-vnoremap <Space>x[ :call SurroundSpaceBetweenPairs('\[','\]')<CR>
-vnoremap <Space>x] :call SurroundSpaceBetweenPairs('\[','\]')<CR>
+nnoremap <Space>x( :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
+nnoremap <Space>x) :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
+nnoremap <Space>x[ :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
+nnoremap <Space>x] :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
+vnoremap <Space>x( :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
+vnoremap <Space>x) :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
+vnoremap <Space>x[ :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
+vnoremap <Space>x] :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
 
 imap <C-x>f <plug>(fzf-complete-path)
 imap <C-x>l <plug>(fzf-complete-line)

@@ -1,85 +1,8 @@
 """ vim: set sw=4 ts=4 sts=4 et foldlevel=1 foldmethod=marker:
 "{{{
-    " functions {{{
-       function! ForwordDeleteWordInCmd()
-           let cmdtext = getcmdline()
-           let cmdtext = substitute(cmdtext, '\%'.getcmdpos().'c.\s*\w*', '',"")
-           return cmdtext
-       endfunction
-
-       function! SearchCharInCmd(isForward, stopAfter, charCount) " like f in normal mode
-           let cmdtext = getcmdline()
-           let pos = getcmdpos() " 1 base pos
-
-           " get input char
-           let chars = ""
-           let c = 0
-           while c < a:charCount
-               echo ":".cmdtext . " | input ".(a:isForward?"forward":"backward")." char: ".chars
-               let char = getchar()
-               if type(char) == type(0)
-                   let char = nr2char(char)
-               endif
-
-               if char ==# "\r" || char ==# "\n"
-                   break
-               endif
-
-               let chars .= char
-
-               let c += 1
-           endwhile
-
-           if c == 0 " invalid input char
-               return cmdtext
-           endif
-           " search and jump pos
-           if a:isForward
-               " if stopAfter, can match current, and move after current
-               " else, search after current pos
-               let pos = pos - a:stopAfter
-               let topos = stridx(cmdtext, chars, pos) " 0 base pos
-           else
-               " if stopAfter, match previous char won't move, need to search furthor
-               " else can match previous char
-               let pos = pos-2- a:stopAfter * c
-               let topos = strridx(cmdtext, chars, pos) " 0 base pos, will match at pos
-           endif
-           " echom cmdtext "|" char pos topos a:isForward
-           if topos != -1
-               call setcmdpos(topos+1+ a:stopAfter * c)
-           endif
-           return cmdtext
-       endfunction
-
-       function! GetVisualString()
-           let old_reg = getreg('"')
-           let old_regtype = getregtype('"')
-           normal! gvy
-           let ret = @@
-           call setreg('"',old_reg, old_regtype)
-           return ret
-       endfunction
-
-       function! SurroundSpaceBetweenPairs(start, end) range
-           exe printf('%d,%ds/\(%s\)\ze\S/\1 /ge', a:firstline, a:lastline, a:start)
-           exe printf('%d,%ds/\S\zs\(%s\)/ \1/ge', a:firstline, a:lastline, a:end)
-       endfunction
-
-       function! ToggleCamelOrUnderline(str)
-           let l:ret = substitute(a:str, "_\\(\\a\\)", "\\u\\1", "g")
-           if ret ==# a:str
-               let l:ret = substitute(a:str, "\\l\\zs\\u", "_\\l\\0", "g")
-           endif
-           return l:ret
-       endfunction
-       function! KeepCursor(cmd)
-           let l:cursor = getcurpos()
-           exe "keepjumps" a:cmd
-           call setpos('.', l:cursor)
-       endfunction
-    " }}}
     """"""" 基本不会动的全局设定 {{{
+        augroup mine | augroup end
+        source ~/.vim/functions.vim
         command! -nargs=1 KeepCursor call KeepCursor(<q-args>)
         " set a map leader
         let mapleader = "\<Space>"
@@ -93,7 +16,7 @@
             " py3 dir
         else " terminal
             " colorscheme solarized
-            autocmd FocusGained * checktime
+            autocmd mine FocusGained * checktime
         endif
 
         " python version

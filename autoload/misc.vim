@@ -31,3 +31,16 @@ function! misc#tabclose_right(nr) range
     endif
     call misc#tabclose_range(start, '$')
 endfunction
+
+function! misc#SurroundSpaceBetweenPairs(start, end) range
+    exe printf('%d,%ds/\(%s\)\ze\S/\1 /ge', a:firstline, a:lastline, a:start)
+    exe printf('%d,%ds/\S\zs\(%s\)/ \1/ge', a:firstline, a:lastline, a:end)
+endfunction
+
+function! misc#ToggleCamelOrUnderline(str)
+    let l:ret = substitute(a:str, "_\\(\\a\\)", "\\u\\1", "g")
+    if ret ==# a:str
+        let l:ret = substitute(a:str, "\\l\\zs\\u", "_\\l\\0", "g")
+    endif
+    return l:ret
+endfunction

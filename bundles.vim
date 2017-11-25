@@ -188,8 +188,8 @@
         nnoremap <Leader>es :UltiSnipsEdit<CR>
 
         " preview auto stop snippet. so disable it
-        autocmd User UltiSnipsEnterFirstSnippet set completeopt-=preview
-        autocmd User UltiSnipsExitLastSnippet set completeopt+=preview
+        autocmd mine User UltiSnipsEnterFirstSnippet set completeopt-=preview
+        autocmd mine User UltiSnipsExitLastSnippet set completeopt+=preview
         " }}}
 
         " tpope/vim-surround "{{{
@@ -218,7 +218,7 @@
         " tpope/fugitive {{{
         Plug 'tpope/vim-fugitive'
         " re setf git to enable fugitive map, fugitive#detect need a path to detect
-        autocmd VimEnter * if expand('<amatch>')=='' && &filetype=='git' |
+        autocmd mine VimEnter * if expand('<amatch>')=='' && &filetype=='git' |
                     \ call fugitive#detect(getcwd()) | setf git |
                     \ endif
         " }}}
@@ -397,8 +397,7 @@
         let g:submode_timeout = 0
         let g:submode_keep_leaving_key = 1
         Plug 'kana/vim-submode'
-        au VimEnter * call s:submode_init()
-        let $ABC = 1
+        autocmd mine VimEnter * call s:submode_init()
     function! s:submode_init()
         function! SubmodeMap(name, mode, maps)
             for [enter, short, rhs, opt] in a:maps
@@ -535,6 +534,10 @@
         ""}}}
 
         " itchyny/lightline.vim {{{
+        autocmd mine BufWinEnter * call CacheClear("fugitive#head")
+        function! CachedFugitiveHead()
+            return CacheWrap("fugitive#head")
+        endfunction
         let g:lightline = {
                     \   'colorscheme' : 'base16_solarized_custom',
                     \   'active': {
@@ -548,7 +551,7 @@
                     \     'right': [ [ 'percent' ], [ 'lineinfo' ] ]
                     \   },
                     \   'component_function': {
-                    \     'gitbranch': 'fugitive#head',
+                    \     'gitbranch': 'CachedFugitiveHead',
                     \   },
                     \   'component_expand': {
                     \     'linter_warnings': 'LightlineLinterWarnings',
@@ -575,7 +578,7 @@
             return l:all_errors == 0 ? '' : printf('E%d', all_errors)
         endfunction
 
-        autocmd User ALELint call lightline#update()
+        autocmd mine User ALELint call lightline#update()
         " }}}
 
         " octol/vim-cpp-enhanced-highlight"{{{

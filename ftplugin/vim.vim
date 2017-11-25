@@ -2,7 +2,6 @@ if exists("b:did_ftplugin")
   finish
 endif
 
-setl keywordprg=:help
 " execute current line
 nnoremap <buffer> <LocalLeader>e :<C-U>exe getline(".")<CR>
 vnoremap <buffer> <LocalLeader>e :<C-U>for tmp in getline("'<","'>")<bar>exe tmp<bar>endfor<CR>

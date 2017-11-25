@@ -59,4 +59,7 @@ endfunction
 
 call lightline#colorscheme#base16_solarized_custom#gen()
 
-autocmd ColorScheme * call lightline#colorscheme#base16_solarized_custom#gen() | call lightline#colorscheme()
+augroup lightline_base16
+    au!
+    autocmd ColorScheme * call lightline#colorscheme#base16_solarized_custom#gen() | call lightline#colorscheme()
+augroup END
