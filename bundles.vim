@@ -1,4 +1,4 @@
-""" vim: set sw=4 ts=4 sts=4 et foldlevel=1 foldmethod=marker:
+""" vim: set sw=4 ts=4 sts=4 et foldmethod=marker:
 " vundle manager
     set nocompatible              " be iMproved, required
     call plug#begin('~/.vim/bundle')
@@ -138,27 +138,28 @@
             let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
             Plug '~/.vim/bundle/YouCompleteMe'
 
-            nnoremap <C-W><LocalLeader>gr <C-W>s:YcmCompleter GoToReferences<CR>
-            nnoremap <C-W><LocalLeader>gg <C-W>s:YcmCompleter GoTo<CR>
-            nnoremap <C-W><LocalLeader>gh <C-W>s:YcmCompleter GoToImprecise<CR>
+            nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
+            nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
+            nmap <C-W><LocalLeader>gh <C-W>s<LocalLeader>gh
 
-            nmap <C-W><M-g> <C-W>s<LocalLeader>gg
-            nmap <Space>t<M-g> <C-W>s<C-W>T<LocalLeader>gg
+            nmap <C-W><M-g> <C-W>s<M-g>
+            nmap <Space>t<M-g> <C-W>s<C-W>T<M-g>
             nmap <M-g> <LocalLeader>gg
 
             nnoremap <LocalLeader>gr :YcmCompleter GoToReferences<CR>
-            nnoremap <LocalLeader>gg :YcmCompleter GoTo<CR>
-            nnoremap <LocalLeader>gh :YcmCompleter GoToImprecise<CR>
+            nnoremap <LocalLeader>gh :YcmCompleter GoTo<CR>
+            nnoremap <LocalLeader>gg :YcmCompleter GoToImprecise<CR>
 
             nnoremap <LocalLeader>gd :YcmCompleter GetDoc<CR>
             nnoremap <LocalLeader>gt :YcmCompleter GetType<CR>
             nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
-            nnoremap <LocalLeader>g :YcmCompleter GetType<CR>
+            nnoremap <LocalLeader>g  :YcmCompleter GetType<CR>
             nnoremap <LocalLeader>gf :YcmCompleter FixIt<CR>
             nnoremap <LocalLeader>gc :YcmDiags<CR>
 
             " put here for compatibility, autopair's bufenter will prior to ycm's vimenter, so need to define first
             silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
+
         " }}}
 
         " Shougo/neco-vim "{{{

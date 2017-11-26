@@ -61,6 +61,7 @@ nnoremap <Space>ts <C-W>s<C-W>T
 nnoremap <Space>tn :<C-U>silent tabnew<CR>
 nnoremap <Space>te :<C-U>tabe<Space>
 nnoremap <Space>t] :<C-U>tab tag <C-R><C-W><CR>
+nmap <Space>t<C-]> <Space>t]
 nnoremap <Space>tg] :<C-U>tab tjump <C-R><C-W><CR>
 nnoremap <Space>t} :<C-U>tab tjump /.*<C-R><C-W>.*<CR>
 vnoremap <Space>t] :<C-U>tab tag <C-R>=GetVisualString()<CR><CR>
