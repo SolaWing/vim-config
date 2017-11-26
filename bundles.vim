@@ -1,4 +1,4 @@
-""" vim: set sw=4 ts=4 sts=4 et foldlevel=1 foldmethod=marker:
+""" vim: set sw=4 ts=4 sts=4 et foldmethod=marker:
 " vundle manager
     set nocompatible              " be iMproved, required
     call plug#begin('~/.vim/bundle')
@@ -138,9 +138,9 @@
             let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
             " Plug '~/.vim/bundle/YouCompleteMe'
 
-            nnoremap <C-W><LocalLeader>gr <C-W>s:YcmCompleter GoToReferences<CR>
-            nnoremap <C-W><LocalLeader>gg <C-W>s:YcmCompleter GoTo<CR>
-            nnoremap <C-W><LocalLeader>gh <C-W>s:YcmCompleter GoToImprecise<CR>
+            nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
+            nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
+            nmap <C-W><LocalLeader>gh <C-W>s<LocalLeader>gh
 
             nmap <C-W><M-g> <C-W>s<LocalLeader>gg
             nmap <Space>t<M-g> <C-W>s<C-W>T<LocalLeader>gg
@@ -169,7 +169,8 @@
         Plug 'roxma/nvim-completion-manager'
         inoremap <expr> <tab> pumvisible() ? "\<C-N>" : "\<tab>"
         inoremap <expr> <S-tab> pumvisible() ? "\<C-P>" : "\<S-tab>"
-        inoremap <silent> <M-'> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+        " seems no effect
+        " inoremap <silent> <M-'> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 
         function! NCM_Expand() range
             if pumvisible()
@@ -190,6 +191,15 @@
                     \ }
 
         Plug 'autozimu/LanguageClient-neovim', { 'for': 'rust' }
+        Plug 'davidhalter/jedi-vim', {'for': 'python'}
+        let g:jedi#auto_initialization    = 0
+        let g:jedi#auto_vim_configuration = 0
+        let g:jedi#show_call_signatures   = 0
+        let g:jedi#completions_enabled    = 0
+        function! PythonBinding()
+            nnoremap <buffer> <LocalLeader>gg :call jedi#goto_definitions()<CR>
+        endfunction
+        autocmd mine FileType python call PythonBinding()
         if !has('nvim')
             Plug 'roxma/vim-hug-neovim-rpc'
             Plug 'roxma/nvim-yarp' " need by LanguageClient
@@ -205,8 +215,8 @@
 
         " SirVer/ultisnips {{{
         let g:UltiSnipsListSnippets        = "<M-\">"   " M-S-"
-        " let g:UltiSnipsExpandTrigger       = "<M-'>" " M-'
-        let g:UltiSnipsExpandTrigger       = "<Plug>(ultisnips_expand)" " M-'
+        let g:UltiSnipsExpandTrigger       = "<M-'>" " M-'
+        " let g:UltiSnipsExpandTrigger       = "<Plug>(ultisnips_expand)" " M-'
         let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
         let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
         let g:UltiSnipsEditSplit = "horizontal"
