@@ -481,10 +481,6 @@
         Plug 'jpalardy/vim-slime', {'for': ['python', 'coffee']}
         "}}}
 
-        " " benmills/vimux {{{
-        " Plug 'benmills/vimux'
-        " " }}}
-
         " hynek/vim-python-pep8-indent"{{{
         Plug 'hynek/vim-python-pep8-indent'
         "}}}
@@ -603,10 +599,6 @@
         " more distract than useful
         " Plug 'nathanaelkane/vim-indent-guides'
         ""}}}
-
-        " -- skwp/greplace.vim"{{{
-        " Plug 'skwp/greplace.vim'
-        "}}}
 
         " wannesm/wmgraphviz.vim  {{{
         Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
