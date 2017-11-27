@@ -74,7 +74,7 @@ nnoremap <Space>to :<C-U>confirm =v:count?v:count :""tabonly<CR>
 nnoremap <Space>t: :<C-U>tabdo<Space>
 "}}}
 """ windows"{{{
-map <Space>w <C-W>
+Map <Space>w <C-W>
 nnoremap <C-W>w :<C-U>FZWindows<CR>
 nnoremap <C-W>e :<C-U>sp<Space>
 nnoremap <C-W>o :<C-U>confirm =v:count?v:count :""only<CR>
@@ -253,8 +253,8 @@ noremap! <M-BS> <C-W>
 inoremap <C-k> <C-o>D
 
 " easier horizontal scroll
-map zl zL
-map zh zH
+Map zl zL
+Map zh zH
 
 " command+return 插入新行
 inoremap <D-CR> <End><CR>
@@ -375,7 +375,7 @@ noremap <M-v> "*p
 inoremap <M-v> <C-R><C-O>*
 
 nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar> jumps <bar> let &more=b:prevmore<CR>
-map <Leader><CR> <Plug>(easymotion-bd-jk)
+" Map <Leader><CR> <Plug>(easymotion-bd-jk)
 
 
 " write " to specify register

@@ -93,8 +93,8 @@
         map  <M-?> <Plug>(easymotion-s)
         imap <M-?> <C-o><Plug>(easymotion-s)
 
-        map  <Space><CR>    <Plug>(easymotion-bd-jk)
-        map  <Space><Space> <Plug>(easymotion-s)
+        Map  <Space><CR>    <Plug>(easymotion-bd-jk)
+        Map  <Space><Space> <Plug>(easymotion-s)
         nmap <C-W><Space>   <Plug>(easymotion-overwin-f)
         nmap <C-W><M-/>     <Plug>(easymotion-overwin-w)
         nmap <C-W><CR>      <Plug>(easymotion-overwin-line)
@@ -106,9 +106,9 @@
         " justinmk/vim-sneak {{{
         let g:sneak#textobject_z = 0
         Plug 'justinmk/vim-sneak'
-        map \ <Plug>Sneak_s
-        map | <Plug>Sneak_S
-        map , <Plug>SneakPrevious
+        Map \ <Plug>Sneak_s
+        Map <bar> <Plug>Sneak_S
+        Map , <Plug>SneakPrevious
         " }}}
 
         " YouCompleteMe {{{

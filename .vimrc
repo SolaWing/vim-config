@@ -40,8 +40,12 @@
             endif
         endif
 
-        source ~/.vim/functions.vim
         command! -nargs=1 KeepCursor call KeepCursor(<q-args>)
+        " NOTE: space before | matters. or will have a additional <space>
+        command! -nargs=1 -complete=mapping -bar Map nmap <args>| xmap <args>| omap <args>
+        command! -nargs=1 -complete=mapping -bar Noremap nnoremap <args>| xnoremap <args>| onoremap <args>
+        
+        source ~/.vim/functions.vim
         source ~/.vim/bundles.vim " plugins
 
         colorscheme base16-solarized-custom
