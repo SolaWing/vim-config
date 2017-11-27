@@ -396,9 +396,6 @@
         " this seems to only set fcl = all, will affect other buffer
         " let g:ack_autofold_results = 1
 
-        " the find file will add to the unlisted buffers.
-        " when there have thousands of unlisted buffers,
-        " YCM will work extremly slow, I have fix it
         Plug 'mileszs/ack.vim', { 'on': 'Ack'}
         " Plug 'dyng/ctrlsf.vim'
         "}}}

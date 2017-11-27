@@ -1,9 +1,11 @@
 if exists("b:did_ftplugin") | finish | endif
 
+let b:ale_enabled = 0 " lint is too strict and distract. use ALEToggleBuffer to enable it
 " if !exists("g:python_recommended_style")
 "     let g:python_recommended_style = 0
 "     setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=4
 " endif
+
 
 nnoremap <buffer> <LocalLeader>e :<C-U>let tmp = system("python", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
 xnoremap <buffer> <LocalLeader>e :w !python<CR>
