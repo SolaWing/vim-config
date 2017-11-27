@@ -169,7 +169,7 @@
         " }}}
 
         " Shougo/neco-vim "{{{
-        Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
+        Plug 'Shougo/neco-vim', {'for': 'vim'}
         let g:ycm_semantic_triggers.vim = ['$', '&']
         ""}}}
 
@@ -404,7 +404,7 @@
         let g:submode_timeout = 0
         let g:submode_keep_leaving_key = 1
         Plug 'kana/vim-submode'
-        autocmd mine VimEnter * call s:submode_init()
+        autocmd mine VimEnter * call timer_start(200, {-> s:submode_init() })
     function! s:submode_init()
         function! SubmodeMap(name, mode, maps)
             for [enter, short, rhs, opt] in a:maps
