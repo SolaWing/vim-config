@@ -104,7 +104,6 @@
         "}}}
 
         " justinmk/vim-sneak {{{
-        let g:sneak#textobject_z = 0
         Plug 'justinmk/vim-sneak'
         Map \ <Plug>Sneak_s
         Map <bar> <Plug>Sneak_S
@@ -236,7 +235,7 @@
 
         " junegunn/vim-easy-align {{{
         Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-        vmap <cr> <Plug>(EasyAlign)
+        xmap <cr> <Plug>(EasyAlign)
         nmap ga   <Plug>(EasyAlign)
         " }}}
 

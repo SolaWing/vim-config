@@ -64,8 +64,8 @@ nnoremap <Space>t] :<C-U>tab tag <C-R><C-W><CR>
 nmap <Space>t<C-]> <Space>t]
 nnoremap <Space>tg] :<C-U>tab tjump <C-R><C-W><CR>
 nnoremap <Space>t} :<C-U>tab tjump /.*<C-R><C-W>.*<CR>
-vnoremap <Space>t] :<C-U>tab tag <C-R>=GetVisualString()<CR><CR>
-vnoremap <Space>tg] :<C-U>tab tjump <C-R>=GetVisualString()<CR><CR>
+xnoremap <Space>t] :<C-U>tab tag <C-R>=GetVisualString()<CR><CR>
+xnoremap <Space>tg] :<C-U>tab tjump <C-R>=GetVisualString()<CR><CR>
 " close tab
 nnoremap <Space>tc :<C-U>confirm =v:count?v:count :""tabclose<CR>
 nnoremap <Space>tC :<C-U>call misc#tabclose_right(v:count)<CR>
@@ -147,15 +147,15 @@ nnoremap <Space>h  :<C-U>FZHistory<CR>
 nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
-vnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
+xnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R><C-W>'<Left>
-vnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
+xnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <Space>pt :<C-U>!ctags -R '=getcwd()'
 ""}}}
 """ git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
-vnoremap <Space>gV :GV<CR>
+xnoremap <Space>gV :GV<CR>
 nnoremap <Space>gV :Gtabedit! log -p -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
@@ -168,9 +168,9 @@ nnoremap <Space>gp :Gpedit! push<CR>
 nnoremap <Space>gw :Gwrite<CR>
 nnoremap <Space>ge :Gedit<CR>
 nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
-" vnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
+" xnoremap <Space>gr :Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gl :GV?<CR>
-vnoremap <Space>gl :GV?<CR>
+xnoremap <Space>gl :GV?<CR>
 nnoremap <Space>g<Space> :<C-U>FZGFiles?<CR>
 "}}}
 """ quickFix"{{{
@@ -178,8 +178,8 @@ nnoremap <Space>Q :<C-U>cwin<CR>
 nnoremap <Space>q :<C-U>lwin<CR>
 nnoremap <Space>qs :<C-U>lvim/<C-R><C-W>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(6)<CR><BS>
 nnoremap <Space>qgs :<C-U>lvimgrepadd/<C-R><C-W>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(13)<CR><BS>
-vnoremap <Space>qs :<C-U>lvim/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(6)<CR><BS>
-vnoremap <Space>qgs :<C-U>lvimgrepadd/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(13)<CR><BS>
+xnoremap <Space>qs :<C-U>lvim/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(6)<CR><BS>
+xnoremap <Space>qgs :<C-U>lvimgrepadd/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(13)<CR><BS>
 " quick window undo and redo
 nnoremap <Space>Qu :<C-U>colder <C-R>=v:count1<CR><CR>
 nnoremap <Space>Q<C-R> :<C-U>cnewer <C-R>=v:count1<CR><CR>
@@ -193,22 +193,22 @@ nnoremap ]<M-l> :<C-U>lnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-l>",1)
 " use ack
 nnoremap <Space>Q/ :<C-U>Ack!<Space>
 nnoremap <Space>Q* :<C-U>Ack! <C-R><C-W><CR>
-vnoremap <Space>Q* :<C-U>Ack! <C-R>=GetVisualString()<CR><CR>
+xnoremap <Space>Q* :<C-U>Ack! <C-R>=GetVisualString()<CR><CR>
 nnoremap <Space>q/ :<C-U>LAck!<Space>
 nnoremap <Space>q* :<C-U>LAck! <C-R><C-W><CR>
-vnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
+xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 "}}}
 """ search "{{{
 nmap <Space>sp <Space>p/
-vmap <Space>sp <Space>p/
+xmap <Space>sp <Space>p/
 nnoremap <Space>s* :<C-U>FZAg <C-R><C-W><CR>
-vnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
+xnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
 nnoremap <Space>s8 :<C-U>FZAg <C-R><C-W><CR>
-vnoremap <Space>s8 :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
+xnoremap <Space>s8 :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
-vnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
+xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/
-vmap <Space>sm <LocalLeader>/
+xmap <Space>sm <LocalLeader>/
 " 取消搜索高亮
 nnoremap z/    :noh<CR>
 
@@ -217,7 +217,7 @@ nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
 
 nnoremap <F6> :<C-U>FZTags<CR>
 nnoremap <Leader><F6> :<C-U>FZTags '<C-R><C-W><CR>
-vnoremap <Leader><F6> :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
+xnoremap <Leader><F6> :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 
 " nnoremap n nzz
 " nnoremap N Nzz
@@ -288,28 +288,28 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 nnoremap <Space>xw :TrimWhiteSpace<CR>
-vnoremap <Space>xw :TrimWhiteSpace<CR>
+xnoremap <Space>xw :TrimWhiteSpace<CR>
 nnoremap <Space>xl :TrimMultiEmptyLine<CR>
-vnoremap <Space>xl :TrimMultiEmptyLine<CR>
+xnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
 nnoremap <Space>xs :sno/\<<C-R><C-W>\>/<C-R><C-W>/gc<Left><Left><Left>
-vnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>sno/<C-R>=GetVisualString()<CR>/<C-R>=GetVisualString()<CR>/gc<Left><Left><Left>
-vnoremap g& :s//~/&<CR>
+xnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>sno/<C-R>=GetVisualString()<CR>/<C-R>=GetVisualString()<CR>/gc<Left><Left><Left>
+xnoremap g& :s//~/&<CR>
 
 nnoremap <Space>xS :s/ /\r/g<CR>
-vnoremap <Space>xS :s/ /\r/g<CR>
+xnoremap <Space>xS :s/ /\r/g<CR>
 
 nnoremap <Space>xc :s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/gc
-vnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>s/\V<C-R>=tmp<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/gc
+xnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>s/\V<C-R>=tmp<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/gc
 
 nnoremap <Space>x( :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
 nnoremap <Space>x) :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
 nnoremap <Space>x[ :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
 nnoremap <Space>x] :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
-vnoremap <Space>x( :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
-vnoremap <Space>x) :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
-vnoremap <Space>x[ :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
-vnoremap <Space>x] :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
+xnoremap <Space>x( :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
+xnoremap <Space>x) :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
+xnoremap <Space>x[ :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
+xnoremap <Space>x] :call misc#SurroundSpaceBetweenPairs('\[','\]')<CR>
 
 imap <C-x>f <plug>(fzf-complete-path)
 imap <C-x>l <plug>(fzf-complete-line)
@@ -326,18 +326,18 @@ nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 """ misc"{{{
 nnoremap <C-W><Tab> :<C-U>FZLines<CR>
 nnoremap <Space><Tab> :<C-U>FZBLines<CR>
-vnoremap <Space><Tab> :<C-U>FZBLines<CR>
+xnoremap <Space><Tab> :<C-U>FZBLines<CR>
 " nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
 " vnoremap <Space><Tab> :<C-U>let pat=GetVisualString()<CR>:ilist /<C-R>=pat<CR>/<CR>:let n = input("Which one: ")<BAR>if n > 0<BAR>exe "ijump" n "/".pat."/"<BAR>endif<CR>
 
 nnoremap <Leader>* :<C-U>FZBLines '<C-R><C-W><CR>
-vnoremap <Leader>* :<C-U>FZBLines '<C-R>=GetVisualString()<CR><CR>
+xnoremap <Leader>* :<C-U>FZBLines '<C-R>=GetVisualString()<CR><CR>
 nmap <Leader>8 <Leader>*
-vmap <Leader>8 <Leader>*
+xmap <Leader>8 <Leader>*
 
 " <M-x> cmdline window
 nnoremap <M-x> q:i
-vnoremap <M-x> q:i
+xnoremap <M-x> q:i
 " repeat cmd
 inoremap <M-1> <esc>1
 inoremap <M-2> <esc>2
@@ -355,7 +355,7 @@ nnoremap z% v%zf
 
 " map K use help and can back
 nnoremap <silent> K      :<C-r>=&keywordprg==':help' <bar><bar> &keywordprg=='' ? printf("help %s",expand('<cword>')) : printf("!%s %s <bar> less", &keywordprg, expand('<cword>')) <CR><CR>
-vnoremap <silent> K      <esc>:<C-r>=line("'<") == line("'>") ? &keywordprg==':help' <bar><bar> &keywordprg=='' ? printf("help %s", getline("'<")[col("'<")-1:col("'>")-1] ) : printf("!%s %s <bar> less", &keywordprg, getline("'<")[col("'<")-1:col("'>")-1]) : "norm! gv" <cr><CR><CR>
+xnoremap <silent> K      <esc>:<C-r>=line("'<") == line("'>") ? &keywordprg==':help' <bar><bar> &keywordprg=='' ? printf("help %s", getline("'<")[col("'<")-1:col("'>")-1] ) : printf("!%s %s <bar> less", &keywordprg, getline("'<")[col("'<")-1:col("'>")-1]) : "norm! gv" <cr><CR><CR>
 
 " insert visual mode
 " inoremap <M-v> <C-O>v

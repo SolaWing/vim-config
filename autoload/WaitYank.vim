@@ -41,8 +41,8 @@ function! WaitYank#Wait(Callback)
         \ "cb"    : a:Callback ,
         \ }
 
-  vnoremap <silent><buffer> y y:call <SID>WaitYankEnd(1)<CR>
-  vnoremap <silent><buffer> Y Y:call <SID>WaitYankEnd(1)<CR>
+  xnoremap <silent><buffer> y y:call <SID>WaitYankEnd(1)<CR>
+  xnoremap <silent><buffer> Y Y:call <SID>WaitYankEnd(1)<CR>
   nnoremap <silent><buffer> y :<C-U>set opfunc=<SID>yop<CR>g@
   nnoremap <silent><buffer> Y Y:call <SID>WaitYankEnd(1)<CR>
 

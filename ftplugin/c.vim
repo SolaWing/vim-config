@@ -14,12 +14,12 @@ inoremap <buffer> <M-.> ->
 nnoremap <buffer> <LocalLeader>h      :call <SID>toggleHeader(1)<CR>
 nnoremap <buffer> <C-W><LocalLeader>h :call <SID>toggleHeader(0)<CR>
 nnoremap <buffer> <LocalLeader>z :CReFold<HOME>KeepCursor <CR>zz
-vnoremap <buffer> <LocalLeader>z :CReFold<CR>
+xnoremap <buffer> <LocalLeader>z :CReFold<CR>
 " comment
 " nnoremap <buffer> <LocalLeader>/ I//<esc>
-" vnoremap <buffer> <LocalLeader>/ :s'\m^'//<CR>
+" xnoremap <buffer> <LocalLeader>/ :s'\m^'//<CR>
 " nnoremap <buffer> <LocalLeader>? :<C-U>s'\m^\s*\zs//\+'<CR>
-" vnoremap <buffer> <LocalLeader>? :s'\m^\s*\zs//\+'<CR>
+" xnoremap <buffer> <LocalLeader>? :s'\m^\s*\zs//\+'<CR>
 " compile
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 " exchange for fast jump
@@ -27,11 +27,11 @@ nnoremap <LocalLeader>gh :YcmCompleter GoTo<CR>
 nnoremap <LocalLeader>gg :YcmCompleter GoToImprecise<CR>
 
 nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
-vnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
+xnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 
 " Clang-Format integrate
 nmap <buffer> gq <Plug>(operator-clang-format)
-vnoremap <buffer> gq :ClangFormat<CR>
+xnoremap <buffer> gq :ClangFormat<CR>
 
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"

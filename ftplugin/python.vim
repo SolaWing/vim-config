@@ -15,10 +15,10 @@ xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 setl formatoptions-=t nosmartindent
 
 com! -range=% PythonFold <line1>,<line2>call PythonFold()
-nnoremap <LocalLeader>z :%call PythonFold()<CR>
-vnoremap <LocalLeader>z :call PythonFold()<CR>
+nnoremap <buffer> <LocalLeader>z :%call PythonFold()<CR>
+xnoremap <buffer> <LocalLeader>z :call PythonFold()<CR>
 nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
-vnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
+xnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 
 " in one command use fold will close text and cause include fold fail!!
 function! PythonFold() range
