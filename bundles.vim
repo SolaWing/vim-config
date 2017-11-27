@@ -147,8 +147,8 @@
             nmap <M-g> <LocalLeader>gg
 
             nnoremap <LocalLeader>gr :YcmCompleter GoToReferences<CR>
-            nnoremap <LocalLeader>gh :YcmCompleter GoTo<CR>
-            nnoremap <LocalLeader>gg :YcmCompleter GoToImprecise<CR>
+            nnoremap <LocalLeader>gg :YcmCompleter GoTo<CR>
+            nnoremap <LocalLeader>gh :YcmCompleter GoToImprecise<CR>
 
             nnoremap <LocalLeader>gd :YcmCompleter GetDoc<CR>
             nnoremap <LocalLeader>gt :YcmCompleter GetType<CR>

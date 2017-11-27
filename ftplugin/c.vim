@@ -22,6 +22,9 @@ vnoremap <buffer> <LocalLeader>z :CReFold<CR>
 " vnoremap <buffer> <LocalLeader>? :s'\m^\s*\zs//\+'<CR>
 " compile
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
+" exchange for fast jump
+nnoremap <LocalLeader>gh :YcmCompleter GoTo<CR>
+nnoremap <LocalLeader>gg :YcmCompleter GoToImprecise<CR>
 
 nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 vnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
