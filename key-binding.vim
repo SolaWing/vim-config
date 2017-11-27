@@ -105,6 +105,10 @@ nnoremap <S-F5> :lwin<cr>
 nmap <F17> <S-F5>
 nmap <Leader><F5> <S-F5>
 "}}}
+""" terminal"{{{
+tnoremap <ESC> <C-\><C-n>
+tnoremap jk <C-\><C-n>
+"}}}
 """ buffer"{{{
 nnoremap <Space>bw :<C-U>confirm w<CR>
 nnoremap <Space>bx :<C-U>confirm x<CR>
@@ -150,6 +154,7 @@ nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 xnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R><C-W>'<Left>
 xnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
+" term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
 nnoremap <Space>pt :<C-U>!ctags -R '=getcwd()'
 ""}}}
 """ git version control"{{{
