@@ -1,4 +1,4 @@
-""" vim: set sw=4 ts=4 sts=4 et foldmethod=marker:
+""" vim: set sw=4 ts=4 sts=4 et foldmethod=marker foldlevel=1:
 " vundle manager
     set nocompatible              " be iMproved, required
     call plug#begin('~/.vim/bundle')
@@ -140,7 +140,6 @@
                 au!
                 autocmd CursorHold,CursorHoldI,InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
                             \| autocmd! my_ycm_load
-                            \| echom "loaded ycm"
             augroup END
 
             nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
@@ -173,8 +172,18 @@
         ""}}}
 
         " SirVer/ultisnips {{{
-        let g:UltiSnipsListSnippets        = "<M-\">"   " M-S-"
-        let g:UltiSnipsExpandTrigger       = "<M-'>" " M-'
+        let g:UltiSnipsListSnippets        = "<Plug>UltisnipList"
+        let g:UltiSnipsExpandTrigger       = "<Plug>UltisnipExpand"
+        function! ExpandOrList()
+            let l = getline('.')
+            let l:kw = matchstr(l,'\v\S+$')
+            if len(l:kw)
+                return "\<Plug>UltisnipExpand"
+            endif
+            return "\<Plug>UltisnipList"
+        endfunction
+        imap <expr> <M-'> ExpandOrList()
+        imap <M-"> <Plug>UltisnipList
         let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
         let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
         let g:UltiSnipsEditSplit = "horizontal"
@@ -195,7 +204,7 @@
 
         " preview auto stop snippet. so disable it
         autocmd mine User UltiSnipsEnterFirstSnippet set completeopt-=preview
-        autocmd mine User UltiSnipsExitLastSnippet set completeopt+=preview
+        autocmd mine User UltiSnipsExitLastSnippet   set completeopt+=preview
         " }}}
 
         " tpope/vim-surround "{{{
