@@ -23,8 +23,8 @@ xnoremap <buffer> <LocalLeader>z :CReFold<CR>
 " compile
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 " exchange for fast jump
-nnoremap <LocalLeader>gh :YcmCompleter GoTo<CR>
-nnoremap <LocalLeader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <buffer> <LocalLeader>gh :YcmCompleter GoTo<CR>
+nnoremap <buffer> <LocalLeader>gg :YcmCompleter GoToImprecise<CR>
 
 nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 xnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
