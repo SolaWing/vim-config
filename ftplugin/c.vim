@@ -37,9 +37,9 @@ xnoremap <buffer> gq :ClangFormat<CR>
 let b:surround_47 = "/* \r */"
 
 " select next () or {}
-" nnoremap <buffer> ]p /[({]v/[)}]
+" nnoremap <buffer> ]p /[({]<CR>v/[)}]<CR>
 " select preview () or {}
-" nnoremap <buffer> [p ?[)}]v?[({]
+" nnoremap <buffer> [p ?[)}]<CR>v?[({]<CR>
 
 " ycmd mouse integrate
 " nmap <2-LeftMouse> <M-g>

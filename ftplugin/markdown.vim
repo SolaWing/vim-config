@@ -28,15 +28,15 @@ xmap <buffer> <LocalLeader>s s~gvs~
 nnoremap <buffer> <LocalLeader>a| :silent KeepCursor ?^\s*\n?+1,/^\s*\n/-1 EasyAlign * |<CR>
 nnoremap <buffer> <LocalLeader>at :TableFormat<CR>
 
-nnoremap <buffer> <LocalLeader>^ :sort /^.*\%=virtcol('.')-1v/
-xnoremap <buffer> <LocalLeader>^ :'<,'>sort /^.*\%=virtcol('.')-1v/
+nnoremap <buffer> <LocalLeader>^ :sort /^.*\%=virtcol('.')-1<CR>v/
+xnoremap <buffer> <LocalLeader>^ :'<,'>sort /^.*\%=virtcol('.')-1<CR>v/
 
 function! s:header_line(char)
     let vc = virtcol('$')
     if vc > 0
         let sep = repeat(a:char, vc - 1)
         call append(line('.'), sep)
-        norm! j$
+        exe "norm! j$\<CR>"
     endif
 endfunction
 
