@@ -183,6 +183,8 @@
             return "\<Plug>UltisnipList"
         endfunction
         imap <expr> <M-'> ExpandOrList()
+        " visual expand
+        xmap <M-'> <Plug>UltisnipExpand
         imap <M-"> <Plug>UltisnipList
         let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
         let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
