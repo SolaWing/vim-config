@@ -43,10 +43,6 @@ com! ShowSyntaxStack for tmp in synstack(line("."),col("."))|
       \ . synIDattr(synIDtrans(tmp),"name") . ">"| endfor
 "}}}
 
-" WaitYankAndPaste "{{{
-inoremap <expr> <M-y>  WaitYank#Paste()
-inoremap <expr> <C-R>? WaitYank#Paste()
-"}}}
 " FindAll"{{{
 " com! -range=% -nargs=1 FindAll echo <q-args> | <line1>,<line2>PY u['findall'](<q-args>)
 " nnoremap <space>xf :FindAll<space>

@@ -304,12 +304,15 @@
         Plug '~/.vim/bundle/vim-grepeditor'
         Plug '~/.vim/bundle/vim-objc-syntax', {'for': ['objc', 'objcpp']},
         Plug '~/.vim/bundle/quick-ultisnip'
+        Plug '~/.vim/bundle/WaitYank.vim'
         " <C-r><CR> has problem, may not recognized
         inoremap <C-r>$ <C-R>=quickUltiSnip#Insert()<CR>
         nnoremap <M-p> :call quickUltiSnip#Paste()<CR>
         vmap <M-y> <Plug>quickUltiSnipYankVisual
         nmap <M-Y> <Plug>quickUltiSnipYankLineWise
         nmap <M-y> <Plug>quickUltiSnipYankOperator
+        inoremap <expr> <M-y>  WaitYank#Paste()
+        inoremap <expr> <C-R>? WaitYank#Paste()
         " }}}
 
         " " lldb-plugin {{{
