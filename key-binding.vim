@@ -203,7 +203,7 @@ nnoremap <Space>q/ :<C-U>LAck!<Space>
 nnoremap <Space>q* :<C-U>LAck! <C-R><C-W><CR>
 xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 "}}}
-""" search "{{{
+""" navigate "{{{
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
 nnoremap <Space>s* :<C-U>FZAg <C-R><C-W><CR>
@@ -214,8 +214,14 @@ nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/
 xmap <Space>sm <LocalLeader>/
-" 取消搜索高亮
-nnoremap z/    :noh<CR>
+
+nnoremap <Space><Tab> :<C-U>FZBLines<CR>
+xnoremap <Space><Tab> :<C-U>FZBLines<CR>
+nnoremap <Leader>* :<C-U>FZBLines '<C-R><C-W><CR>
+xnoremap <Leader>* :<C-U>FZBLines '<C-R>=GetVisualString()<CR><CR>
+nmap <Leader>8 <Leader>*
+xmap <Leader>8 <Leader>*
+nnoremap <C-W><Tab> :<C-U>FZLines<CR>
 
 nnoremap <Leader><F3> :<C-U>FZBTags<CR>
 nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
@@ -223,6 +229,9 @@ nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
 nnoremap <F6> :<C-U>FZTags<CR>
 nnoremap <Leader><F6> :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Leader><F6> :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
+
+" 取消搜索高亮
+nnoremap z/    :noh<CR>
 
 " nnoremap n nzz
 " nnoremap N Nzz
@@ -288,6 +297,13 @@ nnoremap c* *Ncgn
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 xnoremap @<esc> <Nop>
 
+nnoremap Q @q
+xmap Q @q
+
+" make Q to quick replay macro
+
+
+
 function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
@@ -329,16 +345,6 @@ nnoremap <Space><C-W>] :<C-U>stjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 " }}}
 """ misc"{{{
-nnoremap <C-W><Tab> :<C-U>FZLines<CR>
-nnoremap <Space><Tab> :<C-U>FZBLines<CR>
-xnoremap <Space><Tab> :<C-U>FZBLines<CR>
-" nnoremap <Space><Tab> [I:let n = input("Which one: ")<Bar>if n > 0 <BAR>exe "normal" n."[\t" <BAR>endif<CR>
-" vnoremap <Space><Tab> :<C-U>let pat=GetVisualString()<CR>:ilist /<C-R>=pat<CR>/<CR>:let n = input("Which one: ")<BAR>if n > 0<BAR>exe "ijump" n "/".pat."/"<BAR>endif<CR>
-
-nnoremap <Leader>* :<C-U>FZBLines '<C-R><C-W><CR>
-xnoremap <Leader>* :<C-U>FZBLines '<C-R>=GetVisualString()<CR><CR>
-nmap <Leader>8 <Leader>*
-xmap <Leader>8 <Leader>*
 
 " <M-x> cmdline window
 nnoremap <M-x> q:i
@@ -378,6 +384,7 @@ noremap <M-a> <C-\><C-N>ggVG
 noremap <M-c> "*y
 noremap <M-v> "*p
 inoremap <M-v> <C-R><C-O>*
+cnoremap <M-v> <C-R><C-R>*
 
 nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar> jumps <bar> let &more=b:prevmore<CR>
 " Map <Leader><CR> <Plug>(easymotion-bd-jk)
