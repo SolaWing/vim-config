@@ -122,6 +122,18 @@
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             " let g:ycm_key_invoke_completion = '<M-.>'
             let g:ycm_key_detailed_diagnostics = '<LocalLeader>d'
+            let g:ycm_filetype_blacklist = {
+                        \ 'tagbar' : 1,
+                        \ 'qf' : 1,
+                        \ 'notes' : 1,
+                        \ 'markdown' : 0,
+                        \ 'unite' : 1,
+                        \ 'text' : 1,
+                        \ 'vimwiki' : 1,
+                        \ 'pandoc' : 1,
+                        \ 'infolog' : 1,
+                        \ 'mail' : 1
+                        \}
             let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
             let g:ycm_semantic_triggers = {
                         \ 'swift' : ['.']
@@ -337,7 +349,8 @@
             let g:NERDTreeCascadeSingleChildDir=1
             let g:NERDTreeMapOpenSplit = 's'
             let g:NERDTreeMapOpenVSplit = 'v'
-            " enable to replace netrw
+            let g:NERDTreeWinSize = 51
+            " disable netrw
             let g:loaded_netrwPlugin = 1
             Plug 'scrooloose/nerdtree', {'on':[ 'NERDTreeToggle', 'NERDTreeFind' ]}
             augroup nerd_loader
@@ -467,7 +480,6 @@
                     \ ,['',           '<C-T>', '<C-W>T',  '']
                     \ ,['',           's',     '<C-W>s',  '']
                     \ ,['',           'v',     '<C-W>v',  '']
-                    \ ,['',           'n',     '<C-W>n',  '']
                     \ ,['',           'q',     '<C-W>q',  '']
                     \ ,['',           'c',     '<C-W>c',  '']
                     \ ,['',           'o',     '<C-W>o',  '']
