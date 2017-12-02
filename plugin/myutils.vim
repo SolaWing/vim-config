@@ -8,6 +8,7 @@ let g:loaded_myutils = 1
 """ python-shell: directly as a script interactive shell "{{{
 PY << EOF
 import interactivePython
+interactivePython.g = globals()
 u['interactiveScriptAnywhere'] = interactivePython.interactiveScriptAnywhere
 u['findall'] = interactivePython.findAll
 del interactivePython
