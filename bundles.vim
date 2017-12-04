@@ -238,6 +238,9 @@
         nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
         nnoremap [oe :set ei=all<CR>
         nnoremap ]oe :set ei=<CR>
+        autocmd VimEnter *
+                    \ call UnimpairedMapTransform('misc#URLEncode','[u')
+                    \ | call UnimpairedMapTransform('misc#URLDecode',']u')
         "}}}
 
         " tpope/vim-repeat"{{{

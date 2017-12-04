@@ -44,3 +44,21 @@ function! misc#ToggleCamelOrUnderline(str)
     endif
     return l:ret
 endfunction
+
+function! misc#URLEncode(str)
+py3 << EOF
+from urllib.parse import quote
+_ = quote(vim.eval('a:str'))
+del quote
+EOF
+    return py3eval("_")
+endfunction
+
+function! misc#URLDecode(str) range
+py3 << EOF
+from urllib.parse import unquote
+_ = unquote(vim.eval('a:str'))
+del unquote
+EOF
+    return py3eval("_")
+endfunction
