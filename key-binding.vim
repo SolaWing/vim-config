@@ -344,6 +344,10 @@ nnoremap <Space><C-]> :<C-U>tjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>] :<C-U>stjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 " }}}
+""" textobject "{{{
+xnoremap ig ggoG$
+omap ig :norm Vig<CR>
+""" }}}
 """ misc"{{{
 
 " <M-x> cmdline window
@@ -361,6 +365,8 @@ inoremap <M-8> <esc>8
 inoremap <M-9> <esc>9
 inoremap <M-q> <esc>q
 
+" format
+nmap gqq gqig
 " fold
 nnoremap z% v%zf
 

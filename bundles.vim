@@ -132,7 +132,8 @@
                         \ 'vimwiki' : 1,
                         \ 'pandoc' : 1,
                         \ 'infolog' : 1,
-                        \ 'mail' : 1
+                        \ 'mail' : 1,
+                        \ 'fzf' : 1,
                         \}
             let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
             let g:ycm_semantic_triggers = {
