@@ -373,16 +373,6 @@
             nmap <Leader><F2> <S-F2>
         " }}}
 
-        " " scrooloose/syntastic {{{
-        " let g:syntastic_python_checkers = ["python"]
-        " let g:syntastic_python_python_exec = 'python'.g:usepy
-        " " let g:syntastic_swift_checkers = ["swiftlint"]
-        " " seem auto loc cause E924
-        " let g:syntastic_auto_loc_list = 0
-        " let g:syntastic_always_populate_loc_list = 1
-        " Plug 'scrooloose/syntastic'
-        " " }}}
-
         " w0rp/ale async lint engine{{{
         let g:ale_lint_delay = 5000
         let g:ale_lint_on_text_changed = 0
@@ -394,15 +384,6 @@
                     \ }
         let g:ale_rust_cargo_use_check = 1
         Plug 'w0rp/ale'
-        " }}}
-
-        " " scrooloose/nerdcommenter {{{
-        " let g:NERDSpaceDelims = 1
-        " " let g:NERDAltDelims_swift = 1
-        " " default map to <leader>c
-        " " let g:NERDCreateDefaultMappings = 0
-        " Plug 'scrooloose/nerdcommenter'
-        " imap <C-c> <HOME><Plug>NERDCommenterInsert
         " }}}
 
         " tpope/vim-commentary{{{
@@ -511,7 +492,7 @@
         " endif
         let g:slime_paste_file = tempname()
         let g:slime_python_ipython = 1
-        Plug 'jpalardy/vim-slime', {'for': ['python', 'coffee']}
+        Plug 'jpalardy/vim-slime', {'on': ['<Plug>SlimeLineSend', '<Plug>SlimeRegionSend']}
         "}}}
 
         " hynek/vim-python-pep8-indent"{{{

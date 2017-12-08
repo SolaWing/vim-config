@@ -346,7 +346,7 @@ nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 " }}}
 """ textobject "{{{
 xnoremap ig ggoG$
-omap ig :norm Vig<CR>
+omap ig :slient norm Vig<CR>
 """ }}}
 """ misc"{{{
 
@@ -402,7 +402,7 @@ function! SetRegister() range
     if type(char) == type(0)
         let char = nr2char(char)
         if char =~# '^[0-9a-zA-Z/*+~]$'
-            exe printf('let @%s = @"', char)
+            exe printf('let @%s = @" | echo "save unnamed register to %s"', char, char)
         endif
     endif
 endfunction
