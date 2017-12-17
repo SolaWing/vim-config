@@ -346,7 +346,7 @@ nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 " }}}
 """ textobject "{{{
 xnoremap ig ggoG$
-omap ig :slient norm Vig<CR>
+omap ig :silent norm Vig<CR>
 """ }}}
 """ misc"{{{
 
