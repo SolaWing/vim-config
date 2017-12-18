@@ -4,9 +4,9 @@
 import os.path, sys, asyncio
 from asyncio.subprocess import PIPE, STDOUT, DEVNULL
 
-patch_plugs = ['base16-vim', 'vim-submode']
-bundle_dir  = os.path.expanduser("~/.vim/bundle")
-base_url    = "https://github.com/SolaWing"
+patch_plugs = ['base16-vim', 'vim-submode', 'vim-easymotion' 'dash.vim']
+bundle_dir = os.path.expanduser("~/.vim/bundle")
+base_url = "https://github.com/SolaWing"
 
 
 async def patch(plug):
@@ -22,7 +22,6 @@ async def patch(plug):
             return p
 
         print(f"begin patch {plug} from {url}")
-
         await run_process(f"git remote add sw '{url}'")
         p = await run_process(f"git status --porcelain -uno", stdout=PIPE)
         stdout = await p.stdout.read()
@@ -33,7 +32,6 @@ async def patch(plug):
                 if a == 'n': raise asyncio.futures.CancelledError
                 if a == 'y': break
         await run_process(f"git checkout master -f && git reset --hard origin/master")
-
 
         p: asyncio.subprocess.Process = await run_process("git pull sw master", stdout=PIPE, stderr=STDOUT)
         stdout = (await p.stdout.read()).decode('utf8')

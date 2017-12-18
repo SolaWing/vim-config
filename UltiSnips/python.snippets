@@ -22,7 +22,12 @@ endsnippet
 snippet f "quick function" b
 def ${1:function}(`!p
 if snip.indent:
-    snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
+    snip.rv = 'self'`${2}):
+	${0:${VISUAL:pass}}
+endsnippet
+
+snippet af "async def" b
+async def ${1:func}($2):
 	${0:${VISUAL:pass}}
 endsnippet
 
