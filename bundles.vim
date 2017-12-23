@@ -618,6 +618,16 @@
         Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
         "}}}
 
+        " lisp test{{{
+        " slow and buggy. many for it's swank completion. try other ways
+        " Plug 'kovisoft/slimv',               {'for': ['racket', 'scheme']}
+        Plug 'wlangstroth/vim-racket',                     {'for': ['racket', 'scheme']}
+        Plug 'kien/rainbow_parentheses.vim',               {'for': ['racket', 'scheme']}
+        " Plug 'MicahElliott/vrod',                          {'for': ['racket', 'scheme']}
+        Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme']}
+        Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme']}
+
+        " }}}
   "}}}
 
     call plug#end()
