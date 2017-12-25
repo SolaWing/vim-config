@@ -12,8 +12,14 @@ end
 return $1
 endsnippet
 
-snippet f "new function" 
+snippet f "new function" w
 function $1($2)
+	$0
+end
+endsnippet
+
+snippet lf "local function" b
+local function $1($2)
 	$0
 end
 endsnippet
