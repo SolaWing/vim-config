@@ -122,11 +122,12 @@
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             " let g:ycm_key_invoke_completion = '<M-.>'
             let g:ycm_key_detailed_diagnostics = '<LocalLeader>d'
+            " ycm only use key, value has no effect, so must remove to enable
             let g:ycm_filetype_blacklist = {
                         \ 'tagbar' : 1,
                         \ 'qf' : 1,
                         \ 'notes' : 1,
-                        \ 'markdown' : 0,
+                        \ 'markdownEnable' : 1,
                         \ 'unite' : 1,
                         \ 'text' : 1,
                         \ 'vimwiki' : 1,

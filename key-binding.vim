@@ -139,7 +139,7 @@ nnoremap <Space>et :<C-U>0tabe ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
 nnoremap <Space>ep :<C-U>0tabe ~/.vim/bundles.vim<CR>
 nnoremap <Space>ek :<C-U>0tabe ~/.vim/key-binding.vim<CR>
 nnoremap <Space>fr :<C-U>CtrlPMRUFiles<CR>
-nnoremap <Space>ff :<C-U>CtrlP<CR>
+nnoremap <Space>ff :<C-U>FZFiles <C-R>=expand("%:p:h")<CR>
 "}}}
 """ project keys"{{{
 nnoremap <Space>pf :<C-U>FZGFiles<CR>

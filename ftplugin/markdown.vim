@@ -7,7 +7,7 @@ setl formatoptions-=t
 setl cursorline
 
 " use / to surround /* block comment
-let b:surround_47 = "/* \r */"
+let b:surround_47 = "<!-- \r -->"
 
 nnoremap <buffer> <LocalLeader>p :<C-U>KeepCursor %call markdown#preview()<CR>
 xnoremap <buffer> <LocalLeader>p :call markdown#preview()<CR>

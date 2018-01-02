@@ -88,6 +88,8 @@
         set t_ZH=[3m
         set t_ZR=[23m
         set lazyredraw
+
+        set undofile undodir=~/.vim/undodir
     "}}}
 
     " formatter {{{
