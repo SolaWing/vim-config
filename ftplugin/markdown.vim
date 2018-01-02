@@ -3,7 +3,6 @@ if exists("b:did_ftplugin")
 endif
 
 setl textwidth=120
-setl formatoptions-=t
 setl cursorline
 
 " use / to surround /* block comment

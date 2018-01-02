@@ -23,6 +23,14 @@ header-includes: |
 ...
 endsnippet
 
-snippet day "date and week"
-`!v strftime("%F %A")`
+snippet /day(([+-]?\d+)([ymwd]?))?/ "date and week" r
+`!p
+import subprocess
+if match.group(1):
+ f = match.group(3)
+ if not f: f = "d"
+ snip.rv = subprocess.check_output("date -v%s%s '+%%F %%A'"%(match.group(2), f), shell=True, universal_newlines=True).rstrip("\n")
+else:
+ snip.rv = subprocess.check_output("date '+%F %A'", shell=True, universal_newlines=True).rstrip("\n")
+`
 endsnippet
