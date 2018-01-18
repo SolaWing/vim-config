@@ -150,11 +150,12 @@
             let g:ycm_use_ultisnips_completer = 1
             let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
             Plug '~/.vim/bundle/YouCompleteMe', {'on': ['YcmCompleter']}
-            augroup my_ycm_load
-                au!
-                autocmd CursorHold,CursorHoldI,InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
-                            \| autocmd! my_ycm_load
-            augroup END
+            call timer_start(2000, {-> plug#load('ultisnips', 'YouCompleteMe') })
+            " augroup my_ycm_load
+            "     au!
+            "     autocmd CursorHold,CursorHoldI,InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+            "                 \| autocmd! my_ycm_load
+            " augroup END
 
             nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
             nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
