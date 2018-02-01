@@ -6,6 +6,25 @@ from io import StringIO
 import sys, re, subprocess, vim
 import itertools
 import myutil
+
+"""
+import cProfile, pstats
+import io
+
+pr = cProfile.Profile()
+pr.enable()
+# ... do something ...
+pr.disable()
+
+s = io.StringIO()
+sortby = 'cumulative'
+ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+ps.print_stats()
+ps.print_callers()
+ps.print_callees()
+print(s.getvalue())
+"""
+
 # dict used as user interactive scope
 user_env = {
     "sys":sys,
