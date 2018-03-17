@@ -36,6 +36,9 @@ xnoremap <buffer> gq :ClangFormat<CR>
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"
 
+" use # to surround #if 0
+" let b:surround_35 = "#if 0 \r #endif"
+
 " select next () or {}
 " nnoremap <buffer> ]p /[({]<CR>v/[)}]<CR>
 " select preview () or {}
@@ -46,6 +49,9 @@ let b:surround_47 = "/* \r */"
 
 if exists("*s:refold") | finish | endif
 function! s:refold() range
+  if !(&foldmethod ==# 'manual' || &foldmethod ==# 'marker')
+      return
+  endif
   " delete old fold
   silent! exe printf('keepjumps norm! %dGV%dGzD', a:firstline, a:lastline) 
   let l:c = line("$")

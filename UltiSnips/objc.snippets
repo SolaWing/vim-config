@@ -397,7 +397,7 @@ snippet kvc "kvc interface and implementation" b
 
 endsnippet
 
-snippet impAssociateProperty "default implementation for property use associative value backend" b
+snippet impProperty "default implementation for property which use associative value backend" b
 - (${1:id})${2:name} {
 	return objc_getAssociatedObject(self, @selector($2));
 }
