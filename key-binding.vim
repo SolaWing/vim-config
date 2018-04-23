@@ -162,6 +162,8 @@ nnoremap <Space>gs :Gstatus<CR>z15<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
 xnoremap <Space>gV :GV<CR>
 nnoremap <Space>gV :Gtabedit! log -p -- %<CR>
+" follow is slow, so use another key when needed
+nnoremap <Space>g<M-V> :Gtabedit! log -p --follow -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>

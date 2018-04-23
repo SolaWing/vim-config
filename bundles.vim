@@ -258,6 +258,15 @@
                     \ endif
         " }}}
 
+        " Yggdroot/LeaderF {{{
+        " let g:Lf_CacheDirectory = "/tmp/LeaderF"
+        " " let g:Lf_WindowPosition = "top"
+        " let g:Lf_ShortcutB = "<Leader>bb"
+        " let g:Lf_ShortcutF = "<Leader>ff"
+        " let g:Lf_CommandMap = {'<Down>': ['<Down>', '<M-j>', '∆'], '<Up>': ['<Up>', '<M-k>', '˚']}
+        " Plug 'Yggdroot/LeaderF'
+        " }}}
+
         " junegunn/gv.vim {{{
         Plug 'junegunn/gv.vim', {'on': 'GV'}
         " }}}
