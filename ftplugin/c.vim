@@ -22,6 +22,7 @@ xnoremap <buffer> <LocalLeader>z :CReFold<CR>
 " xnoremap <buffer> <LocalLeader>? :s'\m^\s*\zs//\+'<CR>
 " compile
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
+nmap <buffer> K <Plug>DashSearch
 " exchange for fast jump
 nnoremap <buffer> <LocalLeader>gh :YcmCompleter GoTo<CR>
 nnoremap <buffer> <LocalLeader>gg :YcmCompleter GoToImprecise<CR>

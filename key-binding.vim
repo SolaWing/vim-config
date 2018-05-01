@@ -159,6 +159,7 @@ nnoremap <Space>pt :<C-U>!ctags -R '=getcwd()<CR>'
 ""}}}
 """ git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
+nnoremap <Space>gS <C-W>s<C-W>T:Gstatus<CR>z15<CR><C-W>w:Git! diff --no-ext-diff -- .<CR><C-W>w
 nnoremap <Space>gv :GV --since='3\ months'<CR>
 xnoremap <Space>gV :GV<CR>
 nnoremap <Space>gV :Gtabedit! log -p -- %<CR>

@@ -235,10 +235,10 @@
 
         " tpope/vim-unimpaired"{{{
         Plug 'tpope/vim-unimpaired'
-        nnoremap coD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
+        nnoremap =oD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
         nnoremap [oD :windo diffthis<CR>
         nnoremap ]oD :windo diffoff<CR>
-        nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
+        nnoremap =oe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
         nnoremap [oe :set ei=all<CR>
         nnoremap ]oe :set ei=<CR>
         autocmd VimEnter *
@@ -410,8 +410,26 @@
         " this seems to only set fcl = all, will affect other buffer
         " let g:ack_autofold_results = 1
 
+        " Plug 'mhinz/vim-grepper'
         Plug 'mileszs/ack.vim', { 'on': 'Ack'}
         " Plug 'dyng/ctrlsf.vim'
+
+
+        "}}}
+
+        " ludovicchabant/vim-gutentags {{{
+        " let g:gutentags_add_default_project_roots = 0
+        " let g:gutentags_project_root = ['.git']
+        " " let g:gutentags_ctags_auto_set_tags = 0
+        " " let g:gutentags_generate_on_missing = 0
+        " let g:gutentags_generate_on_new = 0
+        " let g:gutentags_init_user_func = 'GutentTagsCanEnable'
+        " let g:gutentags_trace = 1
+        " function! GutentTagsCanEnable(file)
+        "     let gutentags_root = gutentags#get_project_root( fnamemodify(a:file, ':p:h') )
+        "     return filereadable(gutentags_root . '/tags')
+        " endfunction
+        " Plug 'ludovicchabant/vim-gutentags'
         "}}}
 
         " mbbill/undotree "{{{
@@ -610,10 +628,12 @@
         " 体验不够好
         Plug 'godlygeek/tabular', {'for': 'markdown'}
         Plug 'plasticboy/vim-markdown'
+        " Plug 'euclio/vim-markdown-composer'
         " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
         let g:vim_markdown_math = 1
         let g:vim_markdown_folding_style_pythonic = 1
         " let g:vim_markdown_new_list_item_indent = 2
+        " Plug 'vim-pandoc/vim-pandoc'
         "}}}
 
         " chriskempson/base16-vim "{{{ color scheme(After Tomorrow)
