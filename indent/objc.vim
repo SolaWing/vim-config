@@ -58,24 +58,26 @@ function! GetObjCIndentImproved()
   "   if ([obj something:here])
   "       [obj other:here];
   "
-  let thisColon = s:GetWidth(thisLine, ":")
-  if thisColon > 0 && prevLine !~# '[;{]'
-    let prevColon = s:GetWidth(prevLine, ":")
-    if prevColon > 0 && &textwidth > 0 && prevColon < &textwidth * 3 / 4
-      " Try to align colons, always making sure line is indented at least
-      " one shiftwidth more than the indentation at the beginning of the
-      " message.  Avoids situations like this:
-      "
-      "     if ([obj a:x
-      "  aLongParameter:y])
-      "
-      let [lnum,lcol] = searchpairpos('\[', '', '\]', 'b', 0,
-            \ max([1, v:lnum - 10]))
-      let minInd = &sw + (lnum > 0 ? indent(lnum) : 0)
-      let alignedInd = prevColon - thisColon + s:GetWidth(thisLine, '\s\+')
-      return alignedInd > minInd ? alignedInd : minInd
-    endif
-  endif
+  " not indent : with this function, use clangFormat or Align plugin
+  "
+  "let thisColon = s:GetWidth(thisLine, ":")
+  "if thisColon > 0 && prevLine !~# '[;{]'
+  "  let prevColon = s:GetWidth(prevLine, ":")
+  "  if prevColon > 0 && &textwidth > 0 && prevColon < &textwidth * 3 / 4
+  "    " Try to align colons, always making sure line is indented at least
+  "    " one shiftwidth more than the indentation at the beginning of the
+  "    " message.  Avoids situations like this:
+  "    "
+  "    "     if ([obj a:x
+  "    "  aLongParameter:y])
+  "    "
+  "    let [lnum,lcol] = searchpairpos('\[', '', '\]', 'b', 0,
+  "          \ max([1, v:lnum - 10]))
+  "    let minInd = &sw + (lnum > 0 ? indent(lnum) : 0)
+  "    let alignedInd = prevColon - thisColon + s:GetWidth(thisLine, '\s\+')
+  "    return alignedInd > minInd ? alignedInd : minInd
+  "  endif
+  "endif
 
   " Indent close pair to open pair
   if thisLine =~ '^\s*[]})]'
