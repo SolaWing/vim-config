@@ -6,6 +6,32 @@ priority 0
 
 clearsnippets array dict forarray objacc
 
+# syntax 语法扩展
+snippet cl "closure define" b
+$2(^__unsafe_unretained ${3:block})($1) = ^${2:void}(${1}) {
+	${VISUAL}$0
+};
+endsnippet
+snippet foreach "objc fast enumeration" b
+for (${1:id} ${2:element} in ${3:container}){
+	${VISUAL}$0
+}
+endsnippet
+snippet fori "for int loop (fori)"
+for (${4:NSUInteger} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+	${VISUAL}${0}
+}
+endsnippet
+snippet autoreleasepool "autoreleasepool" b
+@autoreleasepool {
+	$0
+}
+endsnippet
+snippet sync "@synchronized block" b
+@synchronized(${1:self}){
+	$0
+}
+endsnippet
 snippet has_include "#if __has_include()" b
 #if __has_include(${1:<$2/$3>})
 #import $1
@@ -13,47 +39,85 @@ snippet has_include "#if __has_include()" b
 #import "${1/.*?\/(.*?)>/$1/}"
 #endif
 endsnippet
-
-snippet cl "closure define" b
-$2(^__unsafe_unretained ${3:block})($1) = ^${2:void}(${1}) {
-	${VISUAL}$0
+snippet mark "#pragma mark -" b
+#pragma mark - $1
+endsnippet
+snippet nsenum "NS_Enum typedef" b
+typedef NS_ENUM(NSInteger, ${1:name}) {
+	$0
 };
 endsnippet
-
-snippet fori "for int loop (fori)"
-for (${4:NSUInteger} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
-	${VISUAL}${0}
-}
+## my extension
+snippet defer "my extension Defer syntax" b
+Defer = ^{ $0 };
+endsnippet
+snippet d "my extension Defer syntax" b
+Defer = ^{ $0 };
+endsnippet
+snippet dc "DYNAMIC_CAST" w
+DYNAMIC_CAST(${2:${VISUAL:obj}}, ${1:cls})
+endsnippet
+snippet dcv "DYNAMIC_CAST var" b
+$1* ${3:name} = DYNAMIC_CAST(${2:${VISUAL:obj}}, ${1:cls});
+endsnippet
+snippet weakify "weakify macro" b
+WEAKIFY(${1:self});
+endsnippet
+snippet strongify "strongify macro" b
+STRONGIFY(${1:self});
+endsnippet
+snippet strongify_or_ret "strongify or ret macro " b
+STRONGIFY_OR_RET(${1:self});
+endsnippet
+snippet weakvar "weak ref var declare" b
+__weak typeof(${1:self}) ${2:weak_$1} = $1;
+endsnippet
+snippet strongvar "strong ref var declare" b
+__strong typeof(${2:weak_$1}) ${1:self} = $2;
+endsnippet
+snippet strongvar_or_ret "strong ref var declare, if not exist, return" b
+__strong typeof(${2:weak_$1}) ${1:self} = $2;
+if (!$1) return;
 endsnippet
 
+# function 为了调用方法方便
 snippet sel "selector" w
 @selector($1)
 endsnippet
-
-snippet autoreleasepool "autoreleasepool" b
-@autoreleasepool {
-	$0
-}
-endsnippet
-
-snippet sync "@synchronized block" b
-@synchronized(${1:self}){
-	$0
-}
-endsnippet
-
 snippet fs "format string" w
 [NSString stringWithFormat:${1:${VISUAL:@""}}, $3]
 endsnippet
-
 snippet kindclass "kindclass" w
 [${1:obj} isKindOfClass:[${2:cls} class]]
 endsnippet
+snippet img "get image by name" w
+[UIImage imageNamed:${2:@"${1:name}.png"}]
+endsnippet
+snippet c4f "RGB Color"
+[UIColor colorWithRed:$1 green:$2 blue:$3 alpha:${4:1}]
+endsnippet
+snippet c4b "RGB Color"
+[UIColor colorWithRed:$1/255.0 green:$2/255.0 blue:$3/255.0 alpha:${4:1}]
+endsnippet
+snippet c2f "grey color"
+[UIColor colorWithWhite:$1 alpha:${2:1}];
+endsnippet
+snippet visualLayout "constraintsWithVisualFormat"
+[NSLayoutConstraint constraintsWithVisualFormat:
+${0:@""}
+options:${1:0} metrics:${2:nil} views:${3:views}]
+endsnippet
+snippet font "ios system font" w
+[UIFont systemFontOfSize:$1]
+endsnippet
+snippet boldfont "ios system bold font" w
+[UIFont boldSystemFontOfSize:$1]
+endsnippet
 
+# snippet 杂项代码段
 snippet prop "a @property" b
 @property (${1:nonatomic}${2/^.+$/, /}${2:strong}) ${3:NSString*} ${4:varName};
 endsnippet
-
 snippet singleton "objc singleton" b
 + (instancetype)${1:sharedInstance} {
 	static dispatch_once_t once;
@@ -64,7 +128,28 @@ snippet singleton "objc singleton" b
 	return instance;
 }
 endsnippet
-
+post_jump "if snip.tabstop == 3: vim.vars['oc_interface_name']=snip.tabstops[1].current_text; vim.vars['oc_category_name']=snip.tabstops[2].current_text;"
+snippet interface-category "objc interface-category" b
+@interface ${1:className} ($2)${3/^.+$/ </}${3:protocol}${3/^.+$/>/}
+$0
+@end
+endsnippet
+post_jump "if snip.tabstop == 2: vim.vars['oc_interface_name']=snip.tabstops[1].current_text;"
+snippet interface "objc interface" b
+@interface ${1:className} : ${2:NSObject}${3/^.+$/ </}${3:protocol}${3/^.+$/>/}
+$0
+@end
+endsnippet
+snippet implementation "objc implementation" b
+@implementation ${1:`!p snip.rv = vim.vars.get('oc_interface_name', 'className')`}
+$0
+@end
+endsnippet
+snippet implementation-category "objc implementation-category" b
+@implementation ${1:`!p snip.rv = vim.vars.get('oc_interface_name', 'className')`} (${2:`!p snip.rv = vim.vars.get('oc_category_name', "")`})
+$0
+@end
+endsnippet
 snippet protocol "protocol define" b
 @protocol ${1:protocolName} <${2:NSObject}>
 
@@ -72,118 +157,23 @@ $0
 
 @end
 endsnippet
-
-post_jump "if snip.tabstop == 3: vim.vars['oc_interface_name']=snip.tabstops[1].current_text; vim.vars['oc_category_name']=snip.tabstops[2].current_text;"
-snippet interface-category "objc interface-category" b
-@interface ${1:className} ($2)${3/^.+$/ </}${3:protocol}${3/^.+$/>/}
-$0
-@end
-endsnippet
-
-post_jump "if snip.tabstop == 2: vim.vars['oc_interface_name']=snip.tabstops[1].current_text;"
-snippet interface "objc interface" b
-@interface ${1:className} : ${2:NSObject}${3/^.+$/ </}${3:protocol}${3/^.+$/>/}
-$0
-@end
-endsnippet
-
-snippet implementation "objc implementation" b
-@implementation ${1:`!p snip.rv = vim.vars.get('oc_interface_name', 'className')`}
-$0
-@end
-endsnippet
-
-
-snippet implementation-category "objc implementation-category" b
-@implementation ${1:`!p snip.rv = vim.vars.get('oc_interface_name', 'className')`} (${2:`!p snip.rv = vim.vars.get('oc_category_name', "")`})
-$0
-@end
-endsnippet
-
-snippet foreach "objc fast enumeration" b
-for (${1:id} ${2:element} in ${3:container}){
-	${VISUAL}$0
-}
-endsnippet
-
-snippet img "get image by name" w
-[UIImage imageNamed:${2:@"${1:name}.png"}]
-endsnippet
-
-snippet dc "DYNAMIC_CAST" w
-DYNAMIC_CAST(${2:${VISUAL:obj}}, ${1:cls})
-endsnippet
-
-snippet dcv "DYNAMIC_CAST var" b
-$1* ${3:name} = DYNAMIC_CAST(${2:${VISUAL:obj}}, ${1:cls});
-endsnippet
-
-snippet weakify "weakify macro" b
-WEAKIFY(${1:self});
-endsnippet
-
-snippet strongify "strongify macro" b
-STRONGIFY(${1:self});
-endsnippet
-
-snippet strongify_or_ret "strongify or ret macro " b
-STRONGIFY_OR_RET(${1:self});
-endsnippet
-
-snippet weakvar "weak ref var declare" b
-__weak typeof(${1:self}) ${2:weak_$1} = $1;
-endsnippet
-
-snippet strongvar "strong ref var declare" b
-__strong typeof(${2:weak_$1}) ${1:self} = $2;
-endsnippet
-
-snippet strongvar_or_ret "strong ref var declare, if not exist, return" b
-__strong typeof(${2:weak_$1}) ${1:self} = $2;
-if (!$1) return;
-endsnippet
-
-snippet mark "#pragma mark -" b
-#pragma mark - $1
-endsnippet
-
 snippet dispatch_once "dispatch_once block" b
 static dispatch_once_t once;
 dispatch_once(&once, ^{
 	${VISUAL}$0
 });
 endsnippet
-
 snippet dispatch_async "dispatch_async" b
 dispatch_async(${1:dispatch_get_main_queue()}, ${2:^\{
 	${VISUAL}$3
 \}});
 endsnippet
-
 snippet dispatch_after "dispatch_after" b
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, ${1:3}* NSEC_PER_SEC),
 	dispatch_get_main_queue(), ${2:^\{
 	${VISUAL}$3
 \}});
 endsnippet
-
-snippet c4f "RGB Color"
-[UIColor colorWithRed:$1 green:$2 blue:$3 alpha:${4:1}]
-endsnippet
-snippet c4b "RGB Color"
-[UIColor colorWithRed:$1/255.0 green:$2/255.0 blue:$3/255.0 alpha:${4:1}]
-endsnippet
-
-snippet c2f "grey color"
-[UIColor colorWithWhite:$1 alpha:${2:1}];
-endsnippet
-
-snippet visualLayout "constraintsWithVisualFormat"
-[NSLayoutConstraint constraintsWithVisualFormat:
-${0:@""}
-options:${1:0} metrics:${2:nil} views:${3:views}]
-endsnippet
-
 snippet dispatch_timer "a dispatch_source based timer"
 dispatch_source_t timer = dispatch_source_create(
 	DISPATCH_SOURCE_TYPE_TIMER, 0, 0, ${1:dispatch_get_main_queue()});
@@ -196,50 +186,6 @@ if (timer) {
 	dispatch_resume(timer);
 }
 endsnippet
-
-snippet nsenum "NS_Enum typedef" b
-typedef NS_ENUM(NSInteger, ${1:name}) {
-	$0
-};
-endsnippet
-
-snippet font "ios system font" w
-[UIFont systemFontOfSize:$1]
-endsnippet
-
-snippet boldfont "ios system bold font" w
-[UIFont boldSystemFontOfSize:$1]
-endsnippet
-
-snippet ^ "generate default block with args use in previewwindow" i
-^${1:`!p
-if not snip.c:
-  def getBlockArg():
-    previewContent = None
-    for w in vim.current.tabpage.windows:
-      if w.options['previewwindow']:
-        previewContent = "\n".join(w.buffer)
-        break
-    if not previewContent: return ""
-
-    startpos = 0;
-    prefix = vim.current.line[:vim.current.window.cursor[1]]
-    m = re.search(r'\w+:[^:]*$', prefix) # have expand word
-    if m:
-      prefix = m.group(0); prefix = prefix[:prefix.rfind(':')+1]
-      i = previewContent.find(prefix)
-      if i > 0: startpos = i + len(prefix)
-
-    #print previewContent, startpos
-    m = re.compile(r'\^([\w\s*]*\([^)]*\))').search(previewContent, startpos)
-    if m: return m.group(1)
-    return ""
-  snip.rv = getBlockArg()
-`}{
-	$0
-}
-endsnippet
-
 snippet tableViewDefaultDelegate "tableViewDefaultDelegate" b
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {return 1;}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -265,7 +211,17 @@ snippet tableViewDefaultDelegate "tableViewDefaultDelegate" b
 	
 }
 endsnippet
-
+snippet new "new a object and set to a variable" b
+${3:${1/\w*/$0*/}} ${4:obj} = [${1:UIView} ${2:new}];
+endsnippet
+snippet init-method "default init method" b
+- (instancetype)${1:init} {
+	if (self = [super ${1/\([^)]*\)//g}]) {
+		$0
+	}
+	return self;
+}
+endsnippet
 snippet view-init "view init declare" b
 - (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
@@ -278,7 +234,6 @@ snippet view-init "view init declare" b
 }
 
 endsnippet
-
 snippet setter "a default setter" b
 - (void)set${1/\w+/\u$0/}:(${2:id})${1:name} {
 	if ($1 != _$1) {
@@ -286,18 +241,15 @@ snippet setter "a default setter" b
 	}
 }
 endsnippet
-
 snippet lock "custom lock macro" b
 Lock();
 ${VISUAL}$0
 Unlock();
 endsnippet
-
 snippet defineLock "custom define lock macro" b
 #define Lock() dispatch_semaphore_wait(${1:_lock}, DISPATCH_TIME_FOREVER)
 #define Unlock() dispatch_semaphore_signal($1)
 endsnippet
-
 snippet nsproxy "nsproxy definition" b
 @interface ${1:ProxyName} : NSProxy
 
@@ -335,7 +287,6 @@ snippet nsproxy "nsproxy definition" b
 @end
 
 endsnippet
-
 snippet kvc "kvc interface and implementation" b
 #pragma mark - KVC interface array accessors for ${1:key}
 - (NSUInteger)countOf${1/^\w/\u$0/};
@@ -396,7 +347,6 @@ snippet kvc "kvc interface and implementation" b
 }
 
 endsnippet
-
 snippet impProperty "default implementation for property which use associative value backend" b
 - (${1:id})${2:name} {
 	return objc_getAssociatedObject(self, @selector($2));
@@ -406,20 +356,6 @@ snippet impProperty "default implementation for property which use associative v
 	objc_setAssociatedObject(self, @selector($2), $2, ${3:OBJC_ASSOCIATION_RETAIN_NONATOMIC});
 }
 endsnippet
-
-snippet init-method "default init method" b
-- (instancetype)${1:init} {
-	if (self = [super ${1/\([^)]*\)//g}]) {
-		$0
-	}
-	return self;
-}
-endsnippet
-
-snippet new "new a object and set to a variable" b
-${3:${1/\w*/$0*/}} ${4:obj} = [${1:UIView} ${2:new}];
-endsnippet
-
 snippet endBackgroundTask "endBackgroundTask helper method" b
 static void endBackgroundTask(UIBackgroundTaskIdentifier *bid) {
 	if (*bid != UIBackgroundTaskInvalid) {
@@ -432,33 +368,22 @@ endsnippet
 snippet unreachable "assert unreachable" b
 NSAssert(false, @"${1:unreachable code!!}");
 endsnippet
-
 snippet assertMain "assert main thread" b
 NSParameterAssert( [NSThread isMainThread] );
 endsnippet
-
 snippet paramassert_or_ret "NSParameterAssert or ret" b
 NSParameterAssert( $1 );
 if (!$1) { return; }
 endsnippet
 
-snippet mrfindalls "MagicRecord findall" b
+snippet mrfindallSorted "MagicRecord findall" b
 NSArray<$1 *> *${0:items} = [$1 MR_findAllSortedBy:@"$2"
 	ascending:${3:YES} withPredicate:[NSPredicate predicateWithFormat:@"$4"]
 	inContext:${5:moc}];
 endsnippet
-
 snippet mrfindall "MagicRecord findall" b
-NSArray<$1 *> *${0:items} = [$1 MR_findAllWithPredicate:[NSPredicate
-	predicateWithFormat:@"$4"]
+NSArray<$1 *> *${0:items} = [$1 MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"$4"]
 	inContext:${5:moc}];
-endsnippet
-
-snippet defer "my extension Defer syntax" b
-Defer = ^{ $0 };
-endsnippet
-snippet d "my extension Defer syntax" b
-Defer = ^{ $0 };
 endsnippet
 
 snippet CATransaction "CATransaction declare" b
