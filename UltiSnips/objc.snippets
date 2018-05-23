@@ -47,6 +47,11 @@ typedef NS_ENUM(NSInteger, ${1:name}) {
 	$0
 };
 endsnippet
+snippet nsoption "NS_Options typedef" b
+typedef NS_OPTIONS(NSUInteger, ${1:name}) {
+	$0
+};
+endsnippet
 ## my extension
 snippet defer "my extension Defer syntax" b
 Defer = ^{ $0 };
@@ -222,7 +227,7 @@ snippet init-method "default init method" b
 	return self;
 }
 endsnippet
-snippet view-init "view init declare" b
+snippet init-view "view init declare" b
 - (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self){ [self initilize]; }
@@ -365,6 +370,9 @@ static void endBackgroundTask(UIBackgroundTaskIdentifier *bid) {
 }
 endsnippet
 
+snippet unimplemented "assert unimplemented" b
+NSAssert(false, @"${1:unimplemented code!!}");
+endsnippet
 snippet unreachable "assert unreachable" b
 NSAssert(false, @"${1:unreachable code!!}");
 endsnippet

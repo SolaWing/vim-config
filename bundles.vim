@@ -235,10 +235,11 @@
 
         " tpope/vim-unimpaired"{{{
         Plug 'tpope/vim-unimpaired'
-        nnoremap =oD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
+        nmap co yo
+        nnoremap coD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
         nnoremap [oD :windo diffthis<CR>
         nnoremap ]oD :windo diffoff<CR>
-        nnoremap =oe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
+        nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
         nnoremap [oe :set ei=all<CR>
         nnoremap ]oe :set ei=<CR>
         autocmd VimEnter *
