@@ -531,7 +531,7 @@
         "}}}
 
         " kchmck/vim-coffee-script"{{{
-        Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+        " Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
         "}}}
 
         "cespare/vim-toml "{{{
