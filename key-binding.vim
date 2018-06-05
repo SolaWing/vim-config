@@ -67,9 +67,9 @@ nnoremap <Space>t} :<C-U>tab tjump /.*<C-R><C-W>.*<CR>
 xnoremap <Space>t] :<C-U>tab tag <C-R>=GetVisualString()<CR><CR>
 xnoremap <Space>tg] :<C-U>tab tjump <C-R>=GetVisualString()<CR><CR>
 " close tab
-nnoremap <Space>tc :<C-U>confirm =v:count?v:count :""<CR>tabclose<CR>
+nnoremap <Space>tc :<C-U>confirm <C-R>=v:count?v:count :""<CR>tabclose<CR>
 nnoremap <Space>tC :<C-U>call misc#tabclose_right(v:count)<CR>
-nnoremap <Space>to :<C-U>confirm =v:count?v:count :""<CR>tabonly<CR>
+nnoremap <Space>to :<C-U>confirm <C-R>=v:count?v:count :""<CR>tabonly<CR>
 " tab do
 nnoremap <Space>t: :<C-U>tabdo<Space>
 "}}}
@@ -77,8 +77,8 @@ nnoremap <Space>t: :<C-U>tabdo<Space>
 Map <Space>w <C-W>
 nnoremap <C-W>w :<C-U>FZWindows<CR>
 nnoremap <C-W>e :<C-U>sp<Space>
-nnoremap <C-W>o :<C-U>confirm =v:count?v:count :""<CR>only<CR>
-nnoremap <C-W><C-O> :<C-U>confirm =v:count?v:count :""<CR>only<CR>
+nnoremap <C-W>o :<C-U>confirm <C-R>=v:count?v:count :""<CR>only<CR>
+nnoremap <C-W><C-O> :<C-U>confirm <C-R>=v:count?v:count :""<CR>only<CR>
 nnoremap <C-W>: :<C-U>windo<Space>
 
 " window convenience control
@@ -155,7 +155,7 @@ xnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
 nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R><C-W>'<Left>
 xnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
 " term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
-nnoremap <Space>pt :<C-U>!ctags -R '=getcwd()<CR>'
+nnoremap <Space>pt :<C-U>!ctags -R '<C-R>=getcwd()<CR>'
 ""}}}
 """ git version control"{{{
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
@@ -209,10 +209,10 @@ xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ navigate "{{{
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZAg <C-R><C-W><CR>
-xnoremap <Space>s* :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
-nnoremap <Space>s8 :<C-U>FZAg <C-R><C-W><CR>
-xnoremap <Space>s8 :<C-U>FZAg <C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s* :<C-U>FZRg! <C-R><C-W><CR>
+xnoremap <Space>s* :<C-U>FZRg! <C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s8 :<C-U>FZRg! <C-R><C-W><CR>
+xnoremap <Space>s8 :<C-U>FZRg! <C-R>=GetVisualString()<CR><CR>
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/

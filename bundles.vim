@@ -294,6 +294,13 @@
         let g:fzf_layout = { 'up' : '~40%'  }
         Plug '/usr/local/opt/fzf'
         Plug 'junegunn/fzf.vim'
+
+        command! -bang -nargs=* FZRg
+                    \ call fzf#vim#grep(
+                    \   'rg --column --line-number --no-heading --color=always '.<q-args>, 1,
+                    \   <bang>0 ? fzf#vim#with_preview('up:60%')
+                    \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+                    \   <bang>0)
         " "}}}
 
         " junegunn/goyo.vim {{{
