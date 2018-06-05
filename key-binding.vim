@@ -209,10 +209,10 @@ xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ navigate "{{{
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZRg! <C-R><C-W><CR>
-xnoremap <Space>s* :<C-U>FZRg! <C-R>=GetVisualString()<CR><CR>
-nnoremap <Space>s8 :<C-U>FZRg! <C-R><C-W><CR>
-xnoremap <Space>s8 :<C-U>FZRg! <C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s* :<C-U>FZRg -F '<C-R><C-W>'<CR>
+xnoremap <Space>s* :<C-U>FZRg -F '<C-R>=GetVisualString()<CR>'<CR>
+nnoremap <Space>s8 :<C-U>FZRg -F '<C-R><C-W>'<CR>
+xnoremap <Space>s8 :<C-U>FZRg -F '<C-R>=GetVisualString()<CR>'<CR>
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/
