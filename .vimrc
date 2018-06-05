@@ -76,6 +76,7 @@
         set scrolloff=3
         set sidescroll=5
         " fileencodings
+        setg fileencoding=utf-8
         set fileencodings=ucs-bom,utf-8,gbk,default,latin1
         " showmatch
         set showmatch
