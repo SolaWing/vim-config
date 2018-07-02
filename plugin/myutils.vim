@@ -44,6 +44,10 @@ com! ShowSyntaxStack for tmp in synstack(line("."),col("."))|
       \ . synIDattr(synIDtrans(tmp),"name") . ">"| endfor
 "}}}
 
+" Command alias for our function
+command! -nargs=+ SuperMan call superman#SuperMan(<f-args>)
+
+
 " FindAll"{{{
 " com! -range=% -nargs=1 FindAll echo <q-args> | <line1>,<line2>PY u['findall'](<q-args>)
 " nnoremap <space>xf :FindAll<space>

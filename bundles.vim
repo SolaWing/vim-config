@@ -148,7 +148,7 @@
             " let g:ycm_server_keep_logfiles = 1
             " let g:ycm_server_use_vim_stdout = 1
             let g:ycm_use_ultisnips_completer = 1
-            let g:ycm_rust_src_path=$HOME."/Documents/github/rust/src"
+            let g:ycm_rust_src_path=$HOME."/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
             Plug '~/.vim/bundle/YouCompleteMe', {'on': ['YcmCompleter']}
             call timer_start(2000, {-> plug#load('ultisnips', 'YouCompleteMe') })
             " augroup my_ycm_load
@@ -567,7 +567,7 @@
         Plug 'rust-lang/rust.vim', {'for': 'rust'}
         "}}}
 
-        let $RUST_SRC_PATH=$HOME."/Documents/github/rust/src/"
+        let $RUST_SRC_PATH = g:ycm_rust_src_path
         " " racer-rust/vim-racer"{{{
         " let g:racer_insert_paren = 0
         " let g:racer_experimental_completer = 1
