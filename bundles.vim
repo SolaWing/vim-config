@@ -151,11 +151,10 @@
             let g:ycm_rust_src_path=$HOME."/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
             Plug '~/.vim/bundle/YouCompleteMe', {'on': ['YcmCompleter']}
             call timer_start(2000, {-> plug#load('ultisnips', 'YouCompleteMe') })
-            " augroup my_ycm_load
-            "     au!
-            "     autocmd CursorHold,CursorHoldI,InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
-            "                 \| autocmd! my_ycm_load
-            " augroup END
+            augroup my_ycm_load
+                autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+                            \| autocmd! my_ycm_load
+            augroup END
 
             nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
             nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
@@ -401,6 +400,7 @@
         let g:ale_linters_explicit = 1
         let g:ale_linters = {
                     \ 'javascript' : 'all',
+                    \ 'swift' : ['swiftlint', 'parser'],
                     \ }
         let g:ale_rust_cargo_use_check = 1
         Plug 'w0rp/ale'
@@ -560,6 +560,7 @@
         " rhysd/vim-clang-format "{{{
         let g:clang_format#detect_style_file = 1 " use .clang-format
         Plug 'rhysd/vim-clang-format', {'on': ['<Plug>(operator-clang-format)']}
+        " fix lazy load not not consider default range
         command! -range=% -nargs=0 ClangFormat call plug#load('vim-clang-format') | call clang_format#replace(<line1>, <line2>)
         "}}}
 
@@ -655,6 +656,7 @@
         ""}}}
 
         " wannesm/wmgraphviz.vim  {{{
+        let g:WMGraphviz_output = 'png'
         Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
         "}}}
 

@@ -87,3 +87,13 @@ switch ${1:v} {
 	default: ;
 }
 endsnippet
+
+snippet protocol "protocol declare" b
+protocol ${1:Name} {
+	$0
+}
+endsnippet
+
+snippet swiftlint "swiftlint disable" b
+// swiftlint:${1:disable} ${2:identifier_name}
+endsnippet

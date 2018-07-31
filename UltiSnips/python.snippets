@@ -60,6 +60,14 @@ for ${1:k}, ${2:v} in ${3:dict}.iteritems():
 	${0:pass}
 endsnippet
 
+snippet [ "list comprehension"
+[${4:$2} for ${2:i} in ${1:items}$3
+endsnippet
+
+snippet ( "generotor comprehension"
+(${4:$2} for ${2:i} in ${1:items}$3
+endsnippet
+
 snippet eli "elif" b
 elif ${1:condition}:
 	${0:pass}
