@@ -88,11 +88,24 @@ switch ${1:v} {
 }
 endsnippet
 
-snippet protocol "protocol declare" b
+snippet protocol "protocol declare"
 protocol ${1:Name} {
 	$0
 }
 endsnippet
+
+snippet class "class declare"
+class ${1:Name} {
+	$0
+}
+endsnippet
+
+snippet extension "extension declare"
+extension ${1:Name} {
+	$0
+}
+endsnippet
+
 
 snippet swiftlint "swiftlint disable" b
 // swiftlint:${1:disable} ${2:identifier_name}

@@ -180,6 +180,7 @@
     command! -range=% TrimWhiteSpace <line1>,<line2>s/\m\s\+$//e
     command! -range=% TrimMultiEmptyLine silent <line1>,<line2>g/^\s*\n\s*\n\s*\n/d
     command! -nargs=1 -complete=file Profile profile start <args> | profile func *
+    command! -range=% UniqLines <line1>,<line2>!sort <bar> uniq
     "}}}
 
     """"""""""""""""""""""""""
