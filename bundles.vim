@@ -327,13 +327,21 @@
         " }}}
 
         " dash {{{
-        Plug 'rizzatti/dash.vim', {'on': '<Plug>DashSearch'}
-        nmap <LocalLeader>K <Plug>DashSearch
-        let g:dash_map = {
-            \ 'objc':   ['ios', 'c', 'manpages'],
-            \ 'objcpp': ['ios', 'cpp', 'c', 'manpages'],
-            \ 'lua':    ['lua','cocos2dx']
-            \}
+        " Plug 'rizzatti/dash.vim', {'on': '<Plug>DashSearch'}
+        " nmap <LocalLeader>K <Plug>DashSearch
+        " let g:dash_map = {
+        "     \ 'objc':   ['ios', 'c', 'manpages'],
+        "     \ 'objcpp': ['ios', 'cpp', 'c', 'manpages'],
+        "     \ 'lua':    ['lua','cocos2dx']
+        "     \}
+        " }}}
+        " devio {{{
+        function! DevioSearch(filetype, keyword)
+            call system( printf("open 'http://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
+        endfunction
+        nnoremap <LocalLeader>k :call DevioSearch(&ft, '<C-R><C-W>')<CR>
+        vnoremap <LocalLeader>k :call DevioSearch(&ft, '<C-R>=GetVisualString()<CR>')<CR>
+        map <LocalLeader>K <LocalLeader>k
         " }}}
 
         " my plugin" {{{

@@ -152,8 +152,8 @@ nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 xnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
-nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R><C-W>'<Left>
-xnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=&ft<CR> '<C-R><C-W>'<Left>
+xnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
 " term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
 nnoremap <Space>pt :<C-U>!ctags -R '<C-R>=getcwd()<CR>'
 ""}}}
@@ -211,8 +211,7 @@ nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
 nnoremap <Space>s* :<C-U>FZRg -F '<C-R><C-W>'<CR>
 xnoremap <Space>s* :<C-U>FZRg -F '<C-R>=GetVisualString()<CR>'<CR>
-nnoremap <Space>s8 :<C-U>FZRg -F '<C-R><C-W>'<CR>
-xnoremap <Space>s8 :<C-U>FZRg -F '<C-R>=GetVisualString()<CR>'<CR>
+Map <Space>s8 <Space>s*
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 nmap <Space>sm <LocalLeader>/
@@ -340,10 +339,6 @@ imap <C-x>f <plug>(fzf-complete-path)
 imap <C-x>l <plug>(fzf-complete-line)
 "}}}
 """ tags {{{
-nnoremap <LocalLeader><Space>s :<C-U>Scratch<Space>
-nnoremap <LocalLeader><Space>sp :<C-U>Scratch<Space>tmp.py<CR>
-nnoremap <LocalLeader><Space>ss :<C-U>Scratch<Space>tmp.sh<CR>
-
 nnoremap <Space><C-]> :<C-U>tjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>] :<C-U>stjump /.*<C-R><C-W>.*<CR>
 nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>

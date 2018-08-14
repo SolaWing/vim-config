@@ -6,7 +6,6 @@ let b:ale_enabled = 0 " lint is too strict and distract. use ALEToggleBuffer to 
 "     setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=4
 " endif
 
-
 if exists('g:usepy') && g:usepy == 3
     nnoremap <buffer> <LocalLeader>e :<C-U>let tmp = system("python3", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
     xnoremap <buffer> <LocalLeader>e :w !python3<CR>

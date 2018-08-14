@@ -15,7 +15,7 @@ def preview_markdown(path, s):
 
   # use current dir, so relative resource are ok. navigation also ok. but need to remove it or ignore it
   tmpName = os.path.join(workdir, "preview-{}.html".format(name))
-  sp = subprocess.Popen(['pandoc', '--standalone', '-f', 'markdown+hard_line_breaks', '-t', 'html', '--toc', '-c', cssPath, '-o', tmpName]
+  sp = subprocess.Popen(['pandoc', '--standalone', '-f', 'markdown', '-t', 'html', '--toc', '-c', cssPath, '-o', tmpName]
                         , stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
   (o, e) = sp.communicate(s)
   code = sp.wait()

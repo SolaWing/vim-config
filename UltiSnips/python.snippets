@@ -20,9 +20,12 @@ lambda $1: $0
 endsnippet
 
 snippet f "quick function" b
-def ${1:function}(`!p
-if snip.indent:
-    snip.rv = 'self'`${2}):
+def ${1:function}($2):
+	${0:${VISUAL:pass}}
+endsnippet
+
+snippet m "instance method" b
+def ${1:method}(self$2):
 	${0:${VISUAL:pass}}
 endsnippet
 
@@ -43,6 +46,12 @@ def ${1:function}(cls${2/.+/, /}${2:arg}):
 	${0:${VISUAL:pass}}
 endsnippet
 
+snippet sf "static method" b
+@staticmethod
+def ${1:function}($2):
+	${0:${VISUAL:pass}}
+endsnippet
+
 snippet deff "quick function" b
 def ${1:function}(`!p
 if snip.indent:
@@ -58,6 +67,11 @@ endsnippet
 snippet fork "for kv loop"
 for ${1:k}, ${2:v} in ${3:dict}.iteritems():
 	${0:pass}
+endsnippet
+
+snippet wh "while statement" b
+while ${1:True}:
+	$0
 endsnippet
 
 snippet [ "list comprehension"
