@@ -337,7 +337,11 @@
         " }}}
         " devio {{{
         function! DevioSearch(filetype, keyword)
-            call system( printf("open 'http://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
+            if a:filetype == "swift"
+                call system( printf("open 'https://developer.apple.com/search/?q=%s'", a:keyword) )
+            else
+                call system( printf("open 'http://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
+            endif
         endfunction
         nnoremap <LocalLeader>k :call DevioSearch(&ft, '<C-R><C-W>')<CR>
         vnoremap <LocalLeader>k :call DevioSearch(&ft, '<C-R>=GetVisualString()<CR>')<CR>

@@ -33,7 +33,7 @@ xnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 function! PythonFold() range
   exe printf('silent! norm! %dGV%dGzD', a:firstline,a:lastline)
   let r = []
-  exe printf('keeppatterns %d,%dg/\v^\s*%(def|class)[^:]*:/', a:firstline, a:lastline)
+  exe printf('keeppatterns %d,%dg/\v^\s*%((async )?def|class)[^:]*:/', a:firstline, a:lastline)
         \ 'exe "norm! ^" |'
         \ printf('call add(l:r, [line("."), search(%s)])',  ' ''\v%(\n%(^\s*\S%<''.(col(".")+2).''c)@=|%$)'' ' )
 

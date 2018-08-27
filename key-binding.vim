@@ -209,8 +209,8 @@ xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ navigate "{{{
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZRg -F '<C-R><C-W>'<CR>
-xnoremap <Space>s* :<C-U>FZRg -F '<C-R>=GetVisualString()<CR>'<CR>
+nnoremap <Space>s* :<C-U>FZRg -Fut <C-R>=&ft<CR> '<C-R><C-W>'<CR>
+xnoremap <Space>s* :<C-U>FZRg -Fut <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<CR>
 Map <Space>s8 <Space>s*
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
@@ -315,8 +315,8 @@ xnoremap <Space>xw :TrimWhiteSpace<CR>
 nnoremap <Space>xl :TrimMultiEmptyLine<CR>
 xnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
-nnoremap <Space>xs :sno/\<<C-R><C-W>\>/<C-R><C-W>/g<Left><Left>
-xnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>sno/<C-R>=GetVisualString()<CR>/<C-R>=GetVisualString()<CR>/g<Left><Left>
+nnoremap <Space>xs :sno`\<<C-R><C-W>\>`<C-R><C-W>`g<Left><Left>
+xnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>sno`<C-R>=GetVisualString()<CR>`<C-R>=GetVisualString()<CR>`g<Left><Left>
 xnoremap g& :s//~/&<CR>
 xnoremap &  :s<CR>
 

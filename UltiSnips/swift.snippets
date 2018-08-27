@@ -80,7 +80,7 @@ snippet #if "#if declare" b
 #endif
 endsnippet
 
-snippet sw "switch statement" b
+snippet switch "switch statement" b
 switch ${1:v} {
 	case ${2:pattern}:
 		$0
@@ -107,6 +107,8 @@ extension ${1:Name} {
 endsnippet
 
 
-snippet swiftlint "swiftlint disable" b
-// swiftlint:${1:disable} ${2:identifier_name}
+snippet swiftlint "swiftlint toggle rule" b
+// swiftlint:disable ${1:all}
+${VISUAL}
+// swiftlint:enable $1
 endsnippet
