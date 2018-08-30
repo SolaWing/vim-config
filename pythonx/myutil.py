@@ -2,8 +2,12 @@
 # encoding: utf-8
 
 import vim
+import sys
 import itertools
 from io import StringIO
+
+PY3 = sys.version_info[0] == 3
+PY2 = sys.version_info[0] == 2
 
 def ToUnicode( value ):
   if not value:
@@ -14,6 +18,45 @@ def ToUnicode( value ):
     # All incoming text should be utf8
     return str( value, 'utf8' )
   return str( value )
+
+def ToBytes( value ):
+  if not value:
+    return bytes()
+
+  # This is tricky. On py2, the bytes type from builtins (from python-future) is
+  # a subclass of str. So all of the following are true:
+  #   isinstance(str(), bytes)
+  #   isinstance(bytes(), str)
+  # But they don't behave the same in one important aspect: iterating over a
+  # bytes instance yields ints, while iterating over a (raw, py2) str yields
+  # chars. We want consistent behavior so we force the use of bytes().
+  if type( value ) == bytes:
+    return value
+
+  # This is meant to catch Python 2's native str type.
+  if isinstance( value, bytes ):
+    return bytes( value, encoding = 'utf8' )
+
+  if isinstance( value, str ):
+    # On py2, with `from builtins import *` imported, the following is true:
+    #
+    #   bytes(str(u'abc'), 'utf8') == b"b'abc'"
+    #
+    # Obviously this is a bug in python-future. So we work around it. Also filed
+    # upstream at: https://github.com/PythonCharmers/python-future/issues/193
+    # We can't just return value.encode( 'utf8' ) on both py2 & py3 because on
+    # py2 that *sometimes* returns the built-in str type instead of the newbytes
+    # type from python-future.
+    if PY2:
+      return bytes( value.encode( 'utf8' ), encoding = 'utf8' )
+    else:
+      return bytes( value, encoding = 'utf8' )
+
+  # This is meant to catch `int` and similar non-string/bytes types.
+  return ToBytes( str( value ) )
+
+def EscapeForVim( text ):
+  return ToUnicode( text.replace( "'", "''" ) )
 
 def escape(s, chars):
     """ escape chars in str

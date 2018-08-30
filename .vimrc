@@ -105,7 +105,7 @@
         " autoindent
         set smartindent
         set autoindent
-        " indent use tab
+        " indent only use space, close it in specified filetype
         set expandtab
         " wrap text
         set nowrap
