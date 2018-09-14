@@ -594,6 +594,10 @@
         Plug 'dag/vim-fish', {'for': 'fish'}
         ""}}}
 
+        " vim-ruby/vim-ruby{{{
+        Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+        "}}}
+
         " itchyny/lightline.vim {{{
         autocmd mine BufEnter,FileChangedShellPost * call CacheClear("fugitive#head")
         function! CachedFugitiveHead()

@@ -1,0 +1,50 @@
+snippet if "if statement"
+if $1
+	$0
+end
+endsnippet
+
+# ruby uggly elseif statement
+snippet elseif "else if statement"
+elsif $1
+	$0
+endsnippet
+
+snippet unless "unless statement"
+unless $1
+	$0
+end
+endsnippet
+
+snippet case "case statement"
+case $1
+when $2 then $3
+else $0
+end
+endsnippet
+
+snippet for "for loop"
+for ${1:i} in ${2:0...9} do
+	$0
+end
+endsnippet
+
+snippet do "do end block"
+do
+	$0
+end
+endsnippet
+
+snippet l "lambda"
+${1:f} = lambda {
+	$0
+}
+endsnippet
+
+snippet ar "attr_reader" b
+attr_reader
+endsnippet
+
+snippet a "attr_accessor" b
+attr_accessor
+endsnippet

@@ -6,7 +6,7 @@ setl fdm=indent
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"
 
-nnoremap <buffer> <LocalLeader>m :<C-U>call fzf#vim#buffer_lines("'func | 'class | 'struct | 'MARK: ", {'options': '+s'})<CR>
+nnoremap <buffer> <LocalLeader>m :<C-U>call fzf#vim#buffer_lines("func \\|class \\|struct \\|MARK:", {'options': '+s'})<CR>
 nnoremap <buffer> <LocalLeader>f :!swiftlint autocorrect --path %:p<CR>
 
 snoremap <buffer> <CR> <ESC>:call <SID>ExpandClosure(1)<CR>
