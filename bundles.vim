@@ -413,6 +413,7 @@
         let g:ale_linters = {
                     \ 'javascript' : 'all',
                     \ 'swift' : ['swiftlint', 'parser'],
+                    \ 'ruby' : ['rubocop']
                     \ }
         let g:ale_rust_cargo_use_check = 1
         Plug 'w0rp/ale'
@@ -595,6 +596,8 @@
         ""}}}
 
         " vim-ruby/vim-ruby{{{
+        let g:rubycomplete_buffer_loading = 1
+        let g:rubycomplete_load_gemfile = 1
         Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
         "}}}
 

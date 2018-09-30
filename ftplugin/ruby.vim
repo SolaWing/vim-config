@@ -4,9 +4,12 @@ let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}
 
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
+let b:ale_fixers = ["rubocop"]
+nmap <buffer> <LocalLeader>f :ALEFix<CR>
 
 " 现在先只加载一次
 if filereadable(".rubypaths")
+    " see vim-ruby filetype definition. this variable will set path and tags
     if !exists('g:ruby_version_paths')
         let g:ruby_version_paths = {}
     endif

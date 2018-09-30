@@ -48,3 +48,13 @@ endsnippet
 snippet a "attr_accessor" b
 attr_accessor
 endsnippet
+
+snippet b "breakpoint" b
+binding.pry
+endsnippet
+
+snippet rubocop "disable rubocop rules" b
+# rubocop:disable $1
+$0${VISUAL}
+# rubocop:enable $1
+endsnippet
