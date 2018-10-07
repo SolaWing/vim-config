@@ -114,11 +114,13 @@
         " YouCompleteMe {{{
             " let g:ycm_autoclose_preview_window_after_insertion = 1
             let g:ycm_collect_identifiers_from_comments_and_strings = 1
+            let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py']
+            " let g:ycm_confirm_extra_conf = 0
             let g:ycm_collect_identifiers_from_tags_files = 1
             let g:ycm_seed_identifiers_with_syntax = 1
             let g:ycm_complete_in_comments = 1
             let g:ycm_max_num_candidates = 30
-            let g:ycm_enable_diagnostic_highlighting = 0
+            " let g:ycm_enable_diagnostic_highlighting = 0
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
             " let g:ycm_key_invoke_completion = '<M-.>'
             let g:ycm_key_detailed_diagnostics = '<LocalLeader>d'
@@ -340,7 +342,7 @@
             if a:filetype == "swift"
                 call system( printf("open 'https://developer.apple.com/search/?q=%s'", a:keyword) )
             else
-                call system( printf("open 'http://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
+                call system( printf("open 'https://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
             endif
         endfunction
         nnoremap <LocalLeader>k :call DevioSearch(&ft, '<C-R><C-W>')<CR>
@@ -413,9 +415,13 @@
         let g:ale_linters = {
                     \ 'javascript' : 'all',
                     \ 'swift' : ['swiftlint', 'parser'],
-                    \ 'ruby' : ['rubocop']
+                    \ 'ruby' : ['rubocop'],
+                    \ 'xrust' : ['rls'],
                     \ }
-        let g:ale_rust_cargo_use_check = 1
+        " let g:ale_completion_enabled = 1
+        " let g:ycm_filetype_specific_completion_to_disable = {
+        "             \ 'rust': 1
+        "             \}
         Plug 'w0rp/ale'
         " }}}
 

@@ -9,9 +9,8 @@
         " use bash shell
         let g:is_bash = 1
         if has("gui_macvim")
-            "     let $PYTHONHOME="/usr/local/Frameworks/Python.framework/Versions/3.6"
-            set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.6
-            set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6m.dylib
+            " set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.6
+            " set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6m.dylib
             set rubydll=/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/lib/libruby.dylib
             " py3 dir
         else " terminal

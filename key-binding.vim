@@ -152,8 +152,8 @@ nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 xnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
-nnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=&ft<CR> '<C-R><C-W>'<Left>
-xnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=config#RgFileType(&ft)<CR> '<C-R><C-W>'<Left>
+xnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=config#RgFileType(&ft)<CR> '<C-R>=GetVisualString()<CR>'<Left>
 " term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
 nnoremap <Space>pt :<C-U>!ctags -R '<C-R>=getcwd()<CR>'
 ""}}}
@@ -209,8 +209,8 @@ xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ navigate "{{{
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZRg -Fut <C-R>=&ft<CR> '<C-R><C-W>'<CR>
-xnoremap <Space>s* :<C-U>FZRg -Fut <C-R>=&ft<CR> '<C-R>=GetVisualString()<CR>'<CR>
+nnoremap <Space>s* :<C-U>FZRg -Fut <C-R>=config#RgFileType(&ft)<CR> '<C-R><C-W>'<CR>
+xnoremap <Space>s* :<C-U>FZRg -Fut <C-R>=config#RgFileType(&ft)<CR> '<C-R>=GetVisualString()<CR>'<CR>
 Map <Space>s8 <Space>s*
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
