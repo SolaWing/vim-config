@@ -219,8 +219,8 @@ xmap <Space>sm <LocalLeader>/
 
 nnoremap <Space><Tab> :<C-U>FZBLines<CR>
 xnoremap <Space><Tab> :<C-U>FZBLines<CR>
-nnoremap <Leader>* :<C-U>FZBLines '<C-R><C-W><CR>
-xnoremap <Leader>* :<C-U>FZBLines '<C-R>=GetVisualString()<CR><CR>
+nnoremap <Leader>* :<C-U>FZBLines <C-R><C-W><CR>
+xnoremap <Leader>* :<C-U>FZBLines <C-R>=GetVisualString()<CR><CR>
 nmap <Leader>8 <Leader>*
 xmap <Leader>8 <Leader>*
 nnoremap <C-W><Tab> :<C-U>FZLines<CR>

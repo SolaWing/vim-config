@@ -667,6 +667,8 @@
         " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
         let g:vim_markdown_math = 1
         let g:vim_markdown_folding_style_pythonic = 1
+        " fix ]c conflict with diff
+        map ]h <Plug>Markdown_MoveToCurHeader
         " let g:vim_markdown_new_list_item_indent = 2
         " Plug 'vim-pandoc/vim-pandoc'
         "}}}
@@ -677,7 +679,10 @@
 
         " -- nathanaelkane/vim-indent-guides"{{{
         " more distract than useful
-        " Plug 'nathanaelkane/vim-indent-guides'
+        Plug 'nathanaelkane/vim-indent-guides', {'on': 'IndentGuidesToggle'}
+        let g:indent_guides_guide_size = 1
+        let g:indent_guides_start_level = 2
+        nnoremap cog :IndentGuidesToggle<CR>
         ""}}}
 
         " wannesm/wmgraphviz.vim  {{{
