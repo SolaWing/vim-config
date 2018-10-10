@@ -380,30 +380,36 @@
         " }}}
 
         " scrooloose/nerdtree {{{
-            let g:NERDTreeBookmarksFile = $HOME . "/.vim/bundle/nerdtree/.NERDTreeBookmarks"
-            " let g:NERDTreeShowLineNumbers = 1
-            let g:NERDTreeCascadeSingleChildDir=1
-            let g:NERDTreeMapOpenSplit = 's'
-            let g:NERDTreeMapOpenVSplit = 'v'
-            let g:NERDTreeWinSize = 51
-            " disable netrw
-            let g:loaded_netrwPlugin = 1
-            Plug 'scrooloose/nerdtree', {'on':[ 'NERDTreeToggle', 'NERDTreeFind' ]}
-            augroup nerd_loader
-                autocmd!
-                autocmd VimEnter * silent! autocmd! FileExplorer
-                autocmd BufEnter,BufNew *
-                            \  if isdirectory(expand('<amatch>'))
-                            \|   call plug#load('nerdtree')
-                            \|   execute 'autocmd! nerd_loader'
-                            \| endif
-            augroup END
-            " Plug 'justinmk/vim-dirvish'
-            nnoremap <F2> :let g:NERDTreeQuitOnOpen = 0 <bar> NERDTreeToggle<CR>
-            nnoremap <S-F2> :let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
-            nmap <F14> <S-F2>
-            nmap <Leader><F2> <S-F2>
+            " let g:NERDTreeBookmarksFile = $HOME . "/.vim/bundle/nerdtree/.NERDTreeBookmarks"
+            " " let g:NERDTreeShowLineNumbers = 1
+            " let g:NERDTreeCascadeSingleChildDir=1
+            " let g:NERDTreeMapOpenSplit = 's'
+            " let g:NERDTreeMapOpenVSplit = 'v'
+            " let g:NERDTreeWinSize = 51
+            " " disable netrw
+            " let g:loaded_netrwPlugin = 1
+            " Plug 'scrooloose/nerdtree', {'on':[ 'NERDTreeToggle', 'NERDTreeFind' ]}
+            " augroup nerd_loader
+            "     autocmd!
+            "     autocmd VimEnter * silent! autocmd! FileExplorer
+            "     autocmd BufEnter,BufNew *
+            "                 \  if isdirectory(expand('<amatch>'))
+            "                 \|   call plug#load('nerdtree')
+            "                 \|   execute 'autocmd! nerd_loader'
+            "                 \| endif
+            " augroup END
+            " nnoremap <F2> :let g:NERDTreeQuitOnOpen = 0 <bar> NERDTreeToggle<CR>
+            " nnoremap <S-F2> :let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
+            " nmap <F14> <S-F2>
+            " nmap <Leader><F2> <S-F2>
         " }}}
+        " justinmk/vim-dirvish {{{
+        let g:loaded_netrwPlugin = 1
+        command! -nargs=? -complete=dir Explore Dirvish <args>
+        command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+        command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+        Plug 'justinmk/vim-dirvish'
+        "}}}
 
         " w0rp/ale async lint engine{{{
         let g:ale_lint_delay = 5000
