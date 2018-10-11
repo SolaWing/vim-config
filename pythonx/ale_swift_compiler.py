@@ -32,20 +32,21 @@ def ale_swift_parser_get_command(path):
     return 'swift -frontend -c -primary-file - {}'.format(" ".join(map(shlex.quote, flags)))
 
 copyed = set()
-def _copyFileList(op, path):
-    np = os.path.join( tempfile.gettempdir(), "ale_swift_files_{}".format(hash(path)) )
+def _copyFileList(old_filelist_path, current_path):
+    """copy filelist and replace current_path to stdin"""
+    np = os.path.join( tempfile.gettempdir(), "ale_swift_files_{}".format(hash(current_path)) )
     if np in copyed: return np
-    if os.path.exists(op):
-        with open(op) as f:
-            files = [ "-" if l == path else l
+    if os.path.exists(old_filelist_path):
+        with open(old_filelist_path) as f:
+            files = [ "-" if l == current_path else l
                      for l in f.read().splitlines() if l ]
             with open(np, "w") as w:
                 w.write(os.linesep.join(files))
         copyed.add(np)
         return np
     else:
-        echo(f"unexist filelist path: {op}")
-        return op
+        echo(f"unexist filelist path: {old_filelist_path}")
+        return old_filelist_path
 
 def isProjectRoot(directory):
     return os.path.exists(os.path.join(directory, '.git'))
@@ -97,7 +98,7 @@ def readFileList(path):
     with open(path) as f:
         return f.read().splitlines()
 
-fileListCache = {}
+# fileListCache = {}
 def filterSwiftArgs(items):
     """
     f: should return True to accept, return number to skip next number flags

@@ -121,7 +121,7 @@
             let g:ycm_complete_in_comments = 1
             let g:ycm_max_num_candidates = 30
             " let g:ycm_enable_diagnostic_highlighting = 0
-            let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+            let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/mine.ycm_extra_conf.py'
             " let g:ycm_key_invoke_completion = '<M-.>'
             let g:ycm_key_detailed_diagnostics = '<LocalLeader>d'
             " ycm only use key, value has no effect, so must remove to enable
@@ -290,6 +290,8 @@
         let $FZF_DEFAULT_OPTS=' --bind="'.join([
         \    'alt-j:down,alt-k:up',
         \    'alt-h:backward-char,alt-l:forward-char',
+        \    'ê:down,ë:up',
+        \    'è:backward-char,ì:forward-char',
         \    'alt-space:jump,`:jump-accept',
         \], ',') . '" --color="pointer:15" '
         let g:fzf_layout = { 'up' : '~40%'  }
@@ -422,7 +424,6 @@
                     \ 'javascript' : 'all',
                     \ 'swift' : ['swiftlint', 'parser'],
                     \ 'ruby' : ['rubocop'],
-                    \ 'xrust' : ['rls'],
                     \ }
         " let g:ale_completion_enabled = 1
         " let g:ycm_filetype_specific_completion_to_disable = {
@@ -608,8 +609,9 @@
         ""}}}
 
         " vim-ruby/vim-ruby{{{
-        let g:rubycomplete_buffer_loading = 1
-        let g:rubycomplete_load_gemfile = 1
+        " let g:rubycomplete_buffer_loading = 1
+        " let g:rubycomplete_classes_in_global = 1
+        " let g:rubycomplete_load_gemfile = 1
         Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
         "}}}
 
