@@ -423,7 +423,6 @@
         let g:ale_linters = {
                     \ 'javascript' : 'all',
                     \ 'swift' : ['swiftlint', 'parser'],
-                    \ 'ruby' : ['rubocop'],
                     \ }
         " let g:ale_completion_enabled = 1
         " let g:ycm_filetype_specific_completion_to_disable = {
@@ -624,12 +623,13 @@
                     \   'colorscheme' : 'base16_solarized_custom',
                     \   'active': {
                     \     'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ], [ 'gitbranch' ] ],
-                    \     'right': [ [ 'percent' ], [ 'lineinfo' ],
+                    \     'right': [ [ 'percent' ],
+                    \                [ 'lineinfo' ],
                     \                ['linter_errors', 'linter_warnings',
                     \                 'fileformat', 'fileencoding', 'filetype' ] ]
                     \   },
                     \   'inactive': {
-                    \     'left': [ [ 'filename' ] ],
+                    \     'left': [ [ 'filename', 'modified' ] ],
                     \     'right': [ [ 'percent' ], [ 'lineinfo' ] ]
                     \   },
                     \   'component_function': {
