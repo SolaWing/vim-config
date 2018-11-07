@@ -12,6 +12,12 @@ function $1 () {
 }
 endsnippet
 
+snippet cat "out multiline strings" b
+cat <<- EOF
+$0
+EOF
+endsnippet
+
 # vim-snip not pair (), though ( is optional
 # snippet acase "case statement" b
 # case "${1:$i}" in

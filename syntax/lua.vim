@@ -12,5 +12,7 @@ hi def SpecialKeyWord guifg=#8080ff
 hi def CustomIdentifier guifg=#c0c0ff
 hi def link luaSelf SpecialKeyWord
 hi def link luaFunction Statement
+hi Operator gui=bold cterm=bold
+
 "hi def link luaFunc Label
 "hi def link luaIdentifier CustomIdentifier

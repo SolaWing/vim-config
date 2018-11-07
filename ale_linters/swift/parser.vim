@@ -16,6 +16,7 @@ call ale#linter#Define('swift', {
 \   'output_stream':    'stderr',
 \   'executable':       'swift',
 \   'command_callback': 'ale_linters#swift#parser#GetCommand',
-\   'callback':         'ale_linters#swift#swiftpm#Handle',
+\   'xcallback':         'ale_linters#swift#swiftpm#Handle',
+\   'callback':         'ale#handlers#gcc#HandleGCCFormatWithIncludes',
 \   'read_buffer':      1,
 \})

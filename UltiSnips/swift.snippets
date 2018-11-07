@@ -16,6 +16,10 @@ snippet fixme "fixme" b
 // FIXME: 
 endsnippet
 
+snippet todo "todo" b
+// TODO: 
+endsnippet
+
 snippet v "var declare"
 var ${1:name} = ${2:nil}
 endsnippet
@@ -25,7 +29,7 @@ let ${1:name} = ${2:nil}
 endsnippet
 
 snippet f "func def"
-func ${1:name}($2)${3/^.+$/ -> /}$3 {
+func ${1:name}($2) -> ${3:Void} {
 	$0
 }
 endsnippet
@@ -66,7 +70,7 @@ snippet mark "xcode mark" b
 // MARK: $0
 endsnippet
 
-snippet selector "#selector" 
+snippet sel "#selector" w
 #selector($0)
 endsnippet
 

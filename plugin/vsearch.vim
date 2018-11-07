@@ -1,5 +1,6 @@
 " Search for selected text.
 " http://vim.wikia.com/wiki/VimTip171
+" prefer vim-slash.vim
 finish " disable"
 
 if exists("loaded_vsearch")

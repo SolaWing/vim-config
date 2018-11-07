@@ -26,6 +26,16 @@
     if has("gui_macvim")
         set macmeta
         macmenu File.Print key=<D-S-P>
+
+        " terminal useful mapping
+        tnoremap <M-h> <ESC>h
+        tnoremap <M-j> <ESC>j
+        tnoremap <M-k> <ESC>k
+        tnoremap <M-l> <ESC>l
+        tnoremap <M-f> <ESC>f
+        tnoremap <M-b> <ESC>b
+        tnoremap <M-c> <ESC>c
+        tnoremap <M-BS> <ESC><BS>
     endif
 
     " 全文搜索

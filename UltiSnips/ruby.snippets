@@ -38,10 +38,16 @@ do
 end
 endsnippet
 
-snippet l "lambda"
-${1:f} = lambda {
+snippet do/ "do |param| end block" A
+do |$1|
 	$0
-}
+end
+endsnippet
+
+snippet l "lambda"
+lambda do
+	$0
+end
 endsnippet
 
 snippet ar "attr_reader" b

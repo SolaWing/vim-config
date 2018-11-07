@@ -3,6 +3,7 @@
     """"""" 基本不会动的全局设定 {{{
         augroup mine | augroup end
 
+        set keywordprg=:help
         " set a map leader
         let mapleader = "\<Space>"
         let maplocalleader = ","
@@ -171,7 +172,7 @@
     """"""""""" command {{{
     command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
     " command! -nargs=? -complete=dir Terminal silent exe printf( "!open -a /Applications/Utilities/Terminal.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
-    command! -nargs=? -complete=dir ITerm silent exe printf( "!open -a /Applications/iTerm.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
+    command! -nargs=? -complete=dir OpenITerm silent exe printf( "!open -a /Applications/iTerm.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
     command! DiffOn windo diffthis
     command! DiffOff windo diffoff
     command! Hitest sp $VIMRUNTIME/syntax/hitest.vim | so %
@@ -181,6 +182,9 @@
     command! -range=% TrimMultiEmptyLine silent <line1>,<line2>g/^\s*\n\s*\n\s*\n/d
     command! -nargs=1 -complete=file Profile profile start <args> | profile func *
     command! -range=% UniqLines <line1>,<line2>!sort <bar> uniq
+
+    " TODO: 封装一个好用的通用terminal接口
+    " command! -nargs=1 -complete=shellcmd Terminal call term#open(<q-args>)
     "}}}
 
     """"""""""""""""""""""""""

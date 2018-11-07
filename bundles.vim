@@ -138,7 +138,7 @@
                         \ 'mail' : 1,
                         \ 'fzf' : 1,
                         \}
-            let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
+            " let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
             let g:ycm_semantic_triggers = {
                         \ 'swift' : ['.']
                         \ }
@@ -190,15 +190,16 @@
         " SirVer/ultisnips {{{
         let g:UltiSnipsListSnippets        = "<Plug>UltisnipList"
         let g:UltiSnipsExpandTrigger       = "<Plug>UltisnipExpand"
-        function! ExpandOrList()
-            let l = getline('.')
-            let l:kw = matchstr(l,'\v\S+$')
-            if len(l:kw)
-                return "\<Plug>UltisnipExpand"
-            endif
-            return "\<Plug>UltisnipList"
-        endfunction
-        imap <expr> <M-'> ExpandOrList()
+        " function! ExpandOrList()
+        "     let l = getline('.')
+        "     let l:kw = matchstr(l,'\v\S+$')
+        "     if len(l:kw)
+        "         return "\<Plug>UltisnipExpand"
+        "     endif
+        "     return "\<Plug>UltisnipList"
+        " endfunction
+        " imap <expr> <M-'> ExpandOrList()
+        imap <M-'> <Plug>UltisnipExpand
         " visual expand
         xmap <M-'> <Plug>UltisnipExpand
         imap <M-"> <Plug>UltisnipList
@@ -290,8 +291,6 @@
         let $FZF_DEFAULT_OPTS=' --bind="'.join([
         \    'alt-j:down,alt-k:up',
         \    'alt-h:backward-char,alt-l:forward-char',
-        \    'ê:down,ë:up',
-        \    'è:backward-char,ì:forward-char',
         \    'alt-space:jump,`:jump-accept',
         \], ',') . '" --color="pointer:15" '
         let g:fzf_layout = { 'up' : '~40%'  }
@@ -418,7 +417,7 @@
         let g:ale_lint_on_text_changed = 0
         let g:ale_lint_on_save = 1
         let g:ale_lint_on_enter = 0
-        let g:ale_set_highlights = 0
+        let g:ale_set_highlights = 1
         let g:ale_linters_explicit = 1
         let g:ale_linters = {
                     \ 'javascript' : 'all',
@@ -554,9 +553,16 @@
             let g:slime_target = "tmux"
         " endif
         let g:slime_paste_file = tempname()
+        " pandas not support cpaste..
         let g:slime_python_ipython = 1
         Plug 'jpalardy/vim-slime', {'on': ['<Plug>SlimeLineSend', '<Plug>SlimeRegionSend']}
         "}}}
+        " kassio/neoterm
+        " 能满足基本需要，不过窗口管理还需要进一步加强，比如重用时看不到。新建时不自动进去等等。
+        " let g:neoterm_shell = 'fish'
+        " let g:neoterm_default_mod = 'botright'
+        " Plug 'kassio/neoterm'
+        "
 
         " hynek/vim-python-pep8-indent"{{{
         Plug 'hynek/vim-python-pep8-indent'

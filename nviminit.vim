@@ -25,7 +25,9 @@ set vdir=~/.vim/view
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
+" 自动进入输入状态
 source ~/.vimrc
+autocmd mine TermOpen * startinsert
 
 " ensure ~/.vim at first
 set rtp-=~/.vim

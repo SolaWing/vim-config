@@ -45,7 +45,7 @@ com! ShowSyntaxStack for tmp in synstack(line("."),col("."))|
 "}}}
 
 " Command alias for our function
-command! -nargs=+ SuperMan call superman#SuperMan(<f-args>)
+command! -nargs=1 SuperMan call superman#SuperMan(<q-args>)
 
 
 " FindAll"{{{

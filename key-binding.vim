@@ -28,7 +28,7 @@ imap <M-m> <C-o><Leader>
 imap <M-CR> <C-o><LocalLeader>
 
 """ tab keys "{{{
-nmap <C-t> <Space>t
+" nmap <C-t> <Space>t
 " move to tab page
 nnoremap <Space>t1 1gt
 nnoremap <Space>t2 2gt
@@ -56,6 +56,7 @@ nnoremap <Space>tL :<C-U>silent tabm<CR>
 nnoremap <Space>th :<C-U>silent exe "tabm -". v:count1<CR>
 nnoremap <Space>tH :<C-U>silent tabm 0<CR>
 nnoremap <Space>tt <C-W>T
+" nnoremap <Space>TT :q<bar>!mvim %<CR>
 " new tab
 nnoremap <Space>ts <C-W>s<C-W>T
 nnoremap <Space>tn :<C-U>silent tabnew<CR>
@@ -143,7 +144,6 @@ nnoremap <Space>ff :<C-U>FZFiles <C-R>=expand("%:p:h")<CR>
 "}}}
 """ project keys"{{{
 nnoremap <Space>pf :<C-U>FZGFiles<CR>
-nnoremap <D-p> :<C-U>CtrlP<CR>
 nnoremap <Space>pr :<C-U>FZHistory<CR>
 nmap <F8> <Space>pr
 nmap <F7> <Space>pf
@@ -159,6 +159,7 @@ xnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=config#RgFileType(&ft)<CR> '<C-R>=G
 nnoremap <Space>pt :<C-U>!ctags -R '<C-R>=getcwd()<CR>'
 ""}}}
 """ git version control"{{{
+nnoremap <silent> <Space>gg :silent !cd '%:h' && gitup<CR>
 nnoremap <Space>gs :Gstatus<CR>z15<CR>
 nnoremap <Space>gS <C-W>s<C-W>T:Gstatus<CR>z15<CR><C-W>w:Git! diff --no-ext-diff -- .<CR><C-W>w
 nnoremap <Space>gv :GV --since='3\ months'<CR>
@@ -210,8 +211,8 @@ xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ navigate "{{{
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZRg -Fut <C-R>=config#RgFileType(&ft)<CR> '<C-R><C-W>'<CR>
-xnoremap <Space>s* :<C-U>FZRg -Fut <C-R>=config#RgFileType(&ft)<CR> '<C-R>=GetVisualString()<CR>'<CR>
+nnoremap <Space>s* :<C-U>FZRg -F '<C-R><C-W>'<CR>
+xnoremap <Space>s* :<C-U>FZRg -F '<C-R>=GetVisualString()<CR>'<CR>
 Map <Space>s8 <Space>s*
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
@@ -234,7 +235,7 @@ nnoremap <Leader><F6> :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Leader><F6> :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
 
 " 取消搜索高亮
-nnoremap z/    :noh<CR>
+nnoremap z/    <C-L>:noh<CR>
 
 " nnoremap n nzz
 " nnoremap N Nzz

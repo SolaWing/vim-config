@@ -6,6 +6,7 @@ function! superman#SuperMan(...)
 
   " Build and pass off arguments to Man command
   execute 'Man' join(a:000, ' ')
+  " echo 'Man' join(a:000, ' ')
 
   " Quit with error code if there is only one line in the buffer
   " (i.e., manpage not found)
@@ -14,19 +15,19 @@ function! superman#SuperMan(...)
   " Why :Man opens up in a split I shall never know
   silent only
 
-  " Set options appropriate for viewing manpages
-  setlocal readonly
-  setlocal nomodifiable
+  " " Set options appropriate for viewing manpages
+  " setlocal readonly
+  " setlocal nomodifiable
 
-  setlocal noexpandtab
-  setlocal tabstop=8
-  setlocal softtabstop=8
-  setlocal shiftwidth=8
-  setlocal nolist
-  if exists('+colorcolumn')
-    setlocal colorcolumn=0
-  endif
+  " setlocal noexpandtab
+  " setlocal tabstop=8
+  " setlocal softtabstop=8
+  " setlocal shiftwidth=8
+  " setlocal nolist
+  " if exists('+colorcolumn')
+  "   setlocal colorcolumn=0
+  " endif
 
-  " To make us behave more like less
-  noremap q :q<CR>
+  " " To make us behave more like less
+  nnoremap <silent> <buffer> <nowait> q :q<CR>
 endfunction

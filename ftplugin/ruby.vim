@@ -2,6 +2,7 @@ if exists("b:did_ftplugin") | finish | endif
 
 let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}
 
+nmap <buffer> <LocalLeader>e :update <bar> !ruby %<CR>
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 nmap <buffer> <LocalLeader>f :ALEFix<CR>
