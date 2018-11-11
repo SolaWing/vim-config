@@ -1,5 +1,5 @@
 if exists("b:did_ftplugin")
-  " finish
+  finish
 endif
 
 nmap <buffer> <LocalLeader>d :!mkdir <C-R>%

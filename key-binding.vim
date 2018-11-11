@@ -125,7 +125,7 @@ nmap <M-tab> <Space>bl
 nnoremap <Space>bq <C-^>:bd #<CR>
 ""}}}
 """ file"{{{
-nnoremap <Space>fd :!open '%:h'<CR>
+nnoremap <silent> <Space>fd :silent !open '%:h'<CR>
 nnoremap <Space>fs :<C-U>confirm w<CR>
 nnoremap <Space>fS :<C-U>confirm wa<CR>
 noremap <M-s> :<C-U>confirm w<CR>

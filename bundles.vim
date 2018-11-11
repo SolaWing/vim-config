@@ -340,7 +340,7 @@
         " }}}
         " devio {{{
         function! DevioSearch(filetype, keyword)
-            if a:filetype == "swift"
+            if a:filetype == "swift" || a:filetype == "objc" || a:filetype == "objcpp"
                 call system( printf("open 'https://developer.apple.com/search/?q=%s'", a:keyword) )
             else
                 call system( printf("open 'https://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
