@@ -259,6 +259,8 @@
         autocmd mine VimEnter * if expand('<amatch>')=='' && &filetype=='git' |
                     \ call fugitive#detect(getcwd()) | setf git |
                     \ endif
+        " 反应太慢了, 主要也就是把status window和diff合并了。
+        " Plug 'jreybert/vimagit'
         " }}}
 
         " Yggdroot/LeaderF {{{
@@ -341,9 +343,9 @@
         " devio {{{
         function! DevioSearch(filetype, keyword)
             if a:filetype == "swift" || a:filetype == "objc" || a:filetype == "objcpp"
-                call system( printf("open 'https://developer.apple.com/search/?q=%s'", a:keyword) )
+                call system( printf("open -a Firefox 'https://developer.apple.com/search/?q=%s'", a:keyword) )
             else
-                call system( printf("open 'https://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
+                call system( printf("open -a Firefox 'https://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
             endif
         endfunction
         nnoremap <LocalLeader>k :call DevioSearch(&ft, '<C-R><C-W>')<CR>

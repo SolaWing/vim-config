@@ -7,10 +7,13 @@ nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 nmap <buffer> <LocalLeader>f :ALEFix<CR>
 
+setl foldmethod=syntax
+
 " 现在先只加载一次
 if filereadable(".rubypaths")
     " 设置一些项目相关的参数
     let b:ale_fixers = ["rubocop"]
+    let b:ale_linters = ["rubocop"]
     " see vim-ruby filetype definition. this variable will set path and tags
     if !exists('g:ruby_version_paths')
         let g:ruby_version_paths = {}
