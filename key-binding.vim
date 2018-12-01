@@ -153,8 +153,8 @@ nnoremap <Space>h; :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 xnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
-nnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=config#RgFileType(&ft)<CR> '<C-R><C-W>'<Left>
-xnoremap <LocalLeader>/ :<C-U>Ack! -ut <C-R>=config#RgFileType(&ft)<CR> '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R><C-W>'<Left>
+xnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R>=GetVisualString()<CR>'<Left>
 " term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
 nnoremap <Space>pt :<C-U>!ctags -R '<C-R>=getcwd()<CR>'
 ""}}}
@@ -186,6 +186,8 @@ nnoremap <Space>g<Space> :<C-U>FZGFiles?<CR>
 """ quickFix"{{{
 nnoremap <Space>Q :<C-U>cwin<CR>
 nnoremap <Space>q :<C-U>lwin<CR>
+nnoremap <Space>QQ :<C-U>cwin<CR>
+nnoremap <Space>qq :<C-U>lwin<CR>
 nnoremap <Space>qs :<C-U>lvim/<C-R><C-W>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(6)<CR><BS>
 nnoremap <Space>qgs :<C-U>lvimgrepadd/<C-R><C-W>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(13)<CR><BS>
 xnoremap <Space>qs :<C-U>lvim/<C-R>=GetVisualString()<CR>/j<Space><C-R>%<bar>lwin<C-R>=setcmdpos(6)<CR><BS>
@@ -211,8 +213,8 @@ xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 """ navigate "{{{
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZRg -F '<C-R><C-W>'<CR>
-xnoremap <Space>s* :<C-U>FZRg -F '<C-R>=GetVisualString()<CR>'<CR>
+nnoremap <Space>s* :<C-U>FZRg -uF '<C-R><C-W>'<CR>
+xnoremap <Space>s* :<C-U>FZRg -uF '<C-R>=GetVisualString()<CR>'<CR>
 Map <Space>s8 <Space>s*
 nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
 xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>

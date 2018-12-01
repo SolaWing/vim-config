@@ -2,6 +2,7 @@ if exists("b:did_ftplugin")
   finish
 endif
 setl fdm=indent
+setl formatoptions+=r
 
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"

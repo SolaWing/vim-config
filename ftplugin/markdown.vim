@@ -7,6 +7,9 @@ setl cursorline
 
 " use / to surround /* block comment
 let b:surround_47 = "<!-- \r -->"
+" surround with ``` content ```
+let b:surround_94 = "```\r```"
+
 
 nnoremap <buffer> <LocalLeader>p :<C-U>KeepCursor %call markdown#preview()<CR>
 xnoremap <buffer> <LocalLeader>p :call markdown#preview()<CR>
@@ -26,6 +29,7 @@ nnoremap <buffer> <LocalLeader>6 :<C-U>call <SID>toggle_header(6)<CR>
 " strong, stroke through
 xmap <buffer> <LocalLeader>b s*gvs*
 xmap <buffer> <LocalLeader>s s~gvs~
+xmap <buffer> <LocalLeader>c gs^
 
 nnoremap <buffer> <LocalLeader>a| :silent KeepCursor ?^\s*\n?+1,/^\s*\n/-1 EasyAlign * |<CR>
 nnoremap <buffer> <LocalLeader>at :TableFormat<CR>
@@ -34,6 +38,8 @@ nnoremap <buffer> <LocalLeader>^ :sort /^.*\%=virtcol('.')-1<CR>v/
 xnoremap <buffer> <LocalLeader>^ :'<,'>sort /^.*\%=virtcol('.')-1<CR>v/
 
 function! s:header_line(char)
+    call s:remove_prefix_header()
+    call s:remove_section_header()
     let vc = virtcol('$')
     if vc > 0
         let sep = repeat(a:char, vc - 1)
@@ -42,7 +48,25 @@ function! s:header_line(char)
     endif
 endfunction
 
+function! s:remove_prefix_header()
+    " remove ### header
+    let l = getline('.')
+    let offset = matchend(l, '^#\+\s')
+    if offset > 1
+        call setline('.', l[offset:])
+    end
+endf
+function! s:remove_section_header()
+    " remove [-=] next line header
+    let lno = line('.') + 1
+    let l = getline(lno)
+    if l =~ '^[-=]\+$'
+        KeepCursor .+1delete _
+    endif
+endfunction
+
 function! s:toggle_header(headerCount)
+    call s:remove_section_header()
     let l = getline(".")
     let offset = matchend(l, '^#\+\s')
     let cursor = getcurpos()

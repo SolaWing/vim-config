@@ -62,6 +62,14 @@ for ${1:i} in ${2:0..<${3:10}} {
 }
 endsnippet
 
+snippet do "do catch block" b
+do {
+	$0
+} catch {
+
+}
+endsnippet
+
 snippet guard "guard statement" b
 guard $1 else { $0 }
 endsnippet
@@ -115,6 +123,10 @@ snippet swiftlint "swiftlint toggle rule" b
 // swiftlint:disable ${1:all}
 ${VISUAL}
 // swiftlint:enable $1
+endsnippet
+
+snippet swiftlintthis "swiftlint disable current line"
+// swiftlint:disable:this ${0:all}
 endsnippet
 
 snippet unimplemented "assert unimplemented" b
