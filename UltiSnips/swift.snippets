@@ -29,7 +29,7 @@ let ${1:name} = ${2:nil}
 endsnippet
 
 snippet f "func def"
-func ${1:name}($2) -> ${3:Void} {
+func ${1:name}($2)${3/ .*/ ->/}${3} {
 	$0
 }
 endsnippet
@@ -125,8 +125,11 @@ ${VISUAL}
 // swiftlint:enable $1
 endsnippet
 
-snippet swiftlintthis "swiftlint disable current line"
+snippet swiftlint_this "swiftlint disable current line"
 // swiftlint:disable:this ${0:all}
+endsnippet
+snippet swiftlint_next "swiftlint disable next line"
+// swiftlint:disable:next ${0:all}
 endsnippet
 
 snippet unimplemented "assert unimplemented" b

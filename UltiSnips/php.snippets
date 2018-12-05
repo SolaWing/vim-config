@@ -26,3 +26,15 @@ if ($1) {
 	${VISUAL}$0
 }
 endsnippet
+
+snippet foreach "foreach array" b
+foreach ($1 as $${2:value}) {
+	$0;
+}
+endsnippet
+
+snippet forkv "for key-value pair" b
+foreach ($1 as $${2:key} => $${3:value}) {
+	$0;
+}
+endsnippet

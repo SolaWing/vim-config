@@ -34,8 +34,9 @@
         tnoremap <M-l> <ESC>l
         tnoremap <M-f> <ESC>f
         tnoremap <M-d> <ESC>d
-        tnoremap <M-b> <ESC>b
         tnoremap <M-c> <ESC>c
+        tnoremap <M-b> <ESC>b
+        tnoremap <M-a> <ESC>a
         tnoremap <M-BS> <ESC><BS>
     endif
 

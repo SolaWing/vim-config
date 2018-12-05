@@ -28,5 +28,7 @@ endif
 " should select expanding closure before call this method, when curry, expand last closure as a single curry argument
 function! s:ExpandClosure(curry) range
     PY import swifttool
+    " PY from importlib import reload
+    " PY reload(swifttool)
     return PYEVAL( printf( "swifttool.expand_closure(%d)", a:curry))
 endfunction
