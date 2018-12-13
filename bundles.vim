@@ -423,7 +423,8 @@
         let g:ale_linters_explicit = 1
         let g:ale_linters = {
                     \ 'javascript' : 'all',
-                    \ 'swift' : ['swiftlint', 'parser'],
+                    \ 'swift' : ['swiftlint'],
+                    \ 'php': ['php'],
                     \ }
         " let g:ale_completion_enabled = 1
         " let g:ycm_filetype_specific_completion_to_disable = {
@@ -551,6 +552,8 @@
         let g:slime_no_mappings = 1
         " if has('nvim')
         "     let g:slime_target = "neovim"
+        " elseif v:version >= 801
+        "     let g:slime_target = "vimterminal"
         " else
             let g:slime_target = "tmux"
         " endif

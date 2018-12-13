@@ -372,6 +372,8 @@ inoremap <M-q> <esc>q
 nmap gqq gqig
 " fold
 nnoremap z% v%zf
+" use zx as set foldlevel if give count
+nnoremap <expr> zx v:count == v:count1 ? ":\<C-U>set foldlevel=".v:count."\<CR>" : "zx"
 
 " map K use help and can back
 nnoremap <silent> K      :<C-r>=&keywordprg==':help' <bar><bar> &keywordprg=='' ? printf("help %s",expand('<cword>')) : printf("!%s %s <bar> less", &keywordprg, expand('<cword>')) <CR><CR>

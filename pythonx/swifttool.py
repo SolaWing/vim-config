@@ -69,12 +69,13 @@ def expand_closure(curry=True):
     closure_params = line[closure_begin+1:closure_param_end].decode()
     closure_return_parts = line[closure_param_end+1: end_pos[1] + 1].decode()
     # ignore `-> Void`
-    if closure_return_parts and re.match(r"^\s*->\s*(Void|\(\))\s*$", closure_return_parts):
+    if closure_return_parts and re.match(r"^\s*(throws )?->\s*(Void|\(\))\s*$", closure_return_parts):
         closure_return_parts = ""
     template = "{ (${1:%s})%s in\n\t$0\n}"%( closure_params, closure_return_parts )
 
+    # find replace range
     next_char = line[end_pos[1]+1]
-    if next_char == ord(")") and curry:
+    if next_char == ord(")") and curry: # curry last closure
         comma = line.rfind(b",", 0, begin_pos[1])
         open_paren = line.rfind(b"(", 0, begin_pos[1])
         replace_begin = max(comma, open_paren)

@@ -12,11 +12,14 @@ nnoremap <buffer> <LocalLeader>f :!swiftlint autocorrect --path %:p<CR>
 
 snoremap <buffer> <CR> <ESC>:call <SID>ExpandClosure(1)<CR>
 snoremap <buffer> <M-CR> <ESC>:call <SID>ExpandClosure(0)<CR>
+" make g:UltiSnipsMappings don't remove select mode mapping of ExpandClosure
+let g:UltiSnipsMappingsToIgnore = ["ExpandClosure"]
 
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 
-let g:UltiSnipsMappingsToIgnore = ["ExpandClosure"]
+nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
+nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
 
 if filereadable(".swiftlint.yml")
     unlet! b:ale_linters_ignore

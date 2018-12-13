@@ -55,6 +55,11 @@ repeat {
 	$0
 } while ${1:false}
 endsnippet
+snippet dowhile "do while syntax" b
+repeat {
+	$0
+} while ${1:false}
+endsnippet
 
 snippet for "for in" b
 for ${1:i} in ${2:0..<${3:10}} {
@@ -112,6 +117,12 @@ class ${1:Name} {
 }
 endsnippet
 
+snippet enum "enum declare"
+enum ${1:Name} {
+case $0
+}
+endsnippet
+
 snippet extension "extension declare"
 extension ${1:Name} {
 	$0
@@ -126,10 +137,10 @@ ${VISUAL}
 endsnippet
 
 snippet swiftlint_this "swiftlint disable current line"
-// swiftlint:disable:this ${0:all}
+// swiftlint:disable:this all
 endsnippet
 snippet swiftlint_next "swiftlint disable next line"
-// swiftlint:disable:next ${0:all}
+// swiftlint:disable:next all
 endsnippet
 
 snippet unimplemented "assert unimplemented" b
