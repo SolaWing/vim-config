@@ -26,6 +26,7 @@
     if has("gui_macvim")
         set macmeta
         macmenu File.Print key=<D-S-P>
+        set guioptions+=k
 
         " terminal useful mapping
         tnoremap <M-h> <ESC>h

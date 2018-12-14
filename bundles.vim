@@ -244,6 +244,8 @@
         nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
         nnoremap [oe :set ei=all<CR>
         nnoremap ]oe :set ei=<CR>
+        " 居然一直没生效. unimpair内部实现改了，是先把map存起来，再active生效...
+        " URLEncode应该是utf8编码的
         autocmd VimEnter *
                     \ call UnimpairedMapTransform('misc#URLEncode','[u')
                     \ | call UnimpairedMapTransform('misc#URLDecode',']u')
@@ -265,11 +267,12 @@
 
         " Yggdroot/LeaderF {{{
         " let g:Lf_CacheDirectory = "/tmp/LeaderF"
-        " " let g:Lf_WindowPosition = "top"
+        " let g:Lf_WindowPosition = "top"
         " let g:Lf_ShortcutB = "<Leader>bb"
         " let g:Lf_ShortcutF = "<Leader>ff"
         " let g:Lf_CommandMap = {'<Down>': ['<Down>', '<M-j>', '∆'], '<Up>': ['<Up>', '<M-k>', '˚']}
         " Plug 'Yggdroot/LeaderF'
+        " Plug 'Yggdroot/LeaderF-marks'
         " }}}
 
         " junegunn/gv.vim {{{

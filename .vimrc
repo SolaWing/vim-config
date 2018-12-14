@@ -38,6 +38,7 @@
             if has('nvim')
                 " according to https://github.com/neovim/neovim/issues/7063#issuecomment-340590539
                 " vim.api.eval is twice fast as vim.eval by not coercing number to string.
+                " 不要过早优化，打破了兼容性
                 PY import vim; vim.eval = vim.api.eval
             endif
         endif

@@ -1,7 +1,8 @@
 if exists("b:did_ftplugin")
   finish
 endif
-setl fdm=indent
+setl foldmethod=marker
+setl foldmarker={,}
 setl formatoptions+=r
 
 " use / to surround /* block comment
