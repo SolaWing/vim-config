@@ -264,6 +264,9 @@
         " 反应太慢了, 主要也就是把status window和diff合并了。
         " Plug 'jreybert/vimagit'
         " }}}
+        " tpope/vim-dispatch {{{
+        Plug 'tpope/vim-dispatch'
+        " }}}
 
         " Yggdroot/LeaderF {{{
         " let g:Lf_CacheDirectory = "/tmp/LeaderF"
@@ -544,17 +547,31 @@
     endfunction
         "}}}
 
-        " terryma/vim-multiple-cursors "{{{
-        Plug 'terryma/vim-multiple-cursors'
-        " integrate with other plugin
-        function! Multiple_cursors_before()
-            let g:ycm_auto_trigger = 0
-        endfunction
+        " https://github.com/mg979/vim-visual-multi
+        Plug 'mg979/vim-visual-multi', { 'branch': 'test' }
+        let g:VM_maps = {
+                    \ 'Select Operator': '',
+                    \ 'Add Cursor Down': '<M-Down>',
+                    \ 'Add Cursor Up':   '<M-Up>',
+                    \ 'Select All':      'g<M-a>',
+                    \ 'Visual All':      'g<M-a>',
+                    \ }
+        let g:VM_Mono_Cursor_hl = 'StatusLine'
+        let g:VM_Ins_Mode_hl = 'Underlined'
+        nmap  z]         <Plug>(VM-Find-Under)
+        xmap  z]         <Plug>(VM-Find-Subword-Under)
+        "
+        "" terryma/vim-multiple-cursors "{{{
+        "Plug 'terryma/vim-multiple-cursors'
+        "" integrate with other plugin
+        "function! Multiple_cursors_before()
+        "    let g:ycm_auto_trigger = 0
+        "endfunction
 
-        function! Multiple_cursors_after()
-            let g:ycm_auto_trigger = 1
-        endfunction
-        "}}}
+        "function! Multiple_cursors_after()
+        "    let g:ycm_auto_trigger = 1
+        "endfunction
+        ""}}}
         " terryma/vim-expand-region {{{
         Plug 'terryma/vim-expand-region'
         " }}}
