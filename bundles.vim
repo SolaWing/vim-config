@@ -84,7 +84,7 @@
         let g:EasyMotion_startofline = 0
         " let g:EasyMotion_use_upper = 1
         " let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
-        Plug 'easymotion/vim-easymotion'
+        Plug 'easymotion/vim-easymotion' " custom
         map  <S-Space> <Plug>(easymotion-bd-w)
         imap <S-Space> <C-o><Plug>(easymotion-bd-w)
         " <M-/>
@@ -236,7 +236,7 @@
         "}}}
 
         " tpope/vim-unimpaired"{{{
-        Plug 'tpope/vim-unimpaired'
+        Plug 'tpope/vim-unimpaired' " custom
         nmap co yo
         nnoremap coD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
         nnoremap [oD :windo diffthis<CR>
@@ -270,7 +270,10 @@
 
         " Yggdroot/LeaderF {{{
         " let g:Lf_CacheDirectory = "/tmp/LeaderF"
-        " let g:Lf_WindowPosition = "top"
+        " " let g:Lf_WindowPosition = "top"
+        " let g:Lf_PreviewResult = {
+        "     'Line': 1,
+        " }
         " let g:Lf_ShortcutB = "<Leader>bb"
         " let g:Lf_ShortcutF = "<Leader>ff"
         " let g:Lf_CommandMap = {'<Down>': ['<Down>', '<M-j>', '∆'], '<Up>': ['<Up>', '<M-k>', '˚']}
@@ -311,6 +314,19 @@
                     \   <bang>0 ? fzf#vim#with_preview('up:60%')
                     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
                     \   <bang>0)
+
+        " function! MarksToLocation(line)
+        "     " 运行时本地的buffer文件已经变了，不太好获取啊
+        "     return a:line
+        "     " let pos = getpos("'".matchstr(line, '\S'))
+        "     redir => cout
+        "     silent marks
+        "     redir END
+        "     return l:cout
+        " endfunction
+        " command! -bar -bang FZMarks call fzf#vim#marks(
+        "             \ {'options': ['--preview-window', 'right:50%', '--preview', printf('v={}; echo "$(~/.vim/bin/evalInVim.sh "%s" "MarksToLocation(''""${v//\''/''''}""'')" )"', v:servername)]},
+        "             \ <bang>0)
         " "}}}
 
         " junegunn/goyo.vim {{{
@@ -482,7 +498,7 @@
         " kana/vim-submode"{{{
         let g:submode_timeout = 0
         let g:submode_keep_leaving_key = 1
-        Plug 'kana/vim-submode'
+        Plug 'kana/vim-submode' " custom
         autocmd mine VimEnter * call timer_start(200, {-> s:submode_init() })
     function! s:submode_init()
         function! SubmodeMap(name, mode, maps)
@@ -723,7 +739,7 @@
         "}}}
 
         " chriskempson/base16-vim "{{{ color scheme(After Tomorrow)
-        Plug 'chriskempson/base16-vim' " still not good as solarized
+        Plug 'chriskempson/base16-vim' " custom
         "}}}
 
         " -- nathanaelkane/vim-indent-guides"{{{

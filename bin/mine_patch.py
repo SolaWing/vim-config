@@ -4,13 +4,19 @@
 import os.path, sys, asyncio
 from asyncio.subprocess import PIPE, STDOUT, DEVNULL
 
-patch_plugs = ['base16-vim', 'vim-submode', 'vim-easymotion' 'dash.vim']
+patch_plugs = [
+    'base16-vim',
+    'vim-submode',
+    'vim-unimpaired',
+    'vim-easymotion',
+    'dash.vim',
+]
 bundle_dir = os.path.expanduser("~/.vim/bundle")
 base_url = "https://github.com/SolaWing"
 
 
 async def patch(plug):
-    d = os.path.join(bundle_dir, plug)
+    d   = os.path.join(bundle_dir, plug)
     url = os.path.join(base_url, plug)
 
     if os.path.isdir(d):
