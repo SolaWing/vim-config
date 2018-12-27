@@ -549,12 +549,14 @@
 
         " https://github.com/mg979/vim-visual-multi
         Plug 'mg979/vim-visual-multi', { 'branch': 'test' }
+        " <M-Down> not work in terminal...
         let g:VM_maps = {
                     \ 'Select Operator': '',
                     \ 'Add Cursor Down': '<M-Down>',
                     \ 'Add Cursor Up':   '<M-Up>',
-                    \ 'Select All':      'g<M-a>',
-                    \ 'Visual All':      'g<M-a>',
+                    \ 'Select All':      '<M-*>',
+                    \ 'Visual All':      '<M-*>',
+                    \ 'Visual Find':     '<M-F>',
                     \ }
         let g:VM_Mono_Cursor_hl = 'StatusLine'
         let g:VM_Ins_Mode_hl = 'Underlined'
