@@ -173,8 +173,8 @@ nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
 nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>
-nnoremap <Space>gF :Gpedit! pull --rebase<CR>
-nnoremap <Space>gp :Gpedit! push<CR>
+nnoremap <Space>gF :Gpull --rebase<CR>
+nnoremap <Space>gp :Gpush<CR>
 nnoremap <Space>gw :Gwrite<CR>
 nnoremap <Space>ge :Gedit<CR>
 nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>

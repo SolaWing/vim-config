@@ -1,7 +1,13 @@
+#################### Syntax
 snippet f "function"
-function${1/.+/ /}$1($2) {
+function $1($2) {
 	$0
 }
+endsnippet
+snippet iife "immediately invoke function expression" b
+;(function ($1) {
+	$0
+})($1)
 endsnippet
 
 snippet v "var declare"
@@ -52,6 +58,27 @@ else {
 }
 endsnippet
 
+snippet /** "docment comment" b
+/** $0 */
+endsnippet
+#################### lint
+snippet export "exported" b
+/* exported ${0:var} */
+endsnippet
+
+snippet eslint "eslint rules configuration" b
+/* eslint ${1:name}:"off" */
+endsnippet
+snippet eslint-disable "eslint scope disable" b
+/* eslint-disable $1*/
+${VISUAL}$0
+/* eslint-enable $1*/
+endsnippet
+snippet eslint-disable-line "eslint disable line"
+// eslint-disable-$1${1/^n$/ext-/}line
+endsnippet
+
+#################### Function
 snippet log "console.log()" b
 console.log($0)
 endsnippet

@@ -244,11 +244,6 @@
         nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
         nnoremap [oe :set ei=all<CR>
         nnoremap ]oe :set ei=<CR>
-        " 居然一直没生效. unimpair内部实现改了，是先把map存起来，再active生效...
-        " URLEncode应该是utf8编码的
-        autocmd VimEnter *
-                    \ call UnimpairedMapTransform('misc#URLEncode','[u')
-                    \ | call UnimpairedMapTransform('misc#URLDecode',']u')
         "}}}
 
         " tpope/vim-repeat"{{{
@@ -376,7 +371,7 @@
         " }}}
 
         " my plugin" {{{
-        Plug '~/.vim/bundle/vim-grepeditor'
+        " Plug '~/.vim/bundle/vim-grepeditor'
         Plug 'SolaWing/vim-objc-syntax', {'for': ['objc', 'objcpp']},
         Plug 'SolaWing/quick-ultisnip'
         Plug 'SolaWing/WaitYank.vim'
@@ -444,10 +439,13 @@
         let g:ale_set_highlights = 1
         let g:ale_linters_explicit = 1
         let g:ale_linters = {
-                    \ 'javascript' : 'all',
+                    \ 'javascript' :[ 'eslint' ],
                     \ 'swift' : ['swiftlint'],
                     \ 'php': ['php'],
                     \ }
+        let g:ale_fixers = {
+                    \   'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint'],
+                    \}
         " let g:ale_completion_enabled = 1
         " let g:ycm_filetype_specific_completion_to_disable = {
         "             \ 'rust': 1

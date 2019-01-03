@@ -6,7 +6,7 @@ let b:did_ftplugin = 1
 
 let b:undo_ftplugin = "setl binary<"
 
-if !&bin 
+if !&bin
     e ++bin
 endif
 %!xxd

@@ -178,7 +178,7 @@
     command! DiffOff windo diffoff
     command! Hitest sp $VIMRUNTIME/syntax/hitest.vim | so %
     command! Colortest sp $VIMRUNTIME/syntax/colortest.vim|so %
-    command! -nargs=? Scratch new +set\ bt=nowrite <args>
+    command! -nargs=? Scratch new +set\ buftype=nowrite <args>
     command! -range=% TrimWhiteSpace <line1>,<line2>s/\m\s\+$//e
     command! -range=% TrimMultiEmptyLine silent <line1>,<line2>g/^\s*\n\s*\n\s*\n/d
     command! -nargs=1 -complete=file Profile profile start <args> | profile func *
