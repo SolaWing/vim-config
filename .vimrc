@@ -94,6 +94,7 @@
         set lazyredraw
 
         set undofile undodir=~/.vim/undodir
+        autocmd mine BufWritePre *.{log,json,csv} setlocal noundofile
     "}}}
 
     " formatter {{{
