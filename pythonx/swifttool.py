@@ -48,19 +48,26 @@ def index_pair(s, at):
             i = end
 
 def expand_closure(curry=True):
-  """ should select expanding closure before call this method, expand closure param according to swift rules """
+  """
+  should select expanding closure before call this method, expand closure param according to swift rules
+
+  expand closure like: `label: (params) throws -> return`
+  label, throws is optional
+  """
+
   try:
     buf = vim.current.buffer
     begin_pos = buf.mark("<") # (1,0) byte base
     end_pos = buf.mark(">")
-    if begin_pos[0] != end_pos[0]: return
+    is_single_line = begin_pos[0] == end_pos[0]
+    if not is_single_line: return
 
     line = ToBytes(buf[begin_pos[0] -1]) # type: bytes
-    if len(line) <= end_pos[1] + 1: return
+    if len(line) <= end_pos[1] + 1: return # 不能选中到行末, expand的closure后面应该有`,)`等分隔符
 
     if line[begin_pos[1]] == b'(': # start a closure and no label
         closure_begin = begin_pos[1]
-    else:
+    else: # start with a label
         closure_begin = line.find(b"(", begin_pos[1])
         if closure_begin == -1: return
     closure_param_end = index_pair(line, closure_begin)

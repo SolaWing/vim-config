@@ -183,7 +183,6 @@
     command! -range=% TrimWhiteSpace <line1>,<line2>s/\m\s\+$//e
     command! -range=% TrimMultiEmptyLine silent <line1>,<line2>g/^\s*\n\s*\n\s*\n/d
     command! -nargs=1 -complete=file Profile profile start <args> | profile func *
-    command! -range=% UniqLines <line1>,<line2>!sort <bar> uniq
 
     " TODO: 封装一个好用的通用terminal接口
     " command! -nargs=1 -complete=shellcmd Terminal call term#open(<q-args>)

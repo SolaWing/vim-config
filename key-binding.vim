@@ -175,6 +175,7 @@ nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>
 nnoremap <Space>gF :Gpull --rebase<CR>
 nnoremap <Space>gp :Gpush<CR>
+nnoremap <Space>gR :Grebase --autosquash -i<CR>
 nnoremap <Space>gw :Gwrite<CR>
 nnoremap <Space>ge :Gedit<CR>
 nnoremap <Space>gr :<C-U>Gread <C-R>=v:count?"@~".v:count : ""<CR><CR>
@@ -298,6 +299,8 @@ vnoremap > >gv
 
 " use c* to change current word. than can use . to repeat action
 nnoremap c* *Ncgn
+" NOTE: depend on * to highlight current word and don't move
+xmap c* *cgn
 
 " visual @ execute on multilines
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
