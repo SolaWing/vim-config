@@ -391,6 +391,7 @@
 
         " jiangmiao/auto-pair {{{
         let g:AutoPairsShortcutBackInsert = ""
+        let g:AutoPairsFlyMode = 0
         let g:AutoPairsShortcutToggle = ""
         let g:AutoPairsMoveCharacter = ""
         " let g:AutoPairsMapCR = 0
