@@ -300,7 +300,8 @@ vnoremap > >gv
 " use c* to change current word. than can use . to repeat action
 nnoremap c* *Ncgn
 " NOTE: depend on * to highlight current word and don't move
-xmap c* *cgn
+" cause with c, clear and start insert, response delay
+" xmap c* *cgn
 
 " visual @ execute on multilines
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>

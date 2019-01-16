@@ -396,6 +396,7 @@
         let g:AutoPairsMoveCharacter = ""
         " let g:AutoPairsMapCR = 0
         let g:ycm_key_param_template = 0
+        let g:AutoPairs = {'`': '`', '"': '"', '{': '}', '''': '''', '(': ')', '[': ']', '"""': '"""'}
 
         Plug 'jiangmiao/auto-pairs'
         " }}}
