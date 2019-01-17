@@ -4,6 +4,7 @@ endif
 setl foldmethod=marker
 setl foldmarker={,}
 setl formatoptions+=r
+setl comments=f:/*,e:*/,b:///,://
 
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"
