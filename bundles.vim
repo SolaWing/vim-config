@@ -330,10 +330,18 @@
         
         " junegunn/vim-slash {{{
         Plug 'junegunn/vim-slash'
+        " nvim slash effect is awkward...
         if has('timers') && !has('nvim')
-            noremap <expr> <plug>(slash-after) slash#blink(2, 50)
+            nmap <expr> <plug>(slash-after) "\<Plug>SearchIndex" . slash#blink(2, 50)
+        else
+            nmap <expr> <plug>(slash-after) "\<Plug>SearchIndex"
         endif
         " }}}
+        " google/vim-searchindex{{{
+        " 不支持visual star, 配合vim-slash一起用
+        Plug 'google/vim-searchindex'
+        let g:searchindex_line_limit = 20000
+        "}}}
 
         " kshenoy/vim-signature"{{{
         let g:SignaturePeriodicRefresh = 0

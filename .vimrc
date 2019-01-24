@@ -118,7 +118,7 @@
         set ignorecase smartcase
         set wildignorecase
         " set fold method
-        set foldmethod=manual
+        set foldmethod=indent
         set foldlevel=100
         set foldcolumn=1
         " no auto resize
