@@ -404,7 +404,7 @@
         let g:AutoPairsMoveCharacter = ""
         " let g:AutoPairsMapCR = 0
         let g:ycm_key_param_template = 0
-        let g:AutoPairs = {'`': '`', '"': '"', '{': '}', '''': '''', '(': ')', '[': ']', '"""': '"""'}
+        " let g:AutoPairs = {'`': '`', '"': '"', '{': '}', '''': '''', '(': ')', '[': ']', '"""': '"""'}
 
         Plug 'jiangmiao/auto-pairs'
         " }}}
@@ -470,7 +470,7 @@
         " mileszs/ack.vim"{{{
         let g:ackhighlight = 1
         " let g:ackprg = 'ag --vimgrep'
-        let g:ackprg = 'rg --vimgrep -g "!*.xcodeproj"'
+        let g:ackprg = 'rg --vimgrep --smart-case -g "!*.xcodeproj"'
         " let g:ack_apply_qmappings = 0
         " let g:ack_apply_lmappings = 0
         " this seems to only set fcl = all, will affect other buffer
