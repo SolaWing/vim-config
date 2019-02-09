@@ -298,7 +298,7 @@
         \    'alt-j:down,alt-k:up',
         \    'alt-h:backward-char,alt-l:forward-char',
         \    'alt-space:jump,`:jump-accept',
-        \], ',') . '" --color="pointer:15" '
+        \], ',') . '" --color="pointer:15" --exact'
         let g:fzf_layout = { 'up' : '~40%'  }
         Plug '/usr/local/opt/fzf'
         Plug 'junegunn/fzf.vim'
@@ -764,10 +764,12 @@
         "}}}
 
         " lisp test{{{
-        " slow and buggy. many for it's swank completion. try other ways
-        " Plug 'kovisoft/slimv',               {'for': ['racket', 'scheme']}
+        " 和racket兼容不太好用，各种错误和路径问题。出错时还容易卡. 也没命令行交互模式的功能全
+        Plug 'kovisoft/slimv',               {'for': ['racket', 'scheme']}
+        let g:slimv_swank_cmd = '!tmux new -d -n REPL-Racket "racket ~/.vim/bin/swank-racket/server.rkt"'
         " Plug 'MicahElliott/vrod',                          {'for': ['racket', 'scheme']}
         Plug 'wlangstroth/vim-racket',                     {'for': ['racket', 'scheme']}
+        " 我看着不明显，而且需要显示启用, 不支持单独启用
         " Plug 'kien/rainbow_parentheses.vim',               {'for': ['racket', 'scheme']}
         " Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme']}
         " Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme']}
