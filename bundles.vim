@@ -369,6 +369,8 @@
         function! DevioSearch(filetype, keyword)
             if a:filetype == "swift" || a:filetype == "objc" || a:filetype == "objcpp"
                 call system( printf("open -a Firefox 'https://developer.apple.com/search/?q=%s'", a:keyword) )
+            elseif a:filetype == "racket"
+                call system( printf("raco docs '%s'", a:keyword) )
             else
                 call system( printf("open -a Firefox 'https://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
             endif
@@ -767,13 +769,16 @@
         " 和racket兼容不太好用，各种错误和路径问题。出错时还容易卡. 也没命令行交互模式的功能全
         Plug 'kovisoft/slimv',               {'for': ['racket', 'scheme']}
         let g:slimv_swank_cmd = '!tmux new -d -n REPL-Racket "racket ~/.vim/bin/swank-racket/server.rkt"'
+        " prefer vim edit functions
+        let g:paredit_mode = 0
+        let g:paredit_disable_scheme = 1
         " Plug 'MicahElliott/vrod',                          {'for': ['racket', 'scheme']}
         Plug 'wlangstroth/vim-racket',                     {'for': ['racket', 'scheme']}
         " 我看着不明显，而且需要显示启用, 不支持单独启用
         " Plug 'kien/rainbow_parentheses.vim',               {'for': ['racket', 'scheme']}
-        " Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme']}
-        " Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme']}
-
+        Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme']}
+        Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme']}
+        let g:sexp_enable_insert_mode_mappings = 0
         " }}}
   "}}}
 
