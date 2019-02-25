@@ -7,7 +7,7 @@ setl cursorline
 
 " use / to surround /* block comment
 let b:surround_47 = "<!-- \r -->"
-" surround with ``` content ```
+" use ^ to surround with ```
 let b:surround_94 = "```\r```"
 
 

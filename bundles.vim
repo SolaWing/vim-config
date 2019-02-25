@@ -119,7 +119,7 @@
             let g:ycm_collect_identifiers_from_tags_files = 1
             let g:ycm_seed_identifiers_with_syntax = 1
             let g:ycm_complete_in_comments = 1
-            let g:ycm_max_num_candidates = 30
+            let g:ycm_max_num_candidates = 10
             " let g:ycm_enable_diagnostic_highlighting = 0
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/mine.ycm_extra_conf.py'
             " let g:ycm_key_invoke_completion = '<M-.>'
@@ -261,7 +261,11 @@
         " }}}
         " tpope/vim-dispatch {{{
         Plug 'tpope/vim-dispatch'
+        let g:dispatch_no_maps = 1
         " }}}
+        " tpope/vim-projectionist{{{
+        Plug 'tpope/vim-projectionist'
+        "}}}
 
         " Yggdroot/LeaderF {{{
         " let g:Lf_CacheDirectory = "/tmp/LeaderF"
@@ -327,7 +331,7 @@
         " junegunn/goyo.vim {{{
         Plug 'junegunn/goyo.vim'
         " }}}
-        
+
         " junegunn/vim-slash {{{
         Plug 'junegunn/vim-slash'
         " nvim slash effect is awkward...
@@ -618,67 +622,24 @@
         let g:slime_python_ipython = 1
         Plug 'jpalardy/vim-slime', {'on': ['<Plug>SlimeLineSend', '<Plug>SlimeRegionSend']}
         "}}}
-        " kassio/neoterm
+        " kassio/neoterm{{{
         " 能满足基本需要，不过窗口管理还需要进一步加强，比如重用时看不到。新建时不自动进去等等。
         " let g:neoterm_shell = 'fish'
         " let g:neoterm_default_mod = 'botright'
         " Plug 'kassio/neoterm'
-        "
-
-        " hynek/vim-python-pep8-indent"{{{
-        Plug 'hynek/vim-python-pep8-indent'
         "}}}
 
-        " kchmck/vim-coffee-script"{{{
-        " Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-        "}}}
-
-        "cespare/vim-toml "{{{
-        Plug 'cespare/vim-toml'
-        "}}}"
-
-        " keith/swift.vim "{{{
-        Plug 'keith/swift.vim', {'for': 'swift'}
-        " 现在支持还不够好. 以后真的需要再说吧. 暂时用xcode开发swift
-        " Plug '~/.vim/bundle/sourcekittendaemon.vim', {'for': 'swift'}
-        " Plug 'mitsuse/autocomplete-swift', {'for': 'swift'}
-        "}}}
-
-        " kana/vim-operator-user  "{{{
-        " depend by vim-clang-format
-        Plug 'kana/vim-operator-user'
-        "}}}
-
-        " rhysd/vim-clang-format "{{{
-        let g:clang_format#detect_style_file = 1 " use .clang-format
-        Plug 'rhysd/vim-clang-format', {'on': ['<Plug>(operator-clang-format)']}
-        " fix lazy load not not consider default range
-        command! -range=% -nargs=0 ClangFormat call plug#load('vim-clang-format') | call clang_format#replace(<line1>, <line2>)
-        "}}}
-
-        " rust-lang/rust.vim"{{{
-        Plug 'rust-lang/rust.vim', {'for': 'rust'}
-        "}}}
-
-        let $RUST_SRC_PATH = g:ycm_rust_src_path
-        " " racer-rust/vim-racer"{{{
-        " let g:racer_insert_paren = 0
-        " let g:racer_experimental_completer = 1
-        " let g:racer_no_default_keymappings = 1 " this option use custom mapping in filetype
-        " " let g:racer_cmd = $HOME."/.cargo/bin/racer"
-        " Plug 'racer-rust/vim-racer', {'for': 'rust'}
-        " "}}}
-
-        " dag/vim-fish"{{{
-        " slow, better than None
-        Plug 'dag/vim-fish', {'for': 'fish'}
+        " -- nathanaelkane/vim-indent-guides"{{{
+        " more distract than useful
+        Plug 'nathanaelkane/vim-indent-guides', {'on': 'IndentGuidesToggle'}
+        let g:indent_guides_guide_size = 1
+        let g:indent_guides_start_level = 2
+        nnoremap cog :IndentGuidesToggle<CR>
         ""}}}
 
-        " vim-ruby/vim-ruby{{{
-        " let g:rubycomplete_buffer_loading = 1
-        " let g:rubycomplete_classes_in_global = 1
-        " let g:rubycomplete_load_gemfile = 1
-        Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+        """""""""""""""""""" Language
+        " hynek/vim-python-pep8-indent"{{{
+        Plug 'hynek/vim-python-pep8-indent'
         "}}}
 
         " itchyny/lightline.vim {{{
@@ -730,9 +691,59 @@
         autocmd mine User ALELint call lightline#update()
         " }}}
 
+        " kchmck/vim-coffee-script"{{{
+        " Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+        "}}}
+
+        "cespare/vim-toml "{{{
+        Plug 'cespare/vim-toml'
+        "}}}"
+
+        " keith/swift.vim "{{{
+        Plug 'keith/swift.vim', {'for': 'swift'}
+        " 现在支持还不够好. 以后真的需要再说吧. 暂时用xcode开发swift
+        " Plug '~/.vim/bundle/sourcekittendaemon.vim', {'for': 'swift'}
+        " Plug 'mitsuse/autocomplete-swift', {'for': 'swift'}
+        "}}}
+
+        " rhysd/vim-clang-format "{{{
+        Plug 'kana/vim-operator-user'
+        let g:clang_format#detect_style_file = 1 " use .clang-format
+        Plug 'rhysd/vim-clang-format', {'on': ['<Plug>(operator-clang-format)']}
+        " fix lazy load not not consider default range
+        command! -range=% -nargs=0 ClangFormat call plug#load('vim-clang-format') | call clang_format#replace(<line1>, <line2>)
+        "}}}
+
         " octol/vim-cpp-enhanced-highlight"{{{
         Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
         ""}}}
+
+        " rust-lang/rust.vim"{{{
+        Plug 'rust-lang/rust.vim', {'for': 'rust'}
+        let $RUST_SRC_PATH = g:ycm_rust_src_path
+        "}}}
+
+        " " racer-rust/vim-racer"{{{
+        " let g:racer_insert_paren = 0
+        " let g:racer_experimental_completer = 1
+        " let g:racer_no_default_keymappings = 1 " this option use custom mapping in filetype
+        " " let g:racer_cmd = $HOME."/.cargo/bin/racer"
+        " Plug 'racer-rust/vim-racer', {'for': 'rust'}
+        " "}}}
+
+        " dag/vim-fish"{{{
+        " slow, better than None
+        Plug 'dag/vim-fish', {'for': 'fish'}
+        ""}}}
+
+        " vim-ruby/vim-ruby{{{
+        " let g:rubycomplete_buffer_loading = 1
+        " let g:rubycomplete_classes_in_global = 1
+        " let g:rubycomplete_load_gemfile = 1
+        Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+        Plug 'tpope/vim-rake', {'for': 'ruby'}
+        Plug 'tpope/vim-bundler', {'for': 'ruby'}
+        "}}}
 
         " plasticboy/vim-markdown "{{{
         " 体验不够好
@@ -752,13 +763,6 @@
         Plug 'chriskempson/base16-vim' " custom
         "}}}
 
-        " -- nathanaelkane/vim-indent-guides"{{{
-        " more distract than useful
-        Plug 'nathanaelkane/vim-indent-guides', {'on': 'IndentGuidesToggle'}
-        let g:indent_guides_guide_size = 1
-        let g:indent_guides_start_level = 2
-        nnoremap cog :IndentGuidesToggle<CR>
-        ""}}}
 
         " wannesm/wmgraphviz.vim  {{{
         let g:WMGraphviz_output = 'png'

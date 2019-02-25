@@ -73,9 +73,29 @@ $0${VISUAL}
 # rubocop:enable $1
 endsnippet
 
+snippet rubocop-this "disable rubocop rules"
+# rubocop:disable $1
+endsnippet
+
+######################################## rspec
+snippet expect "expect assert" b
+expect($1).to ${2:eq} $3
+endsnippet
+
 ######################################## solargraph
+snippet ## "document template" b
+# ${1:description}
+#
+# @return [${2:String}]
+endsnippet
+
 snippet param "param document"
 @param ${1:name} [${2:String}]$0
+endsnippet
+
+snippet attr_doc "attribute document" b
+# @!attribute [rw] ${1:name}
+#   @return [${2:String}] ${3:desc}
 endsnippet
 
 snippet hint "type hint for following var" b
