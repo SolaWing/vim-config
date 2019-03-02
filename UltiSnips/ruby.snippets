@@ -1,3 +1,9 @@
+snippet #! "#! header " b
+#!/usr/bin/env ruby
+
+$0
+endsnippet
+
 snippet fixme "fixme" b
 # FIXME: $0
 endsnippet
@@ -80,6 +86,12 @@ endsnippet
 ######################################## rspec
 snippet expect "expect assert" b
 expect($1).to ${2:eq} $3
+endsnippet
+
+snippet context "context group" b
+context '$1' do
+	$0
+end
 endsnippet
 
 ######################################## solargraph
