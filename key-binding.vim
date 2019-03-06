@@ -132,7 +132,6 @@ noremap <M-s> :<C-U>confirm w<CR>
 inoremap <M-s> <C-o>:<C-U>confirm w<CR>
 noremap <M-S> :<C-U>confirm wa<CR>
 inoremap <C-x><C-x> <Esc>:confirm x<CR>
-nnoremap Za :confirm qa<CR>
 nnoremap ZA :qa!<CR>
 nnoremap ZX :confirm xa<CR>
 

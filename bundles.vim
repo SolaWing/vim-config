@@ -252,6 +252,7 @@
 
         " tpope/fugitive {{{
         Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-rhubarb'
         " re setf git to enable fugitive map, fugitive#detect need a path to detect
         autocmd mine VimEnter * if expand('<amatch>')=='' && &filetype=='git' |
                     \ call fugitive#detect(getcwd()) | setf git |
