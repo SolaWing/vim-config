@@ -11,7 +11,7 @@ let b:surround_47 = "/* \r */"
 
 nnoremap <buffer> <LocalLeader>m :<C-U>call fzf#vim#buffer_lines("func \\|class \\|extension \\|struct \\|enum \\|[^.]init(\\|\\%(MARK\\|TODO\\|FIXME\\):", {'options': '+s'})<CR>
 nnoremap <buffer> <LocalLeader>t :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
-nnoremap <buffer> <LocalLeader>f :!swiftlint autocorrect --path %:p<CR>
+nnoremap <buffer> <LocalLeader>f :!swiftlint autocorrect --path '%:p'<CR>
 
 snoremap <buffer> <CR> <ESC>:call <SID>ExpandClosure(1)<CR>
 snoremap <buffer> <M-CR> <ESC>:call <SID>ExpandClosure(0)<CR>

@@ -40,6 +40,10 @@ snippet cl "closure define"
 }
 endsnippet
 
+snippet cast "unsafe bit cast"
+unsafeBitCast(${VISUAL}$0, to: ${1:UnsafeRawPointer}.self)
+endsnippet
+
 snippet t "type of"
 type(of: ${VISUAL}$0)
 endsnippet

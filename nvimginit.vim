@@ -1,4 +1,5 @@
 Guifont Menlo:h14
+GuiPopupmenu 0
 
 nnoremap <D-1>    1gt
 inoremap <D-1>    <esc>1gt

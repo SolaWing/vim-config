@@ -3,6 +3,7 @@
     set nocompatible              " be iMproved, required
     call plug#begin('~/.vim/bundle')
     " my bundles here {{{
+    " ==================== Basic{{{
         " tagbar {{{
         let g:tagbar_autoclose = 1
         let g:tagbar_type_objc = {
@@ -176,10 +177,14 @@
             nnoremap <LocalLeader>g  :YcmCompleter GetType<CR>
             nnoremap <LocalLeader>gf :YcmCompleter FixIt<CR>
             nnoremap <LocalLeader>gc :YcmDiags<CR>
+            nnoremap <LocalLeader>ge :YcmCompleter RefactorRename 
 
             " put here for compatibility, autopair's bufenter will prior to ycm's vimenter, so need to define first
             silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
 
+            " if has('nvim')
+            "     Plug 'ncm2/float-preview.nvim'
+            " end
         " }}}
 
         " Shougo/neco-vim "{{{
@@ -577,11 +582,11 @@
                     \ ])
     endfunction
         "}}}
-
         " https://github.com/mg979/vim-visual-multi
         Plug 'mg979/vim-visual-multi', { 'branch': 'test' }
         " <M-Down> not work in terminal...
         let g:VM_maps = {
+                    \ 'Toggle Mappings': '<Space>',
                     \ 'Select Operator': '',
                     \ 'Add Cursor Down': '<M-Down>',
                     \ 'Add Cursor Up':   '<M-Up>',
@@ -637,8 +642,8 @@
         let g:indent_guides_start_level = 2
         nnoremap cog :IndentGuidesToggle<CR>
         ""}}}
-
-        """""""""""""""""""" Language
+        "}}}
+        " ==================== Language"{{{
         " hynek/vim-python-pep8-indent"{{{
         Plug 'hynek/vim-python-pep8-indent'
         "}}}
@@ -786,6 +791,7 @@
         Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme']}
         let g:sexp_enable_insert_mode_mappings = 0
         " }}}
+        "}}}
   "}}}
 
     call plug#end()
