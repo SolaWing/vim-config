@@ -307,6 +307,7 @@
         let $FZF_DEFAULT_OPTS=' --bind="'.join([
         \    'alt-j:down,alt-k:up',
         \    'alt-h:backward-char,alt-l:forward-char',
+        \    'alt-a:select-all,alt-d:deselect-all',
         \    'alt-space:jump,`:jump-accept',
         \], ',') . '" --color="pointer:15" --exact'
         let g:fzf_layout = { 'up' : '~40%'  }
@@ -583,32 +584,37 @@
     endfunction
         "}}}
         " https://github.com/mg979/vim-visual-multi
-        Plug 'mg979/vim-visual-multi', { 'branch': 'test' }
-        " <M-Down> not work in terminal...
-        let g:VM_maps = {
-                    \ 'Toggle Mappings': '<Space>',
-                    \ 'Select Operator': '',
-                    \ 'Add Cursor Down': '<M-Down>',
-                    \ 'Add Cursor Up':   '<M-Up>',
-                    \ 'Select All':      '<M-*>',
-                    \ 'Visual All':      '<M-*>',
-                    \ 'Visual Find':     '<M-F>',
-                    \ }
-        let g:VM_Mono_Cursor_hl = 'StatusLine'
-        let g:VM_Ins_Mode_hl = 'Underlined'
-        nmap  z]         <Plug>(VM-Find-Under)
-        xmap  z]         <Plug>(VM-Find-Subword-Under)
+        if has('nvim')
+            " macvim has bugs
+            Plug 'mg979/vim-visual-multi'
+            " <M-Down> not work in terminal...
+            let g:VM_maps = {
+                        \ 'Toggle Mappings': '<Space>',
+                        \ 'Select Operator': '',
+                        \ 'Add Cursor Down': '<M-Down>',
+                        \ 'Add Cursor Up':   '<M-Up>',
+                        \ 'Select All':      '<M-*>',
+                        \ 'Visual All':      '<M-*>',
+                        \ 'Visual Find':     '<M-F>',
+                        \ }
+            let g:VM_Mono_Cursor_hl = 'StatusLine'
+            let g:VM_Ins_Mode_hl = 'Underlined'
+            nmap  z]         <Plug>(VM-Find-Under)
+            xmap  z]         <Plug>(VM-Find-Subword-Under)
+        endif
         "
         "" terryma/vim-multiple-cursors "{{{
-        "Plug 'terryma/vim-multiple-cursors'
+        if has('gui_macvim')
+        Plug 'terryma/vim-multiple-cursors'
         "" integrate with other plugin
-        "function! Multiple_cursors_before()
-        "    let g:ycm_auto_trigger = 0
-        "endfunction
+        function! Multiple_cursors_before()
+            let g:ycm_auto_trigger = 0
+        endfunction
 
-        "function! Multiple_cursors_after()
-        "    let g:ycm_auto_trigger = 1
-        "endfunction
+        function! Multiple_cursors_after()
+            let g:ycm_auto_trigger = 1
+        endfunction
+        end
         ""}}}
         " terryma/vim-expand-region {{{
         Plug 'terryma/vim-expand-region'
@@ -774,6 +780,10 @@
         let g:WMGraphviz_output = 'png'
         Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
         "}}}
+        " plantuml{{{
+        Plug 'aklt/plantuml-syntax'
+        "}}}
+
 
         " lisp test{{{
         " 和racket兼容不太好用，各种错误和路径问题。出错时还容易卡. 也没命令行交互模式的功能全

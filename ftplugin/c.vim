@@ -24,6 +24,7 @@ xnoremap <buffer> <LocalLeader>z :CReFold<CR>
 " nnoremap <buffer> <LocalLeader>? :<C-U>s'\m^\s*\zs//\+'<CR>
 " xnoremap <buffer> <LocalLeader>? :s'\m^\s*\zs//\+'<CR>
 " compile
+nnoremap <buffer> <LocalLeader>e :<C-U>!clang++ -fobjc-arc '%' -o /tmp/tmp.out && /tmp/tmp.out
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 nmap <buffer> K <Plug>DashSearch
 " exchange for fast jump

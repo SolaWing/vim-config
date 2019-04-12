@@ -1,6 +1,7 @@
 au! BufNewFile,BufRead *.md setf markdown
 " au! BufNewFile,BufRead *.fish setf sh
 au! BufNewFile,BufRead *.mm setf objcpp
+au! BufNewFile,BufRead *.wsd setf plantuml
 
 " .h files can be C, Ch C++, ObjC or ObjC++.
 " Set c_syntax_for_h if you want C, ch_syntax_for_h if you want Ch. ObjC is
