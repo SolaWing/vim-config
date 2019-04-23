@@ -584,8 +584,7 @@
     endfunction
         "}}}
         " https://github.com/mg979/vim-visual-multi
-        if has('nvim')
-            " macvim has bugs
+        " if has('nvim')
             Plug 'mg979/vim-visual-multi'
             " <M-Down> not work in terminal...
             let g:VM_maps = {
@@ -601,20 +600,20 @@
             let g:VM_Ins_Mode_hl = 'Underlined'
             nmap  z]         <Plug>(VM-Find-Under)
             xmap  z]         <Plug>(VM-Find-Subword-Under)
-        endif
+        " endif
         "
         "" terryma/vim-multiple-cursors "{{{
-        if has('gui_macvim')
-        Plug 'terryma/vim-multiple-cursors'
-        "" integrate with other plugin
-        function! Multiple_cursors_before()
-            let g:ycm_auto_trigger = 0
-        endfunction
+        " if has('gui_macvim')
+        " Plug 'terryma/vim-multiple-cursors'
+        " "" integrate with other plugin
+        " function! Multiple_cursors_before()
+        "     let g:ycm_auto_trigger = 0
+        " endfunction
 
-        function! Multiple_cursors_after()
-            let g:ycm_auto_trigger = 1
-        endfunction
-        end
+        " function! Multiple_cursors_after()
+        "     let g:ycm_auto_trigger = 1
+        " endfunction
+        " end
         ""}}}
         " terryma/vim-expand-region {{{
         Plug 'terryma/vim-expand-region'

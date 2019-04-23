@@ -1,0 +1,49 @@
+# http://plantuml.com/zh/component-diagram
+
+snippet uml "start uml" b
+@startuml
+$0
+@enduml
+endsnippet
+
+snippet interface "interface" b
+interface $1 {
+	$0
+}
+endsnippet
+
+snippet protocol "interface" b
+interface $1 {
+	$0
+}
+endsnippet
+
+snippet class "interface" b
+class $1 {
+	$0
+}
+endsnippet
+
+snippet package "package" b
+package $1 {
+	$0
+}
+endsnippet
+
+snippet folder "folder" b
+package $1 <<Folder>>{
+	$0
+}
+endsnippet
+
+snippet note "multiline note" b
+note as ${1:N1}
+${VISUAL}$0
+end note
+endsnippet
+
+snippet activities "流程图" b
+start
+$0
+stop
+endsnippet
