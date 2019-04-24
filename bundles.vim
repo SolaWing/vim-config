@@ -181,7 +181,6 @@
 
             " put here for compatibility, autopair's bufenter will prior to ycm's vimenter, so need to define first
             silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")
-
             " if has('nvim')
             "     Plug 'ncm2/float-preview.nvim'
             " end
@@ -415,9 +414,29 @@
         let g:AutoPairsFlyMode = 0
         let g:AutoPairsShortcutToggle = ""
         let g:AutoPairsMoveCharacter = ""
-        " let g:AutoPairsMapCR = 0
         let g:ycm_key_param_template = 0
         " let g:AutoPairs = {'`': '`', '"': '"', '{': '}', '''': '''', '(': ')', '[': ']', '"""': '"""'}
+
+        " compatibility between YCM and autopair, and none-buffer map make VM-Cursor map happy
+        let g:AutoPairsMapBS = 0
+        let g:AutoPairsMapCh = 0
+        function! FixMapCh()
+          if pumvisible()
+              return "\<Plug>YCM_BS"
+          endif
+          return "\<C-R>=AutoPairsDelete()\<CR>"
+        endfunction
+        imap <silent> <expr> <BS> FixMapCh()
+        imap <C-H> <BS>
+
+        let g:AutoPairsMapCR = 0
+        function! FixMapCR()
+            if pumvisible()
+                return youcompleteme#OnCompleteAction("\<CR>")
+            endif
+            return "\<CR>\<C-R>=AutoPairsReturn()\<CR>"
+        endfunction
+        inoremap <silent><expr> <CR> FixMapCR()
 
         Plug 'jiangmiao/auto-pairs'
         " }}}
