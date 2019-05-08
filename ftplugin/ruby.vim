@@ -10,9 +10,9 @@ nmap <buffer> <LocalLeader>f :ALEFix<CR>
 
 " look in rspec rake_task.rb, use SPEC to override default pattern, or set task options's pattern can override it.
 " we need to ignore it to specify simple spec
-nmap <buffer> <LocalLeader>t :update <bar> Dispatch rake spec SPEC="%\:<C-R>=line('.')<CR>"<CR>
-nmap <buffer> <LocalLeader><M-t> :Dispatch rake spec SPEC="%"<CR>
-nmap <buffer> <LocalLeader>T :Dispatch rake spec<CR>
+nmap <buffer> <LocalLeader>t :update <bar> Rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'<CR>
+nmap <buffer> <LocalLeader><M-t> :Rake spec 'SPEC=<C-R>%'<CR>
+nmap <buffer> <LocalLeader>T :Rake spec<CR>
 
 setl foldmethod=syntax
 
