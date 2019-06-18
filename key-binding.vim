@@ -163,7 +163,7 @@ nnoremap <Space>gs :Gstatus<CR>
 nnoremap <Space>gS :Gtabedit :<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
 xnoremap <Space>gV :GV<CR>
-nnoremap <Space>gV :Gtabedit! log -p -- %<CR>
+nnoremap <Space>gV :<C-U>Gtabedit! log -p <C-R>=v:count == v:count1? "-".v:count : ""<CR>  -- %<CR>
 " follow is slow, so use another key when needed
 nnoremap <Space>g<M-V> :Gtabedit! log -p --follow -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
@@ -330,8 +330,8 @@ xnoremap &  :s<CR>
 nnoremap <Space>xS :s/ /\r/g<CR>
 xnoremap <Space>xS :s/ /\r/g<CR>
 
-nnoremap <Space>xc :s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/gc
-xnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>s/\V<C-R>=tmp<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/gc
+nnoremap <Space>xc :s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/g
+xnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>s/\V<C-R>=tmp<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/g
 
 nnoremap <Space>x( :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
 nnoremap <Space>x) :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
@@ -353,6 +353,12 @@ nnoremap <Space><C-W>} :<C-U>ptjump /.*<C-R><C-W>.*<CR>
 """ textobject "{{{
 xnoremap ig ggoG$
 omap ig :silent norm Vig<CR>
+" conflict marker
+xnoremap <silent> ak <C-\><C-N>?<<<<<<<<CR>V/=======<CR>
+omap <silent> ak :silent norm Vak<CR>
+xnoremap <silent> aj <C-\><C-N>/>>>>>>><CR>V?=======<CR>
+omap <silent> aj :silent norm Vaj<CR>
+nnoremap du :<C-U>call edit#markResolver()<CR>
 """ }}}
 """ misc"{{{
 
