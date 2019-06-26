@@ -484,9 +484,11 @@
                     \ 'javascript' :[ 'eslint' ],
                     \ 'swift' : ['swiftlint'],
                     \ 'php': ['php'],
+                    \ 'python': ['flake8']
                     \ }
         let g:ale_fixers = {
-                    \   'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint'],
+                    \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint'],
+                    \ 'python': ['yapf']
                     \}
         " let g:ale_completion_enabled = 1
         " let g:ycm_filetype_specific_completion_to_disable = {
