@@ -12,7 +12,7 @@
         if has("gui_macvim")
             " set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.6
             " set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6m.dylib
-            set rubydll=/System/Library/Frameworks/Ruby.framework/Versions/Current/usr/lib/libruby.dylib
+            set rubydll=/Users/wang/.rbenv/versions/2.6.3/bin/ruby
             " py3 dir
         else " terminal
             " colorscheme solarized

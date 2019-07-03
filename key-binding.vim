@@ -216,8 +216,8 @@ xmap <Space>sp <Space>p/
 nnoremap <Space>s* :<C-U>FZRg -uF '<C-R><C-W>'<CR>
 xnoremap <Space>s* :<C-U>FZRg -uF '<C-R>=GetVisualString()<CR>'<CR>
 Map <Space>s8 <Space>s*
-nnoremap <Space>s] :<C-U>FZTags '<C-R><C-W><CR>
-xnoremap <Space>s] :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
+nnoremap <Space>s] :<C-U>FZTags <C-R><C-W> <CR>
+xnoremap <Space>s] :<C-U>FZTags <C-R>=GetVisualString()<CR> <CR>
 nmap <Space>sm <LocalLeader>/
 xmap <Space>sm <LocalLeader>/
 
@@ -233,8 +233,8 @@ nnoremap <Leader><F3> :<C-U>FZBTags<CR>
 nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
 
 nnoremap <F6> :<C-U>FZTags<CR>
-nnoremap <Leader><F6> :<C-U>FZTags '<C-R><C-W><CR>
-xnoremap <Leader><F6> :<C-U>FZTags '<C-R>=GetVisualString()<CR><CR>
+nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W> <CR>
+xnoremap <Leader><F6> :<C-U>FZTags <C-R>=GetVisualString()<CR> <CR>
 
 " 取消搜索高亮
 nnoremap z/    <C-L>:noh<CR>

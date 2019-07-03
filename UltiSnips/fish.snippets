@@ -24,3 +24,9 @@ endsnippet
 snippet contains "contains"
 contains ${1:key} ${2:Values}
 endsnippet
+
+snippet alias "alias functions" b
+function $1 --wraps '$2'
+	$2 $argv
+end
+endsnippet

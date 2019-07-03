@@ -423,8 +423,11 @@
         function! FixMapCh()
           if pumvisible()
               return "\<Plug>YCM_BS"
+          elseif exists('b:autopairs_enabled')
+              return "\<C-R>=AutoPairsDelete()\<CR>"
+          else
+              return "\<BS>"
           endif
-          return "\<C-R>=AutoPairsDelete()\<CR>"
         endfunction
         imap <silent> <expr> <BS> FixMapCh()
         imap <C-H> <BS>

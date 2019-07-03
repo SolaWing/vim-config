@@ -18,6 +18,12 @@ $0
 EOF
 endsnippet
 
+snippet lines "for lines output" b
+${1:cmd} | while read -r ${2:line}; do
+	$0
+done
+endsnippet
+
 # vim-snip not pair (), though ( is optional
 # snippet acase "case statement" b
 # case "${1:$i}" in
