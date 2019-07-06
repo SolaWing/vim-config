@@ -3,7 +3,10 @@
 "exe printf("set rtp=%s,%s,%s", expand('~/.vim'), &rtp, expand('~/.vim/after'))
 
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 
-" set termguicolors
+if $COLORTERM ==? 'truecolor'
+    set termguicolors
+end
+
 let tmp = $COLORFGBG[strridx($COLORFGBG, ";")+1:]
 if !empty("tmp")
     if tmp > 8

@@ -242,10 +242,10 @@
         " tpope/vim-unimpaired"{{{
         Plug 'tpope/vim-unimpaired' " custom
         nmap co yo
-        nnoremap coD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
+        nnoremap yoD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
         nnoremap [oD :windo diffthis<CR>
         nnoremap ]oD :windo diffoff<CR>
-        nnoremap coe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
+        nnoremap yoe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
         nnoremap [oe :set ei=all<CR>
         nnoremap ]oe :set ei=<CR>
         "}}}
@@ -309,7 +309,7 @@
         \    'alt-a:select-all,alt-d:deselect-all',
         \    'alt-space:jump,`:jump-accept',
         \], ',') . '" --color="pointer:15" --exact'
-        let g:fzf_layout = { 'up' : '~40%'  }
+        " let g:fzf_layout = { 'up' : '~40%'  }
         Plug '/usr/local/opt/fzf'
         Plug 'junegunn/fzf.vim'
 
@@ -669,7 +669,7 @@
         Plug 'nathanaelkane/vim-indent-guides', {'on': 'IndentGuidesToggle'}
         let g:indent_guides_guide_size = 1
         let g:indent_guides_start_level = 2
-        nnoremap cog :IndentGuidesToggle<CR>
+        nnoremap yog :IndentGuidesToggle<CR>
         ""}}}
         "}}}
         " ==================== Language"{{{

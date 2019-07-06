@@ -13,8 +13,8 @@ if &background == 'light'
         " hi EasyMotionTarget2SecondDefault
         hi EasyMotionTarget2Second cterm=bold ctermfg=1
 
-        " hi IndentGuidesOdd  guibg=red   ctermbg=7
-        " hi IndentGuidesEven guibg=green ctermbg=7
+        hi IndentGuidesOdd  ctermbg=7
+        hi IndentGuidesEven ctermbg=14
     endif
 else
     call base16#setup({ 'gui': ['002b36', '073642', '586e75', '657b83', '839496', '93a1a1', 'eee8d5', 'fdf6e3',
@@ -29,7 +29,7 @@ else
         " hi EasyMotionTarget2SecondDefault
         hi EasyMotionTarget2Second cterm=bold ctermfg=1
 
-        " hi IndentGuidesOdd  guibg=red   ctermbg=8
-        " hi IndentGuidesEven guibg=green ctermbg=0
+        hi IndentGuidesOdd  cterm=reverse
+        hi IndentGuidesEven ctermbg=10
     endif
 endif

@@ -149,6 +149,7 @@ nmap <F7> <Space>pf
 nnoremap <Space>h  :<C-U>FZHistory<CR>
 nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h; :<C-U>FZHistory:<CR>
+xnoremap <Space>h; :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
 xnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>

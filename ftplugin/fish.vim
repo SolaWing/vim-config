@@ -5,3 +5,4 @@ endif
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 
+nnoremap <buffer> <LocalLeader>e :<C-U>update <bar> !fish %<CR>
