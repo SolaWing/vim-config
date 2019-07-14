@@ -1,0 +1,27 @@
+priority 1
+
+snippet interface "declare a interface" b
+interface $1 {
+	$0
+}
+endsnippet
+
+snippet class "desclare a class" b
+class $1 {
+	constructor() {
+		$0
+	}
+}
+endsnippet
+
+snippet enum "desclare a enum" b
+enum ${1:Name} {${2:case}}
+endsnippet
+
+snippet v "declare a block scope variable" b
+let $1 = $2
+endsnippet
+
+snippet c "declare a const block scope variable" b
+const $1 = $2
+endsnippet

@@ -361,22 +361,27 @@ xnoremap <silent> aj <C-\><C-N>/>>>>>>><CR>V?=======<CR>
 omap <silent> aj :silent norm Vaj<CR>
 nnoremap du :<C-U>call edit#markResolver()<CR>
 """ }}}
+""" completion"{{{
+function! s:select_pum(index)
+  if !pumvisible() | return "" | endif
+
+  " let compInfo = complete_info()
+  " let idx = a:index >= 0 ? a:index : a:index + len(compInfo.items)
+  " let d = idx - compInfo.selected
+  return repeat( "\<Down>", a:index ) . "\<C-Y>"
+endfunction
+
+for s:i in range(1, 9)
+    exe printf('inoremap <expr> <M-%d> <sid>select_pum(%d)', s:i, s:i)
+endfor
+
+
+"}}}
 """ misc"{{{
 
 " <M-x> cmdline window
 nnoremap <M-x> q:i
 xnoremap <M-x> q:i
-" repeat cmd
-inoremap <M-1> <esc>1
-inoremap <M-2> <esc>2
-inoremap <M-3> <esc>3
-inoremap <M-4> <esc>4
-inoremap <M-5> <esc>5
-inoremap <M-6> <esc>6
-inoremap <M-7> <esc>7
-inoremap <M-8> <esc>8
-inoremap <M-9> <esc>9
-inoremap <M-q> <esc>q
 
 " format
 nmap gqq gqig
