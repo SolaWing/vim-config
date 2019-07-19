@@ -1,2 +1,2 @@
 #!/bin/bash
-sed -i "" -e '/^lcd/D' ~/.vim/view/*
+ls ~/.vim/view | xargs -I ! sed -i "" -e '/^lcd/D' ~/.vim/view/'!'
