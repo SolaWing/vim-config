@@ -13,6 +13,7 @@ nnoremap <buffer> <LocalLeader>m :<C-U>call fzf#vim#buffer_lines("func \\|class
 nnoremap <buffer> <LocalLeader>t :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
 nnoremap <buffer> <LocalLeader>f :!swiftlint autocorrect --path '%:p'<CR>
 nnoremap <buffer> <LocalLeader>e :update <bar> !swift '%'<CR>
+nnoremap <buffer> <LocalLeader>gk :<C-U>YcmCompleter RestartServer<CR>
 
 snoremap <buffer> <CR> <ESC>:call <SID>ExpandClosure(1)<CR>
 snoremap <buffer> <M-CR> <ESC>:call <SID>ExpandClosure(0)<CR>

@@ -135,6 +135,8 @@
     "}}}
 
     " other setting {{{
+        " vertical split to right
+        set splitright
         " if show status bar
         set laststatus=2
         " commandLine 选择提示
