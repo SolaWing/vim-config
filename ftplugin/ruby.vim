@@ -18,8 +18,6 @@ nmap <buffer> <LocalLeader><C-t> :update <bar>
 nmap <buffer> <LocalLeader><M-t> :Rake spec 'SPEC=<C-R>%'<CR>
 nmap <buffer> <LocalLeader>T :Rake spec<CR>
 
-setl foldmethod=syntax
-
 " 现在先只加载一次
 if filereadable(".rubocop.yml")
     " 是否启动rubocop. 无配置的rubocop太烦人了

@@ -6,7 +6,6 @@ from io import StringIO
 import sys, re, subprocess, vim
 import itertools
 import myutil
-
 """
 import cProfile, pstats
 import io
@@ -27,23 +26,25 @@ print(s.getvalue())
 
 # dict used as user interactive scope
 user_env = {
-    "sys":sys,
-    "re":re,
-    "subprocess":subprocess,
-    "vim":vim,
-    "p":print,
-    "r":range,
-    "it":itertools,
+    "sys": sys,
+    "re": re,
+    "subprocess": subprocess,
+    "vim": vim,
+    "p": print,
+    "r": range,
+    "it": itertools,
 }
 g = user_env
 
-def interactivePython(s, t = 'single'):
+
+def interactivePython(s, t='single'):
     """
     eval python str like interactive console
     """
     # after compile, can prevent some error
     if t != 'exec': s = s + "\n"
     eval(compile(s, '<string>', t), g, user_env)
+
 
 def captureOutput(func, *args):
     """
@@ -54,17 +55,20 @@ def captureOutput(func, *args):
     try:
         sys.stdout = out
         func(*args)
-    except Exception as e:
+    except Exception:
         out.close()
         from traceback import print_exc
-        print_exc(file = sys.stderr)
+        print_exc(file=sys.stderr)
         raise
     finally:
         sys.stdout = oldSysout
     out.seek(0)
     return out
 
+
 interactiveShell = None
+
+
 def interactiveScriptAnywhere(output, isExec=None):
     """
     use input range as script input.
@@ -79,9 +83,9 @@ def interactiveScriptAnywhere(output, isExec=None):
     r = vim.current.range
     instr = "\n".join(r).lstrip()
     # range = buffer[range.start:range.end]
-    m = re.match('\s*[!?]', instr)
+    m = re.match(r'\s*[!?]', instr)
     if m:
-        special = instr[m.end()-1]
+        special = instr[m.end() - 1]
         if special == '!':
             instr = instr[m.end():]
             global interactiveShell
@@ -98,12 +102,11 @@ def interactiveScriptAnywhere(output, isExec=None):
                 .communicate()
             out = StringIO(myutil.ToUnicode(out))
         elif special == '?':
-            instr = "help(%s)"%(instr[m.end():])
-            out = captureOutput(interactivePython, instr,'single')
+            instr = "help(%s)" % (instr[m.end():])
+            out = captureOutput(interactivePython, instr, 'single')
     else:
         if isExec is None: isExec = len(r) > 1
-        out = captureOutput(interactivePython, instr,\
-                'exec' if isExec else 'single')
+        out = captureOutput(interactivePython, instr, 'exec' if isExec else 'single')
     if output == 'replace':
         vim.current.range[:] = [l.rstrip("\r\n") for l in out]
     elif output == 'append':
@@ -120,31 +123,35 @@ def interactiveScriptAnywhere(output, isExec=None):
         name = "[python-preview]"
         myutil.preview(out.read(), name)
     else:
-        name = "[%s]"%output
-        lastWin = vim.current.window;
+        name = "[%s]" % output
+        lastWin = vim.current.window
         win = myutil.openOrReuseBuffer(name)
 
-        win.cursor = (len(win.buffer),1) # move to last
+        win.cursor = (len(win.buffer), 1)  # move to last
         win.buffer.append([l.rstrip("\r\n") for l in out])
         vim.command(r'exe "norm! \<down>z\<CR>"')
         vim.current.window = lastWin
 
     out.close()
 
+
 def findAll(pat):
     """find all and may format according to fmt string"""
     s = "\n".join(vim.current.range)
-    m = re.findall(pat , s, re.MULTILINE)
+    m = re.findall(pat, s, re.MULTILINE)
     if m:
-        if isinstance(m[0], str):
+        if isinstance(m[0], str):  # 0-1 group
             s = "\n".join(m)
-        else:
+        else: # >1 group
             pat = vim.eval(r"inputdialog('input format pattern(group pass as args): ')")
-            def fmt(pat,x):
+
+            def fmt(pat, x):
                 if pat:
                     if isinstance(x, str): return pat.format(x)
                     return pat.format(*x)
-                else: return str(x)
+                else:
+                    return str(x)
+
             s = "\n".join(fmt(pat, x) for x in m)
 
         myutil.preview(s, '[python-output]')

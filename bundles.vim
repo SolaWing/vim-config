@@ -410,6 +410,7 @@
         let g:AutoPairsShortcutToggle = ""
         let g:AutoPairsMoveCharacter = ""
         let g:ycm_key_param_template = 0
+        let g:AutoPairsMultilineClose = 0
         " let g:AutoPairs = {'`': '`', '"': '"', '{': '}', '''': '''', '(': ')', '[': ']', '"""': '"""'}
 
         " compatibility between YCM and autopair, and none-buffer map make VM-Cursor map happy
@@ -773,6 +774,7 @@
         " let g:rubycomplete_buffer_loading = 1
         " let g:rubycomplete_classes_in_global = 1
         " let g:rubycomplete_load_gemfile = 1
+        let g:ruby_fold = 1
         Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
         Plug 'tpope/vim-rake', {'for': 'ruby'}
         Plug 'tpope/vim-bundler', {'for': 'ruby'}

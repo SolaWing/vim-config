@@ -49,8 +49,8 @@ command! -nargs=1 SuperMan call superman#SuperMan(<q-args>)
 
 
 " FindAll"{{{
-" com! -range=% -nargs=1 FindAll echo <q-args> | <line1>,<line2>PY u['findall'](<q-args>)
-" nnoremap <space>xf :FindAll<space>
-" xnoremap <space>xf :FindAll<space>
+com! -range=% -nargs=1 FindAll echo <q-args> | <line1>,<line2>PY u['findall'](<q-args>)
+nnoremap <space>xf :FindAll<space>
+xnoremap <space>xf :FindAll<space>
 "}}}
 " vim:set fdm=marker:
