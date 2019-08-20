@@ -1,5 +1,7 @@
 if exists("b:did_ftplugin") | finish | endif
 
+" support tags: https://solargraph.org/guides/yard
+
 let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}
 let b:surround_100 = "do \r end"
 

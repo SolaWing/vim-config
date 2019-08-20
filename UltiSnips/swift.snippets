@@ -152,7 +152,10 @@ snippet swiftlint_next "swiftlint disable next line"
 endsnippet
 
 snippet unimplemented "assert unimplemented" b
-assertionFailure("${1:unimplemented code!!}")
+fatalError("${1:unimplemented code!!}")
+endsnippet
+snippet unreachable "assert unreachable" b
+fatalError("${1:unreachable code!!}")
 endsnippet
 
 snippet deprecated "deprecated declare" b

@@ -117,7 +117,7 @@
             let g:ycm_collect_identifiers_from_tags_files = 1
             let g:ycm_seed_identifiers_with_syntax = 1
             let g:ycm_complete_in_comments = 1
-            let g:ycm_max_num_candidates = 10
+            let g:ycm_max_num_candidates = 9
             " let g:ycm_enable_diagnostic_highlighting = 0
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/mine.ycm_extra_conf.py'
             " let g:ycm_confirm_extra_conf = 0
@@ -388,7 +388,7 @@
         " my plugin" {{{
         " Plug '~/.vim/bundle/vim-grepeditor'
         Plug 'SolaWing/vim-objc-syntax', {'for': ['objc', 'objcpp']},
-        Plug 'SolaWing/quick-ultisnip'
+        " Plug 'SolaWing/quick-ultisnip'
         Plug 'SolaWing/WaitYank.vim'
         " <C-r><CR> has problem, may not recognized
         inoremap <C-r>$ <C-R>=quickUltiSnip#Insert()<CR>
