@@ -19,7 +19,7 @@ EOF
 endsnippet
 
 snippet lines "for lines output" b
-${1:cmd} | while read -r ${2:line}; do
+while read -r ${2:line} <(${1:cmd}); do
 	$0
 done
 endsnippet

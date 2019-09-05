@@ -1,6 +1,7 @@
 """ vim: set sw=4 ts=4 sts=4 et foldlevel=1 foldmethod=marker:
 "{{{
     """"""" 基本不会动的全局设定 {{{
+        " create mine group, so can be used directly
         augroup mine | augroup end
 
         set keywordprg=:help
@@ -10,6 +11,7 @@
         " use bash shell
         let g:is_bash = 1
         if has("gui_macvim")
+            set macmeta
             " set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.6
             " set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6m.dylib
             set rubydll=/Users/wang/.rbenv/versions/2.6.3/bin/ruby

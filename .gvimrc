@@ -26,7 +26,6 @@
     if has("gui_macvim")
         let ruby_no_expensive = 1 " ruby default synatx make it very slow.
         silent! unlet ruby_fold
-        set macmeta
         macmenu File.Print key=<D-S-P>
         set guioptions+=k
 
