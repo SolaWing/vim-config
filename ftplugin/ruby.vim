@@ -12,12 +12,17 @@ nmap <buffer> <LocalLeader>f :ALEFix<CR>
 
 " look in rspec rake_task.rb, use SPEC to override default pattern, or set task options's pattern can override it.
 " we need to ignore it to specify simple spec
+
+" current line
 nmap <buffer> <LocalLeader>t :update <bar> Rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'<CR>
+" current line without job
 nmap <buffer> <LocalLeader><C-t> :update <bar>
             \ let g:dispatch_no_job_make = 1 <bar>
             \ Rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>' <bar>
             \ let g:dispatch_no_job_make = 0 <CR>
+" current file
 nmap <buffer> <LocalLeader><M-t> :Rake spec 'SPEC=<C-R>%'<CR>
+" all
 nmap <buffer> <LocalLeader>T :Rake spec<CR>
 
 " 现在先只加载一次
