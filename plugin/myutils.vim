@@ -26,8 +26,8 @@ vnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
 "}}}
 
 """ QuickDo"{{{
-com! -nargs=1 -bang -complete=command CDo call QuickFix#Do(<q-args>, 0, 0, "<bang>"))
-com! -nargs=1 -bang -complete=command LDo call QuickFix#Do(<q-args>, 0, 1, "<bang>"))
+com! -nargs=1 -bang -complete=command CDo call QuickFix#Do(<q-args>, 0, 0, "<bang>")
+com! -nargs=1 -bang -complete=command LDo call QuickFix#Do(<q-args>, 0, 1, "<bang>")
 com! -nargs=1 -bang -complete=command CFDo call QuickFix#Do(<q-args>, 1, 0, "<bang>")
 com! -nargs=1 -bang -complete=command LFDo call QuickFix#Do(<q-args>, 1, 1, "<bang>")
 "}}}

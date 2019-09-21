@@ -157,6 +157,13 @@ nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R>
 xnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R>=GetVisualString()<CR>'<Left>
 " term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
 nnoremap <Space>pt :<C-U>!ctags -R '<C-R>=getcwd()<CR>'
+
+nnoremap <Space>pxc :CDo s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/
+xnoremap <Space>pxc :<C-U>CDo s/\V<C-R>=GetVisualString()<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/
+nnoremap <Space>pxs :CDo sno`\<<C-R><C-W>\>`<C-R><C-W>`<Left>
+xnoremap <Space>pxs :<C-U>let tmp = GetVisualString()<CR>
+            \:CDo sno`<C-R>=tmp<CR>`<C-R>=tmp<CR>`<Left>
+
 ""}}}
 """ git version control"{{{
 nnoremap <silent> <Space>gg :silent !cd '%:h' && gitup<CR>
@@ -324,7 +331,9 @@ nnoremap <Space>xl :TrimMultiEmptyLine<CR>
 xnoremap <Space>xl :TrimMultiEmptyLine<CR>
 
 nnoremap <Space>xs :sno`\<<C-R><C-W>\>`<C-R><C-W>`g<Left><Left>
-xnoremap <Space>xs :<C-U><C-R>=v:count > 1? ".,.+".(v:count-1) : ""<CR>sno`<C-R>=GetVisualString()<CR>`<C-R>=GetVisualString()<CR>`g<Left><Left>
+xnoremap <Space>xs :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>
+            \:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>
+            \sno`<C-R>=tmp<CR>`<C-R>=tmp<CR>`g<Left><Left>
 xnoremap g& :s//~/&<CR>
 xnoremap &  :s<CR>
 
@@ -332,7 +341,9 @@ nnoremap <Space>xS :s/ /\r/g<CR>
 xnoremap <Space>xS :s/ /\r/g<CR>
 
 nnoremap <Space>xc :s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/g
-xnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>s/\V<C-R>=tmp<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/g
+xnoremap <Space>xc :<C-U>let g:count = v:count <bar> let tmp = GetVisualString()<CR>
+            \:<C-R>=g:count > 1? ".,.+".(g:count-1) : ""<CR>
+            \s/\V<C-R>=tmp<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/g
 
 nnoremap <Space>x( :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
 nnoremap <Space>x) :call misc#SurroundSpaceBetweenPairs('(',')')<CR>
