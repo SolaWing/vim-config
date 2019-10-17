@@ -132,9 +132,34 @@ ${VISUAL}$0
 # :nocov:
 endsnippet
 
+########## Misc ##########
 snippet do-while "a do while block"
 loop do
 	$0
 	break unless $1
+end
+endsnippet
+
+snippet begin "a new begin block"
+begin
+	$0
+end
+endsnippet
+
+snippet try "a begin rescue block"
+begin
+	$0
+rescue ${1:TYPE} => ${2:localname}
+end
+endsnippet
+
+snippet help_desc "generate help desc" b
+if ARGV.empty? or ARGV.any?(&['-h', '--help', 'help'].method(:include?))
+	print <<~EOF
+	  usage:
+	    #{$0} swiftfile[,swiftfile]*
+	    #{$0} -f swiftfilelist
+	EOF
+	exit 0
 end
 endsnippet

@@ -157,7 +157,30 @@ endsnippet
 snippet unreachable "assert unreachable" b
 fatalError("${1:unreachable code!!}")
 endsnippet
+snippet assertMain "assert main thread" b
+assert(Thread.isMainThread, "${0:should occur on main thread!}")
+endsnippet
 
 snippet deprecated "deprecated declare" b
 @available(*, deprecated${2:, message: "${1:No longer supported.}"})
+endsnippet
+
+########## Swift UI ##########
+snippet view "a swif ui view declare" b
+struct $1: View {
+	var body: some View {
+		${0:Text("Replace Me")}
+	}
+}
+endsnippet
+
+########## Combine ##########
+snippet publisher "create a new publisher" b
+struct $1: Publisher {
+	typealias Output = $2
+	typealias Failure = $3
+	func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+		$0
+	}
+}
 endsnippet

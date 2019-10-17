@@ -679,7 +679,7 @@
             return CacheWrap("fugitive#head")
         endfunction
         let g:lightline = {
-                    \   'colorscheme' : 'base16_solarized_custom',
+                    \   'colorscheme' : 'gruvbox_custom',
                     \   'active': {
                     \     'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ], [ 'gitbranch' ] ],
                     \     'right': [ [ 'percent' ],
@@ -795,9 +795,11 @@
         "}}}
 
         " chriskempson/base16-vim "{{{ color scheme(After Tomorrow)
-        Plug 'chriskempson/base16-vim' " custom
+        " Plug 'chriskempson/base16-vim' " custom
+        Plug 'morhetz/gruvbox'
+        let g:gruvbox_italic = 1
+        let g:gruvbox_invert_selection = 0
         "}}}
-
 
         " wannesm/wmgraphviz.vim  {{{
         let g:WMGraphviz_output = 'png'

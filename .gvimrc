@@ -3,7 +3,8 @@
     " guicolorscheme
     " set bg=light
     " gui font size
-    set guifont=Menlo\ Regular:h14
+    set guifont=Fira\ Code:h14
+    " set guifont=Menlo\ Regular:h14
 
     nnoremap <D-1>    1gt
     inoremap <D-1>    <esc>1gt
@@ -24,6 +25,7 @@
 
     " <D-P> is override by Print, change it here
     if has("gui_macvim")
+        set macligatures
         let ruby_no_expensive = 1 " ruby default synatx make it very slow.
         silent! unlet ruby_fold
         macmenu File.Print key=<D-S-P>

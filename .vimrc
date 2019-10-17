@@ -14,7 +14,7 @@
             set macmeta
             " set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.6
             " set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6m.dylib
-            set rubydll=/Users/wang/.rbenv/versions/2.6.3/bin/ruby
+            set rubydll=/Users/wang/.rbenv/versions/2.6.4/bin/ruby
             " py3 dir
         else " terminal
             " colorscheme solarized
@@ -53,7 +53,7 @@
         source ~/.vim/functions.vim
         source ~/.vim/bundles.vim " plugins
 
-        colorscheme base16-solarized-custom
+        colorscheme gruvbox
         "显示行号
         set nonumber
         "显示相对行号
@@ -179,6 +179,8 @@
     command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
     " command! -nargs=? -complete=dir Terminal silent exe printf( "!open -a /Applications/Utilities/Terminal.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
     command! -nargs=? -complete=dir OpenITerm silent exe printf( "!open -a /Applications/iTerm.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
+    command! -nargs=? -complete=file OpenInXcode silent exec printf("!open -a xcode %s", expand( <q-args> == '' ? '%' : <q-args>))
+
     command! DiffOn windo diffthis
     command! DiffOff windo diffoff
     command! Hitest sp $VIMRUNTIME/syntax/hitest.vim | so %

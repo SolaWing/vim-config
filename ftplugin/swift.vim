@@ -14,6 +14,7 @@ nnoremap <buffer> <LocalLeader>t :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FI
 nnoremap <buffer> <LocalLeader>f :!swiftlint autocorrect --path '%:p'<CR>
 nnoremap <buffer> <LocalLeader>e :update <bar> !swift '%'<CR>
 nnoremap <buffer> <LocalLeader>gk :<C-U>YcmCompleter RestartServer<CR>
+nnoremap <buffer> <M-o> :OpenInXcode<CR>
 
 snoremap <buffer> <CR> <ESC>:call <SID>ExpandClosure(1)<CR>
 snoremap <buffer> <M-CR> <ESC>:call <SID>ExpandClosure(0)<CR>
