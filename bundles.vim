@@ -229,9 +229,7 @@
         let g:surround_no_insert_mappings = 1
         let g:surround_indent = 0
         Plug 'tpope/vim-surround'
-        xnoremap S s
         xmap s <Plug>VSurround
-        xmap gs <Plug>VgSurround
         "}}}
 
         " tpope/vim-unimpaired"{{{
@@ -501,19 +499,29 @@
         " }}}
 
         " mileszs/ack.vim"{{{
-        let g:ackhighlight = 1
-        " let g:ackprg = 'ag --vimgrep'
-        let g:ackprg = 'rg --vimgrep --smart-case -g "!*.xcodeproj"'
+        " Plug 'mileszs/ack.vim', { 'on': 'Ack'}
+        " let g:ackhighlight = 1
+        " let g:ackprg = 'rg --vimgrep --smart-case -g "!*.xcodeproj"'
         " let g:ack_apply_qmappings = 0
         " let g:ack_apply_lmappings = 0
         " this seems to only set fcl = all, will affect other buffer
         " let g:ack_autofold_results = 1
 
-        " Plug 'mhinz/vim-grepper'
-        Plug 'mileszs/ack.vim', { 'on': 'Ack'}
+        Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
+        nmap gs  <plug>(GrepperOperator)
+        xmap gs  <plug>(GrepperOperator)
+        let g:grepper = {
+                    \   'tools': ['rg', 'git']
+                    \   }
+
         " Plug 'dyng/ctrlsf.vim'
+        " Plug 'brooth/far.vim'
+        " let g:far#source = 'rg'
+        " let g:far#auto_preview = 0
+        " Plug 'eugen0329/vim-esearch'
 
-
+        Plug 'othree/eregex.vim', { 'on': ['S'] }
+        let g:eregex_default_enable = 0
         "}}}
 
         " ludovicchabant/vim-gutentags {{{
@@ -618,8 +626,8 @@
                         \ 'Visual All':      '<M-*>',
                         \ 'Visual Find':     '<M-F>',
                         \ }
-            let g:VM_Mono_Cursor_hl = 'StatusLine'
-            let g:VM_Ins_Mode_hl = 'Underlined'
+            " let g:VM_Mono_Cursor_hl = 'StatusLine'
+            " let g:VM_Ins_Mode_hl = 'Underlined'
         " endif
         "
         "" terryma/vim-multiple-cursors "{{{
@@ -797,7 +805,7 @@
         " chriskempson/base16-vim "{{{ color scheme(After Tomorrow)
         " Plug 'chriskempson/base16-vim' " custom
         Plug 'morhetz/gruvbox'
-        let g:gruvbox_italic = 1
+        " let g:gruvbox_italic = 1
         let g:gruvbox_invert_selection = 0
         "}}}
 

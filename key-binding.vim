@@ -151,10 +151,10 @@ nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h; :<C-U>FZHistory:<CR>
 xnoremap <Space>h; :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
-nnoremap <Space>p/ :<C-U>Ack! '<C-R><C-W>'<Left>
-xnoremap <Space>p/ :<C-U>Ack! '<C-R>=GetVisualString()<CR>'<Left>
-nnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R><C-W>'<Left>
-xnoremap <LocalLeader>/ :<C-U>Ack! -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <Space>p/ :<C-U>Grepper -cword<CR>
+xnoremap <Space>p/ :<C-U>Grepper -query '<C-R>=GetVisualString()<CR>'<CR>
+nnoremap <LocalLeader>/ :<C-U>Grepper -noprompt -tool rg -query -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R><C-W>'<Left>
+xnoremap <LocalLeader>/ :<C-U>Grepper -noprompt -tool rg -query -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R>=GetVisualString()<CR>'<Left>
 " term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
 nnoremap <Space>pt :<C-U>!ctags -R '<C-R>=getcwd()<CR>'
 
@@ -163,6 +163,12 @@ xnoremap <Space>pxc :<C-U>CDo s/\V<C-R>=GetVisualString()<CR>/<C-R>=misc#ToggleC
 nnoremap <Space>pxs :CDo sno`\<<C-R><C-W>\>`<C-R><C-W>`<Left>
 xnoremap <Space>pxs :<C-U>let tmp = GetVisualString()<CR>
             \:CDo sno`<C-R>=tmp<CR>`<C-R>=tmp<CR>`<Left>
+
+" nnoremap <Space>pxc :Far <C-R><C-W> <C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR><Space>
+" xnoremap <Space>pxc :<C-U>let tmp = GetVisualString()<CR>
+"             \:Far <C-R>=tmp<CR> <C-R>=misc#ToggleCamelOrUnderline(tmp)<CR><Space>
+" nnoremap <Space>pxs :Far <C-R><C-W><Space>
+" xnoremap <Space>pxs :<C-U>Far <C-R>=GetVisualString()<CR><Space>
 
 ""}}}
 """ git version control"{{{
@@ -210,15 +216,10 @@ nnoremap [<M-q> :<C-U>colder <C-R>=v:count1<CR><CR>:call repeat#set("[\<M-q>",1)
 nnoremap ]<M-q> :<C-U>cnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-q>",1)<CR>
 nnoremap [<M-l> :<C-U>lolder <C-R>=v:count1<CR><CR>:call repeat#set("[\<M-l>",1)<CR>
 nnoremap ]<M-l> :<C-U>lnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-l>",1)<CR>
-" use ack
-nnoremap <Space>Q/ :<C-U>Ack!<Space>
-nnoremap <Space>Q* :<C-U>Ack! <C-R><C-W><CR>
-xnoremap <Space>Q* :<C-U>Ack! <C-R>=GetVisualString()<CR><CR>
-nnoremap <Space>q/ :<C-U>LAck!<Space>
-nnoremap <Space>q* :<C-U>LAck! <C-R><C-W><CR>
-xnoremap <Space>q* :<C-U>LAck! <C-R>=GetVisualString()<CR><CR>
 "}}}
 """ navigate "{{{
+nmap <Space>s<Space> :<C-U>Grepper<Space>
+
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
 nnoremap <Space>s* :<C-U>FZRg -uF '<C-R><C-W>'<CR>
