@@ -187,7 +187,9 @@ nnoremap <Space>gb :Gblame<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>
 nnoremap <Space>gF :Gpull --rebase<CR>
-nnoremap <Space>gp :Gpush<CR>
+nnoremap <Space>gpr :Git rv
+nnoremap <Space>gp :Gpush
+nnoremap <Space>gpp :Gpush origin +HEAD
 nnoremap <Space>gR :Grebase --autosquash -i<CR>
 nnoremap <Space>gw :Gwrite<CR>
 nnoremap <Space>ge :Gedit<CR>
