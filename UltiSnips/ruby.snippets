@@ -92,6 +92,18 @@ snippet rubocop-this "disable rubocop rules"
 endsnippet
 
 ######################################## rspec
+snippet describe "describe a spec" b
+RSpec.describe $1 do
+	$0
+end
+endsnippet
+
+snippet it "it example" b
+it '$1' do
+	$0
+end
+endsnippet
+
 snippet expect "expect assert" b
 expect($1).to ${2:eq} $3
 endsnippet

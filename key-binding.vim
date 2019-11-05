@@ -219,6 +219,7 @@ nnoremap ]<M-l> :<C-U>lnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-l>",1)
 "}}}
 """ navigate "{{{
 nmap <Space>s<Space> :<C-U>Grepper<Space>
+nmap <Space>s<CR> :<C-U>Grepper<CR>
 
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/

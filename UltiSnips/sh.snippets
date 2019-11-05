@@ -19,9 +19,9 @@ EOF
 endsnippet
 
 snippet lines "for lines output" b
-while read -r ${2:line} <(${1:cmd}); do
+while read -r ${2:line}; do
 	$0
-done
+done <<< "$(${1:cmd})"
 endsnippet
 
 # vim-snip not pair (), though ( is optional

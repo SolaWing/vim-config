@@ -4,7 +4,6 @@
         " create mine group, so can be used directly
         augroup mine | augroup end
 
-        set keywordprg=:help
         " set a map leader
         let mapleader = "\<Space>"
         let maplocalleader = ","

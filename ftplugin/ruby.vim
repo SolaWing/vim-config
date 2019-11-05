@@ -17,9 +17,7 @@ nmap <buffer> <LocalLeader>f :ALEFix<CR>
 nmap <buffer> <LocalLeader>t :update <bar> Rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'<CR>
 " current line without job
 nmap <buffer> <LocalLeader><C-t> :update <bar>
-            \ let g:dispatch_no_job_make = 1 <bar>
-            \ Rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>' <bar>
-            \ let g:dispatch_no_job_make = 0 <CR>
+            \ let @* = "rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'"<CR>
 " current file
 nmap <buffer> <LocalLeader><M-t> :Rake spec 'SPEC=<C-R>%'<CR>
 " all
@@ -31,13 +29,3 @@ if filereadable(".rubocop.yml")
     let b:ale_fixers = ["rubocop"]
     let b:ale_linters = ["rubocop"]
 endif
-" if filereadable(".rubypaths")
-"     " see vim-ruby filetype definition. this variable will set path and tags
-"     if !exists('g:ruby_version_paths')
-"         let g:ruby_version_paths = {}
-"     endif
-"     let b:ruby_version = "custom"
-"     if !has_key(g:ruby_version_paths, b:ruby_version)
-"       let g:ruby_version_paths[b:ruby_version] = readfile(".rubypaths")
-"     endif
-" endif
