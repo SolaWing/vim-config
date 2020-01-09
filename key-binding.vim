@@ -153,10 +153,10 @@ xnoremap <Space>h; :<C-U>FZHistory:<CR>
 nnoremap <Space>h/ :<C-U>FZHistory/<CR>
 nnoremap <Space>p/ :<C-U>Grepper -cword<CR>
 xnoremap <Space>p/ :<C-U>Grepper -query '<C-R>=GetVisualString()<CR>'<CR>
-nnoremap <LocalLeader>/ :<C-U>Grepper -noprompt -tool rg -query -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R><C-W>'<Left>
-xnoremap <LocalLeader>/ :<C-U>Grepper -noprompt -tool rg -query -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R>=GetVisualString()<CR>'<Left>
+nnoremap <LocalLeader>/ :<C-U>Grepper -tool rg -query -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R><C-W>'<CR>
+xnoremap <LocalLeader>/ :<C-U>Grepper -tool rg -query -t <C-R>=config#RgFileType(&ft)<CR> -u '<C-R>=GetVisualString()<CR>'<CR>
 " term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
-nnoremap <Space>pt :<C-U>!ctags -R '<C-R>=getcwd()<CR>'
+nnoremap <Space>pt :<C-U>!cd '<C-R>=getcwd()<CR>' && ctags -R .
 
 nnoremap <Space>pxc :CDo s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/
 xnoremap <Space>pxc :<C-U>CDo s/\V<C-R>=GetVisualString()<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/

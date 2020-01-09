@@ -143,7 +143,7 @@ def findAll(pat):
         if isinstance(m[0], str):  # 0-1 group
             s = "\n".join(m)
         else: # >1 group
-            pat = vim.eval(r"inputdialog('input format pattern(group pass as args): ')")
+            pat = vim.eval(r"inputdialog('input format pattern(group pass as args, so {0} is the first group): ')")
 
             def fmt(pat, x):
                 if pat:

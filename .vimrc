@@ -36,12 +36,12 @@
             endfunction
             " python default locale is None. should set it. LC_TIME used by strftime. now use commandline date
             PY u = {}; # import locale; locale.setlocale(locale.LC_TIME, '')
-            if has('nvim')
-                " according to https://github.com/neovim/neovim/issues/7063#issuecomment-340590539
-                " vim.api.eval is twice fast as vim.eval by not coercing number to string.
-                " 不要过早优化，打破了兼容性
-                PY import vim; vim.eval = vim.api.eval
-            endif
+            " if has('nvim')
+            "     " according to https://github.com/neovim/neovim/issues/7063#issuecomment-340590539
+            "     " vim.api.eval is twice fast as vim.eval by not coercing number to string.
+            "     " 不要过早优化，打破了兼容性
+            "     PY import vim; vim.eval = vim.api.eval
+            " endif
         endif
 
         command! -nargs=1 KeepCursor call KeepCursor(<q-args>)

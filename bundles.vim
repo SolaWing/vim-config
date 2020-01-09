@@ -218,7 +218,7 @@
 
         com! UltiTmpSnippet call UltiSnips#AddFiletypes("tmp") | UltiSnipsEdit tmp
         nnoremap <Leader>eS :UltiTmpSnippet<CR>
-        nnoremap <Leader>es :UltiSnipsEdit<CR>
+        nnoremap <Leader>es :sp ~/.vim/UltiSnips/<C-R>=&ft<CR>.snippets<CR>
 
         " preview auto stop snippet. so disable it
         autocmd mine User UltiSnipsEnterFirstSnippet set completeopt-=preview
@@ -511,7 +511,8 @@
         nmap gs  <plug>(GrepperOperator)
         xmap gs  <plug>(GrepperOperator)
         let g:grepper = {
-                    \   'tools': ['rg', 'git']
+                    \   'tools': ['rg', 'git'],
+                    \   'switch': 0
                     \   }
 
         " Plug 'dyng/ctrlsf.vim'

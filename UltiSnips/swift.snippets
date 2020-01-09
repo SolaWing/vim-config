@@ -59,6 +59,13 @@ repeat {
 	$0
 } while ${1:false}
 endsnippet
+
+snippet while "while syntax" b
+while ${1:true} {
+	$0
+}
+endsnippet
+
 snippet dowhile "do while syntax" b
 repeat {
 	$0
@@ -170,6 +177,14 @@ snippet view "a swif ui view declare" b
 struct $1: View {
 	var body: some View {
 		${0:Text("Replace Me")}
+	}
+}
+endsnippet
+
+snippet preview "a swift ui preview declare" b
+struct `!v expand("%:t:r")`_Previews: PreviewProvider {
+	static var previews: some View {
+		`!v expand("%:t:r")`($0)
 	}
 }
 endsnippet
