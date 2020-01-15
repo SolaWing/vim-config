@@ -9,6 +9,7 @@ nmap <buffer> <LocalLeader>e :update <bar> !ruby %<CR>
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 nmap <buffer> <LocalLeader>f :ALEFix<CR>
+nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 
 " look in rspec rake_task.rb, use SPEC to override default pattern, or set task options's pattern can override it.
 " we need to ignore it to specify simple spec
