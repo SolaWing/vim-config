@@ -81,6 +81,12 @@ snippet b "breakpoint" b
 binding.pry
 endsnippet
 
+snippet << "<< here doc"
+<<~${1:EOF}
+	$0
+$1
+endsnippet
+
 snippet rubocop "disable rubocop rules" b
 # rubocop:disable ${1:all}
 $0${VISUAL}
@@ -145,8 +151,22 @@ ${VISUAL}$0
 endsnippet
 
 ########## Sorbet ##########
+snippet # "file header" b
+# typed: true
+# frozen_string_literal: true
+
+endsnippet
+
+snippet et "extend T::Sig" b
+extend T::Sig
+endsnippet
+
 snippet s "sig annotation" b
-sig { ${1:params()}.returns(${2:T.untyped}) }
+sig { ${1:params($2).}returns(${3:T.untyped}) }
+endsnippet
+
+snippet t "T.untyped"
+T.untyped
 endsnippet
 
 ########## Misc ##########

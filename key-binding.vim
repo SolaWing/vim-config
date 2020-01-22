@@ -214,10 +214,10 @@ nnoremap <Space>Q<C-R> :<C-U>cnewer <C-R>=v:count1<CR><CR>
 nnoremap <Space>qu :<C-U>lolder <C-R>=v:count1<CR><CR>
 nnoremap <Space>q<C-R> :<C-U>lnewer <C-R>=v:count1<CR><CR>
 " use <M-q> or <M-l>
-nnoremap [<M-q> :<C-U>colder <C-R>=v:count1<CR><CR>:call repeat#set("[\<M-q>",1)<CR>
-nnoremap ]<M-q> :<C-U>cnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-q>",1)<CR>
-nnoremap [<M-l> :<C-U>lolder <C-R>=v:count1<CR><CR>:call repeat#set("[\<M-l>",1)<CR>
-nnoremap ]<M-l> :<C-U>lnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-l>",1)<CR>
+nnoremap [<M-q> :<C-U>colder <C-R>=v:count1<CR><CR>:call repeat#set("[\<M-q>",1)<CR>
+nnoremap ]<M-q> :<C-U>cnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-q>",1)<CR>
+nnoremap [<M-l> :<C-U>lolder <C-R>=v:count1<CR><CR>:call repeat#set("[\<M-l>",1)<CR>
+nnoremap ]<M-l> :<C-U>lnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-l>",1)<CR>
 "}}}
 """ navigate "{{{
 nmap <Space>s<Space> :<C-U>Grepper<Space>
