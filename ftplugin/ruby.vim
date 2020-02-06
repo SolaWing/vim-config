@@ -5,6 +5,14 @@ if exists("b:did_ftplugin") | finish | endif
 let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}
 let b:surround_100 = "do \r end"
 
+if line('$') > 2000
+    let b:ruby_no_expensive = 1
+    let b:ruby_minlines = 75
+    setlocal foldmethod=indent
+else
+    setlocal foldmethod=syntax
+end
+
 nmap <buffer> <LocalLeader>e :update <bar> !ruby %<CR>
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend

@@ -64,7 +64,7 @@
         " history
         set history=1000
         " save swap file at specified dir
-        set directory=~/.vim/swapfiles/,/var/tmp,/tmp
+        set directory=$HOME/.vim/swapfiles//,/var/tmp//,/tmp//
         " 启用鼠标
         if has('mouse')
           set mouse=a
