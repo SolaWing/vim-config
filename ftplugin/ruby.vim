@@ -3,7 +3,7 @@ if exists("b:did_ftplugin") | finish | endif
 " support tags: https://solargraph.org/guides/yard
 
 let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}
-let b:surround_100 = "do \r end"
+let b:surround_100 = "do \r\nend"
 
 if line('$') > 2000
     let b:ruby_no_expensive = 1
@@ -18,6 +18,7 @@ nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 nmap <buffer> <LocalLeader>f :ALEFix<CR>
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
+nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
 
 " look in rspec rake_task.rb, use SPEC to override default pattern, or set task options's pattern can override it.
 " we need to ignore it to specify simple spec

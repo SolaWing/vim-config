@@ -120,6 +120,7 @@
             let g:ycm_max_num_candidates = 9
             " let g:ycm_enable_diagnostic_highlighting = 0
             let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/mine.ycm_extra_conf.py'
+            let g:ycm_extra_conf_globlist = ['~/.vim/bundle/YouCompleteMe/*']
             " let g:ycm_confirm_extra_conf = 0
             let g:ycm_key_detailed_diagnostics = '<LocalLeader>d'
             " ycm only use key, value has no effect, so must remove to enable
@@ -127,7 +128,7 @@
                         \ 'tagbar' : 1,
                         \ 'qf' : 1,
                         \ 'notes' : 1,
-                        \ 'markdownEnable' : 1,
+                        \ 'markdown' : 1,
                         \ 'unite' : 1,
                         \ 'text' : 1,
                         \ 'vimwiki' : 1,
@@ -301,7 +302,7 @@
         \    'alt-h:backward-char,alt-l:forward-char',
         \    'alt-a:select-all,alt-d:deselect-all',
         \    'alt-space:jump,`:jump-accept',
-        \], ',') . '" --color="pointer:15" --exact'
+        \], ',') . '" --color="pointer:15"'
         " let g:fzf_layout = { 'up' : '~40%'  }
         Plug '/usr/local/opt/fzf'
         Plug 'junegunn/fzf.vim'
@@ -512,7 +513,6 @@
         xmap gs  <plug>(GrepperOperator)
         let g:grepper = {
                     \   'tools': ['rg', 'git'],
-                    \   'switch': 0
                     \   }
 
         " Plug 'dyng/ctrlsf.vim'

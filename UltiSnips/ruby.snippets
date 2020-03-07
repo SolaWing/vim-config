@@ -58,9 +58,17 @@ end
 endsnippet
 
 snippet do/ "do |param| end block" A
-do |$1|
+do |${1:v}|
 	$0
 end
+endsnippet
+
+snippet & "&method(:$1)" i
+&method(:$0)
+endsnippet
+
+snippet { "{} block"
+{ |${1:v}| $0 
 endsnippet
 
 snippet l "lambda"
@@ -96,6 +104,8 @@ endsnippet
 snippet rubocop-this "disable rubocop rules"
 # rubocop:disable ${1:all}
 endsnippet
+
+########## functional ##########
 
 ######################################## rspec
 snippet describe "describe a spec" b
@@ -148,6 +158,18 @@ snippet nocov "simplecov: no cov hint" b
 # :nocov:
 ${VISUAL}$0
 # :nocov:
+endsnippet
+
+snippet struct "simple struct declare" b
+class ${1:StructName}
+	attr_accessor $2
+	def initialize(**options)
+		options.each do |k, v|
+			instance_variable_set("@#{k}", v)
+		end
+	end
+end
+
 endsnippet
 
 ########## Sorbet ##########
