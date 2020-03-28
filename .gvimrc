@@ -28,6 +28,7 @@
         set macligatures
         let ruby_no_expensive = 1 " ruby default synatx make it very slow.
         silent! unlet ruby_fold
+
         macmenu File.Print key=<D-S-P>
         set guioptions+=k
 
