@@ -1,0 +1,18 @@
+{
+    // "solargraph.logLevel": "debug",
+    // "solargraph.trace.server": "verbose",
+    "solargraph.commandPath": "/Users/wang/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/solargraph/main.rb",
+    "solargraph.checkGemVersion": false,
+    "solargraph.folding": true,
+    "solargraph.hover": true,
+    "solargraph.diagnostics": true,
+    "solargraph.formatting": true,
+    "solargraph.symbols": true,
+
+    "list.insertMappings": {
+        "<C-g>": "do:exit"
+    },
+    "list.normalMappings": {
+        "<C-g>": "do:exit"
+    }
+}

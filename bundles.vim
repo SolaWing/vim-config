@@ -7,8 +7,8 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/easymotion.vim
     source ~/.vim/bundle-config/sneak.vim
     source ~/.vim/bundle-config/autopair.vim
-    source ~/.vim/bundle-config/ycm.vim
-    " source ~/.vim/bundle-config/coc.vim
+    " source ~/.vim/bundle-config/ycm.vim
+    source ~/.vim/bundle-config/coc.vim
     Plug 'Shougo/neco-vim', {'for': 'vim'}
     source ~/.vim/bundle-config/tpope.vim
     source ~/.vim/bundle-config/junegunn.vim
@@ -57,10 +57,11 @@ call plug#begin('~/.vim/bundle')
     Plug 'terryma/vim-expand-region'
     " }}}
     source ~/.vim/bundle-config/slime.vim
-    source ~/.vim/bundle-config/indent-guide.vim
-    source ~/.vim/bundle-config/lightline.vim
     "}}}
     source ~/.vim/bundle-config/lang.vim
+
+    source ~/.vim/bundle-config/indent-guide.vim
     source ~/.vim/bundle-config/theme.vim
+    source ~/.vim/bundle-config/lightline.vim
 
 call plug#end()

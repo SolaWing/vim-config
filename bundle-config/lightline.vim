@@ -3,10 +3,12 @@ autocmd mine BufEnter,FileChangedShellPost * call CacheClear("fugitive#head")
 function! CachedFugitiveHead()
     return CacheWrap("fugitive#head")
 endfunction
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 let g:lightline = {
             \   'colorscheme' : 'gruvbox_custom',
             \   'active': {
-            \     'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ], [ 'gitbranch' ] ],
+            \     'left': [ [ 'mode', 'paste' ], ['readonly', 'relativepath', 'modified' ], [ 'gitbranch',  'cocstatus' ] ],
             \     'right': [ [ 'percent' ],
             \                [ 'lineinfo' ],
             \                ['linter_errors', 'linter_warnings',
@@ -18,6 +20,7 @@ let g:lightline = {
             \   },
             \   'component_function': {
             \     'gitbranch': 'CachedFugitiveHead',
+            \     'cocstatus': 'coc#status',
             \   },
             \   'component_expand': {
             \     'linter_warnings': 'LightlineLinterWarnings',
