@@ -10,9 +10,13 @@
     "solargraph.symbols": true,
 
     "list.insertMappings": {
-        "<C-g>": "do:exit"
+        "<C-g>": "do:exit",
+        "<A-j>": "normal:j",
+        "<A-k>": "normal:k"
     },
     "list.normalMappings": {
-        "<C-g>": "do:exit"
+        "<C-g>": "do:exit",
+        "<A-j>": "normal:j",
+        "<A-k>": "normal:k"
     }
 }

@@ -39,3 +39,5 @@ if filereadable(".rubocop.yml")
     let b:ale_fixers = ["rubocop"]
     let b:ale_linters = ["rubocop"]
 endif
+" coc project root check
+let b:coc_root_patterns = ["Gemfile"]
