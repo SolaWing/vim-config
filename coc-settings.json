@@ -9,6 +9,8 @@
     "solargraph.formatting": true,
     "solargraph.symbols": true,
 
+    "sourcekit.commandPath": "~/Documents/github/Apple/sourcekit-lsp/.build/x86_64-apple-macosx/debug/sourcekit-lsp",
+
     "list.insertMappings": {
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",

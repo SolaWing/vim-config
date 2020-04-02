@@ -47,7 +47,7 @@ nnoremap <LocalLeader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <LocalLeader>gg :YcmCompleter GoTo<CR>
 nnoremap <LocalLeader>gh :YcmCompleter GoToImprecise<CR>
 
-nnoremap <LocalLeader>gd :YcmCompleter GetDoc<CR>
+nnoremap K :YcmCompleter GetDoc<CR>
 nnoremap <LocalLeader>gt :YcmCompleter GetType<CR>
 nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
 nnoremap <LocalLeader>g  :YcmCompleter GetType<CR>
