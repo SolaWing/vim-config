@@ -150,8 +150,18 @@ snippet attr_doc "attribute document"
 #   @return [${2:String}] ${3:desc}
 endsnippet
 
+snippet method_doc "method annotation" b
+# @!method $1
+#  @return [$0]
+endsnippet
+
 snippet hint "type hint for following var" b
 # @type [${1:String}]
+endsnippet
+
+snippet parse "parse directive" b
+# @!parse
+#  $0
 endsnippet
 
 snippet domain "domain modify" b
