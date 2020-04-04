@@ -1,4 +1,5 @@
 {
+    // ruby
     // "solargraph.logLevel": "debug",
     // "solargraph.trace.server": "verbose",
     "solargraph.commandPath": "/Users/wang/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/solargraph/main.rb",
@@ -9,7 +10,23 @@
     "solargraph.formatting": true,
     "solargraph.symbols": true,
 
-    "sourcekit.commandPath": "~/Documents/github/Apple/sourcekit-lsp/.build/x86_64-apple-macosx/debug/sourcekit-lsp",
+    // python
+    "python.formatting.provider": "yapf",
+
+    // swift
+    // "sourcekit.commandPath": "~/Documents/github/Apple/sourcekit-lsp/.build/x86_64-apple-macosx/release/sourcekit-lsp",
+    "languageserver": {
+        "sourcekit-lsp": {
+            "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
+            "trace.server": "verbose",
+            "options": {
+                "env": {
+                    "SOURCEKIT_LOGGING": "3"
+                }
+            },
+            "filetypes": ["swift"]
+        }
+    },
 
     "list.insertMappings": {
         "<C-g>": "do:exit",
