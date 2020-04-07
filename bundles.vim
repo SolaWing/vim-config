@@ -7,7 +7,8 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/easymotion.vim
     source ~/.vim/bundle-config/sneak.vim
     source ~/.vim/bundle-config/autopair.vim
-    if argv(0) =~# '\.\%(swift\|[hcm]\|mm\|cpp\)$'
+    " if argv(0) =~# '\.\%(swift\|[hcm]\|mm\|cpp\|py\)$'
+    if argv(0) !~# '\.\%(r[bs]\)$'
         source ~/.vim/bundle-config/ycm.vim
     else
         source ~/.vim/bundle-config/coc.vim

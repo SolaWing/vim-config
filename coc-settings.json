@@ -28,6 +28,11 @@
         }
     },
 
+    // config
+    "suggest.maxCompleteItemCount": 9,
+    "suggest.numberSelect": true,
+
+    // mapping
     "list.insertMappings": {
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",
