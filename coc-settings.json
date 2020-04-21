@@ -1,7 +1,7 @@
 {
     // ruby
-    // "solargraph.logLevel": "debug",
-    // "solargraph.trace.server": "verbose",
+    "solargraph.logLevel": "debug",
+    "solargraph.trace.server": "verbose",
     "solargraph.commandPath": "/Users/wang/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/solargraph/main.rb",
     "solargraph.checkGemVersion": false,
     "solargraph.folding": true,

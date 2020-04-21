@@ -44,6 +44,7 @@ call plug#begin('~/.vim/bundle')
     command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
     Plug 'justinmk/vim-dirvish'
     "}}}
+    Plug 'justinmk/vim-gtfo'
     source ~/.vim/bundle-config/ale.vim
     Plug 'tpope/vim-commentary'
     source ~/.vim/bundle-config/grepper.vim
