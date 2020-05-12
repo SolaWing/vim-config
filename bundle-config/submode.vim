@@ -1,7 +1,7 @@
 let g:submode_timeout = 0
 let g:submode_keep_leaving_key = 1
 Plug 'kana/vim-submode' " custom
-autocmd mine VimEnter * call timer_start(200, {-> s:submode_init() })
+autocmd mine VimEnter * call timer_start(1000, {-> s:submode_init() })
 function! s:submode_init()
     function! SubmodeMap(name, mode, maps)
         for [enter, short, rhs, opt] in a:maps

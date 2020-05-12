@@ -39,3 +39,4 @@ let g:dispatch_no_maps = 1
 Plug 'tpope/vim-projectionist'
 "}}}
 
+" Plug 'tpope/vim-dadbod'

@@ -4,7 +4,8 @@ Plug 'neoclide/coc-neco'
 source ~/.vim/bundle-config/ultisnip.vim
 
 " TextEdit might fail if hidden is not set.
-set hidden
+" lots of unclose file may cause vim slow
+" set hidden
 
 " Some servers have issues with backup files, see #649.
 set nobackup
@@ -67,7 +68,9 @@ nmap <Space>t<M-g> <C-W>s<C-W>T<M-g>
 nmap <M-g> <LocalLeader>gg
 
 " Use K to show documentation in preview window.
-set keywordprg=:call\ CocAction('doHover')
+
+command! -nargs=* CocHover :call CocActionAsync('doHover')
+set keywordprg=:CocHover
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
