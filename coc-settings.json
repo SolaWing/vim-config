@@ -20,7 +20,8 @@
     // "sourcekit.commandPath": "~/Documents/github/Apple/sourcekit-lsp/.build/x86_64-apple-macosx/release/sourcekit-lsp",
     "languageserver": {
         "sourcekit-lsp": {
-            "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
+            // "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
+            "command": "sourcekit-lsp",
             "trace.server": "verbose",
             "options": {
                 "env": {
@@ -33,7 +34,7 @@
 
     // config
     "suggest.maxCompleteItemCount": 9,
-    "suggest.numberSelect": true,
+    "suggest.numberSelect": false,
 
     // mapping
     "list.insertMappings": {

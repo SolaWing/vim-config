@@ -24,6 +24,10 @@ class $1 {
 }
 endsnippet
 
+snippet annotation "class annotation" b
+annotation $1
+endsnippet
+
 snippet package "package" b
 package $1 {
 	$0
@@ -46,4 +50,8 @@ snippet activities "流程图" b
 start
 $0
 stop
+endsnippet
+
+snippet !include "include other file"
+!include ${path.iuml}
 endsnippet

@@ -188,6 +188,7 @@ nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>
 nnoremap <Space>gF :Gpull --rebase<CR>
 nnoremap <Space>gpr :Git rv
+nnoremap <Space>gm :Git mergetool<CR>
 nnoremap <Space>gp :Gpush
 nnoremap <Space>gpp :Gpush origin +HEAD
 nnoremap <Space>gR :Grebase --autosquash -i<CR>

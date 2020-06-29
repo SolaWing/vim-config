@@ -162,6 +162,7 @@
         set wildignore+=*.obj,*.o,*.a,*.dylib,*.app,*.pyc
         set textwidth=120
         set colorcolumn=+1
+        set cursorline
         "highlight trim whitespace
         hi link TrimWhiteSpace CursorLine
         augroup TrimWhiteSpace

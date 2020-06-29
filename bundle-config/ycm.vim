@@ -1,4 +1,6 @@
 
+set completeopt+=preview
+let g:ycm_auto_hover = "" " auto hover distract
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
@@ -77,17 +79,17 @@ if has_key(g:plugs, 'auto-pairs')
     " compatibility between YCM and autopair, and none-buffer map make VM-Cursor map happy
     let g:ycm_key_param_template = 0
     let g:AutoPairsMapBS = 0
-    let g:AutoPairsMapCh = 0
-    function! FixMapCh()
-        if pumvisible()
-            return "\<Plug>YCM_BS"
-        elseif exists('b:autopairs_enabled')
-            return "\<C-R>=AutoPairsDelete()\<CR>"
-        else
-            return "\<BS>"
-        endif
-    endfunction
-    imap <silent> <expr> <BS> FixMapCh()
+    " let g:AutoPairsMapCh = 0
+    " function! FixMapCh()
+    "     if pumvisible()
+    "         return "\<Plug>YCM_BS"
+    "     elseif exists('b:autopairs_enabled')
+    "         return "\<C-R>=AutoPairsDelete()\<CR>"
+    "     else
+    "         return "\<BS>"
+    "     endif
+    " endfunction
+    " imap <silent> <expr> <BS> FixMapCh()
     imap <C-H> <BS>
 
     let g:AutoPairsMapCR = 0
