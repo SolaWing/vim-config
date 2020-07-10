@@ -9,4 +9,4 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = tempname()
 " pandas not support cpaste..
 let g:slime_python_ipython = 1
-Plug 'jpalardy/vim-slime', {'on': ['<Plug>SlimeLineSend', '<Plug>SlimeRegionSend']}
+Plug 'jpalardy/vim-slime', {'on': ['<Plug>SlimeLineSend', '<Plug>SlimeRegionSend', 'SlimeSend1']}

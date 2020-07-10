@@ -13,9 +13,11 @@ else
     setlocal foldmethod=syntax
 end
 
-nmap <buffer> <LocalLeader>e :update <bar> !ruby %<CR>
+nmap <buffer> <LocalLeader>r :update <bar> !ruby %<CR>
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
-xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
+" xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
+xmap <buffer> <LocalLeader><CR> \"*y:SlimeSend1 eval_paste<CR>
+
 nmap <buffer> <LocalLeader>f :ALEFix<CR>
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>

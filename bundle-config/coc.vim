@@ -76,7 +76,7 @@ set keywordprg=:CocHover
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <LocalLeader>rn <Plug>(coc-rename)
+nmap <LocalLeader>gn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <LocalLeader>f  <Plug>(coc-format-selected)
