@@ -16,7 +16,6 @@
 nnoremap <D-M-]>    :tabm +1<cr>
 nnoremap <D-M-[>    :tabm -1<cr>
 
-
 if has("gui_vimr")
-    call setenv('LANG', 'zh_CN.UTF-8') " https://github.com/qvacua/vimr/issues/807
+    map <M-S-*> <M-*>
 end

@@ -2,7 +2,7 @@
 "{
 "exe printf("set rtp=%s,%s,%s", expand('~/.vim'), &rtp, expand('~/.vim/after'))
 
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 if $COLORTERM ==? 'truecolor'
     set termguicolors
 end
@@ -27,6 +27,10 @@ set vdir=~/.vim/view
 
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
+
+if has("gui_vimr")
+    call setenv('LANG', 'zh_CN.UTF-8') " https://github.com/qvacua/vimr/issues/807
+end
 
 " 自动进入输入状态
 source ~/.vimrc
