@@ -1,18 +1,10 @@
 """ vim: set sw=4 ts=4 sts=4 et foldmethod=marker foldlevel=1:
 " ==================== Language"{{{
-" hynek/vim-python-pep8-indent"{{{
 Plug 'hynek/vim-python-pep8-indent'
-"}}}
-" kchmck/vim-coffee-script"{{{
 " Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-"}}}
-" HerringtonDarkholme/yats.vim
-Plug 'HerringtonDarkholme/yats.vim'
-"
-
-"cespare/vim-toml "{{{
+Plug 'HerringtonDarkholme/yats.vim' " typescript
+Plug 'udalov/kotlin-vim'
 Plug 'cespare/vim-toml'
-"}}}"
 
 " keith/swift.vim "{{{
 Plug 'keith/swift.vim', {'for': 'swift'}

@@ -16,7 +16,7 @@ end
 nmap <buffer> <LocalLeader>r :update <bar> !ruby %<CR>
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 " xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
-xmap <buffer> <LocalLeader><CR> \"*y:SlimeSend1 eval_paste<CR>
+xmap <buffer> <LocalLeader><CR> "*y:SlimeSend1 eval_paste<CR>
 
 nmap <buffer> <LocalLeader>f :ALEFix<CR>
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>

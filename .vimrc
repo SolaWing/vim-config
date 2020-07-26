@@ -11,8 +11,8 @@
         let g:is_bash = 1
         if has("gui_macvim")
             set macmeta
-            " set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.6
-            " set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/lib/libpython3.6m.dylib
+            set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/Current
+            set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/Current/lib/libpython3.8.dylib
             set rubydll=/Users/wang/.rbenv/versions/2.7.0/bin/ruby
             " py3 dir
         else " terminal
