@@ -5,6 +5,7 @@ let g:surround_no_insert_mappings = 1
 let g:surround_indent = 0
 Plug 'tpope/vim-surround'
 xmap s <Plug>VSurround
+xmap gs <Plug>VgSurround
 "}}}
 
 " tpope/vim-unimpaired"{{{
