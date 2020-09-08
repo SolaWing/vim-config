@@ -57,8 +57,9 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> <localleader>gg <Plug>(coc-definition)
-nmap <silent> <localleader>gy <Plug>(coc-type-definition)
+nmap <silent> <localleader>gt <Plug>(coc-type-definition)
 nmap <silent> <localleader>gi <Plug>(coc-implementation)
+nmap <silent> <localleader>gd <Plug>(coc-declaration)
 nmap <silent> <localleader>gr <Plug>(coc-references)
 
 nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
@@ -80,7 +81,7 @@ nmap <LocalLeader>gn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <LocalLeader>f  <Plug>(coc-format-selected)
-nmap <LocalLeader>f  <Plug>(coc-format-selected)
+nmap <LocalLeader>f  <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
@@ -97,7 +98,8 @@ xmap <localleader>a  <Plug>(coc-codeaction-selected)
 nmap <localleader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current line.
-nmap <localleader>ac  <Plug>(coc-codeaction)
+nmap <localleader>ac  <Plug>(coc-codeaction-line)
+nmap <localleader>aa  <Plug>(coc-codelens-action)
 " Apply AutoFix to problem on the current line.
 nmap <localleader>gf  <Plug>(coc-fix-current)
 
@@ -111,8 +113,8 @@ omap af <Plug>(coc-funcobj-a)
 " Use <TAB> for selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
 " coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" nmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')

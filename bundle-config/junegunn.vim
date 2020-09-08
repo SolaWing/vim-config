@@ -45,7 +45,8 @@ command! -bang -nargs=* FZRg
 "             \ <bang>0)
 " "}}}
 " junegunn/goyo.vim {{{
-Plug 'junegunn/goyo.vim'
+" let g:goyo_width = '90%'
+" Plug 'junegunn/goyo.vim'
 " }}}
 " junegunn/vim-slash {{{
 Plug 'junegunn/vim-slash'

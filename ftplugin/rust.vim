@@ -12,11 +12,10 @@ setl fdm=syntax
 " diag will use it, avoid frequent column change
 setl signcolumn=yes
 
-nnoremap <buffer> <LocalLeader>b :update <bar> make build<CR>
+nnoremap <buffer> <LocalLeader>b :update <bar> Make! check
 nnoremap <buffer> <LocalLeader>r :update <bar> make run<CR>
 nnoremap <buffer> <LocalLeader>t :update <bar> make test<CR>
 nnoremap <buffer> <LocalLeader>p :update <bar> make bench<CR>
-nnoremap <buffer> <LocalLeader>c :make clean<CR>
 
 inoremap <buffer> <M-;> <End>;<CR>
 

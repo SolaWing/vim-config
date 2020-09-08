@@ -13,7 +13,6 @@
     "solargraph.trace.server": "verbose",
 
     // rust
-    "rust-client.trace.server": "verbose",
 
     // python
     "python.formatting.provider": "yapf",
@@ -37,6 +36,8 @@
     // config
     "suggest.maxCompleteItemCount": 9,
     "suggest.numberSelect": false,
+    "codeLens.enable": true,
+    "diagnostic.virtualText": true,
 
     // mapping
     "list.insertMappings": {

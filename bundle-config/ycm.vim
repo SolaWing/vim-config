@@ -36,6 +36,14 @@ let g:ycm_log_level = 'debug'
 " let g:ycm_server_use_vim_stdout = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_rust_src_path=$HOME."/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
+let g:ycm_language_server = [
+            \   {
+            \     'name': 'rust',
+            \     'cmdline': ['rust-analyzer'],
+            \     'filetypes': ['rust'],
+            \     'project_root_files': ['Cargo.toml']
+            \   }
+            \ ]
 
 nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
 nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
@@ -50,7 +58,7 @@ nnoremap <LocalLeader>gg :YcmCompleter GoTo<CR>
 nnoremap <LocalLeader>gh :YcmCompleter GoToImprecise<CR>
 
 set keywordprg=:YcmCompleter\ GetDoc
-nnoremap <LocalLeader>gt :YcmCompleter GetType<CR>
+nnoremap <LocalLeader>g<space> :YcmCompleter GetType<CR>
 nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
 nnoremap <LocalLeader>g  :YcmCompleter GetType<CR>
 nnoremap <LocalLeader>gf :YcmCompleter FixIt<CR>
