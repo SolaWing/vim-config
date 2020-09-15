@@ -62,6 +62,10 @@ nmap <silent> <localleader>gi <Plug>(coc-implementation)
 nmap <silent> <localleader>gd <Plug>(coc-declaration)
 nmap <silent> <localleader>gr <Plug>(coc-references)
 
+" disable auto-preview
+let g:coc_enable_locationlist = 0
+autocmd User CocLocationsChange CocList --normal location
+
 nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
 nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
 nmap <C-W><M-g> <C-W>s<M-g>
@@ -72,6 +76,7 @@ nmap <M-g> <LocalLeader>gg
 
 command! -nargs=* CocHover :call CocActionAsync('doHover')
 set keywordprg=:CocHover
+autocmd FileType ruby,python setl keywordprg<
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -99,7 +104,7 @@ nmap <localleader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current line.
 nmap <localleader>ac  <Plug>(coc-codeaction-line)
-nmap <localleader>aa  <Plug>(coc-codelens-action)
+nmap <localleader>as  <Plug>(coc-codelens-action)
 " Apply AutoFix to problem on the current line.
 nmap <localleader>gf  <Plug>(coc-fix-current)
 

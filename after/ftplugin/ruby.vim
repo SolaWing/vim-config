@@ -1,2 +1,1 @@
-
-setl keywordprg<
+" setl keywordprg<

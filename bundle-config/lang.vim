@@ -48,5 +48,6 @@ Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
 Plug 'aklt/plantuml-syntax'
 "}}}
 source ~/.vim/bundle-config/lang/markdown.vim
-source ~/.vim/bundle-config/lang/lisp.vim
+" 暂时不用lisp
+" source ~/.vim/bundle-config/lang/lisp.vim
 "}}}
