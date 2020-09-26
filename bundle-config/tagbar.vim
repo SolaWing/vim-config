@@ -33,41 +33,41 @@ let g:tagbar_type_objc = {
             \ }
             \ }
 let g:tagbar_type_objcpp = g:tagbar_type_objc
-let g:tagbar_type_rust = {
-            \ 'ctagstype' : 'Rust',
-            \ 'kinds' : [
-            \       'n:module:1:0',
-            \       's:struct:0:1',
-            \       'i:trait:0:1',
-            \       'c:implementation:0:0',
-            \       'f:function:0:1',
-            \       'g:enum:0:1',
-            \       't:type alias:0:1',
-            \       'v:global variable:0:1',
-            \       'M:macro:0:1',
-            \       'm:struct field:0:1',
-            \       'e:enum variant:0:1',
-            \       'F:method:0:1',
-            \ ],
-            \ 'sro' : '::',
-            \ 'kind2scope' : {
-            \ 'n' : 'module',
-            \ 's' : 'struct',
-            \ 'i' : 'interface',
-            \ 'c' : 'implementation',
-            \ 'f' : 'function',
-            \ 'g' : 'enum',
-            \ 'F' : 'method',
-            \ },
-            \ 'scope2kind' : {
-            \ 'module'        : 'n',
-            \ 'struct'        : 's',
-            \ 'interface'     : 'i',
-            \ 'implementation': 'c',
-            \ 'function'      : 'f',
-            \ 'enum'          : 'g',
-            \ 'method'        : 'F',
-            \ }
-            \}
+" let g:tagbar_type_rust = {
+"             \ 'ctagstype' : 'Rust',
+"             \ 'kinds' : [
+"             \       'n:module:1:0',
+"             \       's:struct:0:1',
+"             \       'i:trait:0:1',
+"             \       'c:implementation:0:0',
+"             \       'f:function:0:1',
+"             \       'g:enum:0:1',
+"             \       't:type alias:0:1',
+"             \       'v:global variable:0:1',
+"             \       'M:macro:0:1',
+"             \       'm:struct field:0:1',
+"             \       'e:enum variant:0:1',
+"             \       'F:method:0:1',
+"             \ ],
+"             \ 'sro' : '::',
+"             \ 'kind2scope' : {
+"             \ 'n' : 'module',
+"             \ 's' : 'struct',
+"             \ 'i' : 'interface',
+"             \ 'c' : 'implementation',
+"             \ 'f' : 'function',
+"             \ 'g' : 'enum',
+"             \ 'F' : 'method',
+"             \ },
+"             \ 'scope2kind' : {
+"             \ 'module'        : 'n',
+"             \ 'struct'        : 's',
+"             \ 'interface'     : 'i',
+"             \ 'implementation': 'c',
+"             \ 'function'      : 'f',
+"             \ 'enum'          : 'g',
+"             \ 'method'        : 'F',
+"             \ }
+"             \}
 Plug 'majutsushi/tagbar' , { 'on': 'TagbarToggle'}
 nnoremap <F3> :TagbarToggle<CR>

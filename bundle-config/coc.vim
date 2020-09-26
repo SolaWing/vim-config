@@ -76,7 +76,6 @@ nmap <M-g> <LocalLeader>gg
 
 command! -nargs=* CocHover :call CocActionAsync('doHover')
 set keywordprg=:CocHover
-autocmd FileType ruby,python setl keywordprg<
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')

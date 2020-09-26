@@ -189,8 +189,9 @@ nnoremap <Space>gf :Gfetch<CR>
 nnoremap <Space>gF :Gpull --rebase<CR>
 nnoremap <Space>gpr :Git rv
 nnoremap <Space>gm :Git mergetool<CR>
-nnoremap <Space>gp :Gpush
-nnoremap <Space>gpp :Gpush origin +HEAD
+" 不要push，防误点
+" nnoremap <Space>gp :Gpush
+" nnoremap <Space>gpp :Gpush origin +HEAD
 nnoremap <Space>gR :Grebase --autosquash -i<CR>
 nnoremap <Space>gw :Gwrite<CR>
 nnoremap <Space>ge :Gedit<CR>
