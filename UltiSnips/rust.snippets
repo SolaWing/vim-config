@@ -1,9 +1,5 @@
 # clearsnippets impl
 
-snippet pln "print line" b
-println!("$1"${1/[^{]*(\{\})?.*/(?1:, :\);)/);}$2${1/[^{]*(\{\})?.*/(?1:\);)/}
-endsnippet
-
 snippet macro "macro_rules!" b
 macro_rules! ${1:name} {
 	(${2:matcher}) => {
@@ -15,6 +11,7 @@ endsnippet
 snippet tests "test mod" b
 #[cfg(test)]
 mod ${1:tests} {
+	use super::*;
 	$0
 }
 endsnippet
@@ -23,6 +20,13 @@ snippet test "a test func" b
 #[test]
 fn ${1:name}() {
 	$0
+}
+endsnippet
+
+snippet bench "a bench test func" b
+#[bench]
+fn ${1:name}(b: &mut Bencher) {
+	b.iter(|| ${0:func()});
 }
 endsnippet
 

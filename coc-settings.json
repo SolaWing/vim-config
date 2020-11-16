@@ -13,6 +13,7 @@
     "solargraph.trace.server": "verbose",
 
     // rust
+    // "rust-analyzer.serverPath": "~/Downloads/rust-analyzer-mac",
 
     // python
     "python.formatting.provider": "black",
@@ -50,6 +51,7 @@
     "list.normalMappings": {
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",
-        "<A-k>": "normal:k"
+        "<A-k>": "normal:k",
+        "<A-a>": "do:selectall"
     }
 }

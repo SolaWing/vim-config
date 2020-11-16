@@ -29,7 +29,7 @@ nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
 nmap <buffer> <LocalLeader>t :update <bar> Rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'<CR>
 " current line without job
 nmap <buffer> <LocalLeader><C-t> :update <bar>
-            \ let @* = "rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'"<CR>
+            \ let @* = "bundle exec rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'"<CR>
 " current file
 nmap <buffer> <LocalLeader><M-t> :Rake spec 'SPEC=<C-R>%'<CR>
 " all
