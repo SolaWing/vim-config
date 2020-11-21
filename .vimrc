@@ -50,7 +50,7 @@
         command! -nargs=1 -complete=mapping -bar Noremap nnoremap <args>| xnoremap <args>| onoremap <args>
         
         source ~/.vim/functions.vim
-        source ~/.vim/bundles.vim " plugins
+        source ~/.vim/bundle-config/index.vim " plugins
 
         colorscheme gruvbox
         "显示行号
