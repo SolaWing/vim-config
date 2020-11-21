@@ -39,5 +39,6 @@ let g:dispatch_no_maps = 1
 " tpope/vim-projectionist{{{
 Plug 'tpope/vim-projectionist'
 "}}}
+Plug 'tpope/vim-commentary'
 
 " Plug 'tpope/vim-dadbod'

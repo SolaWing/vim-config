@@ -7,6 +7,7 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/easymotion.vim
     source ~/.vim/bundle-config/sneak.vim
     source ~/.vim/bundle-config/autopair.vim
+
     " if argv(0) =~# '\.\%(swift\|[hcm]\|mm\|cpp\|py\)$'
     if argv(0) !~# '\.\%(r[bs]\|py\)$' && $COC != "1"
         source ~/.vim/bundle-config/ycm.vim
@@ -14,55 +15,55 @@ call plug#begin('~/.vim/bundle')
         source ~/.vim/bundle-config/coc.vim
     endif
     Plug 'Shougo/neco-vim', {'for': 'vim'}
+
     source ~/.vim/bundle-config/tpope.vim
     source ~/.vim/bundle-config/junegunn.vim
     source ~/.vim/bundle-config/solawing.vim
 
     " google/vim-searchindex{{{
-    " 不支持visual star, 配合vim-slash一起用
-    Plug 'google/vim-searchindex'
-    let g:searchindex_line_limit = 20000
+        " 不支持visual star, 配合vim-slash一起用
+        Plug 'google/vim-searchindex'
+        let g:searchindex_line_limit = 20000
     "}}}
 
     " kshenoy/vim-signature"{{{
-    let g:SignaturePeriodicRefresh = 0
-    "let g:SignatureEnabledAtStartup = 0
-    let g:SignatureUnconditionallyRecycleMarks = 1
-    Plug 'kshenoy/vim-signature'
+        let g:SignaturePeriodicRefresh = 0
+        "let g:SignatureEnabledAtStartup = 0
+        let g:SignatureUnconditionallyRecycleMarks = 1
+        Plug 'kshenoy/vim-signature'
     "}}}
 
     " restore_view {{{
-    Plug 'vim-scripts/restore_view.vim'
-    set viewoptions=folds,cursor
-    let g:skipview_files = ['.*\.vim']
+        Plug 'vim-scripts/restore_view.vim'
+        set viewoptions=folds,cursor
+        let g:skipview_files = ['.*\.vim']
     " }}}
     source ~/.vim/bundle-config/devdocs.io.vim
+
     " justinmk/vim-dirvish {{{
-    let g:loaded_netrwPlugin = 1
-    command! -nargs=? -complete=dir Explore Dirvish <args>
-    command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-    command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-    Plug 'justinmk/vim-dirvish'
+        let g:loaded_netrwPlugin = 1
+        command! -nargs=? -complete=dir Explore Dirvish <args>
+        command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+        command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+        Plug 'justinmk/vim-dirvish'
     "}}}
     Plug 'justinmk/vim-gtfo' " go to folder or terminal
+
     source ~/.vim/bundle-config/ale.vim
-    Plug 'tpope/vim-commentary'
     source ~/.vim/bundle-config/grepper.vim
     " eregex.vim"{{{
-    Plug 'othree/eregex.vim', { 'on': ['S'] }
-    let g:eregex_default_enable = 0
+        Plug 'othree/eregex.vim', { 'on': ['S'] }
+        let g:eregex_default_enable = 0
     "}}}
     " mbbill/undotree "{{{
-    Plug 'mbbill/undotree' ",             { 'on': 'UndotreeToggle'   }
-    nnoremap <F4> :UndotreeToggle<CR>
+        Plug 'mbbill/undotree' ",             { 'on': 'UndotreeToggle'   }
+        nnoremap <F4> :UndotreeToggle<CR>
     "}}}
     source ~/.vim/bundle-config/submode.vim
     source ~/.vim/bundle-config/vim-visual-multi.vim
-    " terryma/vim-expand-region {{{
     Plug 'terryma/vim-expand-region'
-    " }}}
     source ~/.vim/bundle-config/slime.vim
-    "}}}
+"}}}
     source ~/.vim/bundle-config/lang.vim
 
     source ~/.vim/bundle-config/indent-guide.vim
