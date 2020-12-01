@@ -87,15 +87,6 @@ nmap <LocalLeader>gn <Plug>(coc-rename)
 xmap <LocalLeader>f  <Plug>(coc-format-selected)
 nmap <LocalLeader>f  <Plug>(coc-format)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd mine BufLeave * call UltiSnips#LeavingBuffer()
-augroup end
-
 " Applying codeAction to the selected region.
 " Example: `<localleader>aap` for current paragraph
 xmap <localleader>a  <Plug>(coc-codeaction-selected)
@@ -148,3 +139,16 @@ nnoremap <silent> <localleader>lj  :<C-u>CocNext<CR>
 nnoremap <silent> <localleader>lk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <localleader>lp  :<C-u>CocListResume<CR>
+
+augroup my_COC
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd mine BufLeave * call UltiSnips#LeavingBuffer()
+augroup end
+
+let g:coc_filetype_map = {
+  \ 'xhtml': 'html',
+  \ }

@@ -17,6 +17,7 @@
         Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
         Plug 'tpope/vim-rake', {'for': 'ruby'}
         Plug 'tpope/vim-bundler', {'for': 'ruby'}
+        Plug 'tpope/vim-rails', {'for': 'ruby'}
     "}}}
     Plug 'hynek/vim-python-pep8-indent'
 

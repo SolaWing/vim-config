@@ -19,7 +19,6 @@
     "python.formatting.provider": "black",
 
     // swift
-    // "sourcekit.commandPath": "~/Documents/github/Apple/sourcekit-lsp/.build/x86_64-apple-macosx/release/sourcekit-lsp",
     "languageserver": {
         "sourcekit-lsp": {
             // "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
@@ -38,7 +37,7 @@
 
     // config
     "suggest.maxCompleteItemCount": 9,
-    "suggest.numberSelect": false,
+    // "suggest.numberSelect": true,
     "codeLens.enable": true,
     "diagnostic.virtualText": true,
 

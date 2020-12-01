@@ -3,7 +3,6 @@ set nocompatible              " be iMproved, required
 call plug#begin('~/.vim/bundle')
 
 " ==================== Basic{{{
-    source ~/.vim/bundle-config/tagbar.vim
     source ~/.vim/bundle-config/easymotion.vim
     source ~/.vim/bundle-config/sneak.vim
     source ~/.vim/bundle-config/autopair.vim
@@ -16,6 +15,9 @@ call plug#begin('~/.vim/bundle')
     endif
     Plug 'Shougo/neco-vim', {'for': 'vim'}
 
+    source ~/.vim/bundle-config/tag-related.vim
+
+    " source ~/.vim/bundle-config/vim-clap.vim
     source ~/.vim/bundle-config/tpope.vim
     source ~/.vim/bundle-config/junegunn.vim
     source ~/.vim/bundle-config/solawing.vim
