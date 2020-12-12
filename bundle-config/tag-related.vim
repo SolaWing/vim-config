@@ -10,4 +10,4 @@ set cscopeprg='gtags-cscope' " 使用 gtags-cscope 代替 cscope
 
 " let GtagsCscope_Auto_Load = 0
 " let CtagsCscope_Auto_Map = 0
-let GtagsCscope_Quiet = 1
+" let GtagsCscope_Quiet = 1

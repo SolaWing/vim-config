@@ -20,22 +20,24 @@
 
     // swift
     "languageserver": {
-        "sourcekit-lsp": {
+        "sourcekit": {
             // "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
             // "command": "sourcekit-lsp",
             "command": "xcrun",
             "args": ["--toolchain", "swift", "sourcekit-lsp"],
             "trace.server": "verbose",
-            "options": {
-                "env": {
-                    "SOURCEKIT_LOGGING": "3"
-                }
+            "env": {
+                // "SOURCEKIT_LOGGING": "3"
             },
             "filetypes": ["swift"]
         }
     },
+    "tabnine.triggers": ["=", ":", "."],
 
     // config
+    "workspace.progressTarget": "statusline",
+    // "suggest.autoTrigger": "trigger",
+    "suggest.minTriggerInputLength": 2,
     "suggest.maxCompleteItemCount": 9,
     // "suggest.numberSelect": true,
     "codeLens.enable": true,

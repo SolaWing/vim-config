@@ -10,6 +10,7 @@ let g:ale_linters = {
             \ 'php': ['php'],
             \ 'python': ['flake8']
             \ }
+            " \ 'sql': ['sqlint'],
 let g:ale_fixers = {
             \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint'],
             \ 'python': ['yapf']
