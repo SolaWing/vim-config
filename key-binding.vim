@@ -183,7 +183,7 @@ nnoremap <Space>g<M-V> :Gtabedit! log -p --follow -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
-nnoremap <Space>gb :Gblame<CR>
+nnoremap <Space>gb :Git blame<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Gfetch<CR>
 nnoremap <Space>gF :Gpull --rebase<CR>
@@ -419,6 +419,10 @@ nnoremap <expr> zx v:count == v:count1 ? ":\<C-U>set foldlevel=".v:count."\<CR>"
 " ii,jf,fj,jk 退出插入模式
 " left hand have too many work. here use right hand
 noremap! jk <ESC>
+
+" make <C-g> same with ESC. which is the emacs style shortcut
+nmap <C-g> <ESC>
+map! <C-g> <ESC>
 
 " make Y consistent with D, C, yank line can use yy
 nnoremap Y y$
