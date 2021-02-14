@@ -47,7 +47,6 @@ com! ShowSyntaxStack for tmp in synstack(line("."),col("."))|
 " Command alias for our function
 command! -nargs=1 SuperMan call superman#SuperMan(<q-args>)
 
-
 " FindAll"{{{
 com! -range=% -nargs=1 FindAll echo <q-args> | <line1>,<line2>PY u['findall'](<q-args>)
 nnoremap <space>xf :FindAll<space>

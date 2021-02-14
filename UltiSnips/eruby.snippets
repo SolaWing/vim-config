@@ -4,8 +4,26 @@ snippet %if "if template" b
 <% end %>
 endsnippet
 
+snippet end "end block" b
+<% end %>
+endsnippet
+
 snippet %unless "unless template" b
 <% unless $1 %>
 	$0
 <% end %>
+endsnippet
+
+snippet %each "each template" b
+<% $1.each do |${2:v}| %>
+	$0
+<% end %>
+endsnippet
+
+snippet # "erb comments" b
+<%# $0 %>
+endsnippet
+
+snippet b "binding.pry" b
+<% binding.pry %>
 endsnippet

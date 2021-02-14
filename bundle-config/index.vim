@@ -8,10 +8,10 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/autopair.vim
 
     " if argv(0) =~# '\.\%(swift\|[hcm]\|mm\|cpp\|py\)$'
-    if argv(0) !~# '\.\%(r[bs]\|py\)$' && $COC != "1"
-        source ~/.vim/bundle-config/ycm.vim
-    else
+    if $COC == "1" || ($COC != "0" && argv(0) =~# '\.\%(r[bs]\|py\)$')
         source ~/.vim/bundle-config/coc.vim
+    else
+        source ~/.vim/bundle-config/ycm.vim
     endif
     Plug 'Shougo/neco-vim', {'for': 'vim'}
 

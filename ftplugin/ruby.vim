@@ -26,7 +26,7 @@ nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
 
 " current line
 nmap <buffer> <LocalLeader>t :update <bar> Rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'<CR>
-" current line without job
+" copy current line command without job
 nmap <buffer> <LocalLeader><C-t> :update <bar>
             \ let @* = "bundle exec rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'"<CR>
 " current file

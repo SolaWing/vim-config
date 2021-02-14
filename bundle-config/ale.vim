@@ -13,10 +13,15 @@ let g:ale_linters = {
             " \ 'sql': ['sqlint'],
 let g:ale_fixers = {
             \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint'],
-            \ 'python': ['yapf']
+            \ 'python': ['yapf'],
+            \ 'ruby': ['rubocop']
             \}
 " let g:ale_completion_enabled = 1
 " let g:ycm_filetype_specific_completion_to_disable = {
 "             \ 'rust': 1
 "             \}
+if has_key(g:plugs, "coc.nvim")
+    call remove(g:ale_linters, 'javascript')
+    call remove(g:ale_fixers, 'javascript')
+endif
 Plug 'w0rp/ale'

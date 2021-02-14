@@ -144,6 +144,7 @@ augroup my_COC
   autocmd!
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " autocmd FileType scss setl iskeyword+=@-@
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd mine BufLeave * call UltiSnips#LeavingBuffer()

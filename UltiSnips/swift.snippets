@@ -25,7 +25,7 @@ var ${1:name} = ${2:nil}
 endsnippet
 
 snippet l "let declare"
-let ${1:name} = ${2:nil}
+let ${1:name} = ${2:$1}
 endsnippet
 
 snippet f "func def"
@@ -159,10 +159,10 @@ snippet swiftlint_next "swiftlint disable next line"
 endsnippet
 
 snippet unimplemented "assert unimplemented" b
-fatalError("${1:unimplemented code!!}")
+assertionFailure("${1:unimplemented code!!}")
 endsnippet
 snippet unreachable "assert unreachable" b
-fatalError("${1:unreachable code!!}")
+assertionFailure("${1:unreachable code!!}")
 endsnippet
 snippet assertMain "assert main thread" b
 assert(Thread.isMainThread, "${0:should occur on main thread!}")

@@ -12,7 +12,7 @@
         if has("gui_macvim")
             set macmeta
             set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/Current
-            set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/Current/lib/libpython3.8.dylib
+            set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/Current/lib/libpython3.9.dylib
             set rubydll=/Users/wang/.rbenv/versions/2.7.0/bin/ruby
             " py3 dir
         else " terminal

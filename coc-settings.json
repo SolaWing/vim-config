@@ -1,4 +1,5 @@
 {
+    // https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources
     // ruby
     "solargraph.commandPath": "/Users/wang/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/solargraph/main.rb",
     "solargraph.checkGemVersion": false,
@@ -35,7 +36,7 @@
     "tabnine.triggers": ["=", ":", "."],
 
     // config
-    "workspace.progressTarget": "statusline",
+    // "workspace.progressTarget": "statusline",
     // "suggest.autoTrigger": "trigger",
     "suggest.minTriggerInputLength": 2,
     "suggest.maxCompleteItemCount": 9,
