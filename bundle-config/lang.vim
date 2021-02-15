@@ -9,6 +9,7 @@
     source ~/.vim/bundle-config/lang/markdown.vim
 " }}}
 " Script {{{
+    Plug 'Shougo/neco-vim', {'for': 'vim'} " vim completion
     Plug 'dag/vim-fish', {'for': 'fish'} " slow, better than None
     " vim-ruby/vim-ruby{{{
         " let g:rubycomplete_buffer_loading = 1
@@ -30,12 +31,7 @@
 " }}}
 " Static Language {{{
     Plug 'udalov/kotlin-vim'
-    " keith/swift.vim "{{{
-        Plug 'keith/swift.vim', {'for': 'swift'}
-        " 现在支持还不够好. 以后真的需要再说吧. 暂时用xcode开发swift
-        " Plug '~/.vim/bundle/sourcekittendaemon.vim', {'for': 'swift'}
-        " Plug 'mitsuse/autocomplete-swift', {'for': 'swift'}
-    "}}}
+    Plug 'keith/swift.vim', {'for': 'swift'}
     " rhysd/vim-clang-format "{{{
         Plug 'kana/vim-operator-user'
         let g:clang_format#detect_style_file = 1 " use .clang-format

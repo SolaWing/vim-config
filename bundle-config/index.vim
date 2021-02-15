@@ -13,8 +13,6 @@ call plug#begin('~/.vim/bundle')
     else
         source ~/.vim/bundle-config/ycm.vim
     endif
-    Plug 'Shougo/neco-vim', {'for': 'vim'}
-
     source ~/.vim/bundle-config/tag-related.vim
 
     " source ~/.vim/bundle-config/vim-clap.vim
@@ -69,6 +67,7 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/any-jump.vim
 "}}}
     source ~/.vim/bundle-config/lang.vim
+    " source ~/.vim/bundle-config/debugger.vim
 
     source ~/.vim/bundle-config/indent-guide.vim
     source ~/.vim/bundle-config/theme.vim
