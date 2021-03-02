@@ -8,7 +8,7 @@ autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 let g:lightline = {
             \   'colorscheme' : 'gruvbox_custom',
             \   'active': {
-            \     'left': [ [ 'mode', 'paste' ], ['readonly', 'relativepath', 'modified' ], [ 'gitbranch',  'cocstatus' ] ],
+            \     'left': [ [ 'mode', 'paste' ], ['readonly', 'relativepath', 'modified' ], [ 'gitbranch',  'cocstatus', 'ycmstatus' ] ],
             \     'right': [ [ 'percent' ],
             \                [ 'lineinfo' ],
             \                ['linter_errors', 'linter_warnings',
@@ -21,6 +21,7 @@ let g:lightline = {
             \   'component_function': {
             \     'gitbranch': 'CachedFugitiveHead',
             \     'cocstatus': 'coc#status',
+            \     'ycmstatus': 'youcompleteme#Status'
             \   },
             \   'component_expand': {
             \     'linter_warnings': 'LightlineLinterWarnings',

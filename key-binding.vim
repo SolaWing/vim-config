@@ -185,8 +185,8 @@ nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
 nnoremap <Space>gb :Git blame<CR>
 nnoremap <Space>gcd :Gcd<CR>
-nnoremap <Space>gf :Gfetch<CR>
-nnoremap <Space>gF :Gpull --rebase<CR>
+nnoremap <Space>gf :Git fetch<CR>
+nnoremap <Space>gF :Git pull --rebase<CR>
 nnoremap <Space>gpr :Git rv
 nnoremap <Space>gm :Git mergetool<CR>
 " 不要push，防误点

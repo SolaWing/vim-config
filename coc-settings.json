@@ -20,6 +20,8 @@
     "python.formatting.provider": "black",
 
     // swift
+    // "sourcekit.commandPath": "xcrun",
+    // "sourcekit.args": ["--toolchain", "swift", "sourcekit-lsp"],
     "languageserver": {
         "sourcekit": {
             // "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
@@ -33,7 +35,6 @@
             "filetypes": ["swift"]
         }
     },
-    "tabnine.triggers": ["=", ":", "."],
 
     // config
     // "workspace.progressTarget": "statusline",
@@ -43,6 +44,7 @@
     // "suggest.numberSelect": true,
     "codeLens.enable": true,
     "diagnostic.virtualText": true,
+    "diagnostic.separateRelatedInformationAsDiagnostics": true,
 
     // mapping
     "list.insertMappings": {
