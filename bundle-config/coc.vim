@@ -138,7 +138,7 @@ nnoremap <silent> <localleader>lj  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <localleader>lk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <localleader>lp  :<C-u>CocListResume<CR>
+nnoremap <silent> <localleader>ll  :<C-u>CocListResume<CR>
 
 augroup my_COC
   autocmd!

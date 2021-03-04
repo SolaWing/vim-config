@@ -21,6 +21,8 @@ xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 pry_instance.eval
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
 
+nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
+
 " look in rspec rake_task.rb, use SPEC to override default pattern, or set task options's pattern can override it.
 " we need to ignore it to specify simple spec
 

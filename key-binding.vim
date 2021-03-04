@@ -174,14 +174,14 @@ xnoremap <Space>pxs :<C-U>let tmp = GetVisualString()<CR>
 """ git version control"{{{
 nnoremap <silent> <Space>gg :silent !cd '%:h' && gitup<CR>
 nnoremap <Space>gs :Gstatus<CR>
-nnoremap <Space>gS :Gtabedit :<CR>
+nnoremap <Space>gS :tab Git :<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
 xnoremap <Space>gV :GV<CR>
-nnoremap <Space>gV :<C-U>Gtabedit! log -p <C-R>=v:count == v:count1? "-".v:count : ""<CR>  -- %<CR>
+nnoremap <Space>gV :<C-U>tab Git -p log -p <C-R>=v:count == v:count1? "-".v:count : ""<CR>  -- %<CR>
 " follow is slow, so use another key when needed
-nnoremap <Space>g<M-V> :Gtabedit! log -p --follow -- %<CR>
-nnoremap <Space>gd :<C-U>Gdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
-nnoremap <Space>gD :<C-U>Gvdiff <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
+nnoremap <Space>g<M-V> :tab Git -p log -p --follow -- %<CR>
+nnoremap <Space>gd :<C-U>Gdiffsplit <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
+nnoremap <Space>gD :<C-U>Gvdiffsplit <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
 nnoremap <Space>gb :Git blame<CR>
 nnoremap <Space>gcd :Gcd<CR>
