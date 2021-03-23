@@ -13,7 +13,7 @@
             set macmeta
             set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/Current
             set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/Current/lib/libpython3.9.dylib
-            set rubydll=/Users/wang/.rbenv/versions/2.7.0/bin/ruby
+            set rubydll=/Users/wang/.rbenv/versions/2.7.1/lib/libruby.dylib
             " py3 dir
         else " terminal
             " colorscheme solarized
