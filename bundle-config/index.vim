@@ -3,6 +3,9 @@ set nocompatible              " be iMproved, required
 call plug#begin('~/.vim/bundle')
 
 " ==================== Basic{{{
+    if has('nvim-0.5.0')
+        source ~/.vim/bundle-config/nvim5.vim
+    endif
     source ~/.vim/bundle-config/easymotion.vim
     source ~/.vim/bundle-config/sneak.vim
     source ~/.vim/bundle-config/autopair.vim
@@ -35,7 +38,7 @@ call plug#begin('~/.vim/bundle')
 
     " restore_view {{{
         Plug 'vim-scripts/restore_view.vim'
-        set viewoptions=folds,cursor
+        set viewoptions=cursor
         let g:skipview_files = ['.*\.vim']
     " }}}
     source ~/.vim/bundle-config/devdocs.io.vim
@@ -74,3 +77,4 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/lightline.vim
 
 call plug#end()
+doautocmd <nomodeline> User plug#end

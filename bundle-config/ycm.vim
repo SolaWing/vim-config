@@ -72,11 +72,9 @@ Plug '~/.vim/bundle/YouCompleteMe', {'on': ['YcmCompleter']}
 Plug 'SirVer/ultisnips', {'on': []}
 source ~/.vim/bundle-config/ultisnip.vim
 call timer_start(2000, {-> plug#load('ultisnips', 'YouCompleteMe') })
-augroup my_ycm_load
-    autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
-                \| exe 'autocmd mine BufLeave * call UltiSnips#LeavingBuffer()'
-                \| autocmd! my_ycm_load
-augroup END
+autocmd mine InsertEnter * ++once
+            \ call plug#load('ultisnips', 'YouCompleteMe')
+            \| exe 'autocmd mine BufLeave * call UltiSnips#LeavingBuffer()'
 
 " other integration
 
