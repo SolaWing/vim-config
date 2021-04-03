@@ -8,6 +8,8 @@ setl keywordprg<
 "     setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=4
 " endif
 
+nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
+
 if exists('g:usepy') && g:usepy == 3
     nnoremap <buffer> <LocalLeader>e :<C-U>let tmp = system("python3", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
     xnoremap <buffer> <LocalLeader>e :w !python3<CR>

@@ -10,7 +10,7 @@ nnoremap <buffer> <LocalLeader>e :<C-U>exe getline(".")<CR>
 xnoremap <buffer> <LocalLeader>e :<C-U>for tmp in getline("'<","'>")<bar>exe tmp<bar>endfor<CR>
 xnoremap <buffer> <LocalLeader>l :<C-U>exe join(map(getline("'<","'>"), 'substitute(v:val, "^\\s*\\\\","", "")'))<CR>
 nnoremap <buffer> <LocalLeader>s :<C-U>update <bar>source %<CR>
-xnoremap <buffer> <LocalLeader>s :<C-U>let tmp = tempname() <bar>exe "'<,'>w" tmp<bar>exe "source" tmp<CR>
+xnoremap <buffer> <LocalLeader>s :<C-U>let tmp = tempname() <bar>silent exe "'<,'>w" tmp<bar>exe "source" tmp<CR>
 
 nnoremap <buffer> <LocalLeader>gg <C-]>
 

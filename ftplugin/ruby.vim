@@ -45,3 +45,7 @@ nmap <buffer> <LocalLeader>T :Rake spec<CR>
 
 " coc project root check
 let b:coc_root_patterns = ["Gemfile"]
+
+if has_key(g:plugs, 'YouCompleteMe')
+  nmap <LocalLeader>f :YcmCompleter Format<CR>
+endif
