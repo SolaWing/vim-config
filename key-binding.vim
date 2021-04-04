@@ -276,8 +276,8 @@ inoremap <C-E> <end>
 " alt + f b, word move
 map! <M-f> <S-Right>
 map! <M-b> <S-Left>
-map <M-H> <home>
-map <M-L> <end>
+" map <M-H> <home>
+" map <M-L> <end>
 noremap! <C-D> <Del>
 
 " alt + d, del word
