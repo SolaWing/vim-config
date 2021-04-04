@@ -5,15 +5,16 @@ if exists("b:did_ftplugin") | finish | endif
 let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}
 let b:surround_100 = "do \r\nend"
 
-" expr foldmethod cause easymotion jum when split very slow
-" if has_key(g:plugs, 'nvim-treesitter')
-"     setlocal foldmethod=expr
-"     setlocal foldexpr=nvim_treesitter#foldexpr()
-if line('$') > 2000
+if has_key(g:plugs, 'nvim-treesitter')
+    setlocal foldmethod=expr
+    " expr foldmethod cause easymotion jum when split very slow, use cache to avoid performance issue
+    setlocal foldexpr=fold#cache(\"nvim_treesitter#foldexpr()\")
+elseif line('$') > 2000
     let b:ruby_no_expensive = 1
     let b:ruby_minlines = 75
-" else
-"     setlocal foldmethod=syntax
+    set foldmethod< " default is indent
+else
+    setlocal foldmethod=syntax
 end
 
 nmap <buffer> <LocalLeader>r :update <bar> !ruby %<CR>

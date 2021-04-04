@@ -23,6 +23,7 @@ function! _EasyMotionPromptBegin()
     if has_key(g:plugs, 'coc.nvim')
         silent! CocDisable
     end
+    let g:keep_fold = 1
     " if has_key(g:plugs, 'nvim-treesitter')
 
     " endif
@@ -33,6 +34,7 @@ function! _EasyMotionPromptEnd()
     if has_key(g:plugs, 'coc.nvim')
         silent! CocEnable
     end
+    unlet g:keep_fold
     " if has_key(g:plugs, 'nvim-treesitter')
 
     " endif
