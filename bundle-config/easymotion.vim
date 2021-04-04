@@ -19,3 +19,25 @@ nmap <C-W><CR>      <Plug>(easymotion-overwin-line)
 " zap to char
 imap <M-z> <C-o>d<Plug>(easymotion-s)
 
+function! _EasyMotionPromptBegin()
+    if has_key(g:plugs, 'coc.nvim')
+        silent! CocDisable
+    end
+    " if has_key(g:plugs, 'nvim-treesitter')
+
+    " endif
+    " syntax off
+endfunction
+
+function! _EasyMotionPromptEnd()
+    if has_key(g:plugs, 'coc.nvim')
+        silent! CocEnable
+    end
+    " if has_key(g:plugs, 'nvim-treesitter')
+
+    " endif
+    " syntax on
+endfunction
+
+autocmd mine User EasyMotionPromptBegin call _EasyMotionPromptBegin()
+autocmd mine User EasyMotionPromptEnd   call _EasyMotionPromptEnd()
