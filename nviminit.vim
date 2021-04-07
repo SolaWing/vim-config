@@ -35,7 +35,7 @@ end
 " 自动进入输入状态
 source ~/.vimrc
 " coc会进入insert，而不是terminal..., 暂时先关掉了
-" autocmd mine TermOpen * startinsert
+autocmd mine TermOpen * startinsert
 
 " ensure ~/.vim at first
 set rtp-=~/.vim

@@ -94,7 +94,11 @@
         set t_ZR=[23m
         set lazyredraw
 
-        set undofile undodir=~/.vim/undodir
+        if has('nvim')
+            set undofile undodir=~/.vim/nvim-undodir
+        else
+            set undofile undodir=~/.vim/undodir
+        end
         autocmd mine BufWritePre *.{log,json,csv} setlocal noundofile
     "}}}
 
