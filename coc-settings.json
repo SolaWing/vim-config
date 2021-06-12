@@ -33,6 +33,11 @@
                 // "SOURCEKIT_LOGGING": "3"
             },
             "filetypes": ["swift"]
+        },
+        "HY": {
+            "command": "python3",
+            "args": ["/Users/wang/Library/Python/3.9/bin/hyls"],
+            "filetypes": ["hy"]
         }
         // "steep": {
         //     "command": "steep",
@@ -41,6 +46,7 @@
         // }
     },
 
+    "coc.source.omni.filetypes": [],
     // config
     // "workspace.progressTarget": "statusline",
     // "suggest.autoTrigger": "trigger",

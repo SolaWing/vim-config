@@ -51,7 +51,6 @@ call plug#begin('~/.vim/bundle')
         Plug 'justinmk/vim-dirvish'
     "}}}
     Plug 'justinmk/vim-gtfo' " go to folder or terminal
-
     source ~/.vim/bundle-config/ale.vim
     source ~/.vim/bundle-config/grepper.vim
     " eregex.vim"{{{

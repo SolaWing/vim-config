@@ -1,1 +1,1 @@
-nmap q gq
+nmap <buffer> q gq

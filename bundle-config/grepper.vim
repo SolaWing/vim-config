@@ -3,5 +3,6 @@ nmap g/  <plug>(GrepperOperator)
 xmap g/  <plug>(GrepperOperator)
 let g:grepper = {
             \   'tools': ['rg', 'git'],
+            \   'prompt_mapping_tool': '<C-t>'
             \   }
 
