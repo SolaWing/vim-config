@@ -9,7 +9,8 @@
     "solargraph.formatting": true,
     "solargraph.symbols": true,
 
-    "solargraph.transport": "stdio", // needed for have debug info
+    // stdio可能吐一些意外的内容，导致解析失败，用socket进行隔离
+    // "solargraph.transport": "stdio", // needed for have debug info
     "solargraph.logLevel": "debug",
     "solargraph.trace.server": "verbose",
 
@@ -27,11 +28,11 @@
             // "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
             // "command": "sourcekit-lsp",
             "command": "xcrun",
-            "args": ["--toolchain", "swift", "sourcekit-lsp"],
-            "trace.server": "verbose",
-            "env": {
-                // "SOURCEKIT_LOGGING": "3"
-            },
+            "args": ["--toolchain", "swift", "sourcekit-lsp", "--log-level", "info"],
+            // "trace.server": "verbose",
+            // "env": {
+            //     "SOURCEKIT_LOGGING": "3"
+            // },
             "filetypes": ["swift"]
         },
         "HY": {

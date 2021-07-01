@@ -3,9 +3,9 @@ set nocompatible              " be iMproved, required
 call plug#begin('~/.vim/bundle')
 
 " ==================== Basic{{{
-    " if has('nvim-0.5.0')
-    "     source ~/.vim/bundle-config/nvim5.vim
-    " endif
+    if has('nvim-0.5.0')
+        source ~/.vim/bundle-config/nvim5.vim
+    endif
     source ~/.vim/bundle-config/easymotion.vim
     source ~/.vim/bundle-config/sneak.vim
     source ~/.vim/bundle-config/autopair.vim

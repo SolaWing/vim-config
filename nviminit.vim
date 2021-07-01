@@ -37,6 +37,8 @@ source ~/.vimrc
 " coc会进入insert，而不是terminal..., 暂时先关掉了
 autocmd mine TermOpen * startinsert
 
+command Fish sp | terminal /usr/local/bin/fish -l
+
 " ensure ~/.vim at first
 set rtp-=~/.vim
 set rtp^=~/.vim

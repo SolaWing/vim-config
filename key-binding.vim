@@ -17,6 +17,7 @@ cnoremap <M-d> <C-\>ecmdline#ForwordDeleteWord()<CR>
 cabbrev w!! w !sudo tee % >/dev/null
 " search occur
 cnoremap <C-o> <CR>:lvim//j % <bar>lwin<CR>
+cnoremap <M-o> <CR>:Redir g/<CR>
 "}}}
 
 " use a leader as group map. inspired by Spacemacs
@@ -324,9 +325,6 @@ nnoremap Q @q
 xmap Q @q
 
 " make Q to quick replay macro
-
-
-
 function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
