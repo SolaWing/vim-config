@@ -9,6 +9,30 @@ if has_key(g:plugs, 'nvim-treesitter')
     setlocal foldmethod=expr
     " expr foldmethod cause easymotion jum when split very slow, use cache to avoid performance issue
     setlocal foldexpr=fold#cache(\"nvim_treesitter#foldexpr()\")
+
+    if exists("g:no_ruby_maps") " 补充file和tag跳转map
+        nmap <buffer><script> <SID>c: :<C-U><C-R>=v:count ? v:count : ''<CR>
+        nmap <buffer><script> <SID>:  :<C-U>
+
+        cmap <buffer><script><expr> <Plug><cfile> substitute(RubyCursorFile(),'^$',"\022\006",'')
+        cmap <buffer> <C-R><C-F> <Plug><cfile>
+        nmap <buffer><silent> gf           <SID>c:find <Plug><cfile><CR>')
+        nmap <buffer><silent> <C-W>f      <SID>c:sfind <Plug><cfile><CR>')
+        nmap <buffer><silent> <C-W><C-F>  <SID>c:sfind <Plug><cfile><CR>')
+        nmap <buffer><silent> <C-W>gf   <SID>c:tabfind <Plug><cfile><CR>')
+
+        cmap <buffer><script><expr> <Plug><ctag> substitute(RubyCursorTag(),'^$',"\022\027",'')
+        cmap <buffer><script><expr> <SID>tagzv &foldopen =~# 'tag' ? '<Bar>norm! zv' : ''
+        nmap <buffer> <C-]>       <SID>:exe  v:count1."tag <Plug><ctag>"<SID>tagzv<CR>
+        nmap <buffer> g<C-]>      <SID>:exe         "tjump <Plug><ctag>"<SID>tagzv<CR>
+        nmap <buffer> g]          <SID>:exe       "tselect <Plug><ctag>"<SID>tagzv<CR>
+        nmap <buffer> <C-W>]      <SID>:exe v:count1."stag <Plug><ctag>"<SID>tagzv<CR>
+        nmap <buffer> <C-W><C-]>  <SID>:exe v:count1."stag <Plug><ctag>"<SID>tagzv<CR>
+        nmap <buffer> <C-W>g<C-]> <SID>:exe        "stjump <Plug><ctag>"<SID>tagzv<CR>
+        nmap <buffer> <C-W>g]     <SID>:exe      "stselect <Plug><ctag>"<SID>tagzv<CR>
+        nmap <buffer> <C-W>}      <SID>:exe v:count1."ptag <Plug><ctag>"<CR>
+        nmap <buffer> <C-W>g}     <SID>:exe        "ptjump <Plug><ctag>"<CR>
+    end
 elseif line('$') > 2000
     let b:ruby_no_expensive = 1
     let b:ruby_minlines = 75
