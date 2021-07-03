@@ -1,6 +1,8 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc-neco'
+" fix special comment in json file of common js config file
+Plug 'neoclide/jsonc.vim'
 source ~/.vim/bundle-config/ultisnip.vim
 
 " TextEdit might fail if hidden is not set.

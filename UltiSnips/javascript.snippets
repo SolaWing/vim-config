@@ -185,3 +185,11 @@ endsnippet
 snippet param "@param hint"
 @param $1 {$2}
 endsnippet
+
+snippet mexports "module.exports" b
+module.exports = $0
+endsnippet
+
+snippet require "module require" b
+const ${2:${1/.*\///g}} = require("$1")
+endsnippet

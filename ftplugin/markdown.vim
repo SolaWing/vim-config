@@ -4,6 +4,7 @@ endif
 
 setl textwidth=120
 setl cursorline
+setl conceallevel=2 " 隐藏链接
 
 " use / to surround /* block comment
 let b:surround_47 = "<!-- \r -->"

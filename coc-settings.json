@@ -14,9 +14,12 @@
     "solargraph.logLevel": "debug",
     "solargraph.trace.server": "verbose",
 
+    // javascript
     "javascript.format.enabled": false, // 和eslint冲突，没用，使用外部的eslint fix
+    "javascript.suggestionActions.enabled": false, // 老提示commonjs转换的action...
     "eslint.format.enable": true,
 
+    // "tsserver.log": "normal",
     // rust
     // "rust-analyzer.serverPath": "~/Downloads/rust-analyzer-mac",
 

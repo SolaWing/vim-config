@@ -17,7 +17,7 @@
             " py3 dir
         else " terminal
             " colorscheme solarized
-            autocmd mine FocusGained * checktime
+            autocmd mine FocusGained * silent! checktime
         endif
 
         " python version

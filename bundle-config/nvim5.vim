@@ -9,3 +9,4 @@ endfunction
 autocmd mine User plug#end ++once call _ConfigTreeSitter()
 
 let g:no_ruby_maps = 1 " ruby map depend on syntax. no work when treesitter enable
+let g:ruby_no_expensive = 1 " ruby default synatx make it very slow, though treesitter should disable it
