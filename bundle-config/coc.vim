@@ -135,6 +135,8 @@ nnoremap <silent> <localleader>lc  :<C-u>CocList commands<cr>
 nnoremap <silent> <localleader>lo  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent> <localleader>ls  :<C-u>CocList -I symbols<cr>
+" workspace folders
+nnoremap <silent> <localleader>lw  :<C-u>CocList folders<cr>
 " Do default action for next item.
 nnoremap <silent> <localleader>lj  :<C-u>CocNext<CR>
 " Do default action for previous item.

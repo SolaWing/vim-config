@@ -1,5 +1,10 @@
 if exists("b:did_ftplugin") | finish | endif
 
+if has('nvim')
+    setl keywordprg=:help
+    setl tags+=$VIMRUNTIME/doc/tags
+endif
+
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 

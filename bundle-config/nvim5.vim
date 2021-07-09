@@ -1,5 +1,8 @@
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'andymass/vim-matchup' " nvim-treesitter break % pair by syntax. use replacement
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_deferred_show_delay = 200
+
 " 这个感觉好像没什么用，而且支持的语言也不全
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/playground', {'on': ['TSPlaygroundToggle']}

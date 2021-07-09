@@ -62,7 +62,7 @@
         "在Vim窗口右下角显示未完成的命令
         set showcmd
         " history
-        set history=1000
+        set history=10000
         " save swap file at specified dir
         set directory=$HOME/.vim/swapfiles//,/var/tmp//,/tmp//
         " 启用鼠标
