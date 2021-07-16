@@ -189,7 +189,7 @@ nnoremap <Space>gD :<C-U>Gvdiffsplit <C-R>=v:count == v:count1?"@~".v:count : ""
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
 nnoremap <Space>gb :Git blame<CR>
 nnoremap <Space>gcd :Gcd<CR>
-nnoremap <Space>gf :Git fetch<CR>
+nnoremap <Space>gf :Git fetch --prune<CR>
 nnoremap <Space>gF :Git pull --rebase<CR>
 nnoremap <Space>gpr :Git rv
 nnoremap <Space>gm :Git mergetool<CR>

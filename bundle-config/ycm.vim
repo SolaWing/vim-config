@@ -63,7 +63,7 @@ nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
 nnoremap <LocalLeader>g  :YcmCompleter GetType<CR>
 nnoremap <LocalLeader>gf :YcmCompleter FixIt<CR>
 nnoremap <LocalLeader>gc :YcmDiags<CR>
-nnoremap <LocalLeader>ge :YcmCompleter RefactorRename 
+nnoremap <LocalLeader>gn :YcmCompleter RefactorRename 
 
 " put here for compatibility, autopair's bufenter will prior to ycm's vimenter, so need to define first
 silent! inoremap <expr> <CR> youcompleteme#OnCompleteAction("\<CR>")

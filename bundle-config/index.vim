@@ -67,6 +67,7 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/slime.vim
 
     source ~/.vim/bundle-config/any-jump.vim
+    Plug 'CoatiSoftware/vim-sourcetrail' " sourcetrail交互集成
 "}}}
     source ~/.vim/bundle-config/lang.vim
     " source ~/.vim/bundle-config/debugger.vim
