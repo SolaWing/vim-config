@@ -8,12 +8,12 @@ let g:ale_linters = {
             \ 'javascript' :[ 'eslint' ],
             \ 'swift' : ['swiftlint'],
             \ 'php': ['php'],
-            \ 'python': ['flake8']
+            \ 'python': ['pylint']
             \ }
             " \ 'sql': ['sqlint'],
 let g:ale_fixers = {
             \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint'],
-            \ 'python': ['yapf'],
+            \ 'python': ['black'],
             \ 'ruby': ['rubocop']
             \}
 " let g:ale_completion_enabled = 1
@@ -23,5 +23,6 @@ let g:ale_fixers = {
 if has_key(g:plugs, "coc.nvim")
     call remove(g:ale_linters, 'javascript')
     call remove(g:ale_fixers, 'javascript')
+    call remove(g:ale_fixers, 'python')
 endif
 Plug 'w0rp/ale'

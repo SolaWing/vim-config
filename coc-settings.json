@@ -11,20 +11,23 @@
 
     // stdio可能吐一些意外的内容，导致解析失败，用socket进行隔离
     // "solargraph.transport": "stdio", // needed for have debug info
+    // "solargraph.transport": "external",
     // "solargraph.logLevel": "debug",
     // "solargraph.trace.server": "verbose",
 
     // javascript
     "javascript.format.enabled": false, // 和eslint冲突，没用，使用外部的eslint fix
     "javascript.suggestionActions.enabled": false, // 老提示commonjs转换的action...
+    "typescript.suggestionActions.enabled": true,
     "eslint.format.enable": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
     // "tsserver.log": "normal",
     // rust
     // "rust-analyzer.serverPath": "~/Downloads/rust-analyzer-mac",
 
     // python
-    "python.formatting.provider": "black",
+    // "python.formatting.provider": "black",
 
     // swift
     // "sourcekit.commandPath": "xcrun",
@@ -75,5 +78,6 @@
         "<A-j>": "normal:j",
         "<A-k>": "normal:k",
         "<A-a>": "do:selectall"
-    }
+    },
+    "python.formatting.provider": "black"
 }
