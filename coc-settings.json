@@ -10,10 +10,10 @@
     "solargraph.symbols": true,
 
     // stdio可能吐一些意外的内容，导致解析失败，用socket进行隔离
-    // "solargraph.transport": "stdio", // needed for have debug info
-    // "solargraph.transport": "external",
-    // "solargraph.logLevel": "debug",
-    // "solargraph.trace.server": "verbose",
+    // "solargraph.transport": "stdio"
+    /* "solargraph.transport": "external", // local run and connect to debug */
+    /* "solargraph.logLevel": "debug", */
+    /* "solargraph.trace.server": "verbose", */
 
     // javascript
     "javascript.format.enabled": false, // 和eslint冲突，没用，使用外部的eslint fix
@@ -49,11 +49,11 @@
             "args": ["/Users/wang/Library/Python/3.9/bin/hyls"],
             "filetypes": ["hy"]
         }
-        // "steep": {
-        //     "command": "steep",
-        //     "args": ["langserver"],
-        //     "filetypes": ["ruby"]
-        // }
+        /*, "steep": { */
+        /*     "command": "steep", */
+        /*     "args": ["langserver"], */
+        /*     "filetypes": ["ruby"] */
+        /* } */
     },
 
     "coc.source.omni.filetypes": [],

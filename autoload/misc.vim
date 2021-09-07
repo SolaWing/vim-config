@@ -2,8 +2,15 @@
 function! misc#tabclose_range(start, end) range
     let start = s:tab_get_nr(a:start)
     let end = s:tab_get_nr(a:end)
+    let l:c = tabpagenr('$')
     while start <= end
+        redrawtabline # ensure update when show confirm dailog
         exe 'confirm '.end.'tabclose'
+        let cc = tabpagenr('$')
+        if cc == l:c
+            break
+        endif
+        let l:c = cc
         let end -= 1
     endwhile
 endfunction
