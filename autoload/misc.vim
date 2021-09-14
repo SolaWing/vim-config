@@ -4,7 +4,7 @@ function! misc#tabclose_range(start, end) range
     let end = s:tab_get_nr(a:end)
     let l:c = tabpagenr('$')
     while start <= end
-        redrawtabline # ensure update when show confirm dailog
+        redrawtabline " ensure update when show confirm dailog
         exe 'confirm '.end.'tabclose'
         let cc = tabpagenr('$')
         if cc == l:c

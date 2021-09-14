@@ -95,6 +95,13 @@ snippet a "attr_accessor" b
 attr_accessor
 endsnippet
 
+snippet ad "attr_accessor with default" b
+def $1
+	@$1 ||= $2
+end
+attr_writer :$1
+endsnippet
+
 snippet b "breakpoint" b
 binding.pry
 endsnippet

@@ -187,7 +187,7 @@ nnoremap <Space>g<M-V> :tab Git -p log -p --follow -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiffsplit <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiffsplit <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>
-nnoremap <Space>gb :Git blame<CR>
+noremap <Space>gb :Git blame<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Git fetch --prune<CR>
 nnoremap <Space>gF :Git pull --rebase<CR>
