@@ -6,6 +6,10 @@ let g:matchup_matchparen_deferred_show_delay = 200
 " 这个感觉好像没什么用，而且支持的语言也不全
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/playground', {'on': ['TSPlaygroundToggle']}
+
+" 和vim-plug有兼容性问题，vim-plug 结束时会调用filetype, 且忽略did_load_filetypes
+" Plug 'nathom/filetype.nvim'
+
 function! _ConfigTreeSitter()
     luafile ~/.vim/bundle-config/nvim5.lua
 endfunction
