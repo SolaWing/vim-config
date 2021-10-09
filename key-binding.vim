@@ -162,11 +162,11 @@ xnoremap <LocalLeader>/ :<C-U>Grepper -tool rg -query -t <C-R>=config#RgFileType
 " term in vim add additional quote, and will switch to term buffer. may need async run command and show in a preview buffer
 nnoremap <Space>pt :<C-U>!cd '<C-R>=getcwd()<CR>' && ctags -R .
 
-nnoremap <Space>pxc :CDo s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/
-xnoremap <Space>pxc :<C-U>CDo s/\V<C-R>=GetVisualString()<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/
-nnoremap <Space>pxs :CDo sno`\<<C-R><C-W>\>`<C-R><C-W>`<Left>
+nnoremap <Space>pxc :CDO s/\V\<<C-R><C-W>\>/<C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR>/
+xnoremap <Space>pxc :<C-U>CDO s/\V<C-R>=GetVisualString()<CR>/<C-R>=misc#ToggleCamelOrUnderline(tmp)<CR>/
+nnoremap <Space>pxs :CDO sno`\<<C-R><C-W>\>`<C-R><C-W>`<Left>
 xnoremap <Space>pxs :<C-U>let tmp = GetVisualString()<CR>
-            \:CDo sno`<C-R>=tmp<CR>`<C-R>=tmp<CR>`<Left>
+            \:CDO sno`<C-R>=tmp<CR>`<C-R>=tmp<CR>`<Left>
 
 " nnoremap <Space>pxc :Far <C-R><C-W> <C-R>=misc#ToggleCamelOrUnderline("<C-R><C-W>")<CR><Space>
 " xnoremap <Space>pxc :<C-U>let tmp = GetVisualString()<CR>

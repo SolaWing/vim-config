@@ -18,3 +18,6 @@ nnoremap <D-M-[>    :tabm -1<cr>
 if has("gui_vimr")
     map <M-S-*> <M-*>
 end
+
+" autocmd! mine InsertLeave * set imdisable
+" autocmd! mine InsertEnter * set noimdisable

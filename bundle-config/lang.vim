@@ -25,6 +25,7 @@
     " Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
     Plug 'HerringtonDarkholme/yats.vim' " typescript
     Plug 'mattn/emmet-vim', {'for': ['eruby', 'html']}
+    " Plug 'vim-scripts/bash-support.vim', { 'for': ['sh'] }
 
     " 暂时不用lisp
     " source ~/.vim/bundle-config/lang/lisp.vim

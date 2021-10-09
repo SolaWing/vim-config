@@ -9,6 +9,7 @@
         let maplocalleader = ","
         " use bash shell
         let g:is_bash = 1
+        unlet $MANPAGER
         if has("gui_macvim")
             set macmeta
             set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/Current

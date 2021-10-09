@@ -36,14 +36,14 @@ let g:ycm_semantic_triggers = {
 " let g:ycm_server_use_vim_stdout = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_rust_src_path=$HOME."/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
-let g:ycm_language_server = [
-            \   {
-            \     'name': 'rust',
-            \     'cmdline': ['rust-analyzer'],
-            \     'filetypes': ['rust'],
-            \     'project_root_files': ['Cargo.toml']
-            \   }
-            \ ]
+" bash-language-server 不好用
+" let g:ycm_language_server = [
+"             \   {
+"             \     'name': 'bash',
+"             \     'cmdline': ['bash-language-server', 'start'],
+"             \     'filetypes': ['sh', 'bash'],
+"             \   }
+"             \ ]
 
 nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
 nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
