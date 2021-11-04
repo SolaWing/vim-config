@@ -27,7 +27,9 @@
     // "rust-analyzer.serverPath": "~/Downloads/rust-analyzer-mac",
 
     // python
-    // "python.formatting.provider": "black",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "python3",
 
     // swift
     // "sourcekit.commandPath": "xcrun",
@@ -79,5 +81,4 @@
         "<A-k>": "normal:k",
         "<A-a>": "do:selectall"
     },
-    "python.formatting.provider": "black"
 }

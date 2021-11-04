@@ -69,3 +69,7 @@ function! s:moveImportToList() range
 
     call cursor(a:lastline, 1)
 endfunction
+
+if has_key(g:plugs, 'YouCompleteMe')
+  nmap <buffer> <LocalLeader>f :ALEFix<CR>
+end

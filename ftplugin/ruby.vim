@@ -46,9 +46,6 @@ nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 " xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 pry_instance.eval `pbpaste`, {generated: true}<CR>
 
-nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
-nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
-
 nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
 
 " look in rspec rake_task.rb, use SPEC to override default pattern, or set task options's pattern can override it.
@@ -75,5 +72,9 @@ nmap <buffer> <LocalLeader>T :Rake spec<CR>
 let b:coc_root_patterns = ["Gemfile"]
 
 if has_key(g:plugs, 'YouCompleteMe')
-  nmap <LocalLeader>f :YcmCompleter Format<CR>
+  nmap <buffer> <LocalLeader>f :YcmCompleter Format<CR>
+  nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
+  nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
+else
+  nnoremap <buffer> <LocalLeader>c :<C-U>CocDiagnostics<CR>
 endif

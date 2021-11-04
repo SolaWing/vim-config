@@ -183,7 +183,7 @@ snippet parse "parse directive" b
 endsnippet
 
 snippet domain "domain modify" b
-# @!domain ${1:Object}
+# @!domain [${1:Object}]
 endsnippet
 
 snippet nocov "simplecov: no cov hint" b
@@ -258,5 +258,12 @@ if ARGV.empty? or ARGV.any?(&['-h', '--help', 'help'].method(:include?))
 	    #{$0} -f swiftfilelist
 	EOF
 	exit 0
+end
+endsnippet
+
+snippet monkey_patch "a monkey_patch method template" b
+${1/[?!]?$//}_method = instance_method(:$1)
+define_method(:$1) do |${2:*args}|
+	$0${1/[?!]?$//}_method.bind(self).call(*args)
 end
 endsnippet

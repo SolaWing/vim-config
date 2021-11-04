@@ -22,6 +22,7 @@ let g:ale_fixers = {
 "             \}
 if has_key(g:plugs, "coc.nvim")
     call remove(g:ale_linters, 'javascript')
+    call remove(g:ale_linters, 'python')
     call remove(g:ale_fixers, 'javascript')
     call remove(g:ale_fixers, 'python')
 endif
