@@ -59,13 +59,18 @@ if snip.indent:
 	${0:${VISUAL:pass}}
 endsnippet
 
+snippet for "for loop"
+for ${2:v} in $1:
+	${0:pass}
+endsnippet
+
 snippet fori "for i loop"
-for ${1:i} in range(${2:10}):
+for ${2:i} in range(${1:10}):
 	${0:pass}
 endsnippet
 
 snippet fork "for kv loop"
-for ${1:k}, ${2:v} in ${3:dict}.items():
+for ${2:k}, ${3:v} in ${1:dict}.items():
 	${0:pass}
 endsnippet
 
@@ -99,7 +104,7 @@ snippet from "from . import *" b
 from ${1:.} import ${2:*}
 endsnippet
 
-snippet wi "with clause" b
+snippet with "with clause" b
 with ${1:open($2)} ${3/.+/as/} ${3:f}:
 	$0
 endsnippet

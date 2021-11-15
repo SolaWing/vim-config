@@ -2,8 +2,8 @@ snippet m "escape ctrl key"
 \$'\e[$0m'
 endsnippet
 
-snippet DIR "current script dir" b
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+snippet dir "current script dir" b
+__dir__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 endsnippet
 
 snippet f "function define" b

@@ -25,7 +25,8 @@ if has_key(g:plugs, 'nvim-treesitter')
         cmap <buffer><script><expr> <SID>tagzv &foldopen =~# 'tag' ? '<Bar>norm! zv' : ''
         nmap <buffer> <C-]>       <SID>:exe  v:count1."tag <Plug><ctag>"<SID>tagzv<CR>
         nmap <buffer> g<C-]>      <SID>:exe         "tjump <Plug><ctag>"<SID>tagzv<CR>
-        nmap <buffer> g]          <SID>:exe       "tselect <Plug><ctag>"<SID>tagzv<CR>
+        " nmap <buffer> g]          <SID>:exe       "tselect <Plug><ctag>"<SID>tagzv<CR>
+        nmap <buffer> g]          <SID>:exe       "FZTags <Plug><ctag> "<CR>
         nmap <buffer> <C-W>]      <SID>:exe v:count1."stag <Plug><ctag>"<SID>tagzv<CR>
         nmap <buffer> <C-W><C-]>  <SID>:exe v:count1."stag <Plug><ctag>"<SID>tagzv<CR>
         nmap <buffer> <C-W>g<C-]> <SID>:exe        "stjump <Plug><ctag>"<SID>tagzv<CR>

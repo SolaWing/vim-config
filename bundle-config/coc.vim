@@ -63,6 +63,7 @@ nmap <silent> <localleader>gt <Plug>(coc-type-definition)
 nmap <silent> <localleader>gi <Plug>(coc-implementation)
 nmap <silent> <localleader>gd <Plug>(coc-declaration)
 nmap <silent> <localleader>gr <Plug>(coc-references)
+nmap <silent> <localleader>gR :<C-U>CocCommand document.showIncomingCalls<CR>
 
 " disable auto-preview
 let g:coc_enable_locationlist = 0
@@ -93,6 +94,7 @@ nmap <LocalLeader>f  <Plug>(coc-format)
 " Example: `<localleader>aap` for current paragraph
 xmap <localleader>a  <Plug>(coc-codeaction-selected)
 nmap <localleader>a  <Plug>(coc-codeaction-selected)
+nmap <localleader>aa  <Plug>(coc-codeaction-cursor)
 
 " Remap keys for applying codeAction to the current line.
 nmap <localleader>ac  <Plug>(coc-codeaction-line)

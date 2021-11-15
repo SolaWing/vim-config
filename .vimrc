@@ -165,8 +165,8 @@
         set switchbuf=usetab
         " ignore file pattern
         set wildignore+=*.obj,*.o,*.a,*.dylib,*.app,*.pyc
-        set textwidth=100
-        set colorcolumn=+1 # highlight a textwidth tip
+        set textwidth=100 " allow to a vertical split
+        set colorcolumn=+1 " highlight a textwidth tip
         set cursorline
         "highlight trim whitespace
         hi link TrimWhiteSpace CursorLine

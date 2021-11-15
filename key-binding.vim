@@ -150,6 +150,8 @@ nnoremap <Space>pf :<C-U>FZGFiles<CR>
 nnoremap <Space>pr :<C-U>FZHistory<CR>
 nmap <F8> <Space>pr
 nmap <F7> <Space>pf
+" 目前不支持加query..
+
 nnoremap <Space>h  :<C-U>FZHistory<CR>
 nnoremap <Space>h: :<C-U>FZHistory:<CR>
 nnoremap <Space>h; :<C-U>FZHistory:<CR>
@@ -253,6 +255,8 @@ nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
 nnoremap <F6> :<C-U>FZTags<CR>
 nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W> <CR>
 xnoremap <Leader><F6> :<C-U>FZTags <C-R>=GetVisualString()<CR> <CR>
+nmap g] <Leader><F6>
+xmap g] <Leader><F6>
 
 " 取消搜索高亮
 nnoremap z/    <C-L>:noh<CR>
