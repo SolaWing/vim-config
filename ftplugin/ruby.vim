@@ -6,6 +6,10 @@ let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '|':'|'}
 let b:surround_100 = "do \r\nend"
 
 if has_key(g:plugs, 'nvim-treesitter')
+    " treesitter indent comment wrong, temp disable it
+    setlocal indentexpr=
+    setlocal smartindent autoindent
+
     setlocal foldmethod=expr
     " expr foldmethod cause easymotion jum when split very slow, use cache to avoid performance issue
     setlocal foldexpr=fold#cache(\"nvim_treesitter#foldexpr()\")

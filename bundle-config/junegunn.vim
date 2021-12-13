@@ -9,7 +9,7 @@ nmap ga   <Plug>(EasyAlign)
 " ctrlp的自动定位git很有用.  unite的方便性比它好..
 " fzf 性能上有些优势.
 
-let g:fzf_buffers_jump = 1
+let g:fzf_buffers_jump = 0
 let g:fzf_launcher='~/.vim/bin/fzfIterm.js %s'
 let g:fzf_history_dir='~/.vim/bundle/fzf.vim/.history'
 let g:fzf_command_prefix = 'FZ'

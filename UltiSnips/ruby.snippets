@@ -26,6 +26,14 @@ if $1
 end
 endsnippet
 
+snippet ifelse "if else"
+if $1
+	$2
+else
+	$0
+end
+endsnippet
+
 # ruby uggly elseif statement
 snippet elseif "else if statement"
 elsif $1
@@ -76,9 +84,19 @@ proc do
 	$0
 end
 endsnippet
+snippet proc/ "proc with param" A
+proc do |${1:v}|
+	$0
+end
+endsnippet
 
 snippet l "lambda"
 lambda do
+	$0
+end
+endsnippet
+snippet l/ "lambda with param" A
+lambda do |${1:v}|
 	$0
 end
 endsnippet
@@ -267,3 +285,26 @@ define_method(:$1) do |${2:*args}|
 	$0${1/[?!]?$//}_method.bind(self).call(*args)
 end
 endsnippet
+
+snippet autoload "auto_load script" b
+autoload :$1, File.expand_path('${2:${1/.*/\L$0\E/}}.rb', __dir__)
+endsnippet
+
+snippet frozen_string_literal "" b
+# frozen_string_literal: true
+endsnippet
+
+snippet enum_for "define a enumerator method" b
+def ${1:each}($2)
+	return enum_for(__method__${2/.*/, /}$2) unless block_given?
+	$0
+end
+endsnippet
+
+snippet before "rspec before each"
+before(:${1:each}) do
+	$0
+end
+endsnippet
+
+extends color

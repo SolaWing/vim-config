@@ -11,9 +11,9 @@
 
     // stdio可能吐一些意外的内容，导致解析失败，用socket进行隔离
     // "solargraph.transport": "stdio"
-    /* "solargraph.transport": "external", // local run and connect to debug */
-    /* "solargraph.logLevel": "debug", */
-    /* "solargraph.trace.server": "verbose", */
+    // "solargraph.transport": "external", // local run and connect to debug
+    // "solargraph.logLevel": "debug",
+    // "solargraph.trace.server": "verbose",
 
     // javascript
     "javascript.format.enabled": false, // 和eslint冲突，没用，使用外部的eslint fix
@@ -69,6 +69,7 @@
     "codeLens.enable": true,
     "diagnostic.virtualText": true,
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
+    "list.maxPreviewHeight": 30,
 
     // mapping
     "list.insertMappings": {
