@@ -1,7 +1,10 @@
 require'nvim-treesitter.configs'.setup {
     highlight = { enable = true },
     -- comment换行有问题，先禁用 https://github.com/nvim-treesitter/nvim-treesitter/issues/1336
-    -- indent = { enable = true },
+    indent = {
+        enable = true,
+        disable = {"ruby"}
+    },
     matchup = { enable = true },
     textobjects = {
         enable = true,

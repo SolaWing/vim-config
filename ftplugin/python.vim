@@ -23,8 +23,10 @@ else
 endif
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
+
 " smartinent with pep8 indent, cause # to first column
-setl formatoptions-=t nosmartindent
+" setl nosmartindent
+setl formatoptions-=t
 setl formatprg=yapf
 
 com! -range=% PythonFold <line1>,<line2>call PythonFold()

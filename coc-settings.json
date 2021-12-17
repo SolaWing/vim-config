@@ -10,7 +10,8 @@
     "solargraph.symbols": true,
 
     // stdio可能吐一些意外的内容，导致解析失败，用socket进行隔离
-    // "solargraph.transport": "stdio"
+    // socket可能连接错误，又改回stdio了.. https://github.com/neoclide/coc-solargraph/issues/66
+    "solargraph.transport": "stdio",
     // "solargraph.transport": "external", // local run and connect to debug
     // "solargraph.logLevel": "debug",
     // "solargraph.trace.server": "verbose",
@@ -46,17 +47,17 @@
             //     "SOURCEKIT_LOGGING": "3"
             // },
             "filetypes": ["swift"]
-        },
-        "HY": {
-            "command": "python3",
-            "args": ["/Users/wang/Library/Python/3.9/bin/hyls"],
-            "filetypes": ["hy"]
         }
-        /*, "steep": { */
-        /*     "command": "steep", */
-        /*     "args": ["langserver"], */
-        /*     "filetypes": ["ruby"] */
-        /* } */
+        // , "HY": {
+        //     "command": "python3",
+        //     "args": ["/Users/wang/Library/Python/3.9/bin/hyls"],
+        //     "filetypes": ["hy"]
+        // }
+        // , "steep": {
+        //      "command": "steep",
+        //      "args": ["langserver"],
+        //      "filetypes": ["ruby"]
+        //  }
     },
 
     "coc.source.omni.filetypes": [],

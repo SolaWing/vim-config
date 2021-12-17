@@ -1,5 +1,11 @@
 """ vim: set sw=4 ts=4 sts=4 et foldlevel=1 foldmethod=marker:
 
+function! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+
 """"""""""" command map {{{
 cnoremap <C-L> <C-D>
 cnoremap <C-X><C-L> <C-L>
@@ -18,6 +24,7 @@ cabbrev w!! w !sudo tee % >/dev/null
 " search occur
 cnoremap <C-o> <CR>:lvim//j % <bar>lwin<CR>
 cnoremap <M-o> <CR>:Redir g/<CR>
+call SetupCommandAlias('F', 'FZF')
 "}}}
 
 " use a leader as group map. inspired by Spacemacs

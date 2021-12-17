@@ -7,7 +7,7 @@ let b:surround_100 = "do \r\nend"
 
 if has_key(g:plugs, 'nvim-treesitter')
     " treesitter indent comment wrong, temp disable it
-    setlocal indentexpr=
+    " setlocal indentexpr=
     setlocal smartindent autoindent
 
     setlocal foldmethod=expr

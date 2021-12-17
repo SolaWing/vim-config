@@ -20,7 +20,7 @@
         Plug 'tpope/vim-bundler', {'for': 'ruby'}
         Plug 'tpope/vim-rails', {'for': 'ruby'}
     "}}}
-    Plug 'hynek/vim-python-pep8-indent'
+    " Plug 'hynek/vim-python-pep8-indent'
 
     " Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
     Plug 'HerringtonDarkholme/yats.vim' " typescript
