@@ -57,14 +57,14 @@ nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|F
 " we need to ignore it to specify simple spec
 
 " current line
-nmap <buffer> <LocalLeader>t :update <bar> Rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'<CR>
+nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=%:h bundle exec rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'<CR>
 " copy current line command without job
 nmap <buffer> <LocalLeader><C-t> :update <bar>
             \ let @* = "bundle exec rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'"<CR>
 " current file
-nmap <buffer> <LocalLeader><M-t> :Rake spec 'SPEC=<C-R>%'<CR>
+nmap <buffer> <LocalLeader><M-t> :Dispatch -dir=%:h bundle exec rake spec 'SPEC=<C-R>%'<CR>
 " all
-nmap <buffer> <LocalLeader>T :Rake spec<CR>
+nmap <buffer> <LocalLeader>T :Dispatch -dir=%:h bundle exec rake spec<CR>
 
 " 现在先只加载一次
 " if filereadable(".rubocop.yml")
