@@ -42,6 +42,7 @@
             // "command": "sourcekit-lsp",
             "command": "xcrun",
             "args": ["--toolchain", "swift", "sourcekit-lsp", "--log-level", "info"],
+            "rootPatterns": ["buildServer.json", "Package.swift"],
             // "trace.server": "verbose",
             // "env": {
             //     "SOURCEKIT_LOGGING": "3"
@@ -62,6 +63,7 @@
 
     "coc.source.omni.filetypes": [],
     // config
+    // "workspace.bottomUpFiletypes": ["ruby"],
     // "workspace.progressTarget": "statusline",
     // "suggest.autoTrigger": "trigger",
     "suggest.minTriggerInputLength": 2,

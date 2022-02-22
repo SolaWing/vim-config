@@ -210,7 +210,7 @@ ${VISUAL}$0
 # :nocov:
 endsnippet
 
-snippet struct "simple struct declare" b
+snippet structkw "simple struct declare" b
 class ${1:StructName}
 	attr_accessor $2
 	def initialize(**options)
@@ -219,7 +219,20 @@ class ${1:StructName}
 		end
 	end
 end
+endsnippet
 
+snippet struct "simple struct declare" b
+class ${1:StructName}
+	attr_accessor $2
+
+	def initialize(*args)`!p
+snip.shift(2)
+names = [n.strip(" :") for n in t[2].split(",")]
+for i, n in enumerate(names):
+  snip += "@{} = args[{}]".format(n, i)
+`
+	end
+end
 endsnippet
 
 ########## Sorbet ##########
@@ -305,6 +318,23 @@ snippet before "rspec before each"
 before(:${1:each}) do
 	$0
 end
+endsnippet
+
+snippet patch_stderr "hook stderr for check problem"
+$patch_stderr ||= begin
+                    old = $stderr
+                    require 'delegate'
+                    new = SimpleDelegator.new(old)
+                    def new.write(*a)
+                      binding.pry if a.any? { |v| v.include? 'undefined method' }
+                      __getobj__.write(*a)
+                    end
+                    def new.puts(*a)
+                      binding.pry if a.any? { |v| v.to_s.include? 'undefined method' }
+                      __getobj__.puts(*a)
+                    end
+                    $stderr = new
+                  end
 endsnippet
 
 extends color
