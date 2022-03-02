@@ -49,6 +49,17 @@
             // },
             "filetypes": ["swift"]
         }
+        , "racket": {
+          "command": "racket",
+          "args": [
+            "--lib",
+            "racket-langserver"
+          ],
+          "filetypes": [
+            "scheme",
+            "racket"
+          ]
+        }
         // , "HY": {
         //     "command": "python3",
         //     "args": ["/Users/wang/Library/Python/3.9/bin/hyls"],

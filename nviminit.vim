@@ -21,8 +21,9 @@ set nottimeout " avoid esc delay
 " substitute 预览
 set inccommand=nosplit
 
-set rtp^=~/.vim
-set rtp+=~/.vim/after
+" symlink not need to add rtp
+" set rtp^=~/.vim
+" set rtp+=~/.vim/after
 set vdir=~/.vim/view
 
 let g:python_host_prog = '/usr/bin/python'
@@ -35,11 +36,12 @@ end
 " 自动进入输入状态
 source ~/.vimrc
 " coc会进入insert，而不是terminal..., 暂时先关掉了
-autocmd mine TermOpen * startinsert
+" 和Start!命令冲突，会进入insert状态..
+" autocmd mine TermOpen * startinsert
 
 command Fish sp | terminal /usr/local/bin/fish -l
 
 " ensure ~/.vim at first
-set rtp-=~/.vim
-set rtp^=~/.vim
+" set rtp-=~/.vim
+" set rtp^=~/.vim
 "}
