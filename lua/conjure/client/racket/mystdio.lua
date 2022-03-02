@@ -148,8 +148,7 @@ local function start()
     return log.append({"; Can't start, REPL is already running.", ("; Stop the REPL with " .. config["get-in"]({"mapping", "prefix"}) .. cfg({"mapping", "stop"}))}, {["break?"] = true})
   else
     local function _16_()
-      display_repl_status("started")
-      return enter()
+      return display_repl_status("mystarted")
     end
     local function _17_(err)
       return display_repl_status(err)
@@ -173,12 +172,6 @@ local function start()
 end
 _2amodule_2a["start"] = start
 local function on_load()
-  do
-    nvim.ex.augroup("conjure-racket-stdio-bufenter")
-    nvim.ex.autocmd_()
-    nvim.ex.autocmd("BufEnter", ("*" .. buf_suffix), ("lua require('" .. _2amodule_name_2a .. "')['" .. "enter" .. "']()"))
-    nvim.ex.augroup("END")
-  end
   return start()
 end
 _2amodule_2a["on-load"] = on_load

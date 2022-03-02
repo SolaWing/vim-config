@@ -76,7 +76,13 @@
       (repl.send-signal 2))))
 
 (defn eval-file [opts]
-  (eval-str (a.assoc opts :code (.. ",require-reloadable " opts.file-path))))
+  (let [repl (state :repl)
+        path opts.file-path]
+    (when (and repl (not (log.log-buf? path)))
+      (repl.send
+        (prep-code (.. ",enter " path))
+        (fn [])))))
+  ; (eval-str (a.assoc opts :code (.. ",require-reloadable " opts.file-path))))
 
 (defn doc-str [opts]
   (eval-str (a.update opts :code #(.. ",doc " $1))))
@@ -118,8 +124,8 @@
 
          :on-success
          (fn []
-           (display-repl-status :started)
-           (enter))
+           (display-repl-status :mystarted))
+           ; (enter))
 
          :on-error
          (fn [err]
@@ -138,9 +144,9 @@
            (display-result msg))}))))
 
 (defn on-load []
-  (augroup
-    conjure-racket-stdio-bufenter
-    (autocmd :BufEnter (.. :* buf-suffix) (viml->fn :enter)))
+  ; (augroup
+  ;   conjure-racket-stdio-bufenter
+  ;   (autocmd :BufEnter (.. :* buf-suffix) (viml->fn :enter)))
   (start))
 
 (defn on-filetype []
