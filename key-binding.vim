@@ -404,6 +404,7 @@ for s:i in range(1, 9)
     exe printf('inoremap <expr> <M-%d> <sid>select_pum(%d)', s:i, s:i)
 endfor
 
+inoremap <C-x><C-o> <C-x><C-o><C-p>
 
 "}}}
 """ misc"{{{

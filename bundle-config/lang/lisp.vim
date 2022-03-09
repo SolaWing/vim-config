@@ -8,10 +8,9 @@ if has('nvim-0.5.0')
     " let g:aniseed#env = v:true
     let g:aniseed#env = { "compile": v:false }
     command! AniseedCompile lua require('aniseed.env').init()
+    Plug 'Olical/conjure',               { 'for': ['hy', 'racket', 'scheme', 'fennel'] }
+    let g:conjure#filetype#racket = "conjure.client.racket.mystdio"
 end
-
-Plug 'Olical/conjure',               { 'for': ['hy', 'racket', 'scheme', 'fennel'] }
-let g:conjure#filetype#racket = "conjure.client.racket.mystdio"
 
 " Plug 'kovisoft/slimv',               {'for': ['racket', 'scheme']}
 " 这个服务器目前只能先有了前缀才能过滤，不然内容太多了。
@@ -32,6 +31,7 @@ Plug 'wlangstroth/vim-racket'
 " 我看着不明显，而且需要显示启用, 不支持单独启用
 " Plug 'kien/rainbow_parentheses.vim',               {'for': ['racket', 'scheme']}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme', 'hy', 'fennel']}
+" 动态加载FileType触发有延迟，首次打开不生效..
 Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme', 'hy', 'fennel']}
 let g:sexp_filetypes = 'clojure,scheme,lisp,racket,hy,fennel'
 let g:sexp_enable_insert_mode_mappings = 0
