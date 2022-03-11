@@ -1,4 +1,6 @@
 (module config.init)
+((require :deps.fun))
+((require :config.util))
 
 (fn colorfgbg []
   (-?> vim.env.COLORFGBG

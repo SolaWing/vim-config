@@ -10,7 +10,7 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
-local function flatmap(table)
+table["key?"] = function(self, k)
+  return (nil ~= self[k])
 end
-_2amodule_2a["flatmap"] = flatmap
 return _2amodule_2a

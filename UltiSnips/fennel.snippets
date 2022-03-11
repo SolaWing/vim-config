@@ -25,3 +25,8 @@ snippet let "let binding"
 (let [$1 $2]
 	$0)
 endsnippet
+
+snippet collect "collect comprehension"
+(collect [k v (pairs ${1:tbl})]
+	${0:k v})
+endsnippet
