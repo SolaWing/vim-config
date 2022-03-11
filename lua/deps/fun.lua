@@ -820,17 +820,6 @@ local flatmap_gen = function(param, state)
     local state_x, gen_y, param_y, state_y  = unpack(state, 1, 4)
     local result
     while true do
-        if nil == gen_y then
-            result = {map_gen(param, state_x)}
-            state_x = result[1]
-            if state_x == nil then
-                return nil -- parent generator finish
-            end
-            if result[2] ~= nil then
-                gen_y, param_y, state_y = rawiter(unpack(result, 2, 4))
-            end
-            -- result[2] == nil ignored, redo while, without change gen_y
-        end
         if nil ~= gen_y then
             result = {gen_y(param_y, state_y)}
             state_y = result[1]
@@ -841,6 +830,15 @@ local flatmap_gen = function(param, state)
                 return {state_x, gen_y, param_y, state_y}, unpack(result, 2)
             end
         end
+        result = {map_gen(param, state_x)}
+        state_x = result[1]
+        if state_x == nil then
+            return nil -- parent generator finish
+        end
+        if result[2] ~= nil then
+            gen_y, param_y, state_y = rawiter(unpack(result, 2, 4))
+        end
+        -- result[2] == nil ignored, redo while, without change gen_y
     end
 end
 
