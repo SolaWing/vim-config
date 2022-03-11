@@ -1,0 +1,27 @@
+snippet module "module definition" w
+(module `!p
+v = path.rfind("fnl/")
+if v != -1 and path.endswith(".fnl"):
+  snip.rv = path[(v+4):-4].replace("/", ".")
+`
+	{$1})
+endsnippet
+
+snippet f "function definition"
+(defn $1 [$2]
+	$0)
+endsnippet
+
+snippet l "lambda definition"
+(λ [$1] $0)
+endsnippet
+
+snippet each "each loop"
+(each [k v (pairs ${1:table})]
+	$0)
+endsnippet
+
+snippet let "let binding"
+(let [$1 $2]
+	$0)
+endsnippet

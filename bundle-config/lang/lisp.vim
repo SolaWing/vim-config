@@ -4,12 +4,15 @@
 if has('nvim-0.5.0')
     Plug 'Olical/aniseed' " nvim lisp integration
     Plug 'bakpakin/fennel.vim'
+    " aniseed#env will trigger lua load
     " enable .fnl file autoload
     " let g:aniseed#env = v:true
-    let g:aniseed#env = { "compile": v:false }
+    " let g:aniseed#env = { "compile": v:false }
     command! AniseedCompile lua require('aniseed.env').init()
     Plug 'Olical/conjure',               { 'for': ['hy', 'racket', 'scheme', 'fennel'] }
     let g:conjure#filetype#racket = "conjure.client.racket.mystdio"
+
+    Plug 'nvim-lua/plenary.nvim'
 end
 
 " Plug 'kovisoft/slimv',               {'for': ['racket', 'scheme']}
