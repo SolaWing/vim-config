@@ -11,7 +11,7 @@ do
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
 require("deps.fun")()
-require("config.util")()
+require("config.util")
 local function colorfgbg()
   local _1_ = vim.env.COLORFGBG
   if (nil ~= _1_) then
@@ -74,7 +74,7 @@ local function init()
     vim.env.LANG = "zh_CN.UTF-8"
   else
   end
-  vim.api.nvim_command("source ~/.vimrc")
+  vim.ex("source ~/.vimrc")
   return vim.cmd("command! Fish sp | terminal /usr/local/bin/fish -l\n     command! Bwipeout lua require('config.function').Bwipeout()")
 end
 _2amodule_2a["init"] = init

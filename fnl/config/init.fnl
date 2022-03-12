@@ -1,6 +1,6 @@
 (module config.init)
-((require :deps.fun))
-((require :config.util))
+((require :deps.fun)) ; install as global fun
+(require :config.util)
 
 (fn colorfgbg []
   (-?> vim.env.COLORFGBG
@@ -28,8 +28,7 @@
   (when (= 1 (vim.fn.has :gui_vimr))
     (set vim.env.LANG "zh_CN.UTF-8"))
   
-  (vim.api.nvim_command "source ~/.vimrc")
+  (vim.ex "source ~/.vimrc")
   (vim.cmd
     "command! Fish sp | terminal /usr/local/bin/fish -l
      command! Bwipeout lua require('config.function').Bwipeout()"))
-
