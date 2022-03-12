@@ -85,7 +85,9 @@ nnoremap <Space>t: :<C-U>tabdo<Space>
 """ windows"{{{
 Map <Space>w <C-W>
 nnoremap <C-W>w :<C-U>FZWindows<CR>
+nnoremap <C-W>N :<C-U>vnew<CR>
 nnoremap <C-W>e :<C-U>sp<Space>
+nnoremap <C-W>E :<C-U>vsp<Space>
 nnoremap <C-W>o :<C-U>confirm <C-R>=v:count?v:count :""<CR>only<CR>
 nnoremap <C-W><C-O> :<C-U>confirm <C-R>=v:count?v:count :""<CR>only<CR>
 nnoremap <C-W>: :<C-U>windo<Space>
@@ -136,6 +138,7 @@ nnoremap <Space>bq <C-^>:bd #<CR>
 nnoremap <Space>dg :Glcd<CR>
 nnoremap <Space>dp :Plcd<CR>
 
+nnoremap <Space>fo :!open<Space>
 nnoremap <silent> <Space>fd :silent !open '%:h'<CR>
 nnoremap <Space>fs :<C-U>confirm w<CR>
 nnoremap <Space>fS :<C-U>confirm wa<CR>

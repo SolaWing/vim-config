@@ -2,8 +2,11 @@
 "{
 "exe printf("set rtp=%s,%s,%s", expand('~/.vim'), &rtp, expand('~/.vim/after'))
 
-" try use lua to write nvim config
 
+" au SourcePre,BufAdd,BufDelete,BufHidden,BufNew,BufRead,BufReadPre,BufUnload,OptionSet,SessionLoadPost,User,VimEnter *
+"   \ echom "debug auto" expand('<afile>') nvim_list_bufs()
+
+" try use lua to write nvim config
 " help lua function may be used before plugin load. these loaded function may use old version code
 set rtp+=~/.vim/bundle/aniseed,~/.vim/bundle/plenary.nvim
 " lua require('aniseed.env').init({module = 'config.init'})

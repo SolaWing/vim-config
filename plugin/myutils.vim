@@ -9,6 +9,7 @@ let g:loaded_myutils = 1
 PY << EOF
 import interactivePython
 interactivePython.g = globals()
+# u = {}, set by init
 u['interactiveScriptAnywhere'] = interactivePython.interactiveScriptAnywhere
 u['findall'] = interactivePython.findAll
 del interactivePython
