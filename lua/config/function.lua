@@ -10,7 +10,12 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
-local function Bwipeout()
+local autoload = (require("aniseed.autoload")).autoload
+local a = autoload("aniseed.core")
+do end (_2amodule_locals_2a)["a"] = a
+local function Bwipeout(bang)
+  local bang0 = (bang or "")
+  local has_bang_3f = not a["empty?"](bang0)
   local buf_in_wins
   do
     local tbl_12_auto = {}
@@ -27,21 +32,31 @@ local function Bwipeout()
   end
   local c = 0
   local m = 0
+  local function clear(buf)
+    c = (c + 1)
+    return vim.ex((buf .. "bwipeout" .. bang0))
+  end
   for i, buf in ipairs(vim.api.nvim_list_bufs()) do
     if not table["key?"](buf_in_wins, buf) then
       if vim.bo[buf].modified then
         m = (m + 1)
-      else
-        c = (c + 1)
-        if nil then
-          vim.api.nvim_command((buf .. "bwipeout"))
+        if has_bang_3f then
+          clear(buf)
         else
         end
+      else
+        clear(buf)
       end
     else
     end
   end
-  return print(("wipeout %d buffers, left %d modified"):format(c, m))
+  local _7_
+  if has_bang_3f then
+    _7_ = "include"
+  else
+    _7_ = "left"
+  end
+  return print(("wipeout %d buffers, %s %d modified"):format(c, _7_, m))
 end
 _2amodule_2a["Bwipeout"] = Bwipeout
 return _2amodule_2a

@@ -31,4 +31,4 @@
   (vim.ex "source ~/.vimrc")
   (vim.cmd
     "command! Fish sp | terminal /usr/local/bin/fish -l
-     command! Bwipeout lua require('config.function').Bwipeout()"))
+     command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')"))
