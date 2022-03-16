@@ -5,26 +5,6 @@ endif
 let g:loaded_myutils = 1
 " unlet g:loaded_myutils
 
-""" python-shell: directly as a script interactive shell "{{{
-PY << EOF
-import interactivePython
-interactivePython.g = globals()
-# u = {}, set by init
-u['interactiveScriptAnywhere'] = interactivePython.interactiveScriptAnywhere
-u['findall'] = interactivePython.findAll
-del interactivePython
-EOF
-
-imap <M-r> <esc><M-r>
-nnoremap <M-r> :PY u['interactiveScriptAnywhere']('replace')<CR>
-vnoremap <M-r> :PY u['interactiveScriptAnywhere']('replace')<CR>
-imap <M-R> <esc><M-R>
-nnoremap <M-R> :PY u['interactiveScriptAnywhere']('preview')<CR>
-vnoremap <M-R> :PY u['interactiveScriptAnywhere']('preview')<CR>
-imap <C-M-r> <esc><C-M-r>
-nnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
-vnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
-"}}}
 
 """ QuickDo"{{{
 com! -nargs=1 -bang -complete=command CDO call QuickFix#Do(<q-args>, 0, 0, "<bang>")
@@ -48,9 +28,37 @@ com! ShowSyntaxStack for tmp in synstack(line("."),col("."))|
 " Command alias for our function
 command! -nargs=1 SuperMan call superman#SuperMan(<q-args>)
 
-" FindAll"{{{
-com! -range=% -nargs=1 FindAll echo <q-args> | <line1>,<line2>PY u['findall'](<q-args>)
-nnoremap <space>xf :FindAll<space>
-xnoremap <space>xf :FindAll<space>
-"}}}
+function! s:PythonInit()
+    """ python-shell: directly as a script interactive shell "{{{
+PY << EOF
+import interactivePython
+interactivePython.g = globals()
+u = {}
+u['interactiveScriptAnywhere'] = interactivePython.interactiveScriptAnywhere
+u['findall'] = interactivePython.findAll
+del interactivePython
+EOF
+
+    imap <M-r> <esc><M-r>
+    nnoremap <M-r> :PY u['interactiveScriptAnywhere']('replace')<CR>
+    vnoremap <M-r> :PY u['interactiveScriptAnywhere']('replace')<CR>
+    imap <M-R> <esc><M-R>
+    nnoremap <M-R> :PY u['interactiveScriptAnywhere']('preview')<CR>
+    vnoremap <M-R> :PY u['interactiveScriptAnywhere']('preview')<CR>
+    imap <C-M-r> <esc><C-M-r>
+    nnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
+    vnoremap <C-M-r> :PY u['interactiveScriptAnywhere']('output')<CR>
+    "}}}
+    " FindAll"{{{
+    com! -range=% -nargs=1 FindAll echo <q-args> | <line1>,<line2>PY u['findall'](<q-args>)
+    nnoremap <space>xf :FindAll<space>
+    xnoremap <space>xf :FindAll<space>
+    "}}}
+endfunction
+" nvim external plugin is slow. avoid use it when startup
+if has('nvim')
+    call timer_start(1100, {-> s:PythonInit()})
+else
+    call s:PythonInit()
+endif
 " vim:set fdm=marker:

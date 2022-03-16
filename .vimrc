@@ -24,6 +24,7 @@
         " python version
         if has('python3')
             let g:usepy = 3
+            set pyxversion=3
         elseif has('python')
             let g:usepy = ""
         endif
@@ -36,7 +37,7 @@
                 return function(printf('py%seval', g:usepy))(a:expr)
             endfunction
             " python default locale is None. should set it. LC_TIME used by strftime. now use commandline date
-            PY u = {}; # import locale; locale.setlocale(locale.LC_TIME, '')
+            " PY u = {}; # import locale; locale.setlocale(locale.LC_TIME, '')
             " if has('nvim')
             "     " according to https://github.com/neovim/neovim/issues/7063#issuecomment-340590539
             "     " vim.api.eval is twice fast as vim.eval by not coercing number to string.
