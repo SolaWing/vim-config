@@ -1,5 +1,5 @@
 (module config.init)
-((require :deps.fun)) ; install as global fun
+(global f (require :deps.fun))
 (require :config.util)
 
 (fn colorfgbg []
