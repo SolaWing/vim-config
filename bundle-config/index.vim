@@ -5,6 +5,8 @@ call plug#begin('~/.vim/bundle')
 " ==================== Basic{{{
     if has('nvim-0.5.0')
         source ~/.vim/bundle-config/nvim5.vim
+        " source ~/.vim/bundle-config/hop.vim
+    " else
     endif
     source ~/.vim/bundle-config/easymotion.vim
     source ~/.vim/bundle-config/sneak.vim

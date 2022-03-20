@@ -10,10 +10,7 @@ Plug 'nvim-treesitter/playground', {'on': ['TSPlaygroundToggle']}
 " 和vim-plug有兼容性问题，vim-plug 结束时会调用filetype, 且忽略did_load_filetypes
 " Plug 'nathom/filetype.nvim'
 
-function! _ConfigTreeSitter()
-    luafile ~/.vim/bundle-config/nvim5.lua
-endfunction
-autocmd mine User plug#end ++once call _ConfigTreeSitter()
+autocmd mine User plug#end ++once luafile ~/.vim/bundle-config/nvim5.lua
 
 let g:no_ruby_maps = 1 " ruby map depend on syntax. no work when treesitter enable
 let g:ruby_no_expensive = 1 " ruby default synatx make it very slow, though treesitter should disable it

@@ -8,8 +8,6 @@ imap <S-Space> <C-o><Plug>(easymotion-bd-w)
 " <M-/>
 map  <M-/> <Plug>(easymotion-bd-w)
 imap <M-/> <C-o><Plug>(easymotion-bd-w)
-map  <M-?> <Plug>(easymotion-s)
-imap <M-?> <C-o><Plug>(easymotion-s)
 
 Map  <Space><CR>    <Plug>(easymotion-bd-jk)
 Map  <Space><Space> <Plug>(easymotion-s)

@@ -450,7 +450,6 @@ inoremap <M-v> <C-R><C-O>*
 cnoremap <M-v> <C-R><C-R>*
 
 nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar> jumps <bar> let &more=b:prevmore<CR>
-" Map <Leader><CR> <Plug>(easymotion-bd-jk)
 
 
 " write " to specify register
