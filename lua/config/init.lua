@@ -10,7 +10,7 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
-f = require("deps.fun")
+fun = require("deps.fun")
 require("config.util")
 local function colorfgbg()
   local _1_ = vim.env.COLORFGBG
@@ -68,6 +68,7 @@ local function init()
   vim.o.timeout = false
   vim.o.inccommand = "nosplit"
   vim.o.vdir = "~/.vim/view"
+  vim.o.shada = "!,'100,<50,s10,h,f0"
   vim.g.python_host_prog = "/usr/bin/python"
   vim.g.python3_host_prog = "/usr/local/bin/python3"
   if (1 == vim.fn.has("gui_vimr")) then
