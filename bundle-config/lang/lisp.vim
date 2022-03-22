@@ -38,5 +38,12 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme', 
 Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme', 'hy', 'fennel']}
 let g:sexp_filetypes = 'clojure,scheme,lisp,racket,hy,fennel'
 let g:sexp_enable_insert_mode_mappings = 0
+" not need element emit and capture, since paren can be adjust by parinfer-rust
+let g:sexp_mappings = {
+            \ 'sexp_emit_head_element':         '',
+            \ 'sexp_emit_tail_element':         '',
+            \ 'sexp_capture_prev_element':      '',
+            \ 'sexp_capture_next_element':      '',
+            \ }
 
 " Plug 'hylang/vim-hy'

@@ -22,7 +22,8 @@
   (set vim.o.timeout false) ; avoid esc delay
   (set vim.o.inccommand :nosplit) ; substitute 预览
   (set vim.o.vdir "~/.vim/view")
-  (set vim.o.shada "!,'100,<50,s10,h,f0") ; disable File mark store(it will not clean and restore on each vim load)
+  ; disable File mark store(it will not clean and restore on each vim load)
+  (set vim.o.shada "!,'999,<50,s10,h,f0")
 
   (set vim.g.python_host_prog "/usr/bin/python")
   (set vim.g.python3_host_prog "/usr/local/bin/python3")

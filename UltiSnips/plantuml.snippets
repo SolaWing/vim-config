@@ -68,3 +68,10 @@ snippet elseif "a else if condition" b
 elseif ($1) then (yes)
 	$0
 endsnippet
+
+snippet fork "并行处理" b
+fork
+	$0
+fork again
+end fork
+endsnippet
