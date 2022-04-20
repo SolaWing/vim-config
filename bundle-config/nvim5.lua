@@ -3,7 +3,7 @@ require'nvim-treesitter.configs'.setup {
     -- comment换行有问题，先禁用 https://github.com/nvim-treesitter/nvim-treesitter/issues/1336
     indent = {
         enable = true,
-        disable = {"ruby", "typescript"}
+        -- disable = {"ruby", "typescript"}
     },
     matchup = { enable = true },
     textobjects = {

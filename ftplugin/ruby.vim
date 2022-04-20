@@ -7,7 +7,7 @@ let b:surround_100 = "do \r\nend"
 
 if has_key(g:plugs, 'nvim-treesitter')
     " treesitter indent comment wrong, temp disable it
-    " setlocal indentexpr=
+    setlocal indentexpr=
     setlocal smartindent autoindent
 
     setlocal foldmethod=expr
@@ -55,6 +55,8 @@ nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|F
 
 " look in rspec rake_task.rb, use SPEC to override default pattern, or set task options's pattern can override it.
 " we need to ignore it to specify simple spec
+
+" FIXME: nest Rakefile local pwd will be reset after dispatch. but parent dir is wrong..
 
 " current line
 nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=%:h bundle exec rake spec 'SPEC=<C-R>%:<C-R>=line('.')<CR>'<CR>

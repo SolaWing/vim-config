@@ -18,6 +18,8 @@ call plug#begin('~/.vim/bundle')
     else
         source ~/.vim/bundle-config/ycm.vim
     endif
+    source ~/.vim/bundle-config/copilot.vim
+
     source ~/.vim/bundle-config/tag-related.vim
 
     " source ~/.vim/bundle-config/vim-clap.vim

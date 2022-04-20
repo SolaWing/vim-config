@@ -101,6 +101,7 @@ nmap <localleader>ac  <Plug>(coc-codeaction-line)
 nmap <localleader>as  <Plug>(coc-codelens-action)
 " Apply AutoFix to problem on the current line.
 nmap <localleader>gf  <Plug>(coc-fix-current)
+nnoremap <LocalLeader>gc :CocDiagnostics<CR>
 
 " Introduce function text object
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.

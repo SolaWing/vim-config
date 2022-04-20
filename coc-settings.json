@@ -13,7 +13,7 @@
     // socket可能连接错误，又改回stdio了.. https://github.com/neoclide/coc-solargraph/issues/66
     "solargraph.transport": "stdio",
     // "solargraph.transport": "external", // local run and connect to debug
-    // "solargraph.logLevel": "debug",
+    "solargraph.logLevel": "debug",
     // "solargraph.trace.server": "verbose",
 
     // javascript
