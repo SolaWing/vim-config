@@ -64,6 +64,7 @@ nmap <silent> <localleader>gi <Plug>(coc-implementation)
 nmap <silent> <localleader>gd <Plug>(coc-declaration)
 nmap <silent> <localleader>gr <Plug>(coc-references)
 nmap <silent> <localleader>gR :<C-U>CocCommand document.showIncomingCalls<CR>
+nnoremap <LocalLeader>gc :CocDiagnostics<CR>
 
 " disable auto-preview
 let g:coc_enable_locationlist = 0

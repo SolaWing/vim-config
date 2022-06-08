@@ -20,7 +20,7 @@ let g:ale_fixers = {
 " let g:ycm_filetype_specific_completion_to_disable = {
 "             \ 'rust': 1
 "             \}
-if has_key(g:plugs, "coc.nvim")
+if g:hasCOC
     call remove(g:ale_linters, 'javascript')
     call remove(g:ale_linters, 'python')
     call remove(g:ale_fixers, 'javascript')

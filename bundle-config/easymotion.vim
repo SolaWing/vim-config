@@ -18,7 +18,7 @@ nmap <C-W><CR>      <Plug>(easymotion-overwin-line)
 imap <M-z> <C-o>d<Plug>(easymotion-s)
 
 function! _EasyMotionPromptBegin()
-    if has_key(g:plugs, 'coc.nvim')
+    if g:hasCOC
         silent! CocDisable
     end
     let g:keep_fold = 1 " see usage, to quickly keep fold and handle delay
@@ -29,7 +29,7 @@ function! _EasyMotionPromptBegin()
 endfunction
 
 function! _EasyMotionPromptEnd()
-    if has_key(g:plugs, 'coc.nvim')
+    if g:hasCOC
         silent! CocEnable
     end
     unlet g:keep_fold

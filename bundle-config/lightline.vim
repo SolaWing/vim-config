@@ -1,7 +1,7 @@
 
 autocmd mine BufEnter,FileChangedShellPost * call CacheClear("fugitive#head")
 function! CachedFugitiveHead()
-    return CacheWrap("fugitive#head")
+    return CacheWrap("FugitiveHead")
 endfunction
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 

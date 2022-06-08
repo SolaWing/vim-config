@@ -27,8 +27,12 @@ let g:UltiSnipsMappingsToIgnore = ["ExpandClosure"]
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 
+if has_key(g:plugs, 'YouCompleteMe')
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
+else
+nnoremap <buffer> <LocalLeader>c :<C-U>CocDiagnostics<CR>
+endif
 
 
 if filereadable(".swiftlint.yml")

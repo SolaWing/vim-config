@@ -14,9 +14,13 @@ call plug#begin('~/.vim/bundle')
 
     " if argv(0) =~# '\.\%(swift\|[hcm]\|mm\|cpp\|py\)$'
     if $COC == "1" || ($COC != "0" && argv(0) =~# '\.\%(r\a\+\|[tj]s\|py\)$')
+        let g:hasCOC = v:true
         source ~/.vim/bundle-config/coc.vim
     else
+        let g:hasCOC = v:false
         source ~/.vim/bundle-config/ycm.vim
+        " enable coc update. use g:hasCOC to check plugin really loaded
+        Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
     endif
     source ~/.vim/bundle-config/copilot.vim
 
