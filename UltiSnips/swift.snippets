@@ -176,6 +176,10 @@ snippet deprecated "deprecated declare" b
 @available(*, deprecated${2:, message: "${1:No longer supported.}"})
 endsnippet
 
+snippet unavailable "unavailable declare api" b
+@available(*, unavailable)
+endsnippet
+
 ########## Swift UI ##########
 snippet view "a swif ui view declare" b
 struct $1: View {
@@ -202,4 +206,25 @@ struct $1: Publisher {
 		$0
 	}
 }
+endsnippet
+
+########## Script ##########
+snippet main "main snippet" b
+import Cocoa
+
+@MainActor
+func main() async {
+	$0
+}
+
+var finish = false
+Task {
+	await main()
+	finish = true
+}
+
+while !finish {
+	RunLoop.main.run(until: Date.now + 0.01)
+}
+
 endsnippet

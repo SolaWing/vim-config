@@ -8,7 +8,8 @@ let g:ale_linters = {
             \ 'javascript' :[ 'eslint' ],
             \ 'swift' : ['swiftlint'],
             \ 'php': ['php'],
-            \ 'python': ['pylint']
+            \ 'python': ['pylint'],
+            \ 'sh': ['shell']
             \ }
             " \ 'sql': ['sqlint'],
 let g:ale_fixers = {
