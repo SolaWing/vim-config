@@ -18,4 +18,5 @@ let g:copilot_filetypes = {
 
 imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
-let g:copilot_ignore_node_version = v:true
+" let g:copilot_ignore_node_version = v:true
+let g:copilot_node_command = "~/.nodenv/versions/17.9.1/bin/node"

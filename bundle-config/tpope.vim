@@ -38,6 +38,11 @@ let g:dispatch_no_maps = 1
 " }}}
 " tpope/vim-projectionist{{{
 Plug 'tpope/vim-projectionist'
+let g:projectionist_heuristics = {
+      \ "*.podspec": {
+      \   "*.swift": {"type": "source"},
+      \   "*.podspec": {"type": "podspec"}
+      \ }}
 "}}}
 Plug 'tpope/vim-commentary'
 

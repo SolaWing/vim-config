@@ -183,7 +183,7 @@
 
     """"""""""" command {{{
     command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
-    " command! -nargs=? -complete=dir Terminal silent exe printf( "!open -a /Applications/Utilities/Terminal.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
+    command! -nargs=? -complete=dir Terminal silent exe printf( "!open -a Terminal.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
     command! -nargs=? -complete=dir OpenITerm silent exe printf( "!open -a /Applications/iTerm.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
     command! -nargs=? -complete=file OpenInXcode silent exec printf("!open -a xcode %s", expand( <q-args> == '' ? '%' : <q-args>))
 

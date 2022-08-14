@@ -26,7 +26,8 @@ let g:paredit_disable_scheme = 1
 " waiting try
             " \ 'do': 'cargo build --release',
 Plug 'eraserhd/parinfer-rust', {
-            \ 'for': ['racket', 'scheme', 'hy', 'fennel']
+            \ 'for': ['racket', 'scheme', 'hy', 'fennel'],
+            \ 'do': 'cargo build --release'
             \ }
 
 " Plug 'MicahElliott/vrod',                          {'for': ['racket', 'scheme']}
