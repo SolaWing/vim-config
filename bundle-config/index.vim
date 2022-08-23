@@ -22,7 +22,7 @@ call plug#begin('~/.vim/bundle')
         " enable coc update. use g:hasCOC to check plugin really loaded
         Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
     endif
-    source ~/.vim/bundle-config/copilot.vim
+    " source ~/.vim/bundle-config/copilot.vim
 
     source ~/.vim/bundle-config/tag-related.vim
 
