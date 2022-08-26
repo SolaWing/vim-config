@@ -44,8 +44,9 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+let g:AutoPairsMapCR = 0
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>\<C-R>=AutoPairsReturn()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
