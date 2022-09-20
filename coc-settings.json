@@ -18,7 +18,7 @@
       "port": 7658
     },
 
-    "solargraph.logLevel": "debug",
+    // "solargraph.logLevel": "debug",
     // "solargraph.trace.server": "verbose",
 
     // javascript
@@ -89,7 +89,7 @@
     "codeLens.enable": true,
     "diagnostic.virtualText": true,
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
-    "list.maxPreviewHeight": 30,
+    // "list.maxPreviewHeight": 20,
 
     // mapping
     "list.insertMappings": {
