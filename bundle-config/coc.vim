@@ -1,4 +1,4 @@
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc-neco'
 " fix special comment in json file of common js config file
@@ -103,8 +103,9 @@ nnoremap <LocalLeader>gc :CocDiagnostics<CR>
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
+" vim repplay macro bugs: https://github.com/vim/vim/issues/6350 https://github.com/neovim/neovim/issues/12551
+" omap if <Plug>(coc-funcobj-i)
+" omap af <Plug>(coc-funcobj-a)
 
 " Use <TAB> for selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
