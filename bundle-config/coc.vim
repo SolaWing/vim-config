@@ -1,4 +1,5 @@
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc-neco'
 " fix special comment in json file of common js config file
