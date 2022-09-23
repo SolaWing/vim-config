@@ -1,3 +1,7 @@
+priority 50
+priority 100
+extends ruby
+
 snippet %if "if template" b
 <% if $1 %>
 	$0
@@ -12,6 +16,12 @@ snippet %unless "unless template" b
 <% unless $1 %>
 	$0
 <% end %>
+endsnippet
+
+snippet each "each template for %" b
+% $1.each do |${2:v}|
+	$0
+% end
 endsnippet
 
 snippet %each "each template" b

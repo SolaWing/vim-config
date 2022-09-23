@@ -1,4 +1,4 @@
-if exists("loaded_myutils")
+if exists("loaded_myutils") || exists(":PY") != 2
   finish
 endif
 
