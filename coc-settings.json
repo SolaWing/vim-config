@@ -18,8 +18,8 @@
       "port": 7658
     },
 
-    // "solargraph.logLevel": "debug",
-    // "solargraph.trace.server": "verbose",
+    "solargraph.logLevel": "debug",
+    "solargraph.trace.server": "verbose",
 
     // javascript
     "javascript.format.enabled": false, // 和eslint冲突，没用，使用外部的eslint fix
