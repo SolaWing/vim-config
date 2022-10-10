@@ -5,11 +5,26 @@ function! CachedFugitiveHead()
 endfunction
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
+let s:ContextCache = ""
+let s:ContextUpdateTime = 0
+function! LightlineCursorContext()
+    let now = reltimefloat(reltime())
+    if now - s:ContextUpdateTime > 1
+        let s:ContextUpdateTime = now
+        if exists("*tagbar#currenttag")
+            let s:ContextCache = tagbar#currenttag("%s", "", "s")
+        end
+    end
+    return s:ContextCache
+endfunction
+
 " TODO: cursor function and class info "
 let g:lightline = {
             \   'colorscheme' : 'gruvbox_custom',
             \   'active': {
-            \     'left': [ [ 'mode', 'paste' ], ['readonly', 'relativepath', 'modified' ], [ 'gitbranch',  'cocstatus', 'ycmstatus' ] ],
+            \     'left': [ [ 'mode', 'paste' ],
+            \               ['readonly', 'relativepath', 'modified', 'context_info' ],
+            \               [ 'gitbranch',  'cocstatus', 'ycmstatus' ] ],
             \     'right': [ [ 'percent' ],
             \                [ 'lineinfo' ],
             \                ['linter_errors', 'linter_warnings',
@@ -22,7 +37,8 @@ let g:lightline = {
             \   'component_function': {
             \     'gitbranch': 'CachedFugitiveHead',
             \     'cocstatus': 'coc#status',
-            \     'ycmstatus': 'youcompleteme#Status'
+            \     'ycmstatus': 'youcompleteme#Status',
+            \     'context_info': 'LightlineCursorContext'
             \   },
             \   'component_expand': {
             \     'linter_warnings': 'LightlineLinterWarnings',
