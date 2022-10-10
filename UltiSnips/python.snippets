@@ -150,3 +150,11 @@ endsnippet
 snippet --- "a seperator comment" b
 ########## $0
 endsnippet
+
+# 其他用法：
+# 1. export PYTHONBREAKPOINT=ipdb.set_trace; 然后代码中使用breakpoint()
+# 2. from ipdb import set_trace; set_trace()
+# 3. from IPython.terminal.debugger import set_trace; set_trace()
+snippet break "a repl breakpoint, use interact to change to ipython shell" b
+from ipdb import set_trace; set_trace()
+endsnippet

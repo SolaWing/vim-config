@@ -1,10 +1,11 @@
 
-autocmd mine BufEnter,FileChangedShellPost * call CacheClear("fugitive#head")
+autocmd mine BufEnter,FileChangedShellPost * call CacheClear("FugitiveHead")
 function! CachedFugitiveHead()
     return CacheWrap("FugitiveHead")
 endfunction
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
+" TODO: cursor function and class info "
 let g:lightline = {
             \   'colorscheme' : 'gruvbox_custom',
             \   'active': {

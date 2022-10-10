@@ -438,8 +438,8 @@ nnoremap <expr> zx v:count == v:count1 ? ":\<C-U>set foldlevel=".v:count."\<CR>"
 noremap! jk <ESC>
 
 " make <C-g> same with ESC. which is the emacs style shortcut
-nmap <C-g> <ESC>
-map! <C-g> <ESC>
+" nmap <C-g> <ESC>
+" map! <C-g> <ESC>
 
 " make Y consistent with D, C, yank line can use yy
 nnoremap Y y$

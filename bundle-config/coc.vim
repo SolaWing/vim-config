@@ -2,6 +2,7 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc-neco'
+" Plug 'yaegassy/coc-typeprof', {'do': 'yarn install --frozen-lockfile'}
 " fix special comment in json file of common js config file
 Plug 'neoclide/jsonc.vim'
 source ~/.vim/bundle-config/ultisnip.vim
