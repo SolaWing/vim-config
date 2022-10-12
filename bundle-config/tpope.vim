@@ -12,11 +12,11 @@ xmap gs <Plug>VgSurround
 Plug 'tpope/vim-unimpaired' " custom
 nmap co yo
 nnoremap yoD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
-nnoremap [oD :windo diffthis<CR>
-nnoremap ]oD :windo diffoff<CR>
+nnoremap [oD <Cmd>windo diffthis<CR>
+nnoremap ]oD <Cmd>windo diffoff<CR>
 nnoremap yoe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
-nnoremap [oe :set ei=all<CR>
-nnoremap ]oe :set ei=<CR>
+nnoremap [oe <Cmd>set ei=all<CR>
+nnoremap ]oe <Cmd>set ei=<CR>
 "}}}
 
 " tpope/vim-repeat"{{{

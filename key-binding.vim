@@ -22,8 +22,8 @@ cnoremap <M-d> <C-\>ecmdline#ForwordDeleteWord()<CR>
 " sudo
 cabbrev w!! w !sudo tee % >/dev/null
 " search occur
-cnoremap <C-o> <CR>:lvim//j % <bar>lwin<CR>
-cnoremap <M-o> <CR>:Redir g/<CR>
+cnoremap <C-o> <CR><Cmd>lvim//j % <bar>lwin<CR>
+cnoremap <M-o> <CR><Cmd>Redir g/<CR>
 call SetupCommandAlias('F', 'FZF')
 "}}}
 
@@ -59,15 +59,15 @@ nnoremap <M-8> 8gt
 nnoremap <M-9> 9gt
 nnoremap <M-0> 10gt
 " tabmove position
-nnoremap <Space>tl :<C-U>silent exe "tabm +". v:count1<CR>
-nnoremap <Space>tL :<C-U>silent tabm<CR>
-nnoremap <Space>th :<C-U>silent exe "tabm -". v:count1<CR>
-nnoremap <Space>tH :<C-U>silent tabm 0<CR>
+nnoremap <Space>tl <Cmd>exe "tabm +". v:count1<CR>
+nnoremap <Space>tL <Cmd>tabm<CR>
+nnoremap <Space>th <Cmd>exe "tabm -". v:count1<CR>
+nnoremap <Space>tH <Cmd>tabm 0<CR>
 nnoremap <Space>tt <C-W>T
 " nnoremap <Space>TT :q<bar>!mvim %<CR>
 " new tab
 nnoremap <Space>ts <C-W>s<C-W>T
-nnoremap <Space>tn :<C-U>silent tabnew<CR>
+nnoremap <Space>tn <Cmd> tabnew<CR>
 nnoremap <Space>te :<C-U>tabe<Space>
 nnoremap <Space>t] :<C-U>tab tag <C-R><C-W><CR>
 nmap <Space>t<C-]> <Space>t]
@@ -412,6 +412,9 @@ inoremap <C-x><C-o> <C-x><C-o><C-p>
 
 "}}}
 """ misc"{{{
+
+" replay s//flags
+nnoremap & <Cmd>&&<CR>
 
 " <M-x> cmdline window
 nnoremap <M-x> q:i

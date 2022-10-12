@@ -5,7 +5,7 @@ Plug 'SolaWing/vim-objc-syntax', {'for': ['objc', 'objcpp']},
 Plug 'SolaWing/WaitYank.vim'
 " <C-r><CR> has problem, may not recognized
 inoremap <C-r>$ <C-R>=quickUltiSnip#Insert()<CR>
-nnoremap <M-p> :call quickUltiSnip#Paste()<CR>
+nnoremap <M-p> <Cmd>call quickUltiSnip#Paste()<CR>
 vmap <M-y> <Plug>quickUltiSnipYankVisual
 nmap <M-Y> <Plug>quickUltiSnipYankLineWise
 nmap <M-y> <Plug>quickUltiSnipYankOperator

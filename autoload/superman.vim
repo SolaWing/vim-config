@@ -29,5 +29,5 @@ function! superman#SuperMan(...)
   " endif
 
   " " To make us behave more like less
-  nnoremap <silent> <buffer> <nowait> q :q<CR>
+  nnoremap <silent> <buffer> <nowait> q <Cmd>q<CR>
 endfunction

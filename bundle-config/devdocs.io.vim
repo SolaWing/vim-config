@@ -7,6 +7,6 @@ function! DevioSearch(filetype, keyword)
         call system( printf("open -a Firefox 'https://devdocs.io/#q=%s%%20%s'", a:filetype, a:keyword) )
     endif
 endfunction
-nnoremap <LocalLeader>k :call DevioSearch(&ft, '<C-R><C-W>')<CR>
-vnoremap <LocalLeader>k :call DevioSearch(&ft, '<C-R>=GetVisualString()<CR>')<CR>
+nnoremap <LocalLeader>k <Cmd>call DevioSearch(&ft, expand('<cword>'))<CR>
+vnoremap <LocalLeader>k :call DevioSearch(&ft, GetVisualString())<CR>
 map <LocalLeader>K <LocalLeader>k

@@ -27,8 +27,8 @@ Plug 'honza/vim-snippets'
 let g:ultisnips_python_style = 'jedi'
 
 com! UltiTmpSnippet call UltiSnips#AddFiletypes("tmp") | UltiSnipsEdit tmp
-nnoremap <Leader>eS :UltiTmpSnippet<CR>
-nnoremap <Leader>es :sp ~/.vim/UltiSnips/<C-R>=&ft<CR>.snippets<CR>
+nnoremap <Leader>eS <Cmd>UltiTmpSnippet<CR>
+nnoremap <Leader>es <Cmd>exe "sp ~/.vim/UltiSnips/"..&ft..".snippets"<CR>
 
 " preview auto stop snippet. so disable it
 autocmd mine User UltiSnipsEnterFirstSnippet set completeopt-=preview

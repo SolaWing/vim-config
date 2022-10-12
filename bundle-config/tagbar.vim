@@ -71,4 +71,4 @@ let g:tagbar_type_objcpp = g:tagbar_type_objc
 "             \ }
 "             \}
 Plug 'majutsushi/tagbar' , { 'on': 'TagbarToggle'}
-nnoremap <F3> :TagbarToggle<CR>
+nnoremap <F3> <Cmd>TagbarToggle<CR>

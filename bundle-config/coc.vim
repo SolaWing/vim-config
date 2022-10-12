@@ -60,8 +60,8 @@ nmap <silent> <localleader>gt <Plug>(coc-type-definition)
 nmap <silent> <localleader>gi <Plug>(coc-implementation)
 nmap <silent> <localleader>gd <Plug>(coc-declaration)
 nmap <silent> <localleader>gr <Plug>(coc-references)
-nmap <silent> <localleader>gR :<C-U>CocCommand document.showIncomingCalls<CR>
-nnoremap <LocalLeader>gc :CocDiagnostics<CR>
+nmap <silent> <localleader>gR <Cmd>CocCommand document.showIncomingCalls<CR>
+nnoremap <LocalLeader>gc <Cmd>CocDiagnostics<CR>
 
 " disable auto-preview
 let g:coc_enable_locationlist = 0
@@ -99,7 +99,7 @@ nmap <localleader>ac  <Plug>(coc-codeaction-line)
 nmap <localleader>as  <Plug>(coc-codelens-action)
 " Apply AutoFix to problem on the current line.
 nmap <localleader>gf  <Plug>(coc-fix-current)
-nnoremap <LocalLeader>gc :CocDiagnostics<CR>
+nnoremap <LocalLeader>gc <Cmd>CocDiagnostics<CR>
 
 " Introduce function text object
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -128,23 +128,23 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <localleader>la  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <localleader>la  <Cmd>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent> <localleader>le  :<C-u>CocList extensions<cr>
+nnoremap <silent> <localleader>le  <Cmd>CocList extensions<cr>
 " Show commands.
-nnoremap <silent> <localleader>lc  :<C-u>CocList commands<cr>
+nnoremap <silent> <localleader>lc  <Cmd>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent> <localleader>lo  :<C-u>CocList outline<cr>
+nnoremap <silent> <localleader>lo  <Cmd>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent> <localleader>ls  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <localleader>ls  <Cmd>CocList -I symbols<cr>
 " workspace folders
-nnoremap <silent> <localleader>lw  :<C-u>CocList folders<cr>
+nnoremap <silent> <localleader>lw  <Cmd>CocList folders<cr>
 " Do default action for next item.
-nnoremap <silent> <localleader>lj  :<C-u>CocNext<CR>
+nnoremap <silent> <localleader>lj  <Cmd>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <localleader>lk  :<C-u>CocPrev<CR>
+nnoremap <silent> <localleader>lk  <Cmd>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <localleader>ll  :<C-u>CocListResume<CR>
+nnoremap <silent> <localleader>ll  <Cmd>CocListResume<CR>
 
 augroup my_COC
   autocmd!

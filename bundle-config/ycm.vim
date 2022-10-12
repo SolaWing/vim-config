@@ -53,16 +53,16 @@ nmap <C-W><M-g> <C-W>s<M-g>
 nmap <Space>t<M-g> <C-W>s<C-W>T<M-g>
 nmap <M-g> <LocalLeader>gg
 
-nnoremap <LocalLeader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <LocalLeader>gg :YcmCompleter GoTo<CR>
-nnoremap <LocalLeader>gh :YcmCompleter GoToImprecise<CR>
+nnoremap <LocalLeader>gr <Cmd>YcmCompleter GoToReferences<CR>
+nnoremap <LocalLeader>gg <Cmd>YcmCompleter GoTo<CR>
+nnoremap <LocalLeader>gh <Cmd>YcmCompleter GoToImprecise<CR>
 
 set keywordprg=:YcmCompleter\ GetDoc
-nnoremap <LocalLeader>g<space> :YcmCompleter GetType<CR>
-nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
-nnoremap <LocalLeader>g  :YcmCompleter GetType<CR>
-nnoremap <LocalLeader>gf :YcmCompleter FixIt<CR>
-nnoremap <LocalLeader>gc :YcmDiags<CR>
+nnoremap <LocalLeader>g<space> <Cmd>YcmCompleter GetType<CR>
+nnoremap <LocalLeader>gp <Cmd>YcmCompleter GetParent<CR>
+nnoremap <LocalLeader>g  <Cmd>YcmCompleter GetType<CR>
+nnoremap <LocalLeader>gf <Cmd>YcmCompleter FixIt<CR>
+nnoremap <LocalLeader>gc <Cmd>YcmDiags<CR>
 nnoremap <LocalLeader>gn :YcmCompleter RefactorRename 
 
 " put here for compatibility, autopair's bufenter will prior to ycm's vimenter, so need to define first

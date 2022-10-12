@@ -1,13 +1,13 @@
 " 配置不够好用，不喜欢配色，文档不够方便
 Plug 'phaazon/hop.nvim'
 
-map  <S-Space> :HopWord<CR>
-imap <S-Space> <C-o>:HopWord<CR>
-map  <M-/> :HopWord<CR>
-imap <M-/> <C-o>:HopWord<CR>
+map  <S-Space> <Cmd>HopWord<CR>
+imap <S-Space> <Cmd>HopWord<CR>
+map  <M-/> <Cmd>HopWord<CR>
+imap <M-/> <Cmd>HopWord<CR>
 
-Map  <Space><CR>    :HopLine<CR>
-Map  <Space><Space> :HopChar1<CR>
+Map  <Space><CR>    <Cmd>HopLine<CR>
+Map  <Space><Space> <Cmd>HopChar1<CR>
 " nmap <C-W><Space>   <Plug>(easymotion-overwin-f)
 " nmap <C-W><M-/>     <Plug>(easymotion-overwin-w)
 " nmap <C-W><CR>      <Plug>(easymotion-overwin-line)

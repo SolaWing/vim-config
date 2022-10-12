@@ -68,7 +68,7 @@ call plug#begin('~/.vim/bundle')
     "}}}
     " mbbill/undotree "{{{
         Plug 'mbbill/undotree' ",             { 'on': 'UndotreeToggle'   }
-        nnoremap <F4> :UndotreeToggle<CR>
+        nnoremap <F4> <Cmd>UndotreeToggle<CR>
     "}}}
     source ~/.vim/bundle-config/submode.vim
     source ~/.vim/bundle-config/vim-visual-multi.vim
@@ -79,10 +79,10 @@ call plug#begin('~/.vim/bundle')
     Plug 'CoatiSoftware/vim-sourcetrail' " sourcetrail交互集成
 "}}}
     source ~/.vim/bundle-config/lang.vim
-    " if has('nvim')
-        " source ~/.vim/bundle-config/debugger.vim
-    " endif
     " repl的体验不如终端，ruby debugger也不如pry. 只能简单的运行表达式，控制断点..
+    if has('nvim')
+        source ~/.vim/bundle-config/debugger.vim
+    endif
 
     source ~/.vim/bundle-config/indent-guide.vim
     source ~/.vim/bundle-config/theme.vim

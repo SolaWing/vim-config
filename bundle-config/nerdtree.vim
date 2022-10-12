@@ -16,7 +16,7 @@ augroup nerd_loader
                 \|   execute 'autocmd! nerd_loader'
                 \| endif
 augroup END
-nnoremap <F2> :let g:NERDTreeQuitOnOpen = 0 <bar> NERDTreeToggle<CR>
-nnoremap <S-F2> :let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
+nnoremap <F2> <Cmd>let g:NERDTreeQuitOnOpen = 0 <bar> NERDTreeToggle<CR>
+nnoremap <S-F2> <Cmd>let g:NERDTreeQuitOnOpen = 1 <bar> NERDTreeFind<CR>
 nmap <F14> <S-F2>
 nmap <Leader><F2> <S-F2>
