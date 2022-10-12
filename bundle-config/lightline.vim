@@ -5,18 +5,21 @@ function! CachedFugitiveHead()
 endfunction
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
-let s:ContextCache = ""
-let s:ContextUpdateTime = 0
-function! LightlineCursorContext()
-    let now = reltimefloat(reltime())
-    if now - s:ContextUpdateTime > 1
-        let s:ContextUpdateTime = now
-        if exists("*tagbar#currenttag")
-            let s:ContextCache = tagbar#currenttag("%s", "", "s")
-        end
-    end
-    return s:ContextCache
-endfunction
+" 可能太长导致显示不下..
+" let s:ContextCache = ""
+" let s:ContextUpdateTime = 0
+" function! LightlineCursorContext()
+"     let now = reltimefloat(reltime())
+"     if now - s:ContextUpdateTime > 1
+"         let s:ContextUpdateTime = now
+"         if luaeval('require "nvim-treesitter.parsers".has_parser()')
+"             let s:ContextCache = nvim_treesitter#statusline()
+"         elseif exists("*tagbar#currenttag")
+"             let s:ContextCache = tagbar#currenttag("%s", "", "s")
+"         end
+"     end
+"     return s:ContextCache
+" endfunction
 
 " TODO: cursor function and class info "
 let g:lightline = {

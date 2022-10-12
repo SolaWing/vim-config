@@ -1,7 +1,7 @@
 " Plug 'puremourning/vimspector'
 Plug 'mfussenegger/nvim-dap'
 " Plug 'suketa/nvim-dap-ruby'
-" Plug 'rcarriga/nvim-dap-ui'
+Plug 'rcarriga/nvim-dap-ui'
 
 nnoremap <space>dd :DapToggleBreakpoint<CR>
 nnoremap <space>dc :DapContinue<CR>

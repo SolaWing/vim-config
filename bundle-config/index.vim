@@ -79,11 +79,10 @@ call plug#begin('~/.vim/bundle')
     Plug 'CoatiSoftware/vim-sourcetrail' " sourcetrail交互集成
 "}}}
     source ~/.vim/bundle-config/lang.vim
-    " repl的体验不如终端，不如pry. 只能简单的运行表达式，控制断点..
-    " 另外启动命令也得自己配，不能支持任意的启动任务..
     " if has('nvim')
         " source ~/.vim/bundle-config/debugger.vim
     " endif
+    " repl的体验不如终端，ruby debugger也不如pry. 只能简单的运行表达式，控制断点..
 
     source ~/.vim/bundle-config/indent-guide.vim
     source ~/.vim/bundle-config/theme.vim

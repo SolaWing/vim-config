@@ -453,6 +453,8 @@ cnoremap <M-v> <C-R><C-R>*
 nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar> jumps <bar> let &more=b:prevmore<CR>
 
 
+nnoremap ,. :echo CursorContext()<CR>
+
 " write " to specify register
 function! SetRegister() range
     let char = getchar()

@@ -14,3 +14,12 @@ autocmd mine User plug#end ++once luafile ~/.vim/bundle-config/nvim5.lua
 
 let g:no_ruby_maps = 1 " ruby map depend on syntax. no work when treesitter enable
 let g:ruby_no_expensive = 1 " ruby default synatx make it very slow, though treesitter should disable it
+
+function! CursorContext()
+    if luaeval('require "nvim-treesitter.parsers".has_parser()')
+        return nvim_treesitter#statusline()
+    elseif exists("*tagbar#currenttag")
+        return tagbar#currenttag("%s", "", "s")
+    end
+    return v:null
+endfunction
