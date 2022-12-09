@@ -136,7 +136,7 @@ nnoremap <silent> <localleader>lc  <Cmd>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent> <localleader>lo  <Cmd>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent> <localleader>ls  <Cmd>CocList -I symbols<cr>
+nnoremap <silent> <localleader>ls  <Cmd>CocList symbols<cr>
 " workspace folders
 nnoremap <silent> <localleader>lw  <Cmd>CocList folders<cr>
 " Do default action for next item.

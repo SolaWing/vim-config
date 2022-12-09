@@ -14,8 +14,8 @@ function! s:submode_init()
         endfor
     endfunction
     call SubmodeMap('Diff(nNwpou)', 'n',
-                \ [['[c', 'N', '[c', '']
-                \ ,[']c', 'n', ']c', '']
+                \ [['[c', 'N', '[czz', '']
+                \ ,[']c', 'n', ']czz', '']
                 \ ,['', 'w', '<C-W>w', '']
                 \ ,['', 'p', 'dp', '']
                 \ ,['', 'o', 'do', '']
