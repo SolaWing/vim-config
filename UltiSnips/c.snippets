@@ -58,6 +58,12 @@ if ( ${1} ) {
 }
 endsnippet
 
+snippet unless "unless statement" b
+if (!($1)) {
+	${VISUAL}$0
+}
+endsnippet
+
 snippet ife "ifelse" b
 if ( ${1} ) {
 	${VISUAL}$0
@@ -75,7 +81,7 @@ endsnippet
 snippet do "do while block" b
 do {
 	${VISUAL}$0
-} while( ${1:true} );
+} while( ${1:false} );
 endsnippet
 
 snippet wh "while block" b

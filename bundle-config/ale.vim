@@ -24,9 +24,9 @@ let g:ale_fixers = {
 "             \ 'rust': 1
 "             \}
 if g:hasCOC
-    call remove(g:ale_linters, 'javascript')
+    " call remove(g:ale_linters, 'javascript')
     call remove(g:ale_linters, 'python')
-    call remove(g:ale_fixers, 'javascript')
+    " call remove(g:ale_fixers, 'javascript')
     call remove(g:ale_fixers, 'python')
 endif
 Plug 'w0rp/ale'

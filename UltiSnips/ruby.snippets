@@ -176,8 +176,12 @@ snippet param "param document"
 @param ${1:name} [${2:String}]$0
 endsnippet
 
+snippet yieldparam "yield param"
+@yieldparam ${1:name} [${2:String}]$0
+endsnippet
+
 snippet option "option document"
-@option opt [${2:String}]${1:name} (${3:nil}) $0
+@option opts [${2:String}] ${1::name} (${3:nil}) $0
 endsnippet
 
 snippet attr_doc "attribute document"
@@ -193,6 +197,10 @@ endsnippet
 snippet override_doc "override annotation" b
 # @!override $1
 #  @return [$0]
+endsnippet
+snippet overload "overload annotation" b
+@overload $1
+	@return [$0]
 endsnippet
 
 snippet hint "type hint for following var" b
@@ -212,6 +220,12 @@ snippet nocov "simplecov: no cov hint" b
 # :nocov:
 ${VISUAL}$0
 # :nocov:
+endsnippet
+
+snippet class_self "singleton method define" b
+class << self
+	$0
+end
 endsnippet
 
 snippet structkw "simple struct declare" b
@@ -321,6 +335,18 @@ endsnippet
 snippet before "rspec before each"
 before(:${1:each}) do
 	$0
+end
+endsnippet
+
+snippet safe_lazy "safe lazy init property" b
+def $1
+	${3:@mutex}.synchronize do
+		return @$1 if defined?(@$1)
+
+		@$1 = $2
+		define_singleton_method(:$1) { @$1 }
+		return @$1
+	end
 end
 endsnippet
 
