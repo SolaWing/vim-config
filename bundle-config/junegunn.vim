@@ -47,6 +47,23 @@ command! -bang -nargs=* FZRg
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! FZBD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': ['--multi','--prompt','BufDelete> ']
+\ }))
+
 " function! MarksToLocation(line)
 "     " 运行时本地的buffer文件已经变了，不太好获取啊
 "     return a:line

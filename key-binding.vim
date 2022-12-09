@@ -121,16 +121,18 @@ tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 "}}}
 """ buffer"{{{
-nnoremap <Space>bw :<C-U>confirm w<CR>
-nnoremap <Space>bx :<C-U>confirm x<CR>
+nnoremap <Space>bw <Cmd>confirm w<CR>
+nnoremap <Space>bx <Cmd>confirm x<CR>
+nnoremap <Space>bd <Cmd>confirm bdelete<CR>
 
-nnoremap <Space>bd :<C-U>confirm bdelete<CR>
-nnoremap <Space>bb :<C-U>FZBuffers<CR>
+
+nnoremap <Space>bD <Cmd>FZBD<CR>
+nnoremap <Space>bb <Cmd>FZBuffers<CR>
+nnoremap <Space>bl <Cmd>FZBuffers<CR>
+nmap <M-tab> <Space>bl
 nnoremap <Space>bs :<C-U>sb<Space>
 nnoremap <Space>bv :<C-U>vert sb<Space>
 nnoremap <Space>bt :<C-U>tab sb<Space>
-nnoremap <Space>bl :<C-U>FZBuffers<CR>
-nmap <M-tab> <Space>bl
 " quit buffer and open previous buffer
 nnoremap <Space>bq <C-^>:bd #<CR>
 ""}}}
@@ -140,11 +142,11 @@ nnoremap <Space>dp :Plcd<CR>
 
 nnoremap <Space>fo :!open<Space>
 nnoremap <silent> <Space>fd :silent !open '%:h'<CR>
-nnoremap <Space>fs :<C-U>confirm w<CR>
-nnoremap <Space>fS :<C-U>confirm wa<CR>
-noremap <M-s> :<C-U>confirm w<CR>
-inoremap <M-s> <C-o>:<C-U>confirm w<CR>
-noremap <M-S> :<C-U>confirm wa<CR>
+nnoremap <Space>fs <Cmd>confirm w<CR>
+nnoremap <Space>fS <Cmd>confirm wa<CR>
+noremap <M-s> <Cmd>confirm w<CR>
+inoremap <M-s> <Cmd>confirm w<CR>
+noremap <M-S> <Cmd>confirm wa<CR>
 inoremap <C-x><C-x> <Esc>:confirm x<CR>
 nnoremap ZA :qa!<CR>
 nnoremap ZX :confirm xa<CR>

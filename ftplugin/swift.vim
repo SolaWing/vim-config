@@ -9,11 +9,11 @@ setl comments=f:/*,e:*/,b:///,://
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"
 
-nnoremap <buffer> <LocalLeader>m :<C-U>call fzf#vim#buffer_lines("func \\|class \\|extension \\|struct \\|enum \\|[^.]init(\\|\\%(MARK\\|TODO\\|FIXME\\):", {'options': '+s'})<CR>
-nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
+nnoremap <buffer> <LocalLeader>m <Cmd>call fzf#vim#buffer_lines("func \\|class \\|extension \\|struct \\|enum \\|[^.]init(\\|\\%(MARK\\|TODO\\|FIXME\\):", {'options': '+s'})<CR>
+nnoremap <buffer> <LocalLeader>lt <Cmd>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
 nnoremap <buffer> <LocalLeader>f :!swiftlint lint --fix --path '%:p'<CR>
 nnoremap <buffer> <LocalLeader>r :update <bar> !swift '%'<CR>
-nnoremap <buffer> <LocalLeader>gk :<C-U>YcmCompleter RestartServer<CR>
+nnoremap <buffer> <LocalLeader>gk <Cmd>YcmCompleter RestartServer<CR>
 nnoremap <buffer> <M-o> :OpenInXcode<CR>
 
 nnoremap <buffer> <LocalLeader>b :Dispatch swift build --build-tests<CR> 

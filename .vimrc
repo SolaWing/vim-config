@@ -149,7 +149,7 @@
         " commandLine 选择提示
         set wildmenu
         " commandLine 可输入字符过滤补全
-        set wildmode=list:longest,full
+        set wildmode=list:longest,lastused
         " 使得补全从第三状态开始(不补全,但可以输入字符过滤)
         set completeopt+=longest
         " set tags file format
