@@ -24,6 +24,21 @@ let $FZF_DEFAULT_OPTS=' --bind="'.join([
 " let g:fzf_layout = { 'up' : '~40%'  }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+if has_key(g:plugs, 'coc.nvim')
+    Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+    " Show all diagnostics.
+    nnoremap <silent> <localleader>La  <Cmd>CocFzfList diagnostics<cr>
+    " Show commands.
+    nnoremap <silent> <localleader>Lc  <Cmd>CocFzfList commands<cr>
+    " Find symbol of current document.
+    nnoremap <silent> <localleader>Lo  <Cmd>CocFzfList outline<cr>
+    " Search workspace symbols.
+    nnoremap <silent> <localleader>Ls  <Cmd>CocFzfList symbols<cr>
+    " workspace folders
+    nnoremap <silent> <localleader>Lw  <Cmd>CocFzfList folders<cr>
+    " Resume latest coc list.
+    nnoremap <silent> <localleader>Ll  <Cmd>CocFzfListResume<CR>
+endif
 
 command! -bang -nargs=* FZRg
             \ call fzf#vim#grep(
