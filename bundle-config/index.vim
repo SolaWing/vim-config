@@ -80,9 +80,9 @@ call plug#begin('~/.vim/bundle')
 "}}}
     source ~/.vim/bundle-config/lang.vim
     " repl的体验不如终端，ruby debugger也不如pry. 只能简单的运行表达式，控制断点..
-    if has('nvim')
-        source ~/.vim/bundle-config/debugger.vim
-    endif
+    " if has('nvim')
+    "     source ~/.vim/bundle-config/debugger.vim
+    " endif
 
     source ~/.vim/bundle-config/indent-guide.vim
     source ~/.vim/bundle-config/theme.vim

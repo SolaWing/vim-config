@@ -10,7 +10,8 @@ let g:ale_linters = {
             \ 'php': ['php'],
             \ 'python': ['pylint'],
             \ 'sh': ['shell'],
-            \ 'fish': ['fish']
+            \ 'fish': ['fish'],
+            \ 'ruby': ['ruby']
             \ }
             " \ 'sql': ['sqlint'],
 let g:ale_fixers = {

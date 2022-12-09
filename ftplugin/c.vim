@@ -24,11 +24,14 @@ xnoremap <buffer> <LocalLeader>z :CReFold<CR>
 " nnoremap <buffer> <LocalLeader>? :<C-U>s'\m^\s*\zs//\+'<CR>
 " xnoremap <buffer> <LocalLeader>? :s'\m^\s*\zs//\+'<CR>
 " compile
-nnoremap <buffer> <LocalLeader>e :<C-U>update <bar> !clang++ -fobjc-arc '%' -o /tmp/tmp.out && /tmp/tmp.out
-nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
-" exchange for fast jump
-nnoremap <buffer> <LocalLeader>gh :YcmCompleter GoTo<CR>
-nnoremap <buffer> <LocalLeader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <buffer> <LocalLeader>r :<C-U>update <bar> !clang++ -fobjc-arc '%' -o /tmp/tmp.out && /tmp/tmp.out
+
+if has_key(g:plugs, "YouCompleteMe")
+    nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
+    " exchange for fast jump
+    nnoremap <buffer> <LocalLeader>gh :YcmCompleter GoTo<CR>
+    nnoremap <buffer> <LocalLeader>gg :YcmCompleter GoToImprecise<CR>
+endif
 
 nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 xnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>

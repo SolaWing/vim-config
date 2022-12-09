@@ -11,13 +11,13 @@ setl keywordprg<
 nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
 
 if exists('g:usepy') && g:usepy == 3
-    nnoremap <buffer> <LocalLeader>e :<C-U>let tmp = system("python3", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
-    xnoremap <buffer> <LocalLeader>e :w !python3<CR>
+    nnoremap <buffer> <LocalLeader>r :<C-U>let tmp = system("python3", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
+    xnoremap <buffer> <LocalLeader>r :w !python3<CR>
     nnoremap <buffer> <LocalLeader>s :py3 exec("\n".join(vim.current.range))<CR>
     xnoremap <buffer> <LocalLeader>s :py3 exec("\n".join(vim.current.range))<CR>
 else
-    nnoremap <buffer> <LocalLeader>e :<C-U>let tmp = system("python", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
-    xnoremap <buffer> <LocalLeader>e :w !python<CR>
+    nnoremap <buffer> <LocalLeader>r :<C-U>let tmp = system("python", getline(1,'$'))<bar>call setreg(v:register, tmp)<bar>echo tmp<CR>
+    xnoremap <buffer> <LocalLeader>r :w !python<CR>
     nnoremap <buffer> <LocalLeader>s :py exec("\n".join(vim.current.range))<CR>
     xnoremap <buffer> <LocalLeader>s :py exec("\n".join(vim.current.range))<CR>
 endif

@@ -189,7 +189,7 @@ xnoremap <Space>pxs :<C-U>let tmp = GetVisualString()<CR>
 
 ""}}}
 """ git version control"{{{
-nnoremap <silent> <Space>gg :silent !cd '%:h' && gitup<CR>
+nnoremap <silent> <Space>gg <Cmd>!cd '%:h' && gitup<CR>
 nnoremap <Space>gs :Git<CR>
 nnoremap <Space>gS :tab Git :<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>

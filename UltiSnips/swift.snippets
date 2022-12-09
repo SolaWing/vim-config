@@ -184,6 +184,16 @@ snippet unavailable "unavailable declare api" b
 @available(*, unavailable)
 endsnippet
 
+snippet lazy_resetable "description" b
+var $1: $2 {
+	if let val = _$1 { return val }
+	let val = $0
+	_$1 = val
+	return val
+}
+private var _$1: $2?
+endsnippet
+
 ########## Swift UI ##########
 snippet view "a swif ui view declare" b
 struct $1: View {
@@ -231,4 +241,10 @@ while !finish {
 	RunLoop.main.run(until: Date.now + 0.001)
 }
 
+endsnippet
+
+snippet callAsFunction "swift call as function declare" b
+func callAsFunction($1) {
+	$0
+}
 endsnippet

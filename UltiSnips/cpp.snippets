@@ -28,16 +28,10 @@ try {
 endsnippet
 
 snippet externc "extern c block declare" b
-#ifdef __cplusplus
-extern "C" {
-#endif
-${VISUAL}$0
-#ifdef __cplusplus
-}
-#endif
+extern "C" $0
 endsnippet
 
 snippet ifcpp "cpp guard"
-#if defined(__cplusplus)
+#ifdef __cplusplus
 #endif
 endsnippet
