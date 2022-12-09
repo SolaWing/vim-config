@@ -64,14 +64,13 @@ nnoremap <Space>tL <Cmd>tabm<CR>
 nnoremap <Space>th <Cmd>exe "tabm -". v:count1<CR>
 nnoremap <Space>tH <Cmd>tabm 0<CR>
 nnoremap <Space>tt <C-W>T
-" nnoremap <Space>TT :q<bar>!mvim %<CR>
 " new tab
 nnoremap <Space>ts <C-W>s<C-W>T
 nnoremap <Space>tn <Cmd> tabnew<CR>
 nnoremap <Space>te :<C-U>tabe<Space>
-nnoremap <Space>t] :<C-U>tab tag <C-R><C-W><CR>
+nnoremap <Space>t] <Cmd>exe "tab tag" expand("<cword>")<CR>
 nmap <Space>t<C-]> <Space>t]
-nnoremap <Space>tg] :<C-U>tab tjump <C-R><C-W><CR>
+nnoremap <Space>tg] <Cmd>exe "tab tjump" expand("<cword>")<CR>
 nnoremap <Space>t} :<C-U>tab tjump /.*<C-R><C-W>.*<CR>
 xnoremap <Space>t] :<C-U>tab tag <C-R>=GetVisualString()<CR><CR>
 xnoremap <Space>tg] :<C-U>tab tjump <C-R>=GetVisualString()<CR><CR>
@@ -246,11 +245,11 @@ nmap <Space>s<CR> :<C-U>Grepper<CR>
 
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
-nnoremap <Space>s* :<C-U>FZRg -uF '<C-R><C-W>'<CR>
-xnoremap <Space>s* :<C-U>FZRg -uF '<C-R>=GetVisualString()<CR>'<CR>
+nnoremap <Space>s* <Cmd>exe "FZRg -F" shellescape(expand("<cword>"))<CR>
+xnoremap <Space>s* <Cmd>exe "FZRg -F" shellescape(GetVisualString())<CR>
 Map <Space>s8 <Space>s*
-nnoremap <Space>s] :<C-U>FZTags <C-R><C-W> <CR>
-xnoremap <Space>s] :<C-U>FZTags <C-R>=GetVisualString()<CR> <CR>
+nnoremap <Space>s] <Cmd>exe "FZTags" shellescape(expand("<cword>"))<CR>
+xnoremap <Space>s] <Cmd>exe "FZTags" shellescape(GetVisualString())<CR>
 nmap <Space>sm <LocalLeader>/
 xmap <Space>sm <LocalLeader>/
 

@@ -1,4 +1,5 @@
-source ~/.vim/bundle-config/tagbar.vim
+" source ~/.vim/bundle-config/tagbar.vim
+source ~/.vim/bundle-config/vista.vim
 
 " gtags
 " let $GTAGSLABEL = 'native-pygments'

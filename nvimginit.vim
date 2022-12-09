@@ -1,5 +1,6 @@
 echom "run nvimginit"
-set guifont=Fira\ Code:h14
+" set guifont=Fira\ Code:h14
+" set guifont=Hack_Regular_Nerd_Font_Complete_Mono:h14
 
 nnoremap <D-1>    1gt
 inoremap <D-1>    <esc>1gt

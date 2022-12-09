@@ -149,7 +149,7 @@
         " commandLine 选择提示
         set wildmenu
         " commandLine 可输入字符过滤补全
-        set wildmode=list:longest,lastused
+        set wildmode=list:longest,full
         " 使得补全从第三状态开始(不补全,但可以输入字符过滤)
         set completeopt+=longest
         " set tags file format
@@ -163,7 +163,7 @@
         " set grepprg=grep\ -nI\ $*\ --exclude-dir=.*\ /dev/null
         set grepprg=rg\ --vimgrep
         " switchbuf, jump to exist or open new tab
-        set switchbuf=usetab
+        set switchbuf=uselast
         " ignore file pattern
         set wildignore+=*.obj,*.o,*.a,*.dylib,*.app,*.pyc
         set textwidth=100 " allow to a vertical split

@@ -23,7 +23,6 @@ call plug#begin('~/.vim/bundle')
         Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []}
     endif
     " source ~/.vim/bundle-config/copilot.vim
-
     source ~/.vim/bundle-config/tag-related.vim
 
     " source ~/.vim/bundle-config/vim-clap.vim

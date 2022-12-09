@@ -11,8 +11,9 @@
 
     // stdio可能吐一些意外的内容，导致解析失败，用socket进行隔离
     // socket可能连接错误，又改回stdio了.. https://github.com/neoclide/coc-solargraph/issues/66
-    "solargraph.transport": "socket",
+    // "solargraph.transport": "socket",
     // "solargraph.transport": "stdio",
+
     // "solargraph.transport": "external", // local run and connect to debug
     // "solargraph.externalServer": {
     //   "host": "127.0.0.1",
