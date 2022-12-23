@@ -41,6 +41,5 @@ endfunction
 
 autocmd mine User EasyMotionPromptBegin call _EasyMotionPromptBegin()
 autocmd mine User EasyMotionPromptEnd   call _EasyMotionPromptEnd()
-
-" hi link EasyMotionTarget2First EasyMotionTarget2FirstDefault
-hi link EasyMotionShade EasyMotionShadeDefault
+" gruvbox override it..
+" autocmd mine User VimEnter hi link EasyMotionShade EasyMotionShadeDefault

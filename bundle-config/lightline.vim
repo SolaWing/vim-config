@@ -27,7 +27,7 @@ let g:lightline = {
             \   'active': {
             \     'left': [ [ 'mode', 'paste' ],
             \               ['readonly', 'relativepath', 'modified', 'context_info' ],
-            \               [ 'gitbranch',  'cocstatus', 'ycmstatus' ] ],
+            \               [ 'gitbranch',  'cocstatus', 'ycmstatus', 'gutentags' ] ],
             \     'right': [ [ 'percent' ],
             \                [ 'lineinfo' ],
             \                ['linter_errors', 'linter_warnings',
@@ -41,7 +41,8 @@ let g:lightline = {
             \     'gitbranch': 'CachedFugitiveHead',
             \     'cocstatus': 'coc#status',
             \     'ycmstatus': 'youcompleteme#Status',
-            \     'context_info': 'LightlineCursorContext'
+            \     'context_info': 'LightlineCursorContext',
+            \     'gutentags': 'gutentags#statusline'
             \   },
             \   'component_expand': {
             \     'linter_warnings': 'LightlineLinterWarnings',

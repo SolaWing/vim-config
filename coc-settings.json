@@ -92,6 +92,7 @@
     "diagnostic.virtualText": true,
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
     // "list.maxPreviewHeight": 20,
+    "tabnine.limit": 2,
 
     // mapping
     "list.insertMappings": {

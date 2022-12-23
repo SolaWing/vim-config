@@ -1,5 +1,11 @@
 " source ~/.vim/bundle-config/tagbar.vim
 source ~/.vim/bundle-config/vista.vim
+Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_file_list_command = {
+            \ 'markers': {
+            \ '.git': 'bash -c "git ls-files; git ls-files --others --exclude-standard"',
+            \ },
+            \ }
 
 " gtags
 " let $GTAGSLABEL = 'native-pygments'
