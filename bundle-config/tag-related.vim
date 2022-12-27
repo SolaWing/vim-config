@@ -6,6 +6,9 @@ let g:gutentags_file_list_command = {
             \ '.git': 'bash -c "git ls-files; git ls-files --others --exclude-standard"',
             \ },
             \ }
+let g:gutentags_generate_on_missing = 0
+let g:gutentags_generate_on_new = 0
+" let g:gutentags_trace = 1
 
 " gtags
 " let $GTAGSLABEL = 'native-pygments'
