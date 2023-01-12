@@ -15,13 +15,13 @@
     // "solargraph.transport": "stdio",
 
     // "solargraph.transport": "external", // local run and connect to debug
-    // "solargraph.externalServer": {
-    //   "host": "127.0.0.1",
-    //   "port": 7658
-    // },
+    "solargraph.externalServer": {
+      "host": "127.0.0.1",
+      "port": 7658
+    },
 
     "solargraph.logLevel": "debug",
-    "solargraph.trace.server": "verbose",
+    // "solargraph.trace.server": "verbose",
 
     // javascript
     "javascript.format.enabled": false, // 和eslint冲突，没用，使用外部的eslint fix
@@ -51,10 +51,10 @@
             "args": ["--toolchain", "swift", "sourcekit-lsp", "--log-level", "info"],
             "rootPatterns": ["buildServer.json", "Package.swift"],
             // "trace.server": "verbose",
-            // "env": {
-            //     "SOURCEKIT_LOGGING": "3"
-            // },
-            "filetypes": ["swift" ,"cpp", "c", "objc", "objcpp"]
+            "env": {
+                "SOURCEKIT_LOGGING": "3"
+            },
+            "filetypes": ["swift", "cpp", "c", "objective-c", "objective-cpp"]
         }
         , "racket": {
           "command": "racket",

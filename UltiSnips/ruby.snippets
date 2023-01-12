@@ -65,7 +65,7 @@ do
 end
 endsnippet
 
-snippet do/ "do |param| end block" A
+snippet do/ "do |param| end block"
 do |${1:v}|
 	$0
 end
@@ -84,7 +84,7 @@ proc do
 	$0
 end
 endsnippet
-snippet proc/ "proc with param" A
+snippet proc/ "proc with param"
 proc do |${1:v}|
 	$0
 end
@@ -95,7 +95,7 @@ lambda do
 	$0
 end
 endsnippet
-snippet l/ "lambda with param" A
+snippet l/ "lambda with param"
 lambda do |${1:v}|
 	$0
 end
@@ -344,6 +344,7 @@ endsnippet
 
 snippet safe_lazy "safe lazy init property" b
 def $1
+	return @$1 if defined?(@$1)
 	${3:@mutex}.synchronize do
 		return @$1 if defined?(@$1)
 

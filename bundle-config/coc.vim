@@ -132,6 +132,8 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 nnoremap <silent> <localleader>la  <Cmd>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent> <localleader>le  <Cmd>CocList extensions<cr>
+" Manage extensions.
+nnoremap <silent> <localleader>lE  <Cmd>CocList sources<cr>
 " Show commands.
 nnoremap <silent> <localleader>lc  <Cmd>CocList commands<cr>
 " Find symbol of current document.
@@ -157,6 +159,9 @@ augroup my_COC
   autocmd mine BufLeave * call UltiSnips#LeavingBuffer()
 augroup end
 
+" map vim ft to the LSP langid
 let g:coc_filetype_map = {
   \ 'xhtml': 'html',
+  \ 'objc': 'objective-c',
+  \ 'objcpp': 'objective-cpp',
   \ }
