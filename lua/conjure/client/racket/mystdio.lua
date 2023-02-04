@@ -11,7 +11,7 @@ do
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
 local autoload = (require("aniseed.autoload")).autoload
-local a, client, config, log, mapping, nvim, stdio, str, text, _ = autoload("conjure.aniseed.core"), autoload("conjure.client"), autoload("conjure.config"), autoload("conjure.log"), autoload("conjure.mapping"), autoload("conjure.aniseed.nvim"), autoload("conjure.remote.stdio"), autoload("conjure.aniseed.string"), autoload("conjure.text"), nil
+local a, client, config, log, mapping, nvim, stdio, str, text, ts, _ = autoload("conjure.aniseed.core"), autoload("conjure.client"), autoload("conjure.config"), autoload("conjure.log"), autoload("conjure.mapping"), autoload("conjure.aniseed.nvim"), autoload("conjure.remote.stdio"), autoload("conjure.aniseed.string"), autoload("conjure.text"), autoload("conjure.tree-sitter"), nil
 _2amodule_locals_2a["a"] = a
 _2amodule_locals_2a["client"] = client
 _2amodule_locals_2a["config"] = config
@@ -21,6 +21,7 @@ _2amodule_locals_2a["nvim"] = nvim
 _2amodule_locals_2a["stdio"] = stdio
 _2amodule_locals_2a["str"] = str
 _2amodule_locals_2a["text"] = text
+_2amodule_locals_2a["ts"] = ts
 _2amodule_locals_2a["_"] = _
 config.merge({client = {racket = {stdio = {mapping = {start = "cs", stop = "cS", interrupt = "ei"}, command = "racket", prompt_pattern = "\n?[\"%w%-./_]*> "}}}})
 local cfg = config["get-in-fn"]({"client", "racket", "stdio"})
@@ -29,7 +30,7 @@ local state
 local function _1_()
   return {repl = nil}
 end
-state = (state or client["new-state"](_1_))
+state = ((_2amodule_2a).state or client["new-state"](_1_))
 do end (_2amodule_locals_2a)["state"] = state
 local buf_suffix = ".rkt"
 _2amodule_2a["buf-suffix"] = buf_suffix
@@ -37,6 +38,8 @@ local comment_prefix = "; "
 _2amodule_2a["comment-prefix"] = comment_prefix
 local context_pattern = "%(%s*module%s+(.-)[%s){]"
 _2amodule_2a["context-pattern"] = context_pattern
+local form_node_3f = ts["node-surrounded-by-form-pair-chars?"]
+_2amodule_2a["form-node?"] = form_node_3f
 local function with_repl_or_warn(f, opts)
   local repl = state("repl")
   if repl then
@@ -76,7 +79,7 @@ local function eval_str(opts)
         a["assoc-in"](msgs, {1, "out"}, (comment_prefix .. "Empty result."))
       else
       end
-      opts["on-result"](str.join("\n", format_message(a.last(msgs))))
+      opts["on-result"](str.join("\n", a.mapcat(format_message, msgs)))
       return a["run!"](display_result, msgs)
     end
     return repl.send(prep_code(opts.code), _6_, {["batch?"] = true})
@@ -92,16 +95,19 @@ local function interrupt()
   return with_repl_or_warn(_8_)
 end
 _2amodule_2a["interrupt"] = interrupt
-local function eval_file(opts)
+local function _enter(path)
   local repl = state("repl")
-  local path = opts["file-path"]
   if (repl and not log["log-buf?"](path)) then
     local function _9_()
     end
-    return repl.send(prep_code((",enter " .. path)), _9_)
+    repl.send(prep_code((",enter " .. path)), _9_)
+    return log.append({(comment_prefix .. "enter " .. path)})
   else
     return nil
   end
+end
+local function eval_file(opts)
+  return _enter(opts["file-path"])
 end
 _2amodule_2a["eval-file"] = eval_file
 local function doc_str(opts)
@@ -132,28 +138,20 @@ local function stop()
 end
 _2amodule_2a["stop"] = stop
 local function enter()
-  local repl = state("repl")
-  local path = nvim.fn.expand("%:p")
-  if (repl and not log["log-buf?"](path)) then
-    local function _14_()
-    end
-    return repl.send(prep_code((",enter " .. path)), _14_)
-  else
-    return nil
-  end
+  return _enter(nvim.fn.expand("%:p"))
 end
 _2amodule_2a["enter"] = enter
 local function start()
   if state("repl") then
     return log.append({"; Can't start, REPL is already running.", ("; Stop the REPL with " .. config["get-in"]({"mapping", "prefix"}) .. cfg({"mapping", "stop"}))}, {["break?"] = true})
   else
-    local function _16_()
+    local function _14_()
       return display_repl_status("mystarted")
     end
-    local function _17_(err)
+    local function _15_(err)
       return display_repl_status(err)
     end
-    local function _18_(code, signal)
+    local function _16_(code, signal)
       if (("number" == type(code)) and (code > 0)) then
         log.append({(comment_prefix .. "process exited with code " .. code)})
       else
@@ -164,10 +162,10 @@ local function start()
       end
       return stop()
     end
-    local function _21_(msg)
+    local function _19_(msg)
       return display_result(msg)
     end
-    return a.assoc(state(), "repl", stdio.start({["prompt-pattern"] = cfg({"prompt_pattern"}), cmd = cfg({"command"}), ["on-success"] = _16_, ["on-error"] = _17_, ["on-exit"] = _18_, ["on-stray-output"] = _21_}))
+    return a.assoc(state(), "repl", stdio.start({["prompt-pattern"] = cfg({"prompt_pattern"}), cmd = cfg({"command"}), ["on-success"] = _14_, ["on-error"] = _15_, ["on-exit"] = _16_, ["on-stray-output"] = _19_}))
   end
 end
 _2amodule_2a["start"] = start
@@ -176,9 +174,9 @@ local function on_load()
 end
 _2amodule_2a["on-load"] = on_load
 local function on_filetype()
-  mapping.buf("n", "RktStart", cfg({"mapping", "start"}), _2amodule_name_2a, "start")
-  mapping.buf("n", "RktStop", cfg({"mapping", "stop"}), _2amodule_name_2a, "stop")
-  return mapping.buf("n", "RktInterrupt", cfg({"mapping", "interrupt"}), _2amodule_name_2a, "interrupt")
+  mapping.buf("RktStart", cfg({"mapping", "start"}), start, {desc = "Start the REPL"})
+  mapping.buf("RktStop", cfg({"mapping", "stop"}), stop, {desc = "Stop the REPL"})
+  return mapping.buf("RktInterrupt", cfg({"mapping", "interrupt"}), interrupt, {desc = "Interrupt the current evaluation"})
 end
 _2amodule_2a["on-filetype"] = on_filetype
 local function on_exit()

@@ -7,7 +7,8 @@
              text conjure.text
              mapping conjure.mapping
              client conjure.client
-             log conjure.log}
+             log conjure.log
+             ts conjure.tree-sitter}
    require-macros [conjure.macros]})
 
 (config.merge
@@ -27,6 +28,7 @@
 (def buf-suffix ".rkt")
 (def comment-prefix "; ")
 (def context-pattern "%(%s*module%s+(.-)[%s){]")
+(def form-node? ts.node-surrounded-by-form-pair-chars?)
 
 (defn- with-repl-or-warn [f opts]
   (let [repl (state :repl)]
@@ -62,7 +64,7 @@
                      (= "" (a.get-in msgs [1 :out])))
             (a.assoc-in msgs [1 :out] (.. comment-prefix "Empty result.")))
 
-          (opts.on-result (str.join "\n" (format-message (a.last msgs))))
+          (opts.on-result (str.join "\n" (a.mapcat format-message msgs)))
           (a.run! display-result msgs))
         {:batch? true}))))
 
@@ -75,13 +77,16 @@
       ;; https://github.com/Olical/conjure/issues/213
       (repl.send-signal 2))))
 
-(defn eval-file [opts]
-  (let [repl (state :repl)
-        path opts.file-path]
+(fn _enter [path]
+  (let [repl (state :repl)]
     (when (and repl (not (log.log-buf? path)))
       (repl.send
         (prep-code (.. ",enter " path))
-        (fn [])))))
+        (fn []))
+      (log.append [(.. comment-prefix "enter " path)]))))
+
+(defn eval-file [opts]
+  (_enter opts.file-path))
   ; (eval-str (a.assoc opts :code (.. ",require-reloadable " opts.file-path))))
 
 (defn doc-str [opts]
@@ -102,12 +107,7 @@
       (a.assoc (state) :repl nil))))
 
 (defn enter []
-  (let [repl (state :repl)
-        path (nvim.fn.expand "%:p")]
-    (when (and repl (not (log.log-buf? path)))
-      (repl.send
-        (prep-code (.. ",enter " path))
-        (fn [])))))
+  (_enter (nvim.fn.expand "%:p")))
 
 (defn start []
   (if (state :repl)
@@ -144,15 +144,27 @@
            (display-result msg))}))))
 
 (defn on-load []
-  ; (augroup
-  ;   conjure-racket-stdio-bufenter
-  ;   (autocmd :BufEnter (.. :* buf-suffix) (viml->fn :enter)))
   (start))
 
 (defn on-filetype []
-  (mapping.buf :n :RktStart (cfg [:mapping :start]) *module-name* :start)
-  (mapping.buf :n :RktStop (cfg [:mapping :stop]) *module-name* :stop)
-  (mapping.buf :n :RktInterrupt (cfg [:mapping :interrupt]) *module-name* :interrupt))
+  ; (augroup
+  ;   conjure-racket-stdio-bufenter
+  ;   (autocmd :BufEnter (.. :* buf-suffix) (viml->fn :enter)))
+
+  (mapping.buf
+    :RktStart (cfg [:mapping :start])
+    start
+    {:desc "Start the REPL"})
+
+  (mapping.buf
+    :RktStop (cfg [:mapping :stop])
+    stop
+    {:desc "Stop the REPL"})
+
+  (mapping.buf
+    :RktInterrupt (cfg [:mapping :interrupt])
+    interrupt
+    {:desc "Interrupt the current evaluation"}))
 
 (defn on-exit []
   (stop))

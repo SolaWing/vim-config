@@ -18,17 +18,17 @@ local function Bwipeout(bang)
   local has_bang_3f = not a["empty?"](bang0)
   local buf_in_wins
   do
-    local tbl_12_auto = {}
+    local tbl_14_auto = {}
     for k, v in ipairs(vim.api.nvim_list_wins()) do
       local _1_, _2_ = vim.api.nvim_win_get_buf(v), true
       if ((nil ~= _1_) and (nil ~= _2_)) then
-        local k_13_auto = _1_
-        local v_14_auto = _2_
-        tbl_12_auto[k_13_auto] = v_14_auto
+        local k_15_auto = _1_
+        local v_16_auto = _2_
+        tbl_14_auto[k_15_auto] = v_16_auto
       else
       end
     end
-    buf_in_wins = tbl_12_auto
+    buf_in_wins = tbl_14_auto
   end
   local c = 0
   local m = 0
