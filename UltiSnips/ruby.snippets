@@ -142,6 +142,16 @@ endsnippet
 
 ########## functional ##########
 
+############################## minitest
+snippet minitest "inline minitest script" b
+def unit_test
+	require "minitest/autorun"
+	describe $1 do
+		$0
+	end
+end
+endsnippet
+
 ######################################## rspec
 snippet describe "describe a spec" b
 RSpec.describe $1 do

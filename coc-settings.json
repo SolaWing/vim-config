@@ -51,9 +51,7 @@
             "args": ["--toolchain", "swift", "sourcekit-lsp", "--log-level", "info"],
             "rootPatterns": ["buildServer.json", "Package.swift"],
             // "trace.server": "verbose",
-            "env": {
-                "SOURCEKIT_LOGGING": "3"
-            },
+            // "env": { "SOURCEKIT_LOGGING": "3" },
             "filetypes": ["swift", "cpp", "c", "objective-c", "objective-cpp"]
         }
         , "racket": {

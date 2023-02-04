@@ -11,7 +11,8 @@ let b:surround_47 = "/* \r */"
 
 nnoremap <buffer> <LocalLeader>m <Cmd>call fzf#vim#buffer_lines("func \\|class \\|extension \\|struct \\|enum \\|[^.]init(\\|\\%(MARK\\|TODO\\|FIXME\\):", {'options': '+s'})<CR>
 nnoremap <buffer> <LocalLeader>lt <Cmd>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
-nnoremap <buffer> <LocalLeader>f :!swiftlint lint --fix --path '%:p'<CR>
+" nnoremap <buffer> <LocalLeader>f :!cd '%:h' && swiftlint lint --fix -- '%:t'<CR>
+nnoremap <buffer> <LocalLeader>f :!swiftlint lint --fix -- '%'<CR>
 nnoremap <buffer> <LocalLeader>r :update <bar> !swift '%'<CR>
 nnoremap <buffer> <LocalLeader>gk <Cmd>YcmCompleter RestartServer<CR>
 nnoremap <buffer> <M-o> :OpenInXcode<CR>
@@ -29,7 +30,7 @@ xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 
 if has_key(g:plugs, 'YouCompleteMe')
 nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
-nnoremap <buffer> <LocalLeader>gc :<C-U>YcmCompleter DocComment<CR>
+nnoremap <buffer> <LocalLeader>gd :<C-U>YcmCompleter DocComment<CR>
 else
 nnoremap <buffer> <LocalLeader>c :<C-U>CocDiagnostics<CR>
 endif

@@ -10,11 +10,11 @@ nmap ga   <Plug>(EasyAlign)
 " fzf 性能上有些优势.
 
 let g:fzf_buffers_jump = 0
-let g:fzf_launcher='~/.vim/bin/fzfIterm.js %s'
+" let g:fzf_launcher='~/.vim/bin/fzfIterm.js %s'
 let g:fzf_history_dir='~/.vim/bundle/fzf.vim/.history'
 let g:fzf_command_prefix = 'FZ'
 let g:fzf_preview_window = 'right:hidden'
-let $FZF_DEFAULT_OPTS=' --bind="'.join([
+let $FZF_DEFAULT_OPTS=' --bind="' . join([
             \    'alt-j:down,alt-k:up',
             \    'alt-h:backward-char,alt-l:forward-char',
             \    'alt-a:select-all,alt-d:deselect-all',

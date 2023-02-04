@@ -12,7 +12,7 @@
 "
 "  Load Once:
 
-finish " Disable
+finish " Disable, prefer conjure
 
 if exists("g:slimv_disable_scheme") || exists("b:did_load_racket_slimv")
     finish

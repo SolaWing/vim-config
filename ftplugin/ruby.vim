@@ -62,7 +62,7 @@ nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|F
 nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=%:h bundle exec rake spec 'SPEC=<C-R>=expand("%:p")<CR>:<C-R>=line('.')<CR>'<CR>
 " copy current line command without job
 nmap <buffer> <LocalLeader><C-t> :update <bar>
-            \ let @* = "bundle exec rake spec 'SPEC=<C-R>=expand("%:p")<CR>:<C-R>=line('.')<CR>'"<CR>
+            \ let @* = "bundle exec rspec '<C-R>=expand("%:p")<CR>:<C-R>=line('.')<CR>'"<CR>
 " current file
 nmap <buffer> <LocalLeader><M-t> :Dispatch -dir=%:h bundle exec rake spec 'SPEC=<C-R>=expand("%:p")<CR>'<CR>
 " all
