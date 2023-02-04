@@ -17,7 +17,8 @@
     {:stdio
      {:mapping {:start "cs"
                 :stop "cS"
-                :interrupt "ei"}
+                :interrupt "ei"
+                :enter "ea"}
       :command "racket"
       :prompt_pattern "\n?[\"%w%-./_]*> "}}}})
 
@@ -77,17 +78,8 @@
       ;; https://github.com/Olical/conjure/issues/213
       (repl.send-signal 2))))
 
-(fn _enter [path]
-  (let [repl (state :repl)]
-    (when (and repl (not (log.log-buf? path)))
-      (repl.send
-        (prep-code (.. ",enter " path))
-        (fn []))
-      (log.append [(.. comment-prefix "enter " path)]))))
-
 (defn eval-file [opts]
-  (_enter opts.file-path))
-  ; (eval-str (a.assoc opts :code (.. ",require-reloadable " opts.file-path))))
+  (eval-str (a.assoc opts :code (.. ",require-reloadable " opts.file-path))))
 
 (defn doc-str [opts]
   (eval-str (a.update opts :code #(.. ",doc " $1))))
@@ -107,7 +99,13 @@
       (a.assoc (state) :repl nil))))
 
 (defn enter []
-  (_enter (nvim.fn.expand "%:p")))
+  (let [repl (state :repl)
+        path (nvim.fn.expand "%:p")]
+    (when (and repl (not (log.log-buf? path)))
+      (repl.send
+        (prep-code (.. ",enter " path))
+        (fn [])))
+    (log.append [(.. comment-prefix "enter " path)])))
 
 (defn start []
   (if (state :repl)
@@ -164,7 +162,12 @@
   (mapping.buf
     :RktInterrupt (cfg [:mapping :interrupt])
     interrupt
-    {:desc "Interrupt the current evaluation"}))
+    {:desc "Interrupt the current evaluation"})
+
+  (mapping.buf
+    :RktEnter (cfg [:mapping :enter])
+    enter
+    {:desc "enter the current file"}))
 
 (defn on-exit []
   (stop))

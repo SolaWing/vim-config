@@ -23,7 +23,7 @@ _2amodule_locals_2a["str"] = str
 _2amodule_locals_2a["text"] = text
 _2amodule_locals_2a["ts"] = ts
 _2amodule_locals_2a["_"] = _
-config.merge({client = {racket = {stdio = {mapping = {start = "cs", stop = "cS", interrupt = "ei"}, command = "racket", prompt_pattern = "\n?[\"%w%-./_]*> "}}}})
+config.merge({client = {racket = {stdio = {mapping = {start = "cs", stop = "cS", interrupt = "ei", enter = "ea"}, command = "racket", prompt_pattern = "\n?[\"%w%-./_]*> "}}}})
 local cfg = config["get-in-fn"]({"client", "racket", "stdio"})
 do end (_2amodule_locals_2a)["cfg"] = cfg
 local state
@@ -95,26 +95,15 @@ local function interrupt()
   return with_repl_or_warn(_8_)
 end
 _2amodule_2a["interrupt"] = interrupt
-local function _enter(path)
-  local repl = state("repl")
-  if (repl and not log["log-buf?"](path)) then
-    local function _9_()
-    end
-    repl.send(prep_code((",enter " .. path)), _9_)
-    return log.append({(comment_prefix .. "enter " .. path)})
-  else
-    return nil
-  end
-end
 local function eval_file(opts)
-  return _enter(opts["file-path"])
+  return eval_str(a.assoc(opts, "code", (",require-reloadable " .. opts["file-path"])))
 end
 _2amodule_2a["eval-file"] = eval_file
 local function doc_str(opts)
-  local function _11_(_241)
+  local function _9_(_241)
     return (",doc " .. _241)
   end
-  return eval_str(a.update(opts, "code", _11_))
+  return eval_str(a.update(opts, "code", _9_))
 end
 _2amodule_2a["doc-str"] = doc_str
 local function display_repl_status(status)
@@ -138,7 +127,15 @@ local function stop()
 end
 _2amodule_2a["stop"] = stop
 local function enter()
-  return _enter(nvim.fn.expand("%:p"))
+  local repl = state("repl")
+  local path = nvim.fn.expand("%:p")
+  if (repl and not log["log-buf?"](path)) then
+    local function _12_()
+    end
+    repl.send(prep_code((",enter " .. path)), _12_)
+  else
+  end
+  return log.append({(comment_prefix .. "enter " .. path)})
 end
 _2amodule_2a["enter"] = enter
 local function start()
@@ -176,7 +173,8 @@ _2amodule_2a["on-load"] = on_load
 local function on_filetype()
   mapping.buf("RktStart", cfg({"mapping", "start"}), start, {desc = "Start the REPL"})
   mapping.buf("RktStop", cfg({"mapping", "stop"}), stop, {desc = "Stop the REPL"})
-  return mapping.buf("RktInterrupt", cfg({"mapping", "interrupt"}), interrupt, {desc = "Interrupt the current evaluation"})
+  mapping.buf("RktInterrupt", cfg({"mapping", "interrupt"}), interrupt, {desc = "Interrupt the current evaluation"})
+  return mapping.buf("RktEnter", cfg({"mapping", "enter"}), enter, {desc = "enter the current file"})
 end
 _2amodule_2a["on-filetype"] = on_filetype
 local function on_exit()
