@@ -20,7 +20,7 @@
                 :interrupt "ei"
                 :enter "ea"}
       :command "racket"
-      :prompt_pattern "\n?[\"%w%-./_]*> "}}}})
+      :prompt_pattern "\n?[\"%w%-./_~]*> "}}}})
 
 (def- cfg (config.get-in-fn [:client :racket :stdio]))
 
@@ -119,6 +119,7 @@
       (stdio.start
         {:prompt-pattern (cfg [:prompt_pattern])
          :cmd (cfg [:command])
+         :args "-i"
 
          :on-success
          (fn []

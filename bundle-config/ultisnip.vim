@@ -12,7 +12,7 @@ let g:UltiSnipsExpandTrigger       = "<Plug>UltisnipExpand"
 imap <M-'> <Plug>UltisnipExpand
 " visual expand
 xmap <M-'> <Plug>UltisnipExpand
-imap <M-"> <Plug>UltisnipList
+imap <M-C-'> <Plug>UltisnipList
 let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 let g:UltiSnipsEditSplit = "horizontal"
