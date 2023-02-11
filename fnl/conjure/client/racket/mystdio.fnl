@@ -14,15 +14,15 @@
 (config.merge
   {:client
    {:racket
-    {:stdio
+    {:mystdio
      {:mapping {:start "cs"
                 :stop "cS"
                 :interrupt "ei"
                 :enter "ea"}
-      :command "racket"
+      :command "racket -i"
       :prompt_pattern "\n?[\"%w%-./_~]*> "}}}})
 
-(def- cfg (config.get-in-fn [:client :racket :stdio]))
+(def- cfg (config.get-in-fn [:client :racket :mystdio]))
 
 (defonce- state (client.new-state #(do {:repl nil})))
 
@@ -53,6 +53,7 @@
             (log.append [(.. comment-prefix "Dropping #lang, only supported in file evaluation.")])
             (s:gsub lang-line-pat ""))
           s)]
+    ; flush will cause prompt twice, but without this repl will stuck
     (.. code "\n(flush-output)")))
 
 (defn eval-str [opts]
@@ -119,7 +120,6 @@
       (stdio.start
         {:prompt-pattern (cfg [:prompt_pattern])
          :cmd (cfg [:command])
-         :args "-i"
 
          :on-success
          (fn []
