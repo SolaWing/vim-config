@@ -71,7 +71,7 @@ call plug#begin('~/.vim/bundle')
     "}}}
     source ~/.vim/bundle-config/submode.vim
     source ~/.vim/bundle-config/vim-visual-multi.vim
-    Plug 'terryma/vim-expand-region'
+    " Plug 'terryma/vim-expand-region'
     source ~/.vim/bundle-config/slime.vim
 
     source ~/.vim/bundle-config/any-jump.vim

@@ -304,8 +304,7 @@ noremap! <C-D> <Del>
 inoremap <M-d> <C-O>de
 noremap! <M-BS> <C-W>
 
-inoremap <C-k> <C-o>D
-
+" inoremap <C-k> <C-o>D
 " easier horizontal scroll
 Map zl zL
 Map zh zH
