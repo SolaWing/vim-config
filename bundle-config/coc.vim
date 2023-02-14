@@ -56,12 +56,12 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> <localleader>gg <Plug>(coc-definition)
-nmap <silent> <localleader>gt <Plug>(coc-type-definition)
-nmap <silent> <localleader>gi <Plug>(coc-implementation)
-nmap <silent> <localleader>gd <Plug>(coc-declaration)
-nmap <silent> <localleader>gr <Plug>(coc-references)
-nmap <silent> <localleader>gR <Cmd>CocCommand document.showIncomingCalls<CR>
+nmap <silent> <LocalLeader>gg <Plug>(coc-definition)
+nmap <silent> <LocalLeader>gt <Plug>(coc-type-definition)
+nmap <silent> <LocalLeader>gi <Plug>(coc-implementation)
+nmap <silent> <LocalLeader>gd <Plug>(coc-declaration)
+nmap <silent> <LocalLeader>gr <Plug>(coc-references)
+nmap <silent> <LocalLeader>gR <Cmd>CocCommand document.showIncomingCalls<CR>
 nnoremap <LocalLeader>gc <Cmd>CocDiagnostics<CR>
 
 " disable auto-preview
@@ -78,6 +78,7 @@ nmap <M-g> <LocalLeader>gg
 
 command! -nargs=* CocHover :call CocActionAsync('doHover')
 set keywordprg=:CocHover
+nmap <silent> <LocalLeader>gk <Cmd>call CocActionAsync('doHover')<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')

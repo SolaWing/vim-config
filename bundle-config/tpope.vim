@@ -42,7 +42,8 @@ let g:projectionist_heuristics = {
       \ "*.podspec": {
       \   "*.swift": {"type": "source"},
       \   "*.podspec": {"type": "podspec"}
-      \ }}
+      \ }
+      \}
 "}}}
 Plug 'tpope/vim-commentary'
 

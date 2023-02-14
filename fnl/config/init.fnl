@@ -30,7 +30,14 @@
   (when (= 1 (vim.fn.has :gui_vimr))
     (set vim.env.LANG "zh_CN.UTF-8"))
   
-  (vim.ex "source ~/.vimrc")
-  (vim.cmd
-    "command! Fish sp | terminal /usr/local/bin/fish -l
-     command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')"))
+  (if
+    vim.g.vscode (do ; todo vscode neovim integration, change root and manual choose config file
+                   (vim.opt.runtimepath:remove (.. (os.getenv :HOME) "/.config/nvim"))
+                   (vim.opt.runtimepath:prepend (.. (os.getenv :HOME) "/.config/nvim/vscode"))
+                   (print "neovim in vscode" vim.o.runtimepath))
+    (do
+      (vim.ex "source ~/.vimrc")
+      (vim.cmd
+        "command! Fish sp | terminal /usr/local/bin/fish -l
+        command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')"))))
+  

@@ -5,4 +5,6 @@ if has_key(g:plugs, 'YouCompleteMe')
     imap <buffer> . .<C-Space>
 endif
 
+nnoremap <buffer> ,c <Cmd>AniseedCompile<CR>
+
 " TODO: set include path to help find module "
