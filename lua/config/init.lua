@@ -75,8 +75,12 @@ local function init()
     vim.env.LANG = "zh_CN.UTF-8"
   else
   end
-  vim.ex("source ~/.vimrc")
-  return vim.cmd("command! Fish sp | terminal /usr/local/bin/fish -l\n     command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')")
+  if vim.g.vscode then
+    return (require("config.vscode.init")).init()
+  else
+    vim.ex("source ~/.vimrc")
+    return vim.cmd("command! Fish sp | terminal /usr/local/bin/fish -l\n        command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')")
+  end
 end
 _2amodule_2a["init"] = init
 return _2amodule_2a

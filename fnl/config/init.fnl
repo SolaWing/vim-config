@@ -30,7 +30,12 @@
   (when (= 1 (vim.fn.has :gui_vimr))
     (set vim.env.LANG "zh_CN.UTF-8"))
   
-  (vim.ex "source ~/.vimrc")
-  (vim.cmd
-    "command! Fish sp | terminal /usr/local/bin/fish -l
-     command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')"))
+  (if
+    ; todo: vscode neovim integration, change root and manual choose config file
+    vim.g.vscode ((. (require :config.vscode.init) :init))
+    (do
+      (vim.ex "source ~/.vimrc")
+      (vim.cmd
+        "command! Fish sp | terminal /usr/local/bin/fish -l
+        command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')"))))
+  
