@@ -21,7 +21,7 @@
   
   (set vim.o.timeout false) ; avoid esc delay
   (set vim.o.inccommand :nosplit) ; substitute 预览
-  (set vim.o.vdir "~/.vim/view")
+  (set vim.o.viewdir "~/.vim/view")
   ; disable File mark store(it will not clean and restore on each vim load)
   (set vim.o.shada "!,'999,<50,s10,h,f0")
 

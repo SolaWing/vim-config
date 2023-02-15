@@ -126,8 +126,8 @@ nnoremap <Space>bd <Cmd>confirm bdelete<CR>
 
 
 nnoremap <Space>bD <Cmd>FZBD<CR>
-nnoremap <Space>bb <Cmd>FZBuffers<CR>
 nnoremap <Space>bl <Cmd>FZBuffers<CR>
+nmap <Space>bb <Space>bl
 nmap <M-tab> <Space>bl
 nnoremap <Space>bs :<C-U>sb<Space>
 nnoremap <Space>bv :<C-U>vert sb<Space>
@@ -193,7 +193,7 @@ xnoremap <Space>pxs :<C-U>let tmp = GetVisualString()<CR>
 """ git version control"{{{
 nnoremap <silent> <Space>gg <Cmd>!cd '%:h' && gitup<CR>
 nnoremap <Space>gs :Git<CR>
-nnoremap <Space>gS :tab Git :<CR>
+nnoremap <Space>gS :tab Git<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
 xnoremap <Space>gV :GV<CR>
 nnoremap <Space>gV :<C-U>tab Git -p log -p <C-R>=v:count == v:count1? "-".v:count : ""<CR>  -- %<CR>
@@ -241,6 +241,16 @@ nnoremap [<M-l> :<C-U>lolder <C-R>=v:count1<CR><CR>:call repeat#set("[\<M-l>",1
 nnoremap ]<M-l> :<C-U>lnewer <C-R>=v:count1<CR><CR>:call repeat#set("]\<M-l>",1)<CR>
 "}}}
 """ navigate "{{{
+" use j to group jump command
+nnoremap <Leader>jj    :let b:prevmore=&more <bar> set nomore <bar> jumps <bar> let &more=b:prevmore<CR>
+nmap <Leader>jb <Space>bl
+nmap <Leader>jw <C-W>w
+nmap <Leader>jo <F3>
+nmap <Leader>js <LocalLeader>m
+nmap <Leader>jS <F6>
+nmap <Leader>jd -
+nmap <Leader>jg <Leader>gs
+
 nmap <Space>s<Space> :<C-U>Grepper<Space>
 nmap <Space>s<CR> :<C-U>Grepper<CR>
 
@@ -453,8 +463,6 @@ noremap <M-c> "*y
 noremap <M-v> "*p
 inoremap <M-v> <C-R><C-O>*
 cnoremap <M-v> <C-R><C-R>*
-
-nnoremap <Leader>j    :let b:prevmore=&more <bar> set nomore <bar> jumps <bar> let &more=b:prevmore<CR>
 
 
 nnoremap ,. :echo CursorContext()<CR>

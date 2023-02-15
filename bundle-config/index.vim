@@ -62,8 +62,8 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/grepper.vim
     " Plug 'dyng/ctrlsf.vim', {'on': ['CtrlSF']}
     " eregex.vim"{{{
-        Plug 'othree/eregex.vim', { 'on': ['S'] }
-        let g:eregex_default_enable = 0
+        " Plug 'othree/eregex.vim', { 'on': ['S'] }
+        " let g:eregex_default_enable = 0
     "}}}
     " mbbill/undotree "{{{
         Plug 'mbbill/undotree' ",             { 'on': 'UndotreeToggle'   }

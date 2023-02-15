@@ -67,7 +67,7 @@ local function init()
   end
   vim.o.timeout = false
   vim.o.inccommand = "nosplit"
-  vim.o.vdir = "~/.vim/view"
+  vim.o.viewdir = "~/.vim/view"
   vim.o.shada = "!,'999,<50,s10,h,f0"
   vim.g.python_host_prog = "/usr/bin/python"
   vim.g.python3_host_prog = "/usr/local/bin/python3"

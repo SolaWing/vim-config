@@ -8,7 +8,8 @@ if has('nvim-0.5.0')
     " enable .fnl file autoload
     " let g:aniseed#env = v:true
     " let g:aniseed#env = { "compile": v:false }
-    command! AniseedCompile lua require('aniseed.env').init()
+    " init options =  { useMetadata = "true" } 
+    command! AniseedCompile lua require('aniseed.env').init({})
     Plug 'Olical/conjure',               { 'for': ['hy', 'racket', 'scheme', 'fennel'] }
     let g:conjure#filetype#racket = "conjure.client.racket.mystdio"
     " let g:conjure#debug = 1
