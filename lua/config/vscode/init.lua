@@ -82,8 +82,8 @@ local function keybinding()
     return VSCodeNotify("workbench.action.openGlobalKeybindings")
   end
   remap_key("<Leader>ek", _13_)
-  remap_key("<C-w>o", "<Cmd>only<CR>")
-  return remap_key("<Leader>to", "<Cmd>tabonly<CR>")
+  remap_key("<C-w>o", "<Cmd>Only<CR>")
+  return remap_key("<Leader>to", "<Cmd>Tabonly<CR>")
 end
 _2amodule_locals_2a["keybinding"] = keybinding
 local function plugins()

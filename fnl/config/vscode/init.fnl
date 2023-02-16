@@ -48,8 +48,8 @@
   (remap-key "<Leader>ek" #(VSCodeNotify "workbench.action.openGlobalKeybindings"))
 
   ;; windows, tabs, buffers
-  (remap-key "<C-w>o" "<Cmd>only<CR>")
-  (remap-key "<Leader>to" "<Cmd>tabonly<CR>"))
+  (remap-key "<C-w>o" "<Cmd>Only<CR>")
+  (remap-key "<Leader>to" "<Cmd>Tabonly<CR>"))
 
 (defn- plugins []
   "NOTE: notworking function:
