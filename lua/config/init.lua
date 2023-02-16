@@ -78,8 +78,7 @@ local function init()
   if vim.g.vscode then
     return (require("config.vscode.init")).init()
   else
-    vim.ex("source ~/.vimrc")
-    return vim.cmd("command! Fish sp | terminal /usr/local/bin/fish -l\n        command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')")
+    return vim.cmd("source ~/.vimrc\n      command! Fish sp | terminal /usr/local/bin/fish -l\n      command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')")
   end
 end
 _2amodule_2a["init"] = init

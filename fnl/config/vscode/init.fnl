@@ -97,8 +97,9 @@
 
 
 (defn init []
-  (vim.opt.runtimepath:remove (.. (os.getenv :HOME) "/.config/nvim"))
-  (vim.opt.runtimepath:prepend (.. (os.getenv :HOME) "/.config/nvim/vscode"))
+  (local config-path (vim.fn.stdpath :config))
+  (vim.opt.runtimepath:remove config-path)
+  (vim.opt.runtimepath:prepend (.. config-path "/vscode"))
   (print "neovim in vscode" vim.o.runtimepath)
 
   (require :config.vscode.bind)

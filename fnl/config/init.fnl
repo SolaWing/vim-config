@@ -1,4 +1,5 @@
 (module config.init)
+; TODO: replace with aniseed fun for duplicate ;
 (set _G.fun (require :deps.fun))
 (require :config.util)
 
@@ -33,11 +34,10 @@
   (if
     ; todo: vscode neovim integration, change root and manual choose config file
     vim.g.vscode ((. (require :config.vscode.init) :init))
-    (do
-      (vim.ex "source ~/.vimrc")
-      (vim.cmd
-        "command! Fish sp | terminal /usr/local/bin/fish -l
-        command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')"))))
+    (vim.cmd
+      "source ~/.vimrc
+      command! Fish sp | terminal /usr/local/bin/fish -l
+      command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')")))
   
 ; (vim.fn.api_info)
 ; (. vim.g :conjure)

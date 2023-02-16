@@ -110,8 +110,9 @@ local function plugins()
 end
 _2amodule_locals_2a["plugins"] = plugins
 local function init()
-  do end (vim.opt.runtimepath):remove((os.getenv("HOME") .. "/.config/nvim"))
-  do end (vim.opt.runtimepath):prepend((os.getenv("HOME") .. "/.config/nvim/vscode"))
+  local config_path = vim.fn.stdpath("config")
+  do end (vim.opt.runtimepath):remove(config_path)
+  do end (vim.opt.runtimepath):prepend((config_path .. "/vscode"))
   print("neovim in vscode", vim.o.runtimepath)
   require("config.vscode.bind")
   settings()
