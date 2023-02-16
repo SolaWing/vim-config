@@ -1,5 +1,5 @@
 (module config.init)
-(global fun (require :deps.fun))
+(set _G.fun (require :deps.fun))
 (require :config.util)
 
 (fn colorfgbg []
@@ -39,3 +39,5 @@
         "command! Fish sp | terminal /usr/local/bin/fish -l
         command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')"))))
   
+; (vim.fn.api_info)
+; (. vim.g :conjure)

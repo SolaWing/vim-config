@@ -12,6 +12,8 @@ if has('nvim-0.5.0')
     command! AniseedCompile lua require('aniseed.env').init({})
     Plug 'Olical/conjure',               { 'for': ['hy', 'racket', 'scheme', 'fennel'] }
     let g:conjure#filetype#racket = "conjure.client.racket.mystdio"
+    let g:conjure#filetypes = ["clojure", "fennel", "hy", "racket", "lisp", "scheme", "lua"]
+    let g:conjure#mapping#doc_word = "K" " with localLeader
     " let g:conjure#debug = 1
 
     Plug 'nvim-lua/plenary.nvim'
