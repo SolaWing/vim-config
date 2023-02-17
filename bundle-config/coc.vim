@@ -65,8 +65,8 @@ nmap <silent> <LocalLeader>gR <Cmd>CocCommand document.showIncomingCalls<CR>
 nnoremap <LocalLeader>gc <Cmd>CocDiagnostics<CR>
 
 " disable auto-preview
-let g:coc_enable_locationlist = 0
-autocmd User CocLocationsChange CocList --normal location
+" let g:coc_enable_locationlist = 0
+" autocmd User CocLocationsChange CocList --normal location
 
 nmap <C-W><LocalLeader>gr <C-W>s<LocalLeader>gr
 nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
