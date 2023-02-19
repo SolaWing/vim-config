@@ -10,6 +10,8 @@
        (tonumber)))
 
 (defn init []
+  (set _G.F {}) ; as a global namespace to save custom global lua function
+
   (when (= (-?> vim.env.COLORTERM
                 (vim.stricmp :truecolor))
            0)

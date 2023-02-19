@@ -37,4 +37,21 @@ do
   end
   vim.ex = setmetatable({}, {__call = _1_, __index = _2_})
 end
+vim["true?"] = function(v)
+  local _5_ = type(v)
+  if (_5_ == "number") then
+    return (0 ~= v)
+  elseif (_5_ == "nil") then
+    return false
+  elseif (_5_ == "boolean") then
+    return v
+  elseif (_5_ == "string") then
+    return vim["true?"](tonumber(v))
+  elseif true then
+    local _0 = _5_
+    return error(("invalid type for vim boolean check: " .. type(v)))
+  else
+    return nil
+  end
+end
 return _2amodule_2a

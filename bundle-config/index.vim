@@ -4,7 +4,8 @@ call plug#begin('~/.vim/bundle')
 
 " ==================== Basic{{{
     if has('nvim-0.5.0')
-        source ~/.vim/bundle-config/nvim5.vim
+        " source ~/.vim/bundle-config/nvim5.vim
+        lua require("config.plugs").init()
         " source ~/.vim/bundle-config/hop.vim
     " else
     endif
@@ -75,7 +76,7 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/slime.vim
 
     source ~/.vim/bundle-config/any-jump.vim
-    Plug 'CoatiSoftware/vim-sourcetrail' " sourcetrail交互集成
+    Plug 'CoatiSoftware/vim-sourcetrail', { 'on': ['SourcetrailStartServer']} " sourcetrail交互集成
 "}}}
     source ~/.vim/bundle-config/lang.vim
     " repl的体验不如终端，ruby debugger也不如pry. 只能简单的运行表达式，控制断点..

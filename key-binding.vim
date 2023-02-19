@@ -465,8 +465,6 @@ inoremap <M-v> <C-R><C-O>*
 cnoremap <M-v> <C-R><C-R>*
 
 
-nnoremap ,. :echo CursorContext()<CR>
-
 " write " to specify register
 function! SetRegister() range
     let char = getchar()
@@ -480,4 +478,10 @@ endfunction
 
 nnoremap <silent> M :call SetRegister()<CR>
 
+
+
 ""}}}
+
+if has('nvim') " nvim additional config
+    lua require('config.keybinding').init()
+end

@@ -55,9 +55,9 @@
   "NOTE: notworking function:
   quickfix terminal filepath-dep
   "
-  (fn Plug [...] ((. vim.fn :plug#) ...))
 
-  ((. vim.fn :plug#begin) "~/.vim/bundle")
+  (vim.fn.plug#begin "~/.vim/bundle")
+  (local Plug (. vim.fn :plug#))
 
   (vim.cmd.source "~/.vim/bundle-config/easymotion.vim")
   (vim.cmd.source "~/.vim/bundle-config/sneak.vim")

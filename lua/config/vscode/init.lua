@@ -87,10 +87,8 @@ local function keybinding()
 end
 _2amodule_locals_2a["keybinding"] = keybinding
 local function plugins()
-  local function Plug(...)
-    return vim.fn["plug#"](...)
-  end
   vim.fn["plug#begin"]("~/.vim/bundle")
+  local Plug = vim.fn["plug#"]
   vim.cmd.source("~/.vim/bundle-config/easymotion.vim")
   vim.cmd.source("~/.vim/bundle-config/sneak.vim")
   vim.cmd.source("~/.vim/bundle-config/tpope.vim")

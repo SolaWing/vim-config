@@ -40,6 +40,7 @@ local function colorfgbg()
   end
 end
 local function init()
+  _G.F = {}
   local _10_
   do
     local _9_ = vim.env.COLORTERM

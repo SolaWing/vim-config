@@ -9,5 +9,6 @@ let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 nnoremap <buffer> <LocalLeader>m <Cmd>call fzf#vim#buffer_lines('fn-\?\s\+\w\|\%(MARK\|TODO\|FIXME\):', {'options': '+s'})<CR>
 nnoremap <buffer> ,c <Cmd>update<bar>AniseedCompile<CR>
 nnoremap <buffer> ,hh <Cmd>!open 'https://fennel-lang.org/reference'<CR>
+setl keywordprg=:help
 
 " TODO: set include path to help find module "

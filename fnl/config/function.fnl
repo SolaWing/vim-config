@@ -1,5 +1,5 @@
-(module config.function
-  {autoload {a aniseed.core}})
+(module config.function)
+;;; this module store the function used by user
 
 (defn Bwipeout [bang]
   "wipe out all buffer, except the used one in window"
@@ -25,3 +25,13 @@
                 :include
                 :left)
               m))))
+  
+(defn CursorContext []
+  (if
+    ((. (require "nvim-treesitter.parsers") :has_parser))
+    (vim.fn.nvim_treesitter#statusline)
+
+    (vim.true? (vim.fn.exists "*tagbar#currenttag"))
+    (vim.fn.tagbar#currenttag "%s" "" "s")
+
+    nil))

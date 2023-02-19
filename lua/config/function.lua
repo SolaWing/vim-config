@@ -10,9 +10,6 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
-local autoload = (require("aniseed.autoload")).autoload
-local a = autoload("aniseed.core")
-do end (_2amodule_locals_2a)["a"] = a
 local function Bwipeout(bang)
   local bang0 = (bang or "")
   local has_bang_3f = not a["empty?"](bang0)
@@ -59,4 +56,14 @@ local function Bwipeout(bang)
   return print(("wipeout %d buffers, %s %d modified"):format(c, _7_, m))
 end
 _2amodule_2a["Bwipeout"] = Bwipeout
+local function CursorContext()
+  if (require("nvim-treesitter.parsers")).has_parser() then
+    return vim.fn["nvim_treesitter#statusline"]()
+  elseif vim["true?"](vim.fn.exists("*tagbar#currenttag")) then
+    return vim.fn["tagbar#currenttag"]("%s", "", "s")
+  else
+    return nil
+  end
+end
+_2amodule_2a["CursorContext"] = CursorContext
 return _2amodule_2a
