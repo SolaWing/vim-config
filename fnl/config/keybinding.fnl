@@ -118,8 +118,12 @@
   | `spell_suggest`    | spelling suggestions                       |
   | `packadd`          | :packadd <package>                         |T)
   ")
+(defn harpoon-bind []
+  (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)))
+  (vim.keymap.set :n "<Leader>p<Tab>" #((. (require "harpoon.ui") :toggle_quick_menu))))
 
 (defn init []
   (infomation)
-  (when (vim.plug? "fzf-lua") (fzf-lua-bind)))
+  (when (vim.plug? "fzf-lua") (fzf-lua-bind))
+  (when (vim.plug? "harpoon") (harpoon-bind)))
 

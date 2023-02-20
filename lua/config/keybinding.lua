@@ -162,10 +162,25 @@ local function fzf_lua_bind()
   return "\n  | `tagstack`         | :tags                                      |\n  | `keymaps`          | key mappings                               |\n  | `filetypes`        | filetypes                                  |\n  | `menus`            | menus                                      |\n  | `spell_suggest`    | spelling suggestions                       |\n  | `packadd`          | :packadd <package>                         |T)\n  "
 end
 _2amodule_2a["fzf-lua-bind"] = fzf_lua_bind
+local function harpoon_bind()
+  local function _33_()
+    return (require("harpoon.mark")).add_file()
+  end
+  vim.keymap.set("n", "<Leader>p<Space>", _33_)
+  local function _34_()
+    return (require("harpoon.ui")).toggle_quick_menu()
+  end
+  return vim.keymap.set("n", "<Leader>p<Tab>", _34_)
+end
+_2amodule_2a["harpoon-bind"] = harpoon_bind
 local function init()
   infomation()
   if vim["plug?"]("fzf-lua") then
-    return fzf_lua_bind()
+    fzf_lua_bind()
+  else
+  end
+  if vim["plug?"]("harpoon") then
+    return harpoon_bind()
   else
     return nil
   end
