@@ -26,6 +26,14 @@ snippet let "let binding"
 	$0)
 endsnippet
 
+snippet local "local binding"
+(local $1 $2)
+endsnippet
+
+snippet var "var binding"
+(var $1 $2)
+endsnippet
+
 snippet collect "collect comprehension"
 (collect [k v (pairs ${1:tbl})]
 	${0:k v})

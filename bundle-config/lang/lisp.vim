@@ -49,6 +49,8 @@ let g:sexp_mappings = {
             \ 'sexp_emit_tail_element':         '',
             \ 'sexp_capture_prev_element':      '',
             \ 'sexp_capture_next_element':      '',
+            \ 'sexp_indent':                    '',
+            \ 'sexp_indent_top':                '',
             \ }
 
 " Plug 'hylang/vim-hy'

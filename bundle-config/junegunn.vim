@@ -14,12 +14,16 @@ let g:fzf_buffers_jump = 0
 let g:fzf_history_dir='~/.vim/bundle/fzf.vim/.history'
 let g:fzf_command_prefix = 'FZ'
 let g:fzf_preview_window = 'right:hidden'
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 let $FZF_DEFAULT_OPTS=' --bind="' . join([
             \    'alt-j:down,alt-k:up',
             \    'alt-h:backward-char,alt-l:forward-char',
             \    'alt-a:select-all,alt-d:deselect-all',
             \    'alt-space:jump,`:jump-accept',
-            \    '?:toggle-preview'
+            \    'F4:toggle-preview'
             \], ',') . '" --color="pointer:15"'
 " let g:fzf_layout = { 'up' : '~40%'  }
 Plug '/usr/local/opt/fzf'
