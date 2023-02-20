@@ -3,6 +3,9 @@ local f = require("fzf-lua");
 local actions = require("fzf-lua.actions")
 
 local opts = {
+    fzf_opts = {
+        ['--layout'] = 'default'
+    },
     actions       = {
         files = {
             ['default'] = actions.file_edit_or_qf,

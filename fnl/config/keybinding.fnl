@@ -5,6 +5,7 @@
 
 (defn fzf-lua []
   ; 大量加载fzf-lua后，大约消耗了6ms..
+  ; 命令基本都是基于cwd的，而不是基于当前文件的...
   (local leader "<Leader>/")
   (local f (require "fzf-lua"))
   (require "config.fzf-lua-setup")
@@ -17,6 +18,7 @@
   ; Buffers And Files
   (nmap "b" f.buffers)  ; open buffers
   (nmap "f" f.files)  ; `find` or `fd` on a path
+  (xmap "f" #(f.files {:query (f.utils.get_visual_selection)}))
   (nmap "hf" f.oldfiles)  ; opened files history
   (nmap "q" f.quickfix)  ; quickfix list
   (nmap "Q" f.quickfix_stack)  ; quickfix stack
@@ -32,6 +34,7 @@
   (nmap "8" f.grep_cword); search word under c
   (nmap "*" f.grep_cWORD); search WORD under c
   (xmap "8" f.grep_visual); search visual s
+  (xmap "s" f.grep_visual)
   ; (nmap "s" f.grep_project); search all project lines, no files (fzf.vim's `:Rg`
   ")
   | `grep_curbuf`      | search current buffer lines                |
@@ -58,6 +61,7 @@
   "
   ; GIT                                                              *fzf-lua-git*
   (nmap "gg" f.git_files); `git ls-files`
+  (xmap "gg" #(f.git_files {:query (f.utils.get_visual_selection)})); `git ls-files`
   (nmap "g<Space>" f.git_status); `git status`
   ; action 需要适配一下
   ; (nmap "gC"   f.git_commits); git commit log (project)                   )
