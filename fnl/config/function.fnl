@@ -1,4 +1,6 @@
-(module config.function)
+(module config.function
+  {autoload {a aniseed.core}})
+
 ;;; this module store the function used by user
 
 (defn Bwipeout [bang]

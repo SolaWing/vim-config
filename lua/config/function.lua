@@ -10,6 +10,9 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
+local autoload = (require("aniseed.autoload")).autoload
+local a = autoload("aniseed.core")
+do end (_2amodule_locals_2a)["a"] = a
 local function Bwipeout(bang)
   local bang0 = (bang or "")
   local has_bang_3f = not a["empty?"](bang0)

@@ -30,6 +30,7 @@ local function fzf_lua_bind()
     return vim.keymap.set("x", (leader .. f0), t, {remap = true})
   end
   vim.keymap.set({"n", "x"}, "//", leader, {remap = true})
+  vim.keymap.set({"n"}, "<M-Tab>", (leader .. "b"), {remap = true})
   local function _2_()
     return f("buffers")()
   end
