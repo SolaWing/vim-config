@@ -54,4 +54,49 @@ vim["true?"] = function(v)
     return nil
   end
 end
+_G["hook-require"] = function(name, callback, id)
+  if not _G["my-require-hook"] then
+    local old = require
+    local hooks = {}
+    local function req(name0)
+      local function _7_()
+        local mod = old(name0)
+        do
+          local _8_ = hooks[name0]
+          if (nil ~= _8_) then
+            local hook_table = _8_
+            for id0, callback0 in pairs(hook_table) do
+              callback0(name0, mod, id0)
+            end
+          else
+          end
+        end
+        return mod
+      end
+      return (package.loaded[name0] or _7_())
+    end
+    _G["my-require-hook"] = {hooks = hooks, hooked = true, old = old, req = req}
+    _G.require = req
+  else
+  end
+  local hook_table
+  local function _11_()
+    local d = {}
+    _G["my-require-hook"].hooks[name] = d
+    return d
+  end
+  hook_table = ((_G["my-require-hook"].hooks)[name] or _11_())
+  if id then
+    hook_table[id] = callback
+  else
+    table.insert(hook_table, callback)
+  end
+  local _13_ = package.loaded[name]
+  if (nil ~= _13_) then
+    local mod = _13_
+    return callback(name, mod, id)
+  else
+    return nil
+  end
+end
 return _2amodule_2a

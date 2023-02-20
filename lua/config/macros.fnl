@@ -5,4 +5,4 @@
         (print ,(.. "ignore exist val" (tostring name)))
         ,name)))
 
-{:set-once set-once}
+{: set-once}

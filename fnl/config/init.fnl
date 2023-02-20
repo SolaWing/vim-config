@@ -1,7 +1,8 @@
-(module config.init)
+(module config.init
+  {require {_ :config.util}})
+
 ; TODO: replace with aniseed fun for duplicate ;
 (set _G.fun (require :deps.fun))
-(require :config.util)
 
 (fn colorfgbg []
   (-?> vim.env.COLORFGBG

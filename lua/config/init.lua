@@ -10,8 +10,9 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
+local _ = require("config.util")
+do end (_2amodule_locals_2a)["_"] = _
 _G.fun = require("deps.fun")
-require("config.util")
 local function colorfgbg()
   local _1_ = vim.env.COLORFGBG
   if (nil ~= _1_) then
