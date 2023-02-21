@@ -54,10 +54,10 @@
     ; path_shorten 好像会影响到path的匹配..
   (fn tags-wrap [type]
     #((. fzf-lua type) {:path_shorten true :winopts {:preview {:hidden :hidden}}}))
-  (nmap "T"     (tags-wrap :tags))              ; search project tags
-  (nmap "t"     #(fzf-lua.btags {:ctags_autogen true})) ; search buffer tags
-  (nmap "<C-t>" (tags-wrap :tags_grep))         ; grep project tags
-  (xmap "t"     (tags-wrap :tags_grep_visual))  ; `tags_grep` visual selection
+  (nmap "<C-]>"     (tags-wrap :tags))              ; search project tags
+  (nmap "]" #(fzf-lua.btags {:ctags_autogen true})) ; search buffer tags
+  ; (nmap "<C-]>" (tags-wrap :tags_grep))         ; grep project tags
+  (xmap "<C-]>" (tags-wrap :tags_grep_visual))  ; `tags_grep` visual selection
   "
   | `tags_grep_cword`  | `tags_grep` word under cursor                |
   | `tags_grep_cWORD`  | `tags_grep` WORD under cursor                |

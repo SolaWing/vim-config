@@ -109,13 +109,12 @@ local function fzf_lua_bind()
     end
     return _20_
   end
-  nmap("T", tags_wrap("tags"))
+  nmap("<C-]>", tags_wrap("tags"))
   local function _21_()
     return fzf_lua.btags({ctags_autogen = true})
   end
-  nmap("t", _21_)
-  nmap("<C-t>", tags_wrap("tags_grep"))
-  xmap("t", tags_wrap("tags_grep_visual"))
+  nmap("]", _21_)
+  xmap("<C-]>", tags_wrap("tags_grep_visual"))
   local function _22_()
     return fzf_lua.git_files()
   end
