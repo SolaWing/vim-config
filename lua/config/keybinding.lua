@@ -18,11 +18,11 @@ local function infomation()
 end
 _2amodule_2a["infomation"] = infomation
 local function fzf_lua_bind()
+  require("config.fzf-lua-setup")
   local leader = "<Leader>/"
   local function f(...)
     return (require("fzf-lua"))[...]
   end
-  require("config.fzf-lua-setup")
   local function nmap(f0, t)
     return vim.keymap.set("n", (leader .. f0), t, {remap = true})
   end
@@ -64,11 +64,11 @@ local function fzf_lua_bind()
   end
   nmap("L", _9_)
   local function _10_()
-    return f("lines")()
+    return f("lines")({fzf_opts = {["--layout"] = "reverse-list"}})
   end
   nmap("?", _10_)
   local function _11_()
-    return f("blines")()
+    return f("blines")({fzf_opts = {["--layout"] = "reverse-list"}})
   end
   nmap("/", _11_)
   local function _12_()

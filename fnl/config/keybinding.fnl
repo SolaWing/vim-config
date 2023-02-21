@@ -21,18 +21,18 @@
   (vim.keymap.set [:n] "<M-Tab>" (.. leader "b") {:remap true})
 
   ; Buffers And Files
-  (nmap "b" #((f :buffers)))  ; open buffers
-  (nmap "f" #((f :files)))  ; `find` or `fd` on a path
-  (xmap "f" #((f :files) {:query ((f :utils :get_visual_selection))}))
+  (nmap "b"  #((f :buffers)))  ; open buffers
+  (nmap "f"  #((f :files)))  ; `find` or `fd` on a path
+  (xmap "f"  #((f :files) {:query ((f :utils :get_visual_selection))}))
   (nmap "hf" #((f :oldfiles)))  ; opened files history
-  (nmap "q" #((f :quickfix)))  ; quickfix list
-  (nmap "Q" #((f :quickfix_stack)))  ; quickfix stack
-  (nmap "l" #((f :loclist)))  ; location list
-  (nmap "L" #((f :loclist_stack)))  ; location stack
-  (nmap "?" #((f :lines) {:fzf_opts {:--layout :reverse-list}}))  ; open buffers lines
-  (nmap "/" #((f :blines) {:fzf_opts {:--layout :reverse-list}}))  ; current buffer lines
-  (nmap "t" #((f :tabs)))  ; open tabs
-  (nmap "a" #((f :args)))  ; argument list
+  (nmap "q"  #((f :quickfix)))  ; quickfix list
+  (nmap "Q"  #((f :quickfix_stack)))  ; quickfix stack
+  (nmap "l"  #((f :loclist)))  ; location list
+  (nmap "L"  #((f :loclist_stack)))  ; location stack
+  (nmap "?"  #((f :lines) {:fzf_opts {:--layout :reverse-list}}))  ; open buffers lines
+  (nmap "/"  #((f :blines) {:fzf_opts {:--layout :reverse-list}}))  ; current buffer lines
+  (nmap "t"  #((f :tabs)))  ; open tabs
+  (nmap "a"  #((f :args)))  ; argument list
   ; Search
   (nmap "s" #((f :grep))); search for a pattern with `grep` or `rg`
   (nmap "S" #((f :grep_last))); run search again with the last p
@@ -55,18 +55,18 @@
     ; path_shorten 好像会影响到path的匹配..
   (fn tags-wrap [type]
     #((f type) {:path_shorten true :winopts {:preview {:hidden :hidden}}}))
-  (nmap "T" (tags-wrap :tags)); search project tags
-  (nmap "t" #((f :btags) {:ctags_autogen true})); search buffer tags
-  (nmap "<C-t>" (tags-wrap :tags_grep)); grep project tags
-  (xmap "t" (tags-wrap :tags_grep_visual)); `tags_grep` visual selection
+  (nmap "T"     (tags-wrap :tags))              ; search project tags
+  (nmap "t"     #((f       :btags) {:ctags_autogen true})) ; search buffer tags
+  (nmap "<C-t>" (tags-wrap :tags_grep))         ; grep project tags
+  (xmap "t"     (tags-wrap :tags_grep_visual))  ; `tags_grep` visual selection
   "
   | `tags_grep_cword`  | `tags_grep` word under cursor                |
   | `tags_grep_cWORD`  | `tags_grep` WORD under cursor                |
   | `tags_live_grep`   | live grep project tags                     |
   "
   ; GIT                                                              *fzf-lua-git*
-  (nmap "gg" #((f :git_files))); `git ls-files`
-  (xmap "gg" #((f :git_files) {:query ((f :utils :get_visual_selection))})); `git ls-files`
+  (nmap "gg"       #((f :git_files))); `git ls-files`
+  (xmap "gg"       #((f :git_files) {:query ((f :utils :get_visual_selection))})); `git ls-files`
   (nmap "g<Space>" #((f :git_status))); `git status`
   ; action 需要适配一下
   ; (nmap "gC"   #((f :git_commits)); git commit log (project)                   )
@@ -94,10 +94,8 @@
   | `diagnostics_workspace`      | Workspace Diagnostics            |
   | `lsp_document_diagnostics`   | alias to `diagnostics_document`    |
   | `lsp_workspace_diagnostics`  | alias to `diagnostics_workspace`   |
-
-
-                                                                                
   "
+
   ; MISC                                                            *fzf-lua-misc*
   ; | `resume`           | resume last command/query                  |
   ; | `builtin`          | fzf-lua builtin commands                   |
@@ -109,10 +107,11 @@
   ; | `commands`         | neovim commands                            |
   (nmap "h;" #((f :command_history))); command history
   (nmap "h/" #((f :search_history))); search history
-  (nmap "m" #((f :marks))); :marks
-  (nmap "j" #((f :jumps))); :jumps
-  (nmap "c" #((f :changes))); :changes
+  (nmap "m"  #((f :marks))); :marks
+  (nmap "j"  #((f :jumps))); :jumps
+  (nmap "c"  #((f :changes))); :changes
   (nmap "\"" #((f :registers))); :registers
+
   "
   | `tagstack`         | :tags                                      |
   | `keymaps`          | key mappings                               |
@@ -123,7 +122,7 @@
   ")
 (defn harpoon-bind []
   (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)))
-  (vim.keymap.set :n "<Leader>p<Tab>" #((. (require "harpoon.ui") :toggle_quick_menu))))
+  (vim.keymap.set :n "<Leader>p<Tab>"   #((. (require "harpoon.ui")   :toggle_quick_menu))))
 
 (defn init []
   (infomation)
