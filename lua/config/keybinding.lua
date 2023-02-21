@@ -10,6 +10,9 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
+local autoload = (require("aniseed.autoload")).autoload
+local fzf_lua = autoload("fzf-lua")
+do end (_2amodule_locals_2a)["fzf-lua"] = fzf_lua
 local function infomation()
   local function _1_()
     return print((require("config.function")).CursorContext())
@@ -20,144 +23,141 @@ _2amodule_2a["infomation"] = infomation
 local function fzf_lua_bind()
   require("config.fzf-lua-setup")
   local leader = "<Leader>/"
-  local function f(...)
-    return (require("fzf-lua"))[...]
+  local function nmap(f, t)
+    return vim.keymap.set("n", (leader .. f), t, {remap = true})
   end
-  local function nmap(f0, t)
-    return vim.keymap.set("n", (leader .. f0), t, {remap = true})
-  end
-  local function xmap(f0, t)
-    return vim.keymap.set("x", (leader .. f0), t, {remap = true})
+  local function xmap(f, t)
+    return vim.keymap.set("x", (leader .. f), t, {remap = true})
   end
   vim.keymap.set({"n", "x"}, "//", leader, {remap = true})
   vim.keymap.set({"n"}, "<M-Tab>", (leader .. "b"), {remap = true})
   local function _2_()
-    return f("buffers")()
+    return fzf_lua.buffers()
   end
   nmap("b", _2_)
   local function _3_()
-    return f("files")()
+    return fzf_lua.files()
   end
   nmap("f", _3_)
   local function _4_()
-    return f("files")({query = f("utils", "get_visual_selection")()})
+    return fzf_lua.files({query = fzf_lua.utils.get_visual_selection()})
   end
   xmap("f", _4_)
   local function _5_()
-    return f("oldfiles")()
+    return fzf_lua.oldfiles()
   end
   nmap("hf", _5_)
   local function _6_()
-    return f("quickfix")()
+    return fzf_lua.quickfix()
   end
   nmap("q", _6_)
   local function _7_()
-    return f("quickfix_stack")()
+    return fzf_lua.quickfix_stack()
   end
   nmap("Q", _7_)
   local function _8_()
-    return f("loclist")()
+    return fzf_lua.loclist()
   end
   nmap("l", _8_)
   local function _9_()
-    return f("loclist_stack")()
+    return fzf_lua.loclist_stack()
   end
   nmap("L", _9_)
   local function _10_()
-    return f("lines")({fzf_opts = {["--layout"] = "reverse-list"}})
+    return fzf_lua.lines({fzf_opts = {["--layout"] = "reverse-list"}})
   end
   nmap("?", _10_)
   local function _11_()
-    return f("blines")({fzf_opts = {["--layout"] = "reverse-list"}})
+    return fzf_lua.blines({fzf_opts = {["--layout"] = "reverse-list"}})
   end
   nmap("/", _11_)
   local function _12_()
-    return f("tabs")()
+    return fzf_lua.tabs()
   end
   nmap("t", _12_)
   local function _13_()
-    return f("args")()
+    return fzf_lua.args()
   end
   nmap("a", _13_)
   local function _14_()
-    return f("grep")()
+    return fzf_lua.grep()
   end
   nmap("s", _14_)
   local function _15_()
-    return f("grep_last")()
+    return fzf_lua.grep_last()
   end
   nmap("S", _15_)
   local function _16_()
-    return f("grep_cword")()
+    return fzf_lua.grep_cword()
   end
   nmap("8", _16_)
   local function _17_()
-    return f("grep_cWORD")()
+    return fzf_lua.grep_cWORD()
   end
   nmap("*", _17_)
   local function _18_()
-    return f("grep_visual")()
+    return fzf_lua.grep_visual()
   end
   xmap("8", _18_)
   local function _19_()
-    return f("grep_visual")()
+    return fzf_lua.grep_visual()
   end
   xmap("s", _19_)
   local function tags_wrap(type)
     local function _20_()
-      return f(type)({path_shorten = true, winopts = {preview = {hidden = "hidden"}}})
+      return fzf_lua[type]({path_shorten = true, winopts = {preview = {hidden = "hidden"}}})
     end
     return _20_
   end
   nmap("T", tags_wrap("tags"))
   local function _21_()
-    return f("btags")({ctags_autogen = true})
+    return fzf_lua.btags({ctags_autogen = true})
   end
   nmap("t", _21_)
   nmap("<C-t>", tags_wrap("tags_grep"))
   xmap("t", tags_wrap("tags_grep_visual"))
   local function _22_()
-    return f("git_files")()
+    return fzf_lua.git_files()
   end
   nmap("gg", _22_)
   local function _23_()
-    return f("git_files")({query = f("utils", "get_visual_selection")()})
+    return fzf_lua.git_files({query = fzf_lua.utils.get_visual_selection()})
   end
   xmap("gg", _23_)
   local function _24_()
-    return f("git_status")()
+    return fzf_lua.git_status()
   end
   nmap("g<Space>", _24_)
   local function _25_()
-    return f("git_branches")()
+    return fzf_lua.git_branches()
   end
   nmap("gb", _25_)
   local function _26_()
-    return f("git_stash")()
+    return fzf_lua.git_stash()
   end
   nmap("gz", _26_)
   local function _27_()
-    return f("command_history")()
+    return fzf_lua.command_history()
   end
   nmap("h;", _27_)
   local function _28_()
-    return f("search_history")()
+    return fzf_lua.search_history()
   end
   nmap("h/", _28_)
   local function _29_()
-    return f("marks")()
+    return fzf_lua.marks()
   end
   nmap("m", _29_)
   local function _30_()
-    return f("jumps")()
+    return fzf_lua.jumps()
   end
   nmap("j", _30_)
   local function _31_()
-    return f("changes")()
+    return fzf_lua.changes()
   end
   nmap("c", _31_)
   local function _32_()
-    return f("registers")()
+    return fzf_lua.registers()
   end
   nmap("\"", _32_)
   return "\n  | `tagstack`         | :tags                                      |\n  | `keymaps`          | key mappings                               |\n  | `filetypes`        | filetypes                                  |\n  | `menus`            | menus                                      |\n  | `spell_suggest`    | spelling suggestions                       |\n  | `packadd`          | :packadd <package>                         |T)\n  "

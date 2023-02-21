@@ -1,4 +1,5 @@
-(module config.keybinding)
+(module config.keybinding
+  {autoload {: fzf-lua}})
 
 (defn infomation []
   (vim.keymap.set :n ",." #(print ((. (require "config.function") :CursorContext)))))
@@ -10,8 +11,6 @@
   (require "config.fzf-lua-setup")
 
   (local leader "<Leader>/")
-  (fn f [...]
-    (. (require :fzf-lua) ...))
 
   (fn nmap [f t] (vim.keymap.set :n (.. leader f) t {:remap true}))
   (fn xmap [f t] (vim.keymap.set :x (.. leader f) t {:remap true}))
@@ -21,26 +20,26 @@
   (vim.keymap.set [:n] "<M-Tab>" (.. leader "b") {:remap true})
 
   ; Buffers And Files
-  (nmap "b"  #((f :buffers)))  ; open buffers
-  (nmap "f"  #((f :files)))  ; `find` or `fd` on a path
-  (xmap "f"  #((f :files) {:query ((f :utils :get_visual_selection))}))
-  (nmap "hf" #((f :oldfiles)))  ; opened files history
-  (nmap "q"  #((f :quickfix)))  ; quickfix list
-  (nmap "Q"  #((f :quickfix_stack)))  ; quickfix stack
-  (nmap "l"  #((f :loclist)))  ; location list
-  (nmap "L"  #((f :loclist_stack)))  ; location stack
-  (nmap "?"  #((f :lines) {:fzf_opts {:--layout :reverse-list}}))  ; open buffers lines
-  (nmap "/"  #((f :blines) {:fzf_opts {:--layout :reverse-list}}))  ; current buffer lines
-  (nmap "t"  #((f :tabs)))  ; open tabs
-  (nmap "a"  #((f :args)))  ; argument list
+  (nmap "b"  #(fzf-lua.buffers))  ; open buffers
+  (nmap "f"  #(fzf-lua.files))  ; `find` or `fd` on a path
+  (xmap "f"  #(fzf-lua.files {:query (fzf-lua.utils.get_visual_selection)}))
+  (nmap "hf" #(fzf-lua.oldfiles))  ; opened files history
+  (nmap "q"  #(fzf-lua.quickfix))  ; quickfix list
+  (nmap "Q"  #(fzf-lua.quickfix_stack))  ; quickfix stack
+  (nmap "l"  #(fzf-lua.loclist))  ; location list
+  (nmap "L"  #(fzf-lua.loclist_stack))  ; location stack
+  (nmap "?"  #(fzf-lua.lines {:fzf_opts {:--layout :reverse-list}}))  ; open buffers lines
+  (nmap "/"  #(fzf-lua.blines {:fzf_opts {:--layout :reverse-list}}))  ; current buffer lines
+  (nmap "t"  #(fzf-lua.tabs))  ; open tabs
+  (nmap "a"  #(fzf-lua.args))  ; argument list
   ; Search
-  (nmap "s" #((f :grep))); search for a pattern with `grep` or `rg`
-  (nmap "S" #((f :grep_last))); run search again with the last p
-  (nmap "8" #((f :grep_cword))); search word under c
-  (nmap "*" #((f :grep_cWORD))); search WORD under c
-  (xmap "8" #((f :grep_visual))); search visual s
-  (xmap "s" #((f :grep_visual)))
-  ; (nmap "s" #((f :grep_project)); search all project lines, no files (fz#((f :vim's `:Rg`
+  (nmap "s" #(fzf-lua.grep)); search for a pattern with `grep` or `rg`
+  (nmap "S" #(fzf-lua.grep_last)); run search again with the last p
+  (nmap "8" #(fzf-lua.grep_cword)); search word under c
+  (nmap "*" #(fzf-lua.grep_cWORD)); search WORD under c
+  (xmap "8" #(fzf-lua.grep_visual)); search visual s
+  (xmap "s" #(fzf-lua.grep_visual))
+  ; (nmap "s" #(fzf-lua.grep_project) search all project lines, no files (fz#(fm's `:Rg`
   "))
   | `grep_curbuf`      | search current buffer lines                |
   | `lgrep_curbuf`     | live grep current buffer                   |
@@ -54,9 +53,9 @@
     ; 需要用下面的参数优化体验
     ; path_shorten 好像会影响到path的匹配..
   (fn tags-wrap [type]
-    #((f type) {:path_shorten true :winopts {:preview {:hidden :hidden}}}))
+    #((. fzf-lua type) {:path_shorten true :winopts {:preview {:hidden :hidden}}}))
   (nmap "T"     (tags-wrap :tags))              ; search project tags
-  (nmap "t"     #((f       :btags) {:ctags_autogen true})) ; search buffer tags
+  (nmap "t"     #(fzf-lua.btags {:ctags_autogen true})) ; search buffer tags
   (nmap "<C-t>" (tags-wrap :tags_grep))         ; grep project tags
   (xmap "t"     (tags-wrap :tags_grep_visual))  ; `tags_grep` visual selection
   "
@@ -65,14 +64,14 @@
   | `tags_live_grep`   | live grep project tags                     |
   "
   ; GIT                                                              *fzf-lua-git*
-  (nmap "gg"       #((f :git_files))); `git ls-files`
-  (xmap "gg"       #((f :git_files) {:query ((f :utils :get_visual_selection))})); `git ls-files`
-  (nmap "g<Space>" #((f :git_status))); `git status`
+  (nmap "gg"       #(fzf-lua.git_files)); `git ls-files`
+  (xmap "gg"       #(fzf-lua.git_files {:query (fzf-lua.utils.get_visual_selection)})); `git ls-files`
+  (nmap "g<Space>" #(fzf-lua.git_status)); `git status`
   ; action 需要适配一下
-  ; (nmap "gC"   #((f :git_commits)); git commit log (project)                   )
-  ; (nmap "gc"   #((f :git_bcommits)); git commit log (buffer)                    )
-  (nmap "gb" #((f :git_branches))); git branches
-  (nmap "gz" #((f :git_stash))); git stash
+  ; (nmap "gC"   #(fzf-lua.git_commits git commit log (project)                   )
+  ; (nmap "gc"   #(fzf-lua.git_bcommits git commit log (buffer)                    )
+  (nmap "gb" #(fzf-lua.git_branches)); git branches
+  (nmap "gz" #(fzf-lua.git_stash)); git stash
 
   "
   LSP/DIAGNOSTICS                                      *fzf-lua-lsp/diagnostics*
@@ -105,12 +104,12 @@
   ; | `colorschemes`     | color schemes                              |
   ; | `highlights`       | highlight groups                           |
   ; | `commands`         | neovim commands                            |
-  (nmap "h;" #((f :command_history))); command history
-  (nmap "h/" #((f :search_history))); search history
-  (nmap "m"  #((f :marks))); :marks
-  (nmap "j"  #((f :jumps))); :jumps
-  (nmap "c"  #((f :changes))); :changes
-  (nmap "\"" #((f :registers))); :registers
+  (nmap "h;" #(fzf-lua.command_history)); command history
+  (nmap "h/" #(fzf-lua.search_history)); search history
+  (nmap "m"  #(fzf-lua.marks)); :marks
+  (nmap "j"  #(fzf-lua.jumps)); :jumps
+  (nmap "c"  #(fzf-lua.changes)); :changes
+  (nmap "\"" #(fzf-lua.registers)); :registers
 
   "
   | `tagstack`         | :tags                                      |
