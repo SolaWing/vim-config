@@ -39,7 +39,7 @@
           hooks {}]
       (fn req [name]
         (or (. package.loaded name) ; avoid re-enter
-            (do (local mod (old name))
+            (let [mod (old name)]
               (match (. hooks name)
                 hook-table (each [id callback (pairs hook-table)]
                              (callback name mod id)))

@@ -7,10 +7,11 @@
   ; 大量加载fzf-lua后，大约消耗了6ms..
   ; 命令基本都是基于cwd的，而不是基于当前文件的...
   ; 虽然默认体验不够好，但是builtin的preview是杀手级特性.. fzf.vim还做不到..
+  (require "config.fzf-lua-setup")
+
   (local leader "<Leader>/")
   (fn f [...]
     (. (require :fzf-lua) ...))
-  (require "config.fzf-lua-setup")
 
   (fn nmap [f t] (vim.keymap.set :n (.. leader f) t {:remap true}))
   (fn xmap [f t] (vim.keymap.set :x (.. leader f) t {:remap true}))
@@ -28,8 +29,8 @@
   (nmap "Q" #((f :quickfix_stack)))  ; quickfix stack
   (nmap "l" #((f :loclist)))  ; location list
   (nmap "L" #((f :loclist_stack)))  ; location stack
-  (nmap "?" #((f :lines)))  ; open buffers lines
-  (nmap "/" #((f :blines)))  ; current buffer lines
+  (nmap "?" #((f :lines) {:fzf_opts {:--layout :reverse-list}}))  ; open buffers lines
+  (nmap "/" #((f :blines) {:fzf_opts {:--layout :reverse-list}}))  ; current buffer lines
   (nmap "t" #((f :tabs)))  ; open tabs
   (nmap "a" #((f :args)))  ; argument list
   ; Search
