@@ -22,18 +22,23 @@
   (vim.cmd "autocmd mine User plug#end ++once luafile ~/.vim/bundle-config/treesitter.lua")
   
   (set vim.g.no_ruby_maps 1) ; ruby map depend on syntax. no work when treesitter enable
-  (set vim.g.ruby_no_expensive 1) ; ruby default synatx make it very slow, though treesitter should disable it
-  ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
-  (Plug "ThePrimeagen/harpoon"))
+  (set vim.g.ruby_no_expensive 1)) ; ruby default synatx make it very slow, though treesitter should disable it
+
+(defn function []
+  ; plug相关辅助函数
+  (vim.cmd "function! HasPlug(key)
+           return has_key(g:plugs, a:key)
+           endfunction")
+  (fn vim.plug? [name]
+    "get big nest may have convert issue.., so define it here"
+    (= 1 (vim.fn.HasPlug name))))
 
 (defn init []
   ; 迁移耗时好像没有明显变化。是因为主要耗时在vim调用上吗?
 
-  (vim.cmd "function! HasPlug(key)
-    return has_key(g:plugs, a:key)
-    endfunction")
-  (fn vim.plug? [name]
-    "get big nest may have convert issue.., so define it here"
-    (= 1 (vim.fn.HasPlug name)))
+  (function)
+  (nvim5-common)
 
-  (nvim5-common))
+  ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
+  (Plug "ThePrimeagen/harpoon")
+  (Plug "ThePrimeagen/refactoring.nvim"))

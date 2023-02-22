@@ -123,7 +123,11 @@
   (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)))
   (vim.keymap.set :n "<Leader>p<Tab>"   #((. (require "harpoon.ui")   :toggle_quick_menu))))
 
+(defn refactoring-bind []
+  (vim.keymap.set :x "<Leader>xr" #((. (require "refactoring") :select_refactor))))
+
 (defn init []
   (infomation)
   (when (vim.plug? "fzf-lua") (fzf-lua-bind))
-  (when (vim.plug? "harpoon") (harpoon-bind)))
+  (when (vim.plug? "harpoon") (harpoon-bind))
+  (when (vim.plug? "refactoring.nvim") (refactoring-bind)))

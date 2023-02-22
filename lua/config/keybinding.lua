@@ -173,6 +173,13 @@ local function harpoon_bind()
   return vim.keymap.set("n", "<Leader>p<Tab>", _34_)
 end
 _2amodule_2a["harpoon-bind"] = harpoon_bind
+local function refactoring_bind()
+  local function _35_()
+    return (require("refactoring")).select_refactor()
+  end
+  return vim.keymap.set("x", "<Leader>xr", _35_)
+end
+_2amodule_2a["refactoring-bind"] = refactoring_bind
 local function init()
   infomation()
   if vim["plug?"]("fzf-lua") then
@@ -180,7 +187,11 @@ local function init()
   else
   end
   if vim["plug?"]("harpoon") then
-    return harpoon_bind()
+    harpoon_bind()
+  else
+  end
+  if vim["plug?"]("refactoring.nvim") then
+    return refactoring_bind()
   else
     return nil
   end
