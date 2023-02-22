@@ -9,7 +9,8 @@ xmap gs <Plug>VgSurround
 "}}}
 
 " tpope/vim-unimpaired"{{{
-Plug 'tpope/vim-unimpaired' " custom
+Plug 'tpope/vim-unimpaired', {'on': []} " custom
+call timer_start(1000, {-> plug#load('vim-unimpaired') })
 nmap co yo
 nnoremap yoD :<C-R>=&diff ? 'windo diffoff' : 'windo diffthis'<CR><CR>
 nnoremap [oD <Cmd>windo diffthis<CR>

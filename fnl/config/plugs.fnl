@@ -1,13 +1,17 @@
 (module config.plugs)
 
-(local Plug (. vim.fn :plug#))
+(def- Plug (. vim.fn :plug#))
 
 (defn- nvim5-common []
   ; nvim5 common plug
   (Plug "nvim-lua/plenary.nvim") ; this seems as a basic lib by many lua plugin; so put it here;
   
   (Plug "nvim-treesitter/nvim-treesitter" {:do ":TSUpdate"})  ; We recommend updating the parsers on update
-  (Plug "andymass/vim-matchup") ; nvim-treesitter break % pair by syntax. use replacement
+  (Plug "andymass/vim-matchup" {:on []}) ; nvim-treesitter break % pair by syntax. use replacement
+  ; disable original match, this delay may fast 5ms
+  (set vim.g.loaded_matchparen 1)
+  (set vim.g.loaded_matchit 1)
+  (vim.defer_fn #(vim.fn.plug#load "vim-matchup") 1000)
 
   (set vim.g.matchup_matchparen_deferred 1)
   (set vim.g.matchup_matchparen_deferred_show_delay 200)
@@ -41,4 +45,5 @@
 
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
-  (Plug "ThePrimeagen/refactoring.nvim"))
+  (Plug "ThePrimeagen/refactoring.nvim")
+  (Plug "ggandor/leap.nvim"))

@@ -11,10 +11,17 @@ do
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
 local Plug = vim.fn["plug#"]
+_2amodule_locals_2a["Plug"] = Plug
 local function nvim5_common()
   Plug("nvim-lua/plenary.nvim")
   Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
-  Plug("andymass/vim-matchup")
+  Plug("andymass/vim-matchup", {on = {}})
+  vim.g.loaded_matchparen = 1
+  vim.g.loaded_matchit = 1
+  local function _1_()
+    return vim.fn["plug#load"]("vim-matchup")
+  end
+  vim.defer_fn(_1_, 1000)
   vim.g.matchup_matchparen_deferred = 1
   vim.g.matchup_matchparen_deferred_show_delay = 200
   Plug("nvim-treesitter/nvim-treesitter-textobjects")
@@ -37,7 +44,8 @@ local function init()
   _function()
   nvim5_common()
   Plug("ThePrimeagen/harpoon")
-  return Plug("ThePrimeagen/refactoring.nvim")
+  Plug("ThePrimeagen/refactoring.nvim")
+  return Plug("ggandor/leap.nvim")
 end
 _2amodule_2a["init"] = init
 return _2amodule_2a
