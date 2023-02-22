@@ -127,4 +127,3 @@
   (infomation)
   (when (vim.plug? "fzf-lua") (fzf-lua-bind))
   (when (vim.plug? "harpoon") (harpoon-bind)))
-
