@@ -313,15 +313,44 @@ rescue ${1:TYPE} => ${2:e}
 end
 endsnippet
 
-snippet help_desc "generate help desc" b
-if ARGV.empty? or ARGV.any?(&['-h', '--help', 'help'].method(:include?))
-	print <<~EOF
-	  usage:
-	    #{$0} swiftfile[,swiftfile]*
-	    #{$0} -f swiftfilelist
-	EOF
-	exit 0
+snippet main "main script template" b
+# frozen_string_literal: true
+
+def print_usage(code)
+	$stdout.puts <<~USAGE
+		#{\$0}
+	USAGE
+	exit code
 end
+
+def gem_deps
+	# compatible with system ruby
+	unless File.writable?(Gem.dir) or ENV['GEM_HOME']
+		ENV['GEM_HOME'] ||= File.expand_path(Gem.user_dir)
+		unless ENV['SDKROOT']
+			sdk_root = '/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk'
+			ENV['SDKROOT'] = sdk_root if Dir.exist?(sdk_root)
+		end
+		Gem.clear_paths
+		# puts 'use user path'
+	end
+
+	require 'bundler/inline'
+	unless File.writable?(Gem.dir)
+		require 'bundler'
+		Bundler.send :configure_gem_home, Gem.user_dir
+	end
+	gemfile do
+		source 'https://rubygems.org'
+	end
+end
+
+def main(argv)
+	print_usage(0) if %w[-h --help].any? { |w| argv.include? w }
+	gem_deps
+end
+
+main ARGV
 endsnippet
 
 snippet monkey_patch "a monkey_patch method template" b
