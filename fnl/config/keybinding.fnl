@@ -29,7 +29,9 @@
   (nmap "l"  #(fzf-lua.loclist))  ; location list
   (nmap "L"  #(fzf-lua.loclist_stack))  ; location stack
   (nmap "?"  #(fzf-lua.lines {:fzf_opts {:--layout :reverse-list}}))  ; open buffers lines
+  (xmap "?"  #(fzf-lua.lines {:fzf_opts {:--layout :reverse-list} :query (fzf-lua.utils.get_visual_selection)}))  ; open buffers lines
   (nmap "/"  #(fzf-lua.blines {:fzf_opts {:--layout :reverse-list}}))  ; current buffer lines
+  (xmap "/"  #(fzf-lua.blines {:fzf_opts {:--layout :reverse-list} :query (fzf-lua.utils.get_visual_selection)}))  ; current buffer lines
   (nmap "t"  #(fzf-lua.tabs))  ; open tabs
   (nmap "a"  #(fzf-lua.args))  ; argument list
   ; Search
@@ -119,6 +121,7 @@
   | `spell_suggest`    | spelling suggestions                       |
   | `packadd`          | :packadd <package>                         |T)
   ")
+
 (defn harpoon-bind []
   (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)))
   (vim.keymap.set :n "<Leader>p<Tab>"   #((. (require "harpoon.ui")   :toggle_quick_menu))))

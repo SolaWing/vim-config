@@ -47,3 +47,5 @@
   (Plug "ThePrimeagen/harpoon")
   (Plug "ThePrimeagen/refactoring.nvim")
   (Plug "ggandor/leap.nvim"))
+  ; 生成方法文档的，先标记上，暂时用不上
+  ; (Plug :danymat/neogen))

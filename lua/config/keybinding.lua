@@ -68,116 +68,124 @@ local function fzf_lua_bind()
   end
   nmap("?", _10_)
   local function _11_()
+    return fzf_lua.lines({fzf_opts = {["--layout"] = "reverse-list"}, query = fzf_lua.utils.get_visual_selection()})
+  end
+  xmap("?", _11_)
+  local function _12_()
     return fzf_lua.blines({fzf_opts = {["--layout"] = "reverse-list"}})
   end
-  nmap("/", _11_)
-  local function _12_()
+  nmap("/", _12_)
+  local function _13_()
+    return fzf_lua.blines({fzf_opts = {["--layout"] = "reverse-list"}, query = fzf_lua.utils.get_visual_selection()})
+  end
+  xmap("/", _13_)
+  local function _14_()
     return fzf_lua.tabs()
   end
-  nmap("t", _12_)
-  local function _13_()
+  nmap("t", _14_)
+  local function _15_()
     return fzf_lua.args()
   end
-  nmap("a", _13_)
-  local function _14_()
+  nmap("a", _15_)
+  local function _16_()
     return fzf_lua.grep()
   end
-  nmap("s", _14_)
-  local function _15_()
+  nmap("s", _16_)
+  local function _17_()
     return fzf_lua.grep_last()
   end
-  nmap("S", _15_)
-  local function _16_()
+  nmap("S", _17_)
+  local function _18_()
     return fzf_lua.grep_cword()
   end
-  nmap("8", _16_)
-  local function _17_()
+  nmap("8", _18_)
+  local function _19_()
     return fzf_lua.grep_cWORD()
   end
-  nmap("*", _17_)
-  local function _18_()
+  nmap("*", _19_)
+  local function _20_()
     return fzf_lua.grep_visual()
   end
-  xmap("8", _18_)
-  local function _19_()
+  xmap("8", _20_)
+  local function _21_()
     return fzf_lua.grep_visual()
   end
-  xmap("s", _19_)
+  xmap("s", _21_)
   local function tags_wrap(type)
-    local function _20_()
+    local function _22_()
       return fzf_lua[type]({path_shorten = true, winopts = {preview = {hidden = "hidden"}}})
     end
-    return _20_
+    return _22_
   end
   nmap("<C-]>", tags_wrap("tags"))
-  local function _21_()
+  local function _23_()
     return fzf_lua.btags({ctags_autogen = true})
   end
-  nmap("]", _21_)
+  nmap("]", _23_)
   xmap("<C-]>", tags_wrap("tags_grep_visual"))
-  local function _22_()
+  local function _24_()
     return fzf_lua.git_files()
   end
-  nmap("gg", _22_)
-  local function _23_()
+  nmap("gg", _24_)
+  local function _25_()
     return fzf_lua.git_files({query = fzf_lua.utils.get_visual_selection()})
   end
-  xmap("gg", _23_)
-  local function _24_()
+  xmap("gg", _25_)
+  local function _26_()
     return fzf_lua.git_status()
   end
-  nmap("g<Space>", _24_)
-  local function _25_()
+  nmap("g<Space>", _26_)
+  local function _27_()
     return fzf_lua.git_branches()
   end
-  nmap("gb", _25_)
-  local function _26_()
+  nmap("gb", _27_)
+  local function _28_()
     return fzf_lua.git_stash()
   end
-  nmap("gz", _26_)
-  local function _27_()
+  nmap("gz", _28_)
+  local function _29_()
     return fzf_lua.command_history()
   end
-  nmap("h;", _27_)
-  local function _28_()
+  nmap("h;", _29_)
+  local function _30_()
     return fzf_lua.search_history()
   end
-  nmap("h/", _28_)
-  local function _29_()
+  nmap("h/", _30_)
+  local function _31_()
     return fzf_lua.marks()
   end
-  nmap("m", _29_)
-  local function _30_()
+  nmap("m", _31_)
+  local function _32_()
     return fzf_lua.jumps()
   end
-  nmap("j", _30_)
-  local function _31_()
+  nmap("j", _32_)
+  local function _33_()
     return fzf_lua.changes()
   end
-  nmap("c", _31_)
-  local function _32_()
+  nmap("c", _33_)
+  local function _34_()
     return fzf_lua.registers()
   end
-  nmap("\"", _32_)
+  nmap("\"", _34_)
   return "\n  | `tagstack`         | :tags                                      |\n  | `keymaps`          | key mappings                               |\n  | `filetypes`        | filetypes                                  |\n  | `menus`            | menus                                      |\n  | `spell_suggest`    | spelling suggestions                       |\n  | `packadd`          | :packadd <package>                         |T)\n  "
 end
 _2amodule_2a["fzf-lua-bind"] = fzf_lua_bind
 local function harpoon_bind()
-  local function _33_()
+  local function _35_()
     return (require("harpoon.mark")).add_file()
   end
-  vim.keymap.set("n", "<Leader>p<Space>", _33_)
-  local function _34_()
+  vim.keymap.set("n", "<Leader>p<Space>", _35_)
+  local function _36_()
     return (require("harpoon.ui")).toggle_quick_menu()
   end
-  return vim.keymap.set("n", "<Leader>p<Tab>", _34_)
+  return vim.keymap.set("n", "<Leader>p<Tab>", _36_)
 end
 _2amodule_2a["harpoon-bind"] = harpoon_bind
 local function refactoring_bind()
-  local function _35_()
+  local function _37_()
     return (require("refactoring")).select_refactor()
   end
-  return vim.keymap.set({"x", "n"}, "<Leader>xr", _35_)
+  return vim.keymap.set({"x", "n"}, "<Leader>xr", _37_)
 end
 _2amodule_2a["refactoring-bind"] = refactoring_bind
 local function leap_bind()
