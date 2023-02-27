@@ -1,8 +1,8 @@
 (module config.plugs)
 
-(def- Plug (. vim.fn :plug#))
+(def Plug (. vim.fn :plug#))
 
-(defn- nvim5-common []
+(defn nvim5-common []
   ; nvim5 common plug
   (Plug "nvim-lua/plenary.nvim") ; this seems as a basic lib by many lua plugin; so put it here;
   

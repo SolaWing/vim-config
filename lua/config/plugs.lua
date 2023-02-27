@@ -11,7 +11,7 @@ do
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
 local Plug = vim.fn["plug#"]
-_2amodule_locals_2a["Plug"] = Plug
+_2amodule_2a["Plug"] = Plug
 local function nvim5_common()
   Plug("nvim-lua/plenary.nvim")
   Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
@@ -31,7 +31,7 @@ local function nvim5_common()
   vim.g.ruby_no_expensive = 1
   return nil
 end
-_2amodule_locals_2a["nvim5-common"] = nvim5_common
+_2amodule_2a["nvim5-common"] = nvim5_common
 local function _function()
   vim.cmd("function! HasPlug(key)\n           return has_key(g:plugs, a:key)\n           endfunction")
   vim["plug?"] = function(name)

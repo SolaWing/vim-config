@@ -1,4 +1,5 @@
-(module config.vscode.init)
+(module config.vscode.init
+  {require {{: Plug : function} :config.plugs}})
 
 (defn- settings []
   (vim.cmd "augroup mine | augroup end") ; create mine group so can be used directly
@@ -57,9 +58,9 @@
   "
 
   (vim.fn.plug#begin "~/.vim/bundle")
-  (local Plug (. vim.fn :plug#))
 
   (vim.cmd.source "~/.vim/bundle-config/easymotion.vim")
+  (Plug "ggandor/leap.nvim")
   (vim.cmd.source "~/.vim/bundle-config/sneak.vim")
   (vim.cmd.source "~/.vim/bundle-config/tpope.vim")
   (Plug "tpope/vim-fugitive" {:on []}) ; disabled for not working
@@ -103,6 +104,8 @@
   (print "neovim in vscode" vim.o.runtimepath)
 
   (require :config.vscode.bind)
+
+  (function)
   (settings)
   (plugins)
   (keybinding))

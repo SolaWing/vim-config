@@ -137,4 +137,4 @@
   (when (vim.plug? "fzf-lua") (fzf-lua-bind))
   (when (vim.plug? "harpoon") (harpoon-bind))
   (when (vim.plug? "refactoring.nvim") (refactoring-bind))
-  (leap-bind))
+  (when (vim.plug? "leap.nvim") (leap-bind)))

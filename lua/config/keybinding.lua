@@ -206,7 +206,11 @@ local function init()
     refactoring_bind()
   else
   end
-  return leap_bind()
+  if vim["plug?"]("leap.nvim") then
+    return leap_bind()
+  else
+    return nil
+  end
 end
 _2amodule_2a["init"] = init
 return _2amodule_2a
