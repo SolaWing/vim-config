@@ -20,10 +20,8 @@ local function Bwipeout(bang)
   do
     local tbl_14_auto = {}
     for k, v in ipairs(vim.api.nvim_list_wins()) do
-      local _1_, _2_ = vim.api.nvim_win_get_buf(v), true
-      if ((nil ~= _1_) and (nil ~= _2_)) then
-        local k_15_auto = _1_
-        local v_16_auto = _2_
+      local k_15_auto, v_16_auto = vim.api.nvim_win_get_buf(v), true
+      if ((k_15_auto ~= nil) and (v_16_auto ~= nil)) then
         tbl_14_auto[k_15_auto] = v_16_auto
       else
       end
@@ -50,13 +48,13 @@ local function Bwipeout(bang)
     else
     end
   end
-  local _7_
+  local _5_
   if has_bang_3f then
-    _7_ = "include"
+    _5_ = "include"
   else
-    _7_ = "left"
+    _5_ = "left"
   end
-  return print(("wipeout %d buffers, %s %d modified"):format(c, _7_, m))
+  return print(("wipeout %d buffers, %s %d modified"):format(c, _5_, m))
 end
 _2amodule_2a["Bwipeout"] = Bwipeout
 local function CursorContext()

@@ -50,7 +50,8 @@
 
   ;; windows, tabs, buffers
   (remap-key "<C-w>o" "<Cmd>Only<CR>")
-  (remap-key "<Leader>to" "<Cmd>Tabonly<CR>"))
+  (remap-key "<Leader>to" "<Cmd>Tabonly<CR>")
+  (remap-key "<Leader>tc" "<Cmd>Tabclose<CR>"))
 
 (defn- plugins []
   "NOTE: notworking function:

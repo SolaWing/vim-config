@@ -89,7 +89,8 @@ local function keybinding()
   end
   remap_key("<Leader>ek", _15_)
   remap_key("<C-w>o", "<Cmd>Only<CR>")
-  return remap_key("<Leader>to", "<Cmd>Tabonly<CR>")
+  remap_key("<Leader>to", "<Cmd>Tabonly<CR>")
+  return remap_key("<Leader>tc", "<Cmd>Tabclose<CR>")
 end
 _2amodule_locals_2a["keybinding"] = keybinding
 local function plugins()

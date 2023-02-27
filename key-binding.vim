@@ -119,6 +119,11 @@ nmap <Leader><F5> <S-F5>
 tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 "}}}
+""" args "{{{
+nnoremap <Leader>aa :<C-u><C-R>=v:count?v:count:""<CR>argadd<CR>
+nnoremap <Leader>ad :<C-u><C-R>=v:count?v:count:""<CR>argdelete<CR>
+
+" }}}
 """ buffer"{{{
 nnoremap <Space>bw <Cmd>confirm w<CR>
 nnoremap <Space>bx <Cmd>confirm x<CR>
