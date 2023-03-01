@@ -20,7 +20,7 @@
   (vim.keymap.set [:n] "<M-Tab>" (.. leader "b") {:remap true})
 
   ; Buffers And Files
-  (nmap "b"  #(fzf-lua.buffers))  ; open buffers
+  (nmap "b"  #(fzf-lua.buffers {:winopts {:preview {:layout :vertical}}}))  ; open buffers
   (nmap "f"  #(fzf-lua.files))  ; `find` or `fd` on a path
   (xmap "f"  #(fzf-lua.files {:query (fzf-lua.utils.get_visual_selection)}))
   (nmap "hf" #(fzf-lua.oldfiles))  ; opened files history

@@ -6,6 +6,17 @@ local function setup()
     local actions = require("fzf-lua.actions")
 
     local opts = {
+        winopts = {
+            -- Only valid when using a float window
+            -- (i.e. when 'split' is not defined, default)
+            height           = 0.95,            -- window height
+            width            = 0.95,            -- window width
+            row              = 0.2,            -- window row position (0=top, 1=bottom)
+            col              = 0.5,            -- window col position (0=left, 1=right)
+            preview = {
+                vertical = 'up:50%'
+            }
+        },
         fzf_opts = {
             ['--layout'] = 'default'
         },

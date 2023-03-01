@@ -13,7 +13,7 @@ let g:fzf_buffers_jump = 0
 " let g:fzf_launcher='~/.vim/bin/fzfIterm.js %s'
 let g:fzf_history_dir='~/.vim/bundle/fzf.vim/.history'
 let g:fzf_command_prefix = 'FZ'
-let g:fzf_preview_window = 'right:hidden'
+let g:fzf_preview_window = 'up:hidden'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
@@ -35,6 +35,8 @@ if has('nvim-0.5.0')
 end
 " if has_key(g:plugs, 'coc.nvim')
 "     Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+"     let g:coc_fzf_opts = []
+"     let g:coc_fzf_preview_fullscreen = 1
 "     " Show all diagnostics.
 "     nnoremap <silent> <localleader>La  <Cmd>CocFzfList diagnostics<cr>
 "     " Show commands.
@@ -92,10 +94,30 @@ command! FZBD call fzf#run(fzf#wrap({
 " }}}
 " junegunn/vim-slash {{{
 Plug 'junegunn/vim-slash'
-" nvim slash effect is awkward...
-if has('timers') && !has('nvim')
-    nmap <expr> <plug>(slash-after) "\<Plug>SearchIndex" . slash#blink(2, 50)
-else
-    nmap <expr> <plug>(slash-after) "\<Plug>SearchIndex"
-endif
+function! LastSearchCount(opts = {}) abort
+    let result = searchcount(a:opts)
+    if empty(result)
+        return ''
+    endif
+    if result.incomplete ==# 1     " timed out
+        return printf(' /%s [?/??]', @/)
+    elseif result.incomplete ==# 2 " max count exceeded
+        if result.total > result.maxcount &&
+                    \  result.current > result.maxcount
+            return printf(' /%s [>%d/>%d]', @/,
+                        \             result.current, result.total)
+        elseif result.total > result.maxcount
+            return printf(' /%s [%d/>%d]', @/,
+                        \             result.current, result.total)
+        endif
+    endif
+    return printf(' /%s [%d/%d]', @/,
+                \             result.current, result.total)
+endfunction
+function! s:slash_after()
+    call slash#blink(2, 50)
+    echo LastSearchCount(#{recompute: 1, timeout: 100})
+    return ''
+endfunction
+nmap <expr> <plug>(slash-after) <sid>slash_after()
 " }}}

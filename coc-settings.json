@@ -96,12 +96,15 @@
     "list.insertMappings": {
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",
-        "<A-k>": "normal:k"
+        "<A-k>": "normal:k",
+        "<A-a>": "do:selectall"
     },
     "list.normalMappings": {
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",
         "<A-k>": "normal:k",
         "<A-a>": "do:selectall"
-    }
+    },
+    "list.maxPreviewHeight": 30,
+    "list.floatPreview": true
 }

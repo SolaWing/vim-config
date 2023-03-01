@@ -31,12 +31,6 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/junegunn.vim
     source ~/.vim/bundle-config/solawing.vim
 
-    " google/vim-searchindex{{{
-        " 不支持visual star, 配合vim-slash一起用
-        Plug 'google/vim-searchindex'
-        let g:searchindex_line_limit = 20000
-    "}}}
-
     " kshenoy/vim-signature"{{{
         let g:SignaturePeriodicRefresh = 0
         "let g:SignatureEnabledAtStartup = 0
