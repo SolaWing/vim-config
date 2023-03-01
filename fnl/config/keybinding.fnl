@@ -132,9 +132,28 @@
 (defn leap-bind []
   ((. (require "leap") :add_default_mappings)))
 
+(defn spectre-bind []
+  ; config default in spectre directly
+  ; (_G.hook-require :spectre
+  ;  #($2.setup {:default {:replace {:cmd "oxi"}}
+  ;              :replace_vim_cmd "cfdo"})
+  ;  "spectre-setup")
+  (fn spectre []
+    (vim.fn.plug#load :nvim-spectre)
+    (require :spectre))
+
+  (fn search_input []
+    (vim.ui.input {:prompt "Search: "}
+                  #(when $1 ((. (spectre) :open)
+                             {:search_text $1}))))
+  (vim.keymap.set :n "<Leader>sr" search_input)
+  (vim.keymap.set :x "<Leader>sr" #((. (spectre) :open_visual)))
+  (vim.keymap.set [:n :x] "<Leader>x/" "<Leader>sr" {:remap true}))
+
 (defn init []
   (infomation)
   (when (vim.plug? "fzf-lua") (fzf-lua-bind))
   (when (vim.plug? "harpoon") (harpoon-bind))
   (when (vim.plug? "refactoring.nvim") (refactoring-bind))
-  (when (vim.plug? "leap.nvim") (leap-bind)))
+  (when (vim.plug? "leap.nvim") (leap-bind))
+  (when (vim.plug? "nvim-spectre") (spectre-bind)))

@@ -45,7 +45,8 @@ local function init()
   nvim5_common()
   Plug("ThePrimeagen/harpoon")
   Plug("ThePrimeagen/refactoring.nvim")
-  return Plug("ggandor/leap.nvim")
+  Plug("ggandor/leap.nvim")
+  return Plug("windwp/nvim-spectre", {on = {"Spectre"}})
 end
 _2amodule_2a["init"] = init
 return _2amodule_2a

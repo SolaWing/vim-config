@@ -33,6 +33,10 @@
     _ (error (.. "invalid type for vim boolean check: " (type v)))))
 
 (fn _G.hook-require [name callback id]
+  "name: require name to hook
+   callback(name, mod, id) callback when mod loaded, will call if already loaded
+   id: a id as tip to overwrite if call multiple times.
+  "
   ; lazy hook
   (when (not _G.my-require-hook) ; runtime hack shouldn't eval twice!!
     (let [old require

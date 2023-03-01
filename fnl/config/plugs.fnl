@@ -46,6 +46,8 @@
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
   (Plug "ThePrimeagen/refactoring.nvim")
-  (Plug "ggandor/leap.nvim"))
+  (Plug "ggandor/leap.nvim")
+  ; require gsed or rust build(broken)
+  (Plug "windwp/nvim-spectre" {:on ["Spectre"]})) ; :do "RUSTFLAGS='-Clink-arg=-undefined -Clink-arg=dynamic_lookup' ./build.sh"}))
   ; 生成方法文档的，先标记上，暂时用不上
   ; (Plug :danymat/neogen))
