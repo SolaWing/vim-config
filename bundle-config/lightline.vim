@@ -1,9 +1,22 @@
-
-autocmd mine BufEnter,FileChangedShellPost * call CacheClear("FugitiveHead")
-function! CachedFugitiveHead()
-    return CacheWrap("FugitiveHead")
+function! s:delay_load(id)
+    autocmd mine BufEnter,FileChangedShellPost * call CacheClear("FugitiveHead")
+    function! CachedFugitiveHead()
+        return CacheWrap("FugitiveHead")
+    endfunction
+    autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 endfunction
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+call timer_start(3000, funcref("<SID>delay_load"))
+
+function! ReplaceInfo()
+lua << EOF
+    vim.g.vlua = ''
+    local mod = package.loaded['spectre.state']
+    if mod then
+        vim.g.vlua = mod.status_line
+    end
+EOF
+    return g:vlua
+endfunction
 
 " 可能太长导致显示不下..
 " let s:ContextCache = ""
@@ -26,8 +39,8 @@ let g:lightline = {
             \   'colorscheme' : 'gruvbox_custom',
             \   'active': {
             \     'left': [ [ 'mode', 'paste' ],
-            \               ['readonly', 'relativepath', 'modified', 'context_info' ],
-            \               [ 'gitbranch',  'cocstatus', 'ycmstatus', 'gutentags' ] ],
+            \               ['readonly', 'relativepath', 'modified'],
+            \               [ 'gitbranch',  'cocstatus', 'ycmstatus'] ],
             \     'right': [ [ 'percent' ],
             \                [ 'lineinfo' ],
             \                ['linter_errors', 'linter_warnings',
@@ -42,7 +55,7 @@ let g:lightline = {
             \     'cocstatus': 'coc#status',
             \     'ycmstatus': 'youcompleteme#Status',
             \     'context_info': 'LightlineCursorContext',
-            \     'gutentags': 'gutentags#statusline'
+            \     'gutentags': 'gutentags#statusline',
             \   },
             \   'component_expand': {
             \     'linter_warnings': 'LightlineLinterWarnings',

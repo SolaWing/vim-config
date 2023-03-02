@@ -2,11 +2,14 @@
 
 (def Plug (. vim.fn :plug#))
 
-(defn nvim5-common []
-  ; nvim5 common plug
-  (Plug "nvim-lua/plenary.nvim") ; this seems as a basic lib by many lua plugin; so put it here;
-  
-  (Plug "nvim-treesitter/nvim-treesitter" {:do ":TSUpdate"})  ; We recommend updating the parsers on update
+(defn nvim-lib []
+  "libraries to be dependency by others"
+  (Plug "nvim-lua/plenary.nvim")
+  ; optional for icon support and nerd font may required, required by fzf-lua, barbar etc 
+  (Plug "nvim-tree/nvim-web-devicons")
+  (Plug "nvim-treesitter/nvim-treesitter" {:do ":TSUpdate"})) ; We recommend updating the parsers on update
+
+(defn nvim-common []
   (Plug "andymass/vim-matchup" {:on []}) ; nvim-treesitter break % pair by syntax. use replacement
   ; disable original match, this delay may fast 5ms
   (set vim.g.loaded_matchparen 1)
@@ -41,13 +44,15 @@
   ; 迁移耗时好像没有明显变化。是因为主要耗时在vim调用上吗?
 
   (function)
-  (nvim5-common)
+  (nvim-lib)
+  (nvim-common)
 
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
   (Plug "ThePrimeagen/refactoring.nvim")
   (Plug "ggandor/leap.nvim")
-  ; require gsed or rust build(broken)
+  (Plug "kevinhwang91/nvim-bqf")
+  ; require gsed or rust build(broken), slow on large replace when update UI, and will stuck nvim
   (Plug "windwp/nvim-spectre" {:on ["Spectre"]})) ; :do "RUSTFLAGS='-Clink-arg=-undefined -Clink-arg=dynamic_lookup' ./build.sh"}))
   ; 生成方法文档的，先标记上，暂时用不上
   ; (Plug :danymat/neogen))

@@ -12,9 +12,13 @@ do
 end
 local Plug = vim.fn["plug#"]
 _2amodule_2a["Plug"] = Plug
-local function nvim5_common()
+local function nvim_lib()
   Plug("nvim-lua/plenary.nvim")
-  Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+  Plug("nvim-tree/nvim-web-devicons")
+  return Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+end
+_2amodule_2a["nvim-lib"] = nvim_lib
+local function nvim_common()
   Plug("andymass/vim-matchup", {on = {}})
   vim.g.loaded_matchparen = 1
   vim.g.loaded_matchit = 1
@@ -31,7 +35,7 @@ local function nvim5_common()
   vim.g.ruby_no_expensive = 1
   return nil
 end
-_2amodule_2a["nvim5-common"] = nvim5_common
+_2amodule_2a["nvim-common"] = nvim_common
 local function _function()
   vim.cmd("function! HasPlug(key)\n           return has_key(g:plugs, a:key)\n           endfunction")
   vim["plug?"] = function(name)
@@ -42,10 +46,12 @@ end
 _2amodule_2a["function"] = _function
 local function init()
   _function()
-  nvim5_common()
+  nvim_lib()
+  nvim_common()
   Plug("ThePrimeagen/harpoon")
   Plug("ThePrimeagen/refactoring.nvim")
   Plug("ggandor/leap.nvim")
+  Plug("kevinhwang91/nvim-bqf")
   return Plug("windwp/nvim-spectre", {on = {"Spectre"}})
 end
 _2amodule_2a["init"] = init

@@ -192,29 +192,6 @@ local function leap_bind()
   return (require("leap")).add_default_mappings()
 end
 _2amodule_2a["leap-bind"] = leap_bind
-local function spectre_bind()
-  local function spectre()
-    vim.fn["plug#load"]("nvim-spectre")
-    return require("spectre")
-  end
-  local function search_input()
-    local function _38_(_241)
-      if _241 then
-        return spectre().open({search_text = _241})
-      else
-        return nil
-      end
-    end
-    return vim.ui.input({prompt = "Search: "}, _38_)
-  end
-  vim.keymap.set("n", "<Leader>sr", search_input)
-  local function _40_()
-    return spectre().open_visual()
-  end
-  vim.keymap.set("x", "<Leader>sr", _40_)
-  return vim.keymap.set({"n", "x"}, "<Leader>x/", "<Leader>sr", {remap = true})
-end
-_2amodule_2a["spectre-bind"] = spectre_bind
 local function init()
   infomation()
   if vim["plug?"]("fzf-lua") then
@@ -234,7 +211,7 @@ local function init()
   else
   end
   if vim["plug?"]("nvim-spectre") then
-    return spectre_bind()
+    return (require("config/plug/spectre")).setup()
   else
     return nil
   end

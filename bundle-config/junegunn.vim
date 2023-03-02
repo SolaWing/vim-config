@@ -30,8 +30,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 if has('nvim-0.5.0')
     Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
-    " optional for icon support
-    Plug 'nvim-tree/nvim-web-devicons'
 end
 " if has_key(g:plugs, 'coc.nvim')
 "     Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
