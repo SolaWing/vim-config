@@ -120,7 +120,7 @@ tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 "}}}
 """ args "{{{
-nnoremap <Leader>aa :<C-u><C-R>=v:count?v:count:""<CR>argadd<CR>
+nnoremap <Leader>aa :<C-u><C-R>=v:count?v:count:""<CR>argadd <Bar> argdedupe <CR>
 nnoremap <Leader>ad :<C-u><C-R>=v:count?v:count:""<CR>argdelete<CR>
 
 " }}}
