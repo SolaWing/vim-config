@@ -26,8 +26,6 @@
   ; 和vim-plug有兼容性问题，vim-plug 结束时会调用filetype, 且忽略did_load_filetypes
   ; Plug "nathom/filetype.nvim"
   
-  (vim.cmd "autocmd mine User plug#end ++once luafile ~/.vim/bundle-config/treesitter.lua")
-  
   (set vim.g.no_ruby_maps 1) ; ruby map depend on syntax. no work when treesitter enable
   (set vim.g.ruby_no_expensive 1)) ; ruby default synatx make it very slow, though treesitter should disable it
 
@@ -38,7 +36,13 @@
            endfunction")
   (fn vim.plug? [name]
     "get big nest may have convert issue.., so define it here"
-    (= 1 (vim.fn.HasPlug name))))
+    (= 1 (vim.fn.HasPlug name)))
+
+  (fn _G.luafile [path]
+    "load and run lua file at path"
+    (match (loadfile (vim.fs.normalize path))
+      (_ err) (error err)
+      (f nil) (f))))
 
 (defn init []
   ; 迁移耗时好像没有明显变化。是因为主要耗时在vim调用上吗?
@@ -53,6 +57,17 @@
   (Plug "ggandor/leap.nvim")
   (Plug "kevinhwang91/nvim-bqf")
   ; require gsed or rust build(broken), slow on large replace when update UI, and will stuck nvim
-  (Plug "windwp/nvim-spectre" {:on ["Spectre"]})) ; :do "RUSTFLAGS='-Clink-arg=-undefined -Clink-arg=dynamic_lookup' ./build.sh"}))
+  (Plug "windwp/nvim-spectre" {:on ["Spectre"]})
+
+  ; 慢的补全会卡住，虽然可以一个个加黑名单，但先不用避免自动补全
+  ; (Plug "gelguy/wilder.nvim" {:do ":UpdateRemotePlugins"}) ; :do "RUSTFLAGS='-Clink-arg=-undefined -Clink-arg=dynamic_lookup' ./build.sh"}))
+
   ; 生成方法文档的，先标记上，暂时用不上
   ; (Plug :danymat/neogen))
+
+  (vim.cmd "autocmd mine User plug#end ++once lua require('config.plugs').after()"))
+
+(defn after []
+  (luafile "~/.vim/lua/config/plug/treesitter.lua"))
+  ; (vim.cmd "autocmd mine CmdlineEnter * ++once call v:lua.require('config.plug.wilder').setup() | call wilder#main#start()"))
+

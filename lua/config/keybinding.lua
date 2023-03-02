@@ -21,7 +21,7 @@ local function infomation()
 end
 _2amodule_2a["infomation"] = infomation
 local function fzf_lua_bind()
-  require("config.fzf-lua-setup")
+  require("config.plug.fzf-lua-setup")
   local leader = "<Leader>/"
   local function nmap(f, t)
     return vim.keymap.set("n", (leader .. f), t, {remap = true})

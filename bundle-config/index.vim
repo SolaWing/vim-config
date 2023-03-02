@@ -84,4 +84,4 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/lightline.vim
 
 call plug#end()
-silent doautocmd <nomodeline> User plug#end
+doautocmd <nomodeline> User plug#end

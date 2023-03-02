@@ -30,7 +30,6 @@ local function nvim_common()
   vim.g.matchup_matchparen_deferred_show_delay = 200
   Plug("nvim-treesitter/nvim-treesitter-textobjects")
   Plug("nvim-treesitter/playground", {on = {"TSPlaygroundToggle"}})
-  vim.cmd("autocmd mine User plug#end ++once luafile ~/.vim/bundle-config/treesitter.lua")
   vim.g.no_ruby_maps = 1
   vim.g.ruby_no_expensive = 1
   return nil
@@ -41,7 +40,20 @@ local function _function()
   vim["plug?"] = function(name)
     return (1 == vim.fn.HasPlug(name))
   end
-  return vim["plug?"]
+  _G.luafile = function(path)
+    local _2_, _3_ = loadfile(vim.fs.normalize(path))
+    if (true and (nil ~= _3_)) then
+      local _ = _2_
+      local err = _3_
+      return error(err)
+    elseif ((nil ~= _2_) and (_3_ == nil)) then
+      local f = _2_
+      return f()
+    else
+      return nil
+    end
+  end
+  return _G.luafile
 end
 _2amodule_2a["function"] = _function
 local function init()
@@ -52,7 +64,12 @@ local function init()
   Plug("ThePrimeagen/refactoring.nvim")
   Plug("ggandor/leap.nvim")
   Plug("kevinhwang91/nvim-bqf")
-  return Plug("windwp/nvim-spectre", {on = {"Spectre"}})
+  Plug("windwp/nvim-spectre", {on = {"Spectre"}})
+  return vim.cmd("autocmd mine User plug#end ++once lua require('config.plugs').after()")
 end
 _2amodule_2a["init"] = init
+local function after()
+  return luafile("~/.vim/lua/config/plug/treesitter.lua")
+end
+_2amodule_2a["after"] = after
 return _2amodule_2a
