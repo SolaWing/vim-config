@@ -73,9 +73,13 @@ local function after()
   luafile("~/.vim/lua/config/plug/treesitter.lua")
   do end (require("config.plug.codeium")).setup()
   local function _5_()
+    return (require("config.plug.fzf-lua")).setup()
+  end
+  _G["hook-require"]("fzf-lua", "setup", _5_)
+  local function _6_()
     return (require("config.plug.bqf")).setup()
   end
-  return _G["hook-require"]("bqf", _5_)
+  return _G["hook-require"]("bqf", "setup", _6_)
 end
 _2amodule_2a["after"] = after
 return _2amodule_2a

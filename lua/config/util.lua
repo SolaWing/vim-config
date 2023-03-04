@@ -54,7 +54,8 @@ vim["true?"] = function(v)
     return nil
   end
 end
-_G["hook-require"] = function(name, callback, id)
+_G["hook-require"] = function(name, id, callback)
+  assert(id, "id is required")
   if not _G["my-require-hook"] then
     local old = require
     local hooks = {}
@@ -86,14 +87,9 @@ _G["hook-require"] = function(name, callback, id)
     return d
   end
   hook_table = ((_G["my-require-hook"].hooks)[name] or _11_())
-  if id then
-    hook_table[id] = callback
-  else
-    table.insert(hook_table, callback)
-  end
-  local _13_ = package.loaded[name]
-  if (nil ~= _13_) then
-    local mod = _13_
+  local _12_ = package.loaded[name]
+  if (nil ~= _12_) then
+    local mod = _12_
     return callback(name, mod, id)
   else
     return nil

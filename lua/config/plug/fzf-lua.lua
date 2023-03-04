@@ -64,4 +64,4 @@ local function setup()
         end
     end
 end
-_G["hook-require"]("fzf-lua", setup, "fzf-lua-setup")
+return {setup: setup}

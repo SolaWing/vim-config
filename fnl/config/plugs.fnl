@@ -57,7 +57,7 @@
   (Plug "ThePrimeagen/refactoring.nvim")
   (Plug "ggandor/leap.nvim")
   (Plug "kevinhwang91/nvim-bqf")
-  ; require gsed or rust build(broken), slow on large replace when update UI, and will stuck nvim
+  ; NOTE: require gsed or rust build(broken), slow on large replace when update UI, and will stuck nvim
   (Plug "windwp/nvim-spectre" {:on ["Spectre"]})
 
   ; 慢的补全会卡住，虽然可以一个个加黑名单，但先不用避免自动补全
@@ -71,6 +71,7 @@
 (defn after []
   (luafile "~/.vim/lua/config/plug/treesitter.lua")
   ((. (require "config.plug.codeium") :setup))
-  (_G.hook-require :bqf #((. (require "config.plug.bqf") :setup))))
+  (_G.hook-require :fzf-lua :setup #((. (require "config.plug.fzf-lua") :setup)))
+  (_G.hook-require :bqf     :setup #((. (require "config.plug.bqf")     :setup))))
   ; (vim.cmd "autocmd mine CmdlineEnter * ++once call v:lua.require('config.plug.wilder').setup() | call wilder#main#start()"))
 

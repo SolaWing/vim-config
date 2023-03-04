@@ -8,7 +8,6 @@
   ; 大量加载fzf-lua后，大约消耗了6ms..
   ; 命令基本都是基于cwd的，而不是基于当前文件的...
   ; 虽然默认体验不够好，但是builtin的preview是杀手级特性.. fzf.vim还做不到..
-  (require "config.plug.fzf-lua-setup")
 
   (local leader "<Leader>/")
 

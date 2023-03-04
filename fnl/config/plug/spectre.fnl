@@ -1,9 +1,8 @@
 (fn setup []
   ; config default in spectre directly
-  ; (_G.hook-require :spectre
+  ; (_G.hook-require :spectre :setup
   ;  #($2.setup {:default {:replace {:cmd "oxi"}}
-  ;              :replace_vim_cmd "cfdo"})
-  ;  "spectre-setup")
+  ;              :replace_vim_cmd "cfdo"}))
   (fn spectre []
     (vim.fn.plug#load :nvim-spectre)
     (require :spectre))

@@ -32,12 +32,12 @@
     "string" (vim.true? (tonumber v)) ; not same as vim string to number
     _ (error (.. "invalid type for vim boolean check: " (type v)))))
 
-(fn _G.hook-require [name callback id]
+(fn _G.hook-require [name id callback]
   "name: require name to hook
    callback(name, mod, id) callback when mod loaded, will call if already loaded
-   id: a id as tip to overwrite if call multiple times.
-  "
-  ; lazy hook
+   id: a id as tip to overwrite if call multiple times"
+  (assert id "id is required")
+  ; lazy hook once
   (when (not _G.my-require-hook) ; runtime hack shouldn't eval twice!!
     (let [old require
           hooks {}]
@@ -57,9 +57,6 @@
   ; add hook callback, reload can also trigger hooks. id can be use to overwrite
   (local hook-table (or (. _G.my-require-hook.hooks name)
                         (let [d {}] (tset _G.my-require-hook.hooks name d) d)))
-  (if id (tset hook-table id callback)
-    (table.insert hook-table callback))
-
   ; if loaded, invoke directly
   (match (. package.loaded name)
     mod (callback name mod id)))
