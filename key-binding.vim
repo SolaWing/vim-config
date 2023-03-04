@@ -278,11 +278,14 @@ xmap <Leader>8 <Leader>*
 nnoremap <C-W><Tab> :<C-U>FZLines<CR>
 
 nnoremap <Leader><F3> :<C-U>FZBTags<CR>
-nnoremap <LocalLeader>m :<C-U>FZBTags<CR>
+xnoremap <Leader><F3> :<C-U>exe "FZBTags" GetVisualString()<CR>
+nmap <LocalLeader>m <Leader><F3>
+xmap <LocalLeader>m <Leader><F3>
+
 
 nnoremap <F6> :<C-U>FZTags<CR>
 nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W> <CR>
-xnoremap <Leader><F6> :<C-U>FZTags <C-R>=GetVisualString()<CR> <CR>
+xnoremap <Leader><F6> :<C-U>exe "FZTags" GetVisualString()<CR>
 nmap g] <Leader><F6>
 xmap g] <Leader><F6>
 

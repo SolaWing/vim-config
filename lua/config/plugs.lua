@@ -60,6 +60,7 @@ local function init()
   _function()
   nvim_lib()
   nvim_common()
+  Plug("Exafunction/codeium.vim", {on = {"Codeium"}})
   Plug("ThePrimeagen/harpoon")
   Plug("ThePrimeagen/refactoring.nvim")
   Plug("ggandor/leap.nvim")
@@ -69,7 +70,12 @@ local function init()
 end
 _2amodule_2a["init"] = init
 local function after()
-  return luafile("~/.vim/lua/config/plug/treesitter.lua")
+  luafile("~/.vim/lua/config/plug/treesitter.lua")
+  do end (require("config.plug.codeium")).setup()
+  local function _5_()
+    return (require("config.plug.bqf")).setup()
+  end
+  return _G["hook-require"]("bqf", _5_)
 end
 _2amodule_2a["after"] = after
 return _2amodule_2a

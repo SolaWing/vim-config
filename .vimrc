@@ -78,7 +78,7 @@
         "设置查找到文件尾部后折返开头或查找到开头后折返尾部。
         set wrapscan
         " minimum lines to keep above and below cursor
-        set scrolloff=3
+        set scrolloff=1
         set sidescroll=5
         " fileencodings
         setg fileencoding=utf-8

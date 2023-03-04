@@ -39,8 +39,8 @@ Plug 'wlangstroth/vim-racket'
 " 我看着不明显，而且需要显示启用, 不支持单独启用
 " Plug 'kien/rainbow_parentheses.vim',               {'for': ['racket', 'scheme']}
 " 动态加载FileType触发有延迟，首次打开不生效..
-Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme', 'hy', 'fennel']}
-Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme', 'hy', 'fennel']}
+Plug 'guns/vim-sexp',                              {'for': ['racket', 'scheme', 'hy', 'fennel', 'lisp']}
+Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['racket', 'scheme', 'hy', 'fennel', 'lisp']}
 let g:sexp_filetypes = 'clojure,scheme,lisp,racket,hy,fennel'
 let g:sexp_enable_insert_mode_mappings = 0
 " not need element emit and capture, since paren can be adjust by parinfer-rust

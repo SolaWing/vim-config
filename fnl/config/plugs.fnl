@@ -51,6 +51,7 @@
   (nvim-lib)
   (nvim-common)
 
+  (Plug "Exafunction/codeium.vim" {:on ["Codeium"]})
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
   (Plug "ThePrimeagen/refactoring.nvim")
@@ -68,6 +69,8 @@
   (vim.cmd "autocmd mine User plug#end ++once lua require('config.plugs').after()"))
 
 (defn after []
-  (luafile "~/.vim/lua/config/plug/treesitter.lua"))
+  (luafile "~/.vim/lua/config/plug/treesitter.lua")
+  ((. (require "config.plug.codeium") :setup))
+  (_G.hook-require :bqf #((. (require "config.plug.bqf") :setup))))
   ; (vim.cmd "autocmd mine CmdlineEnter * ++once call v:lua.require('config.plug.wilder').setup() | call wilder#main#start()"))
 

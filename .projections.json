@@ -1,4 +1,4 @@
 {
   "fnl/*.fnl": {"type": "fnl", "alternate": "lua/{}.lua"},
-  "lua/*.lua": {"type": "lua", "alternate": "fnl/{}.fnl"}
+  "lua/*.lua": {"type": "lua", "alternate": "fnl/{}.fnl"},
 }
