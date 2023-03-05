@@ -38,6 +38,10 @@ snippet var "var binding"
 (var $1 $2)
 endsnippet
 
+snippet return "early return statement"
+(lua "return $1")
+endsnippet
+
 snippet collect "collect comprehension"
 (collect [k v (pairs ${1:tbl})]
 	${0:k v})

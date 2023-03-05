@@ -5,9 +5,9 @@
 function! GetVisualString()
     let old_reg = getreg('"')
     let old_regtype = getregtype('"')
-    normal! gvy
+    noautocmd normal! gvy
     let ret = @@
-    call setreg('"',old_reg, old_regtype)
+    noautocmd call setreg('"',old_reg, old_regtype)
     return ret
 endfunction
 

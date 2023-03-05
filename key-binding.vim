@@ -262,10 +262,10 @@ nmap <Space>s<CR> :<C-U>Grepper<CR>
 nmap <Space>sp <Space>p/
 xmap <Space>sp <Space>p/
 nnoremap <Space>s* <Cmd>exe "FZRg -F" shellescape(expand("<cword>"))<CR>
-xnoremap <Space>s* <Cmd>exe "FZRg -F" shellescape(GetVisualString())<CR>
+xnoremap <Space>s* "vy<Cmd>exe "FZRg -F" shellescape(@v)<CR>
 Map <Space>s8 <Space>s*
 nnoremap <Space>s] <Cmd>exe "FZTags" shellescape(expand("<cword>"))<CR>
-xnoremap <Space>s] <Cmd>exe "FZTags" shellescape(GetVisualString())<CR>
+xnoremap <Space>s] "vy<Cmd>exe "FZTags" shellescape(@v)<CR>
 nmap <Space>sm <LocalLeader>/
 xmap <Space>sm <LocalLeader>/
 
