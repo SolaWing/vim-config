@@ -57,6 +57,7 @@
   ; add hook callback, reload can also trigger hooks. id can be use to overwrite
   (local hook-table (or (. _G.my-require-hook.hooks name)
                         (let [d {}] (tset _G.my-require-hook.hooks name d) d)))
+  (tset hook-table id callback)
   ; if loaded, invoke directly
   (match (. package.loaded name)
     mod (callback name mod id)))

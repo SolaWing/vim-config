@@ -15,7 +15,7 @@
   (fn xmap [f t] (vim.keymap.set :x (.. leader f) t {:remap true}))
 
   ; special key map
-  (vim.keymap.set [:n :x] "//" leader {:remap true}) ; give another quick trigger
+  ; (vim.keymap.set [:n :x] "//" leader {:remap true}) ; give another quick trigger
   (vim.keymap.set [:n] "<M-Tab>" (.. leader "b") {:remap true})
 
   ; Buffers And Files

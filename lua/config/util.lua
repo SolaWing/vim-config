@@ -87,6 +87,7 @@ _G["hook-require"] = function(name, id, callback)
     return d
   end
   hook_table = ((_G["my-require-hook"].hooks)[name] or _11_())
+  do end (hook_table)[id] = callback
   local _12_ = package.loaded[name]
   if (nil ~= _12_) then
     local mod = _12_

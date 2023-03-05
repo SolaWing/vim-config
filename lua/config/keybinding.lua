@@ -28,7 +28,6 @@ local function fzf_lua_bind()
   local function xmap(f, t)
     return vim.keymap.set("x", (leader .. f), t, {remap = true})
   end
-  vim.keymap.set({"n", "x"}, "//", leader, {remap = true})
   vim.keymap.set({"n"}, "<M-Tab>", (leader .. "b"), {remap = true})
   local function _2_()
     return fzf_lua.buffers({winopts = {preview = {layout = "vertical"}}})
