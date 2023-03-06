@@ -15,7 +15,7 @@ local fs = autoload("aniseed.fs")
 do end (_2amodule_locals_2a)["fs"] = fs
 local function module__3epath(mod, first)
   local mod_path = mod:gsub("%.", fs["path-sep"])
-  local paths = {("fnl" .. fs["path-sep"] .. mod_path .. ".fnl"), ("lua" .. fs["path-sep"] .. mod_path .. ".lua")}
+  local paths = {("fnl" .. fs["path-sep"] .. mod_path .. ".fnl"), ("fnl" .. fs["path-sep"] .. mod_path .. fs["path-sep"] .. "init.fnl"), ("lua" .. fs["path-sep"] .. mod_path .. ".lua"), ("lua" .. fs["path-sep"] .. mod_path .. fs["path-sep"] .. "init.lua")}
   local t = {}
   for _, path in ipairs(vim.api.nvim_list_runtime_paths()) do
     for _0, rel_path in ipairs(paths) do
