@@ -35,6 +35,13 @@ local function setup()
                 ['ctrl-v']  = actions.buf_vsplit,
                 ['ctrl-t']  = actions.buf_tabedit,
             }
+        },
+        keymap = {
+            builtin = {
+                ["<M-f>"] = "preview-page-down",
+                ["<M-b>"] = "preview-page-up",
+                ["<M-p>"] = "preview-page-reset",
+            }
         }
     }
     f.setup(opts)

@@ -94,17 +94,22 @@
 
     // mapping
     "list.insertMappings": {
+        "<A-b>": "do:previewup",
+        "<A-f>": "do:previewdown",
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",
         "<A-k>": "normal:k",
         "<A-a>": "do:selectall"
     },
     "list.normalMappings": {
+        "<A-b>": "do:previewup",
+        "<A-f>": "do:previewdown",
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",
         "<A-k>": "normal:k",
         "<A-a>": "do:selectall"
     },
     "list.maxPreviewHeight": 30,
-    "list.floatPreview": true
+    "list.floatPreview": true,
+    "snippets.ultisnips.pythonPrompt": false
 }

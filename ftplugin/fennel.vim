@@ -13,6 +13,7 @@ nnoremap <buffer> ,hh <Cmd>!open 'https://fennel-lang.org/reference'<CR>
 setl keywordprg=:help
 
 " gf module
+" TODO: module path complete
 nnoremap <buffer> gf <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](expand("<cfile>"), v:true)<CR>
 xnoremap <buffer> gf "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-module"](@v, v:true)<CR>
 nnoremap <buffer> gF <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](expand("<cfile>"), v:false)<CR>

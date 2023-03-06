@@ -28,6 +28,9 @@ local function setup()
             tabdrop = '<C-t>',
             -- set to empty string to disable
             tabc = '',
+            pscrollup = '<M-b>',
+            pscrolldown = '<M-f>',
+            pscrollorig = '<M-p>',
         },
         filter = {
             fzf = {
