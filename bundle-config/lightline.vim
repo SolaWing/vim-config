@@ -8,9 +8,10 @@ endfunction
 call timer_start(3000, funcref("<SID>delay_load"))
 
 function! CodeiumStatus()
-    if exists("codeium#GetStatusString")
-        return "AI:" . codeium#GetStatusString
+    if exists("*codeium#GetStatusString")
+        return "AI:" . codeium#GetStatusString()
     endif
+    return ""
 endfunction
 
 " function! ReplaceInfo()
@@ -49,8 +50,8 @@ let g:lightline = {
             \               [ 'gitbranch',  'cocstatus', 'ycmstatus'] ],
             \     'right': [ [ 'percent' ],
             \                [ 'lineinfo' ],
-            \                ['codeium', 'linter_errors', 'linter_warnings',
-            \                 'fileformat', 'fileencoding', 'filetype' ] ]
+            \                ['linter_errors', 'linter_warnings',
+            \                 'codeium', 'fileformat', 'fileencoding', 'filetype' ] ]
             \   },
             \   'inactive': {
             \     'left': [ [ 'filename', 'modified' ] ],

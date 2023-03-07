@@ -31,7 +31,7 @@ Plug 'junegunn/fzf.vim'
 if has('nvim-0.5.0')
     Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 end
-" if has_key(g:plugs, 'coc.nvim')
+" if g:hasCOC
 "     Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 "     let g:coc_fzf_opts = []
 "     let g:coc_fzf_preview_fullscreen = 1
