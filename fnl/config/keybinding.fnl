@@ -1,8 +1,12 @@
 (module config.keybinding
   {autoload {: fzf-lua}})
 
-(defn infomation []
-  (vim.keymap.set :n ",." #(print ((. (require "config.function") :CursorContext)))))
+(defn common []
+  (vim.keymap.set :n ",." #(print ((. (require "config.function") :CursorContext))))
+  ; edit fnl file quickly
+  (vim.keymap.set :n "<Leader>eI" "<Cmd>tab drop ~/.vim/fnl/config/init.fnl<CR>")
+  (vim.keymap.set :n "<Leader>eP" "<Cmd>tab drop ~/.vim/fnl/config/plugs.fnl<CR>")
+  (vim.keymap.set :n "<Leader>eK" "<Cmd>tab drop ~/.vim/fnl/config/keybinding.fnl<CR>"))
 
 (defn fzf-lua-bind []
   ; 大量加载fzf-lua后，大约消耗了6ms..
@@ -132,7 +136,7 @@
   ((. (require "leap") :add_default_mappings)))
 
 (defn init []
-  (infomation)
+  (common)
   (when (vim.plug? "fzf-lua") (fzf-lua-bind))
   (when (vim.plug? "harpoon") (harpoon-bind))
   (when (vim.plug? "refactoring.nvim") (refactoring-bind))

@@ -9,6 +9,7 @@
         
   (vim.cmd "imap <script><silent><nowait><expr> <C-l> codeium#Accept()")
   (vim.keymap.set :i "<M-Bslash>" #(do (vim.fn.plug#load "codeium.vim")
+                                     (vim.notify "codeium loaded")
                                      (vim.keymap.set :i "<M-Bslash>" "<Plug>(codeium-complete)" {:remap true})
                                      (vim.fn.codeium#Complete)))
   (vim.api.nvim_create_user_command "CodeiumLoad"

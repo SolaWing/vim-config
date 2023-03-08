@@ -13,13 +13,16 @@ end
 local autoload = (require("aniseed.autoload")).autoload
 local fzf_lua = autoload("fzf-lua")
 do end (_2amodule_locals_2a)["fzf-lua"] = fzf_lua
-local function infomation()
+local function common()
   local function _1_()
     return print((require("config.function")).CursorContext())
   end
-  return vim.keymap.set("n", ",.", _1_)
+  vim.keymap.set("n", ",.", _1_)
+  vim.keymap.set("n", "<Leader>eI", "<Cmd>tab drop ~/.vim/fnl/config/init.fnl<CR>")
+  vim.keymap.set("n", "<Leader>eP", "<Cmd>tab drop ~/.vim/fnl/config/plugs.fnl<CR>")
+  return vim.keymap.set("n", "<Leader>eK", "<Cmd>tab drop ~/.vim/fnl/config/keybinding.fnl<CR>")
 end
-_2amodule_2a["infomation"] = infomation
+_2amodule_2a["common"] = common
 local function fzf_lua_bind()
   local leader = "<Leader>/"
   local function nmap(f, t)
@@ -191,7 +194,7 @@ local function leap_bind()
 end
 _2amodule_2a["leap-bind"] = leap_bind
 local function init()
-  infomation()
+  common()
   if vim["plug?"]("fzf-lua") then
     fzf_lua_bind()
   else
