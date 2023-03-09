@@ -24,6 +24,7 @@ let $FZF_DEFAULT_OPTS=' --bind="' . join([
             \    'alt-a:select-all,alt-d:deselect-all',
             \    'alt-space:jump,`:jump-accept',
             \    'F4:toggle-preview,alt-f:preview-page-down,alt-b:preview-page-up',
+            \    'ctrl-f:page-down,ctrl-b:page-up'
             \], ',') . '" --color="pointer:15"'
 " let g:fzf_layout = { 'up' : '~40%'  }
 Plug '/usr/local/opt/fzf'

@@ -155,11 +155,11 @@ inoremap <C-x><C-x> <Esc>:confirm x<CR>
 nnoremap ZA :qa!<CR>
 nnoremap ZX :confirm xa<CR>
 
-nnoremap <Space>et :<C-U>0tabe ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
-nnoremap <Space>eT :<C-U>0tabe ~/.vim/after/ftplugin/<C-R>=&ft<CR>.vim<CR>
-nnoremap <Space>ep :<C-U>0tabe ~/.vim/bundle-config/index.vim<CR>
-nnoremap <Space>ek :<C-U>0tabe ~/.vim/key-binding.vim<CR>
-nnoremap <Space>ei :<C-U>0tabe ~/.vim/fnl/config/init.fnl<CR>
+nnoremap <Space>et :<C-U>0tab drop ~/.vim/ftplugin/<C-R>=&ft<CR>.vim<CR>
+nnoremap <Space>eT :<C-U>0tab drop ~/.vim/after/ftplugin/<C-R>=&ft<CR>.vim<CR>
+nnoremap <Space>ep :<C-U>0tab drop ~/.vim/bundle-config/index.vim<CR>
+nnoremap <Space>ek :<C-U>0tab drop ~/.vim/key-binding.vim<CR>
+nnoremap <Space>ei :<C-U>0tab drop ~/.vim/fnl/config/init.fnl<CR>
 nnoremap <Space>fr :<C-U>CtrlPMRUFiles<CR>
 nnoremap <Space>ff :<C-U>FZFiles <C-R>=expand("%:p:h")<CR>
 "}}}
