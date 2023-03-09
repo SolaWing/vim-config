@@ -126,15 +126,16 @@
   ")
 
 (defn harpoon-bind []
-  (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)))
-  (vim.keymap.set :n "<Leader>p<Tab>"   #((. (require "harpoon.ui")   :toggle_quick_menu))))
+  (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)) {:desc "harpoon.mark"})
+  (vim.keymap.set :n "<Leader>p<Tab>"   #((. (require "harpoon.ui")   :toggle_quick_menu)) {:desc "harpoon.ui"}))
 
 (defn refactoring-bind []
-  (vim.keymap.set [:x :n] "<Leader>xr" #((. (require "refactoring") :select_refactor))))
+  (vim.keymap.set [:x :n] "<Leader>xr" #((. (require "refactoring") :select_refactor)) {:desc "refactoring"}))
 
 (defn leap-bind []
-  (vim.keymap.set ["n" "x"] "<Space><CR>" #((. (require "config.plug.leap") :leap_to_line)))
-  (vim.keymap.set ["o"] "<Space><CR>" "V<Cmd>lua leap_to_line()<CR>")
+  (vim.keymap.set ["n" "x"] "<Space><CR>" #((. (require "config.plug.leap") :leap_to_line)) {:desc "leap_to_line"})
+  (vim.keymap.set ["o"] "<Space><CR>" "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>" {:desc "leap_to_line"})
+  ; TODO: unify surround and leap mapping ;
   ((. (require "leap") :add_default_mappings)))
 
 (defn init []

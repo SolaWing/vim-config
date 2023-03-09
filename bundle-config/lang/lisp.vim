@@ -29,10 +29,12 @@ let g:paredit_disable_scheme = 1
 
 " waiting try
             " \ 'do': 'cargo build --release',
+
 Plug 'eraserhd/parinfer-rust', {
             \ 'for': ['racket', 'scheme', 'hy', 'fennel'],
             \ 'do': 'cargo build --release'
             \ }
+" let g:parinfer_enabled = 0 " 尝试结构化编辑
 
 " Plug 'MicahElliott/vrod',                          {'for': ['racket', 'scheme']}
 Plug 'wlangstroth/vim-racket'

@@ -310,7 +310,7 @@ map! <M-L> <end>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 inoremap <C-A> <home>
-inoremap <C-E> <end>
+silent inoremap <unique> <C-E> <end>
 
 " alt + f b, word move
 map! <M-f> <S-Right>
@@ -325,8 +325,10 @@ noremap! <M-BS> <C-W>
 
 " inoremap <C-k> <C-o>D
 " easier horizontal scroll
-Map zl zL
-Map zh zH
+nmap zl zL
+xmap zl zL
+nmap zh zH
+xmap zh zH
 
 " command+return 插入新行
 inoremap <D-CR> <End><CR>

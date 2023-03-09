@@ -18,8 +18,9 @@ nnoremap <buffer> gf <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](
 xnoremap <buffer> gf "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-module"](@v, v:true)<CR>
 nnoremap <buffer> gF <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](expand("<cfile>"), v:false)<CR>
 xnoremap <buffer> gF "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-module"](@v, v:false)<CR>
+" TODO: ctrl-w gf "
 
 " (. (form) :_)
 imap <buffer> <M-.> <C-o><LocalLeader>i.<C-o>>I<Space>:
 " ((form)_)
-imap <buffer> <M-9> <C-\><C-n>ysa))>I
+imap <buffer> <M-9> <C-\><C-n>ysie)>I
