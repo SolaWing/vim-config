@@ -5,6 +5,8 @@ if has('nvim')
     setl tags+=$VIMRUNTIME/doc/tags
 endif
 
+setl sw=2 sts=2 ts=4
+
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 

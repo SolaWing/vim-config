@@ -9,7 +9,7 @@ call plug#begin('~/.vim/bundle')
         " source ~/.vim/bundle-config/hop.vim
     " else
     endif
-    source ~/.vim/bundle-config/easymotion.vim
+    " source ~/.vim/bundle-config/easymotion.vim
     source ~/.vim/bundle-config/sneak.vim
     source ~/.vim/bundle-config/autopair.vim
 

@@ -18,9 +18,9 @@ local function common()
     return print((require("config.function")).CursorContext())
   end
   vim.keymap.set("n", ",.", _1_)
-  vim.keymap.set("n", "<Leader>eI", "<Cmd>tab drop ~/.vim/fnl/config/init.fnl<CR>")
-  vim.keymap.set("n", "<Leader>eP", "<Cmd>tab drop ~/.vim/fnl/config/plugs.fnl<CR>")
-  return vim.keymap.set("n", "<Leader>eK", "<Cmd>tab drop ~/.vim/fnl/config/keybinding.fnl<CR>")
+  vim.keymap.set("n", "<Leader>eI", "<Cmd>0tab drop ~/.vim/fnl/config/init.fnl<CR>")
+  vim.keymap.set("n", "<Leader>eP", "<Cmd>0tab drop ~/.vim/fnl/config/plugs.fnl<CR>")
+  return vim.keymap.set("n", "<Leader>eK", "<Cmd>0tab drop ~/.vim/fnl/config/keybinding.fnl<CR>")
 end
 _2amodule_2a["common"] = common
 local function fzf_lua_bind()
@@ -190,6 +190,11 @@ local function refactoring_bind()
 end
 _2amodule_2a["refactoring-bind"] = refactoring_bind
 local function leap_bind()
+  local function _38_()
+    return (require("config.plug.leap")).leap_to_line()
+  end
+  vim.keymap.set({"n", "x"}, "<Space><CR>", _38_)
+  vim.keymap.set({"o"}, "<Space><CR>", "V<Cmd>lua leap_to_line()<CR>")
   return (require("leap")).add_default_mappings()
 end
 _2amodule_2a["leap-bind"] = leap_bind

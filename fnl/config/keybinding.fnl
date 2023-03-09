@@ -133,6 +133,8 @@
   (vim.keymap.set [:x :n] "<Leader>xr" #((. (require "refactoring") :select_refactor))))
 
 (defn leap-bind []
+  (vim.keymap.set ["n" "x"] "<Space><CR>" #((. (require "config.plug.leap") :leap_to_line)))
+  (vim.keymap.set ["o"] "<Space><CR>" "V<Cmd>lua leap_to_line()<CR>")
   ((. (require "leap") :add_default_mappings)))
 
 (defn init []
