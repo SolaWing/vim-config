@@ -94,16 +94,14 @@
 
     // mapping
     "list.insertMappings": {
-        "<A-b>": "do:previewup",
-        "<A-f>": "do:previewdown",
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",
         "<A-k>": "normal:k",
+        "<A-h>": "prompt:left",
+        "<A-l>": "prompt:right",
         "<A-a>": "do:selectall"
     },
     "list.normalMappings": {
-        "<A-b>": "do:previewup",
-        "<A-f>": "do:previewdown",
         "<C-g>": "do:exit",
         "<A-j>": "normal:j",
         "<A-k>": "normal:k",

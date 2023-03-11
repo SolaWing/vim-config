@@ -13,7 +13,7 @@
     ; special key need to translate in vim language
     :callback #(vim.cmd "imap <script><silent><nowait><expr> <C-e> codeium#Accept()
                         let g:codeium_tab_fallback = \"\\<End>\"")})
-  
+
   (vim.keymap.set :i "<M-Bslash>"
    #(do (vim.fn.plug#load "codeium.vim")
       (vim.notify "codeium loaded")

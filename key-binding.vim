@@ -307,6 +307,8 @@ map! <M-k> <Up>
 map! <M-l> <Right>
 map! <M-H> <home>
 map! <M-L> <end>
+
+" emacs style insert mapping
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 inoremap <C-A> <home>

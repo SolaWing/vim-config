@@ -38,9 +38,9 @@ local function setup()
         },
         keymap = {
             builtin = {
-                ["<M-f>"] = "preview-page-down",
-                ["<M-b>"] = "preview-page-up",
-                ["<M-p>"] = "preview-page-reset",
+                ["<M-]>"] = "preview-page-down",
+                ["<M-[>"] = "preview-page-up",
+                ["<M-=>"] = "preview-page-reset",
             }
         }
     }

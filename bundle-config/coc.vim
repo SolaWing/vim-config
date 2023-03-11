@@ -73,6 +73,7 @@ nmap <C-W><LocalLeader>gg <C-W>s<LocalLeader>gg
 nmap <C-W><M-g> <C-W>s<M-g>
 nmap <Space>t<M-g> <C-W>s<C-W>T<M-g>
 nmap <M-g> <LocalLeader>gg
+nmap gr <Plug>(coc-references-used)
 
 " Use K to show documentation in preview window.
 
