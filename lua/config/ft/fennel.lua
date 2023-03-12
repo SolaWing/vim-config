@@ -37,10 +37,10 @@ local function module__3epath(mod, first)
   end
 end
 _2amodule_2a["module->path"] = module__3epath
-local function goto_module(mod, first)
+local function goto_module(mod, first, open_cmd)
   local paths = module__3epath(mod, first)
   local function edit(p)
-    return vim.cmd.e(vim.fn.fnameescape(p))
+    return vim.cmd(table.concat({(open_cmd or "edit"), vim.fn.fnameescape(p)}, " "))
   end
   if first then
     if paths then
@@ -58,7 +58,7 @@ local function goto_module(mod, first)
       local _ = _5_
       local function _6_(_241)
         if (nil ~= _241) then
-          return vim.cmd.e(vim.fn.fnameescape(_241))
+          return edit(_241)
         else
           return nil
         end
@@ -70,5 +70,4 @@ local function goto_module(mod, first)
   end
 end
 _2amodule_2a["goto-module"] = goto_module
---[[ (var a (select 2 (unpack [1 2 3]))) (var paths ["/Users/wang/.config/nvim/fnl/config/ft/fennel.fnl" "/Users/wang/.config/nvim/lua/config/ft/fennel.lua"]) (module->path "config.ft.fennel" true) (module->path "config.ft.fennel" false) (goto-module "config.plugs" true) (goto-module "config.plugs2" true) (goto-module "config.plugs" false) (goto-module "config.macros" false) (goto-module "config.macros2" false) ]]
 return _2amodule_2a

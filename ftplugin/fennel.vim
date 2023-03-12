@@ -18,7 +18,10 @@ nnoremap <buffer> gf <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](
 xnoremap <buffer> gf "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-module"](@v, v:true)<CR>
 nnoremap <buffer> gF <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](expand("<cfile>"), v:false)<CR>
 xnoremap <buffer> gF "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-module"](@v, v:false)<CR>
-" TODO: ctrl-w gf "
+nnoremap <buffer> <C-w>gf <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](expand("<cfile>"), v:true, "tab drop")<CR>
+xnoremap <buffer> <C-w>gf "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-module"](@v, v:true, "tab drop")<CR>
+nnoremap <buffer> <C-w>gF <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](expand("<cfile>"), v:false, "tab drop")<CR>
+xnoremap <buffer> <C-w>gF "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-module"](@v, v:false, "tab drop")<CR>
 
 " (. (form) :_)
 imap <buffer> <M-.> <C-o><LocalLeader>i.<C-o>>I<Space>:
