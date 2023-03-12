@@ -3,7 +3,6 @@ if exists("b:did_ftplugin")
 endif
 
 setl keywordprg=:help
-" TODO: input special char map "
 
 " execute current line
 nnoremap <buffer> <LocalLeader>e :<C-U>exe getline(".")<CR>

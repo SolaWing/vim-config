@@ -41,7 +41,6 @@ endfunction
 "     return s:ContextCache
 " endfunction
 
-" TODO: cursor function and class info "
 let g:lightline = {
             \   'colorscheme' : 'gruvbox_custom',
             \   'active': {

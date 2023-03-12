@@ -2,8 +2,6 @@ if exists("b:did_ftplugin")
   finish
 endif
 
-" TODO: Jump to definition"
-
 function! s:InsideCommentOrString()
   let l:pos = getpos('.')
   let l:syn_name = synIDattr(synID(l:pos[1], l:pos[2], 1), 'name')

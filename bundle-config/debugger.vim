@@ -11,6 +11,5 @@ nnoremap <space>ds <Cmd>DapStepInto<CR>
 nnoremap <space>do <Cmd>DapStepOut<CR>
 nnoremap <space>dl <Cmd>DapShowLog<CR>
 nnoremap <space>d<CR> <Cmd>DapToggleRepl<CR>
-" TODO: keymap binding "
 
 autocmd mine User plug#end ++once luafile ~/.vim/bundle-config/debugger.lua
