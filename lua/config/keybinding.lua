@@ -31,6 +31,9 @@ local function fzf_lua_bind()
   local function xmap(f, t)
     return vim.keymap.set("x", (leader .. f), t, {remap = true})
   end
+  local function quote_visual()
+    return ("'" .. vim.fn.escape(fzf_lua.utils.get_visual_selection(), " \9'\\") .. " ")
+  end
   vim.keymap.set({"n"}, "<M-Tab>", (leader .. "b"), {remap = true})
   local function _2_()
     return fzf_lua.buffers({winopts = {preview = {layout = "vertical"}}})
@@ -41,7 +44,7 @@ local function fzf_lua_bind()
   end
   nmap("f", _3_)
   local function _4_()
-    return fzf_lua.files({query = fzf_lua.utils.get_visual_selection()})
+    return fzf_lua.files({query = quote_visual()})
   end
   xmap("f", _4_)
   local function _5_()
@@ -69,7 +72,7 @@ local function fzf_lua_bind()
   end
   nmap("?", _10_)
   local function _11_()
-    return fzf_lua.lines({fzf_opts = {["--layout"] = "reverse-list"}, query = fzf_lua.utils.get_visual_selection()})
+    return fzf_lua.lines({fzf_opts = {["--layout"] = "reverse-list"}, query = quote_visual()})
   end
   xmap("?", _11_)
   local function _12_()
@@ -77,7 +80,7 @@ local function fzf_lua_bind()
   end
   nmap("/", _12_)
   local function _13_()
-    return fzf_lua.blines({fzf_opts = {["--layout"] = "reverse-list"}, query = fzf_lua.utils.get_visual_selection()})
+    return fzf_lua.blines({fzf_opts = {["--layout"] = "reverse-list"}, query = quote_visual()})
   end
   xmap("/", _13_)
   local function _14_()
@@ -129,7 +132,7 @@ local function fzf_lua_bind()
   end
   nmap("gg", _24_)
   local function _25_()
-    return fzf_lua.git_files({query = fzf_lua.utils.get_visual_selection()})
+    return fzf_lua.git_files({query = quote_visual()})
   end
   xmap("gg", _25_)
   local function _26_()

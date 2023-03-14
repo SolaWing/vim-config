@@ -8,3 +8,5 @@ nnoremap <buffer> <Space>t<CR> <C-W><CR><C-W>T
 
 nnoremap <buffer> <C-M-W> <C-W><CR>
 nnoremap <buffer> <C-M-T> <C-W><CR><C-W>T
+
+nnoremap <buffer> <C-c> <C-w><C-q>
