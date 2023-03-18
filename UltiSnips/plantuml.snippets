@@ -24,6 +24,12 @@ class $1 {
 }
 endsnippet
 
+snippet struct "struct declare" b
+class $1 <<(S,lightgreen)>> {
+	$0
+}
+endsnippet
+
 snippet annotation "class annotation" b
 annotation $1
 endsnippet
@@ -74,4 +80,8 @@ fork
 	$0
 fork again
 end fork
+endsnippet
+
+snippet color "<color:$1>" w
+<color:$1>
 endsnippet
