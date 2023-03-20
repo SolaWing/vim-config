@@ -7,9 +7,19 @@ endif
 
 let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 
+nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
+xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
+
+if stridx(expand("%"), "/.vim/") > 0
+    " vim fennel, use aniseed
+    nnoremap <buffer> ,c :<C-U>update<bar>AniseedCompile<CR>
+else
+    " outside vim plugin, use stdio repl
+    let b:conjure#filetype#fennel = "conjure.client.fennel.stdio"
+endif
+
 nnoremap <buffer> <LocalLeader>m <Cmd>call fzf#vim#buffer_lines('fn-\?\s\+\w\|\%(MARK\|TODO\|FIXME\):', {'options': '+s'})<CR>
-nnoremap <buffer> ,c :<C-U>update<bar>AniseedCompile<CR>
-nnoremap <buffer> ,hh <Cmd>!open 'https://fennel-lang.org/reference'<CR>
+nnoremap <buffer> <F1> <Cmd>!open 'https://fennel-lang.org/reference'<CR>
 setl keywordprg=:help
 
 " gf module
