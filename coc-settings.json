@@ -83,6 +83,8 @@
 
     "coc.source.omni.filetypes": [],
     // config
+    "workspace.bottomUpFiletypes": ["swift"],
+    "workspace.workspaceFolderCheckCwd": false,
     // "workspace.bottomUpFiletypes": ["ruby"],
     // "workspace.progressTarget": "statusline",
     // "suggest.autoTrigger": "trigger",

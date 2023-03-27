@@ -13,7 +13,6 @@ call plug#begin('~/.vim/bundle')
     source ~/.vim/bundle-config/sneak.vim
     source ~/.vim/bundle-config/autopair.vim
 
-    " if argv(0) =~# '\.\%(swift\|[hcm]\|mm\|cpp\|py\)$'
     " if $COC == "1" || ($COC != "0" && argv(0) !~# '\.\%(swift\)$')
     if $COC != "0"
         let g:hasCOC = v:true
