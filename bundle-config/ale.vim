@@ -6,7 +6,7 @@ let g:ale_set_highlights = 1
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
             \ 'javascript' :[ 'eslint' ],
-            \ 'swift' : ['swiftlint'],
+            \ 'swift' : ['my_swiftlint'],
             \ 'php': ['php'],
             \ 'python': ['pylint'],
             \ 'sh': ['shell'],

@@ -97,11 +97,11 @@ nnoremap <Space>2 2<C-W><C-W>
 nnoremap <Space>3 3<C-W><C-W>
 nnoremap <Space>4 4<C-W><C-W>
 nnoremap <Space>5 5<C-W><C-W>
-" focus window
-nnoremap <C-J>    <C-W>j<C-W>_
-nnoremap <C-K>    <C-W>k<C-W>_
-nnoremap <C-H>    <C-W>h<C-W>_
-nnoremap <C-L>    <C-W>l<C-W>_
+" window move
+nnoremap <C-J>    <C-W>j
+nnoremap <C-K>    <C-W>k
+nnoremap <C-H>    <C-W>h
+nnoremap <C-L>    <C-W>l
 nnoremap <C-=>    <C-W>=
 
 nnoremap <M-Left> <C-W>h

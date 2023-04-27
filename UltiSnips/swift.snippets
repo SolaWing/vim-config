@@ -248,3 +248,11 @@ func callAsFunction($1) {
 	$0
 }
 endsnippet
+
+snippet fatalErrorWithBackup "fatalError with Backup" b
+#if DEBUG || ALPHA
+fatalError($1)
+#else
+$0
+#endif
+endsnippet

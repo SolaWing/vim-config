@@ -11,8 +11,6 @@ let b:surround_47 = "/* \r */"
 
 nnoremap <buffer> <LocalLeader>m <Cmd>call fzf#vim#buffer_lines("func \\|class \\|extension \\|struct \\|enum \\|[^.]init(\\|\\%(MARK\\|TODO\\|FIXME\\):", {'options': '+s'})<CR>
 nnoremap <buffer> <LocalLeader>lt <Cmd>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
-" nnoremap <buffer> <LocalLeader>f :!cd '%:h' && swiftlint lint --fix -- '%:t'<CR>
-nnoremap <buffer> <LocalLeader>f :!swiftlint lint --fix -- '%'<CR>
 nnoremap <buffer> <LocalLeader>r :update <bar> !swift '%'<CR>
 nnoremap <buffer> <LocalLeader>gk <Cmd>YcmCompleter RestartServer<CR>
 nnoremap <buffer> <M-o> :OpenInXcode<CR>
@@ -36,10 +34,13 @@ nnoremap <buffer> <LocalLeader>c :<C-U>CocDiagnostics<CR>
 endif
 
 
-if filereadable(".swiftlint.yml")
+let b:ale_swift_swiftlint_config = findfile(".swiftlint.yml", expand("%:p:h") . ";")
+if filereadable(b:ale_swift_swiftlint_config)
     unlet! b:ale_linters_ignore
+    " nnoremap <buffer> <LocalLeader>f :!cd '%:h' && swiftlint lint --fix -- '%:t'<CR>
+    nnoremap <buffer> <LocalLeader>f :!cd <C-R>=fnamemodify(b:ale_swift_swiftlint_config, ":p:h")<CR>; swiftlint lint --fix -- '%:p'<CR>
 else
-    let b:ale_linters_ignore = ['swiftlint']
+    let b:ale_linters_ignore = ['swiftlint', 'my_swiftlint']
 endif
 
 

@@ -20,12 +20,12 @@ if has('nvim-0.5.0')
 end
 
 " Plug 'kovisoft/slimv',               {'for': ['racket', 'scheme']}
-" 这个服务器目前只能先有了前缀才能过滤，不然内容太多了。
-let g:slimv_swank_cmd = '!tmux new -d -n REPL-Racket "racket ~/.vim/bin/swank-racket/server.rkt"'
-let g:slimv_unmap_cr = 1
-" prefer vim edit functions
-let g:paredit_mode = 0
-let g:paredit_disable_scheme = 1
+" " 这个服务器目前只能先有了前缀才能过滤，不然内容太多了。
+" let g:slimv_swank_cmd = '!tmux new -d -n REPL-Racket "racket ~/.vim/bin/swank-racket/server.rkt"'
+" let g:slimv_unmap_cr = 1
+" " prefer vim edit functions
+" let g:paredit_mode = 0
+" let g:paredit_disable_scheme = 1
 
 " waiting try
             " \ 'do': 'cargo build --release',
