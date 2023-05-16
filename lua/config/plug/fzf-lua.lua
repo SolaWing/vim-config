@@ -42,7 +42,15 @@ local function setup()
                 ["<M-[>"] = "preview-page-up",
                 ["<M-=>"] = "preview-page-reset",
             }
-        }
+        },
+        registers = {
+          actions = {
+            ["@"] = function (selected)
+              local register = selected[1]:match("^%[(.)%]")
+              vim.cmd("normal @" .. register)
+            end
+          }
+        },
     }
     f.setup(opts)
     local special_opts = {
