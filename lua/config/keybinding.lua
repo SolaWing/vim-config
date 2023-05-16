@@ -171,32 +171,43 @@ local function fzf_lua_bind()
     return fzf_lua.registers()
   end
   nmap("\"", _34_)
+  if vim["plug?"]("nvim-neoclip.lua") then
+    local function _35_()
+      return require("neoclip.fzf")()
+    end
+    nmap("h\"", _35_)
+    local function _36_()
+      return require("neoclip.fzf")("q")
+    end
+    nmap("hq", _36_)
+  else
+  end
   return "\n  | `tagstack`         | :tags                                      |\n  | `keymaps`          | key mappings                               |\n  | `filetypes`        | filetypes                                  |\n  | `menus`            | menus                                      |\n  | `spell_suggest`    | spelling suggestions                       |\n  | `packadd`          | :packadd <package>                         |T)\n  "
 end
 _2amodule_2a["fzf-lua-bind"] = fzf_lua_bind
 local function harpoon_bind()
-  local function _35_()
+  local function _38_()
     return (require("harpoon.mark")).add_file()
   end
-  vim.keymap.set("n", "<Leader>p<Space>", _35_, {desc = "harpoon.mark"})
-  local function _36_()
+  vim.keymap.set("n", "<Leader>p<Space>", _38_, {desc = "harpoon.mark"})
+  local function _39_()
     return (require("harpoon.ui")).toggle_quick_menu()
   end
-  return vim.keymap.set("n", "<Leader>p<Tab>", _36_, {desc = "harpoon.ui"})
+  return vim.keymap.set("n", "<Leader>p<Tab>", _39_, {desc = "harpoon.ui"})
 end
 _2amodule_2a["harpoon-bind"] = harpoon_bind
 local function refactoring_bind()
-  local function _37_()
+  local function _40_()
     return (require("refactoring")).select_refactor()
   end
-  return vim.keymap.set({"x", "n"}, "<Leader>xr", _37_, {desc = "refactoring"})
+  return vim.keymap.set({"x", "n"}, "<Leader>xr", _40_, {desc = "refactoring"})
 end
 _2amodule_2a["refactoring-bind"] = refactoring_bind
 local function leap_bind()
-  local function _38_()
+  local function _41_()
     return (require("config.plug.leap")).leap_to_line()
   end
-  vim.keymap.set({"n", "x"}, "<Space><CR>", _38_, {desc = "leap_to_line"})
+  vim.keymap.set({"n", "x"}, "<Space><CR>", _41_, {desc = "leap_to_line"})
   vim.keymap.set({"o"}, "<Space><CR>", "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>", {desc = "leap_to_line"})
   return (require("leap")).add_default_mappings()
 end

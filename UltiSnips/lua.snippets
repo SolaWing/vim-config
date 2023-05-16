@@ -44,3 +44,7 @@ endsnippet
 snippet require "require and ret local var" b
 local ${1/(?:.*\.(\w*)\s*)|(.*)/$1$2/} = require("${1:path}")
 endsnippet
+
+snippet diag "---@diagnostic disable-next-line" b
+---@diagnostic disable-next-line
+endsnippet

@@ -8,6 +8,7 @@
   ; optional for icon support and nerd font may required, required by fzf-lua, barbar etc 
   (Plug "nvim-tree/nvim-web-devicons")
   (Plug "nvim-treesitter/nvim-treesitter" {:do ":TSUpdate"})) ; We recommend updating the parsers on update
+  ; (Plug "kkharji/sqlite.lua")) ; optional required by neoclip
 
 (defn nvim-common []
   (Plug "andymass/vim-matchup" {:on []}) ; nvim-treesitter break % pair by syntax. use replacement
@@ -59,6 +60,7 @@
   (Plug "kevinhwang91/nvim-bqf")
   ; NOTE: require gsed or rust build(broken), slow on large replace when update UI, and will stuck nvim
   (Plug "windwp/nvim-spectre" {:on ["Spectre"]})
+  ; (Plug "AckslD/nvim-neoclip.lua")
 
   ; 慢的补全会卡住，虽然可以一个个加黑名单，但先不用避免自动补全
   ; (Plug "gelguy/wilder.nvim" {:do ":UpdateRemotePlugins"}) ; :do "RUSTFLAGS='-Clink-arg=-undefined -Clink-arg=dynamic_lookup' ./build.sh"}))
@@ -73,5 +75,6 @@
   ((. (require "config.plug.codeium") :setup))
   (_G.hook-require :fzf-lua :setup #((. (require "config.plug.fzf-lua") :setup)))
   (_G.hook-require :bqf     :setup #((. (require "config.plug.bqf")     :setup))))
+  ; ((. (require "config.plug.neoclip") :setup)))
   ; (vim.cmd "autocmd mine CmdlineEnter * ++once call v:lua.require('config.plug.wilder').setup() | call wilder#main#start()"))
 

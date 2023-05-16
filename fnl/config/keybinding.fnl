@@ -116,7 +116,9 @@
   (nmap "j"  #(fzf-lua.jumps)); :jumps
   (nmap "c"  #(fzf-lua.changes)); :changes
   (nmap "\"" #(fzf-lua.registers)); :registers
-
+  (when (vim.plug? "nvim-neoclip.lua")
+      (nmap "h\"" #((require :neoclip.fzf)))
+      (nmap "hq" #((require :neoclip.fzf) :q)))
   "
   | `tagstack`         | :tags                                      |
   | `keymaps`          | key mappings                               |
@@ -125,6 +127,9 @@
   | `spell_suggest`    | spelling suggestions                       |
   | `packadd`          | :packadd <package>                         |T)
   ")
+  
+
+  
 
 (defn harpoon-bind []
   (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)) {:desc "harpoon.mark"})
