@@ -36,6 +36,7 @@ endif
 
 let b:ale_swift_swiftlint_config = findfile(".swiftlint.yml", expand("%:p:h") . ";")
 if filereadable(b:ale_swift_swiftlint_config)
+    let b:ale_swift_swiftlint_config = fnamemodify(b:ale_swift_swiftlint_config, ":p")
     unlet! b:ale_linters_ignore
     " nnoremap <buffer> <LocalLeader>f :!cd '%:h' && swiftlint lint --fix -- '%:t'<CR>
     nnoremap <buffer> <LocalLeader>f :!cd <C-R>=fnamemodify(b:ale_swift_swiftlint_config, ":p:h")<CR>; swiftlint lint --fix -- '%:p'<CR>
