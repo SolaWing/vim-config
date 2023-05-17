@@ -92,16 +92,16 @@ xmap <LocalLeader>f  <Plug>(coc-format-selected)
 nmap <LocalLeader>f  <Plug>(coc-format)
 
 " Applying codeAction to the selected region.
-" Example: `<localleader>aap` for current paragraph
-xmap <localleader>a  <Plug>(coc-codeaction-selected)
-nmap <localleader>a  <Plug>(coc-codeaction-selected)
-nmap <localleader>aa  <Plug>(coc-codeaction-cursor)
+" Example: `<LocalLeader>aap` for current paragraph
+xmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
+nmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
+nmap <LocalLeader>aa  <Plug>(coc-codeaction-cursor)
 
 " Remap keys for applying codeAction to the current line.
-nmap <localleader>ac  <Plug>(coc-codeaction-line)
-nmap <localleader>as  <Plug>(coc-codelens-action)
+nmap <LocalLeader>ac  <Plug>(coc-codeaction-line)
+nmap <LocalLeader>as  <Plug>(coc-codelens-action)
 " Apply AutoFix to problem on the current line.
-nmap <localleader>gf  <Plug>(coc-fix-current)
+nmap <LocalLeader>gf  <Plug>(coc-fix-current)
 nnoremap <LocalLeader>gc <Cmd>CocDiagnostics<CR>
 
 " Introduce function text object
@@ -131,25 +131,25 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <localleader>la  <Cmd>CocList diagnostics<cr>
+nnoremap <silent> <LocalLeader>la  <Cmd>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent> <localleader>le  <Cmd>CocList extensions<cr>
+nnoremap <silent> <LocalLeader>le  <Cmd>CocList extensions<cr>
 " Manage extensions.
-nnoremap <silent> <localleader>lE  <Cmd>CocList sources<cr>
+nnoremap <silent> <LocalLeader>lE  <Cmd>CocList sources<cr>
 " Show commands.
-nnoremap <silent> <localleader>lc  <Cmd>CocList commands<cr>
+nnoremap <silent> <LocalLeader>lc  <Cmd>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent> <localleader>lo  <Cmd>CocList outline<cr>
+nnoremap <silent> <LocalLeader>lo  <Cmd>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent> <localleader>ls  <Cmd>CocList symbols<cr>
+nnoremap <silent> <LocalLeader>ls  <Cmd>CocList symbols<cr>
 " workspace folders
-nnoremap <silent> <localleader>lw  <Cmd>CocList folders<cr>
+nnoremap <silent> <LocalLeader>lw  <Cmd>CocList folders<cr>
 " Do default action for next item.
-nnoremap <silent> <localleader>lj  <Cmd>CocNext<CR>
+nnoremap <silent> <LocalLeader>lj  <Cmd>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <localleader>lk  <Cmd>CocPrev<CR>
+nnoremap <silent> <LocalLeader>lk  <Cmd>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <localleader>ll  <Cmd>CocListResume<CR>
+nnoremap <silent> <LocalLeader>ll  <Cmd>CocListResume<CR>
 
 augroup my_COC
   autocmd!
