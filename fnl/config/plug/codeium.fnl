@@ -12,6 +12,7 @@
    {:group :mine :pattern "codeium.vim" :once true
     :desc "config codeium"
     ; special key need to translate in vim language
+    ; currently <C-e> mapped to <End>
     :callback #(vim.cmd "imap <script><silent><nowait><expr> <C-e> codeium#Accept()
                         let g:codeium_tab_fallback = \"\\<End>\"")})
 

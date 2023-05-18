@@ -99,9 +99,15 @@ nmap <LocalLeader>aa  <Plug>(coc-codeaction-cursor)
 
 " Remap keys for applying codeAction to the current line.
 nmap <LocalLeader>ac  <Plug>(coc-codeaction-line)
-nmap <LocalLeader>as  <Plug>(coc-codelens-action)
+nmap <LocalLeader>a:  <Plug>(coc-codelens-action)
+nmap <LocalLeader>as  <Plug>(coc-codeaction-source)
 " Apply AutoFix to problem on the current line.
 nmap <LocalLeader>gf  <Plug>(coc-fix-current)
+
+nmap <LocalLeader>ar  <Plug>(coc-codeaction-refactor-selected)
+nmap <LocalLeader>arr  <Plug>(coc-codeaction-refactor)
+xmap <LocalLeader>ar  <Plug>(coc-codeaction-refactor-selected)
+
 nnoremap <LocalLeader>gc <Cmd>CocDiagnostics<CR>
 
 " Introduce function text object
