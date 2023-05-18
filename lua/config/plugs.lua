@@ -15,8 +15,7 @@ _2amodule_2a["Plug"] = Plug
 local function nvim_lib()
   Plug("nvim-lua/plenary.nvim")
   Plug("nvim-tree/nvim-web-devicons")
-  Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
-  return Plug("kkharji/sqlite.lua")
+  return Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
 end
 _2amodule_2a["nvim-lib"] = nvim_lib
 local function nvim_common()
@@ -65,9 +64,7 @@ local function init()
   Plug("ThePrimeagen/harpoon")
   Plug("ThePrimeagen/refactoring.nvim")
   Plug("ggandor/leap.nvim")
-  Plug("kevinhwang91/nvim-bqf")
   Plug("windwp/nvim-spectre", {on = {"Spectre"}})
-  Plug("AckslD/nvim-neoclip.lua")
   return vim.cmd("autocmd mine User plug#end ++once lua require('config.plugs').after()")
 end
 _2amodule_2a["init"] = init
@@ -81,8 +78,7 @@ local function after()
   local function _6_()
     return (require("config.plug.bqf")).setup()
   end
-  _G["hook-require"]("bqf", "setup", _6_)
-  return (require("config.plug.neoclip")).setup()
+  return _G["hook-require"]("bqf", "setup", _6_)
 end
 _2amodule_2a["after"] = after
 return _2amodule_2a

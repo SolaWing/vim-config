@@ -57,7 +57,7 @@
   (Plug "ThePrimeagen/harpoon")
   (Plug "ThePrimeagen/refactoring.nvim")
   (Plug "ggandor/leap.nvim")
-  (Plug "kevinhwang91/nvim-bqf")
+  ; (Plug "kevinhwang91/nvim-bqf")
   ; NOTE: require gsed or rust build(broken), slow on large replace when update UI, and will stuck nvim
   (Plug "windwp/nvim-spectre" {:on ["Spectre"]})
   ; (Plug "AckslD/nvim-neoclip.lua")

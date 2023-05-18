@@ -94,6 +94,7 @@ nmap <LocalLeader>f  <Plug>(coc-format)
 " Applying codeAction to the selected region.
 " Example: `<LocalLeader>aap` for current paragraph
 xmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
+xmap <LocalLeader>aa  <Plug>(coc-codeaction-selected)
 nmap <LocalLeader>a  <Plug>(coc-codeaction-selected)
 nmap <LocalLeader>aa  <Plug>(coc-codeaction-cursor)
 
