@@ -10,12 +10,13 @@ let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 
-if stridx(expand("%"), "/.vim/") > 0
+if stridx(expand("%:p"), "/.vim/") > 0
     " vim fennel, use aniseed
     nnoremap <buffer> ,c :<C-U>update<bar>AniseedCompile<CR>
 else
     " outside vim plugin, use stdio repl
-    let b:conjure#filetype#fennel = "conjure.client.fennel.stdio"
+    " it's not valid buffer var...
+    lua vim.b["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
 endif
 
 nnoremap <buffer> <LocalLeader>m <Cmd>call fzf#vim#buffer_lines('fn-\?\s\+\w\|\%(MARK\|TODO\|FIXME\):', {'options': '+s'})<CR>
