@@ -26,8 +26,9 @@ Plug 'tpope/vim-repeat'
 
 " tpope/fugitive {{{
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rhubarb' " GBrowse github
 Plug 'junegunn/gv.vim', {'on': 'GV'}
+silent! source ~/.vim/Private/gitlab.vim
 " re setf git to enable fugitive map, fugitive#detect need a path to detect
 autocmd mine VimEnter * if expand('<amatch>')=='' && &filetype=='git' | setf git | endif
 " 反应太慢了, 主要也就是把status window和diff合并了。

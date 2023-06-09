@@ -1,5 +1,8 @@
 require'nvim-treesitter.configs'.setup {
-    highlight = { enable = true },
+    highlight = {
+      enable = true,
+      disable = {"swift"}
+    },
     -- comment换行有问题，先禁用 https://github.com/nvim-treesitter/nvim-treesitter/issues/1336
     indent = {
         enable = true,

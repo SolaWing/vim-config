@@ -5,3 +5,5 @@
 /*undodir
 *.pyc
 tags
+# Private dir config not upload to github
+/Private/
