@@ -38,6 +38,13 @@ local function setup()
         },
         keymap = {
             builtin = {
+                ["<F1>"]     = "toggle-help",
+                ["<F2>"]     = "toggle-fullscreen",
+                -- Only valid with the 'builtin' previewer
+                ["<F3>"]     = "toggle-preview-wrap",
+                ["<F4>"]     = "toggle-preview",
+                ["<F5>"]     = "toggle-preview-ccw",
+                ["<F6>"]     = "toggle-preview-cw",
                 ["<M-]>"] = "preview-page-down",
                 ["<M-[>"] = "preview-page-up",
                 ["<M-=>"] = "preview-page-reset",

@@ -236,6 +236,14 @@ ${VISUAL}$0
 # :nocov:
 endsnippet
 
+snippet simplecov-require "init simplecov" b
+require 'simplecov'
+SimpleCov.start do
+  enable_coverage :branch
+  add_filter %r{^/spec/}
+end
+endsnippet
+
 snippet class_self "singleton method define" b
 class << self
 	$0
