@@ -2,7 +2,7 @@
   {autoload {fs aniseed.fs}})
 
 (defn module->path [mod first]
-  "return a array of match paths. or []
+  "nofirst: return a array of match paths. or []
    first: only return the first match. nil if no match"
   (local mod-path (mod:gsub "%." fs.path-sep))
   (local paths [(.. :fnl fs.path-sep mod-path :.fnl)
@@ -19,7 +19,9 @@
   (if first nil t)) ; first should early return
 
 (defn goto-module [mod first open-cmd]
-  (local paths (module->path mod first))
+  (local paths (if (mod:find fs.path-sep)
+                (if first mod [mod]) ; normal file path with /, goto directly
+                (module->path mod first)))
   (fn edit [p] (vim.cmd (-> [(or open-cmd "edit") (vim.fn.fnameescape p)]
                             (table.concat " "))))
   (if first
@@ -43,3 +45,4 @@
 ; (goto-module "config.plugs" false)
 ; (goto-module "config.macros" false)
 ; (goto-module "config.macros2" false)
+; (goto-module "~/.vim/init.vim" false)

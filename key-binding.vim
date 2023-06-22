@@ -363,8 +363,8 @@ nnoremap c* *Ncgn
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 xnoremap @<esc> <Nop>
 
-nnoremap Q @q
-xmap Q @q
+" nnoremap Q @q
+" xmap Q @q
 
 " make Q to quick replay macro
 function! ExecuteMacroOverVisualRange()

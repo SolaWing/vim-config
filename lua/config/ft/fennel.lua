@@ -38,7 +38,16 @@ local function module__3epath(mod, first)
 end
 _2amodule_2a["module->path"] = module__3epath
 local function goto_module(mod, first, open_cmd)
-  local paths = module__3epath(mod, first)
+  local paths
+  if mod:find(fs["path-sep"]) then
+    if first then
+      paths = mod
+    else
+      paths = {mod}
+    end
+  else
+    paths = module__3epath(mod, first)
+  end
   local function edit(p)
     return vim.cmd(table.concat({(open_cmd or "edit"), vim.fn.fnameescape(p)}, " "))
   end
@@ -49,21 +58,21 @@ local function goto_module(mod, first, open_cmd)
       return vim.notify("no match file found", vim.log.levels.WARN)
     end
   else
-    local _5_ = #paths
-    if (_5_ == 0) then
+    local _7_ = #paths
+    if (_7_ == 0) then
       return vim.notify("no match file found", vim.log.levels.WARN)
-    elseif (_5_ == 1) then
+    elseif (_7_ == 1) then
       return edit(paths[1])
     elseif true then
-      local _ = _5_
-      local function _6_(_241)
+      local _ = _7_
+      local function _8_(_241)
         if (nil ~= _241) then
           return edit(_241)
         else
           return nil
         end
       end
-      return vim.ui.select(paths, {prompt = "which file to choose? "}, _6_)
+      return vim.ui.select(paths, {prompt = "which file to choose? "}, _8_)
     else
       return nil
     end
