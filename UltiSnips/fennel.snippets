@@ -25,6 +25,22 @@ snippet each "each loop"
 	$0)
 endsnippet
 
+snippet for "for number loop"
+(for [i ${1:start} ${2:stop} ${3:1}]
+  $0)
+endsnippet
+
+snippet fcollect "for loop comprehension"
+(fcollect [i ${1:start} ${2:stop} ${3:1}]
+  $0)
+endsnippet
+
+snippet icollect "list loop comprehension"
+(icollect [i v (ipairs $1)]
+  $0)
+endsnippet
+
+
 snippet let "let binding" w
 (let [$1 $2]
 	$0)

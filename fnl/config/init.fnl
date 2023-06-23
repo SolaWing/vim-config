@@ -37,11 +37,10 @@
   (if
     ; todo: vscode neovim integration, change root and manual choose config file
     vim.g.vscode ((. (require :config.vscode.init) :init))
-    (do
+    (do ; else
       (set vim.env.FZF_LUA_NVIM_BIN "nvim") ; fix vimr issue
       (vim.cmd "source ~/.vimrc
-        command! Fish sp | terminal /usr/local/bin/fish -l
-        command! -bang Bwipeout lua require('config.function').Bwipeout('<bang>')"))))
+                source ~/.vim/nvimafterinit.vim"))))
   
 ; (vim.fn.api_info)
 ; (. vim.g :conjure)

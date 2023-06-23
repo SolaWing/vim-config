@@ -14,6 +14,7 @@ if has('nvim-0.5.0')
     let g:conjure#filetype#racket = "conjure.client.racket.mystdio"
     let g:conjure#filetypes = ["clojure", "fennel", "hy", "racket", "lisp", "scheme", "lua"]
     let g:conjure#mapping#doc_word = "K" " with localLeader
+    let g:conjure#eval#result_register = '"'
     " let g:conjure#debug = 1
 
     Plug 'nvim-lua/plenary.nvim'
