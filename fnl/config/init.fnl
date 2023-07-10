@@ -33,6 +33,11 @@
   (set vim.g.python3_host_prog "/usr/local/bin/python3")
   (when (= 1 (vim.fn.has :gui_vimr))
     (set vim.env.LANG "zh_CN.UTF-8"))
+  (when vim.g.neovide
+    (set vim.g.neovide_input_macos_alt_is_meta true)
+    (set vim.g.neovide_cursor_animation_length 0.02)
+    (set vim.o.guifont "FiraCode Nerd Font Mono:h14")
+    (set vim.o.linespace 5))
   
   (if
     ; todo: vscode neovim integration, change root and manual choose config file

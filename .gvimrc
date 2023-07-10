@@ -1,5 +1,6 @@
 """ vim: set sw=4 ts=4 sts=4 et foldmarker={,} foldlevel=1 foldmethod=marker:
 "gui{
+    echom "run .gvimrc"
     " guicolorscheme
     " set bg=light
     " gui font size

@@ -42,12 +42,23 @@ local function get_line_starts(winid)
   end
 end
 
+local function get_word_starts(winid)
+  -- TODO:  <29-06-23, yourname> --
+end
+
 -- Usage:
 local function leap_to_line()
   winid = vim.api.nvim_get_current_win()
   require('leap').leap {
     target_windows = { winid },
     targets = get_line_starts(winid),
+  }
+end
+
+local function leap_to_word()
+  winid = vim.api.nvim_get_current_win()
+  require("leap").leap {
+    targets = get_word_starts(winid)
   }
 end
 

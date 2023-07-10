@@ -12,44 +12,36 @@ do
 end
 local function registers__3evimscript()
   local registers = "qwertyuiopasdfghjklzxcvbnm0*"
-  local _1_
-  do
-    local tbl_17_auto = {}
-    local i_18_auto = #tbl_17_auto
-    for i = 1, #registers, 1 do
-      local val_19_auto
-      do
-        local char = registers:sub(i, i)
-        local reginfo = vim.fn.getreginfo(char)
-        if (reginfo.regcontents ~= nil) then
-          local _2_
-          do
-            local tbl_17_auto0 = {}
-            local i_18_auto0 = #tbl_17_auto0
-            for i0, v in ipairs(reginfo.regcontents) do
-              local val_19_auto0 = string.format("'%s'", string.gsub(v, "'", "''"))
-              if (nil ~= val_19_auto0) then
-                i_18_auto0 = (i_18_auto0 + 1)
-                do end (tbl_17_auto0)[i_18_auto0] = val_19_auto0
-              else
-              end
+  local tbl_17_auto = {}
+  local i_18_auto = #tbl_17_auto
+  for i = 1, #registers, 1 do
+    local val_19_auto
+    do
+      local char = registers:sub(i, i)
+      local reginfo = vim.fn.getreginfo(char)
+      if (reginfo.regcontents ~= nil) then
+        local _1_
+        do
+          local lines = {}
+          for _, c in ipairs(reginfo.regcontents) do
+            for v in vim.gsplit(c, "\n", true) do
+              table.insert(lines, string.format("'%s'", string.gsub(v, "'", "''")))
             end
-            _2_ = tbl_17_auto0
           end
-          val_19_auto = string.format("call setreg('%s', [%s], '%s')", char, table.concat(_2_, ", "), reginfo.regtype)
-        else
-          val_19_auto = nil
+          _1_ = lines
         end
-      end
-      if (nil ~= val_19_auto) then
-        i_18_auto = (i_18_auto + 1)
-        do end (tbl_17_auto)[i_18_auto] = val_19_auto
+        val_19_auto = string.format("call setreg('%s', [%s], '%s')", char, table.concat(_1_, ", "), reginfo.regtype)
       else
+        val_19_auto = nil
       end
     end
-    _1_ = tbl_17_auto
+    if (nil ~= val_19_auto) then
+      i_18_auto = (i_18_auto + 1)
+      do end (tbl_17_auto)[i_18_auto] = val_19_auto
+    else
+    end
   end
-  return table.concat(_1_, "\n")
+  return tbl_17_auto
 end
 _2amodule_2a["registers->vimscript"] = registers__3evimscript
 --[[ (local char "g") (local i 2) ]]
