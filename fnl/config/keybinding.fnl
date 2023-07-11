@@ -143,6 +143,8 @@
   (vim.keymap.set ["o"] "<Space><CR>" "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>" {:desc "leap_to_line"})
   ; TODO: unify surround and leap mapping ;
   ((. (require "leap") :add_default_mappings)))
+  ; ((. (require "leap") :add_repeat_mappings) ";" "," {:relative_directions true
+  ;                                                     :modes [:n :x :o]}))
 
 (defn init []
   (common)
