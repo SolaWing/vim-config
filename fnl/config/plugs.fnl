@@ -11,11 +11,12 @@
   ; (Plug "kkharji/sqlite.lua")) ; optional required by neoclip
 
 (defn nvim-common []
-  (Plug "andymass/vim-matchup" {:on []}) ; nvim-treesitter break % pair by syntax. use replacement
+  (Plug "andymass/vim-matchup") ; {:on []}) ; nvim-treesitter break % pair by syntax. use replacement
   ; disable original match, this delay may fast 5ms
   (set vim.g.loaded_matchparen 1)
   (set vim.g.loaded_matchit 1)
-  (vim.defer_fn #(vim.fn.plug#load "vim-matchup") 1000)
+  ; plug#load may trigger unlimit BufRead, and cause bugs in vim
+  ; (vim.defer_fn #(vim.fn.plug#load "vim-matchup") 1000)
 
   (set vim.g.matchup_matchparen_deferred 1)
   (set vim.g.matchup_matchparen_deferred_show_delay 200)
@@ -55,7 +56,8 @@
   (Plug "Exafunction/codeium.vim" {:on ["Codeium"]})
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
-  (Plug "ThePrimeagen/refactoring.nvim")
+  (Plug "ThePrimeagen/refactoring.nvim") ; 要求最新develop，不稳定..
+  ; (Plug "~/.vim/bundle/refactoring.nvim")
   (Plug "ggandor/leap.nvim")
   ; (Plug "kevinhwang91/nvim-bqf")
   ; NOTE: require gsed or rust build(broken), slow on large replace when update UI, and will stuck nvim
@@ -74,7 +76,8 @@
   (luafile "~/.vim/lua/config/plug/treesitter.lua")
   ((. (require "config.plug.codeium") :setup))
   (_G.hook-require :fzf-lua :setup #((. (require "config.plug.fzf-lua") :setup)))
-  (_G.hook-require :bqf     :setup #((. (require "config.plug.bqf")     :setup))))
+  (_G.hook-require :bqf     :setup #((. (require "config.plug.bqf")     :setup)))
+  (_G.hook-require "refactoring" :setup #((. (require "config.plug.refactoring")     :setup))))
   ; ((. (require "config.plug.neoclip") :setup)))
   ; (vim.cmd "autocmd mine CmdlineEnter * ++once call v:lua.require('config.plug.wilder').setup() | call wilder#main#start()"))
 

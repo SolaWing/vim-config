@@ -250,6 +250,12 @@ class << self
 end
 endsnippet
 
+snippet singleton "singleton declare" b
+include Singleton
+# @!method self.instance
+#  @return [$1]
+endsnippet
+
 snippet structkw "simple struct declare" b
 class ${1:StructName}
 	attr_accessor $2

@@ -79,6 +79,10 @@
         //      "args": ["langserver"],
         //      "filetypes": ["ruby"]
         //  }
+        // , "rubylsp": {
+        //     "command": "ruby-lsp",
+        //     "filetypes": ["ruby"]
+        // }
     },
 
     "coc.source.omni.filetypes": [],

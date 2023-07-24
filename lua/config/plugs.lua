@@ -19,13 +19,9 @@ local function nvim_lib()
 end
 _2amodule_2a["nvim-lib"] = nvim_lib
 local function nvim_common()
-  Plug("andymass/vim-matchup", {on = {}})
+  Plug("andymass/vim-matchup")
   vim.g.loaded_matchparen = 1
   vim.g.loaded_matchit = 1
-  local function _1_()
-    return vim.fn["plug#load"]("vim-matchup")
-  end
-  vim.defer_fn(_1_, 1000)
   vim.g.matchup_matchparen_deferred = 1
   vim.g.matchup_matchparen_deferred_show_delay = 200
   Plug("nvim-treesitter/nvim-treesitter-textobjects")
@@ -41,13 +37,13 @@ local function _function()
     return (1 == vim.fn.HasPlug(name))
   end
   _G.luafile = function(path)
-    local _2_, _3_ = loadfile(vim.fs.normalize(path))
-    if (true and (nil ~= _3_)) then
-      local _ = _2_
-      local err = _3_
+    local _1_, _2_ = loadfile(vim.fs.normalize(path))
+    if (true and (nil ~= _2_)) then
+      local _ = _1_
+      local err = _2_
       return error(err)
-    elseif ((nil ~= _2_) and (_3_ == nil)) then
-      local f = _2_
+    elseif ((nil ~= _1_) and (_2_ == nil)) then
+      local f = _1_
       return f()
     else
       return nil
@@ -71,14 +67,18 @@ _2amodule_2a["init"] = init
 local function after()
   luafile("~/.vim/lua/config/plug/treesitter.lua")
   do end (require("config.plug.codeium")).setup()
-  local function _5_()
+  local function _4_()
     return (require("config.plug.fzf-lua")).setup()
   end
-  _G["hook-require"]("fzf-lua", "setup", _5_)
-  local function _6_()
+  _G["hook-require"]("fzf-lua", "setup", _4_)
+  local function _5_()
     return (require("config.plug.bqf")).setup()
   end
-  return _G["hook-require"]("bqf", "setup", _6_)
+  _G["hook-require"]("bqf", "setup", _5_)
+  local function _6_()
+    return (require("config.plug.refactoring")).setup()
+  end
+  return _G["hook-require"]("refactoring", "setup", _6_)
 end
 _2amodule_2a["after"] = after
 return _2amodule_2a

@@ -3,7 +3,7 @@
   ; (set vim.g.codeium_enabled 0) ; internal only allow black list.. so change the repo directly
   (set vim.g.codeium_filetypes
        {:markdown false :text false
-        :plantuml true
+        :plantuml true :dot true
         :fennel true :lua true :vim true
         :ruby true :python true :sh true
         :swift true})

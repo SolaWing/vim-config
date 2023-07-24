@@ -8,7 +8,7 @@ let g:vista#renderer#enable_icon = 1
 " let g:vista#renderer#enable_kind = 1
 
 let g:vista#renderer#icons = {
-            \    "singletonmethod": "",
+            \    "singletonmethod": "ƒ",
             \    "func": "ƒ",
             \    "function": "ƒ",
             \    "functions": "ƒ",
@@ -16,11 +16,12 @@ let g:vista#renderer#icons = {
             \    "variable": "$",
             \    "variables": "$",
             \    "property": "$",
-            \    "class": "∑",
-            \    "struct": "∑",
-            \    "interface": "I",
+            \    "constant": "𝓚",
+            \    "class": "𝓒",
+            \    "struct": "𝓒",
+            \    "interface": "𝛪",
             \    "method": "ƒ",
-            \    "typeparameter": "T",
+            \    "typeparameter": "𝚻",
             \ }
 
 let g:vista_executive_for = {

@@ -2,7 +2,7 @@
 " Config File {{{
     Plug 'cespare/vim-toml'
     " wannesm/wmgraphviz.vim  {{{
-        let g:WMGraphviz_output = 'png'
+        let g:WMGraphviz_output = 'pdf'
         Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
     "}}}
     Plug 'aklt/plantuml-syntax'

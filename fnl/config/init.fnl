@@ -35,7 +35,7 @@
     (set vim.env.LANG "zh_CN.UTF-8"))
   (when vim.g.neovide
     (set vim.g.neovide_input_macos_alt_is_meta true)
-    (set vim.g.neovide_cursor_animation_length 0.02)
+    (set vim.g.neovide_cursor_animation_length 0.03)
     (set vim.o.guifont "FiraCode Nerd Font Mono:h14")
     (set vim.o.linespace 5))
   
