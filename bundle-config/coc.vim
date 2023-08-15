@@ -1,12 +1,19 @@
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc-neco'
 " Plug '~/.vim/bundle/coc-yaml'
 " Plug 'yaegassy/coc-typeprof', {'do': 'yarn install --frozen-lockfile'}
 " fix special comment in json file of common js config file
 Plug 'neoclide/jsonc.vim'
+
+""" use ultisnip
+Plug 'SirVer/ultisnips'
 source ~/.vim/bundle-config/ultisnip.vim
+autocmd mine BufLeave * call UltiSnips#LeavingBuffer()
+""" or coc-snippets
+" Plug 'honza/vim-snippets'
+" nnoremap <Leader>es <Cmd>exe "sp ~/.vim/UltiSnips/"..&ft..".snippets"<CR>
+" imap <M-'> <Plug>(coc-snippets-expand)
 
 " TextEdit might fail if hidden is not set.
 " lots of unclose file may cause vim slow
@@ -165,7 +172,6 @@ augroup my_COC
   " autocmd FileType scss setl iskeyword+=@-@
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd mine BufLeave * call UltiSnips#LeavingBuffer()
 augroup end
 
 " map vim ft to the LSP langid

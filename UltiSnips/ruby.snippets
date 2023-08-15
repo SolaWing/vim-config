@@ -65,7 +65,7 @@ do
 end
 endsnippet
 
-snippet do/ "do |param| end block"
+snippet do/ "do |param| end block" A
 do |${1:v}|
 	$0
 end
@@ -84,7 +84,7 @@ proc do
 	$0
 end
 endsnippet
-snippet proc/ "proc with param"
+snippet proc/ "proc with param" A
 proc do |${1:v}|
 	$0
 end
@@ -95,7 +95,7 @@ lambda do
 	$0
 end
 endsnippet
-snippet l/ "lambda with param"
+snippet l/ "lambda with param" A
 lambda do |${1:v}|
 	$0
 end
@@ -330,9 +330,10 @@ endsnippet
 snippet main "main script template" b
 # frozen_string_literal: true
 
-def print_usage(code)
+def print_usage(code, additional = nil)
+	puts additional if additional
 	$stdout.puts <<~USAGE
-		#{\$0}
+		#\$0
 	USAGE
 	exit code
 end

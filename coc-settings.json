@@ -119,5 +119,6 @@
     },
     "list.maxPreviewHeight": 30,
     "list.floatPreview": true,
+    "snippets.autoTrigger": false,
     "snippets.ultisnips.pythonPrompt": false
 }

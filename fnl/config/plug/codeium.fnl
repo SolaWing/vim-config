@@ -5,7 +5,7 @@
        {:markdown false :text false
         :plantuml true :dot true
         :fennel true :lua true :vim true
-        :ruby true :python true :sh true
+        :ruby true :rbs true :python true :sh true
         :swift true})
 
   (vim.api.nvim_create_autocmd :User
