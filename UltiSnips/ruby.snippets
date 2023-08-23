@@ -76,7 +76,7 @@ snippet & "&method(:$1)" i
 endsnippet
 
 snippet { "{} block"
-{ |${1:v}| $0 
+{ |${1:v}| $0
 endsnippet
 
 snippet proc "proc"
@@ -368,6 +368,70 @@ end
 main ARGV
 endsnippet
 
+snippet main-options "use optparse to define main script" b
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'optparse'
+
+class String
+  ColorTable = {
+    bold: 1,
+    underline: 4,
+    reverse: 7,
+    red: 31,
+    green: 32,
+    yellow: 33,
+    blue: 34,
+    magenta: 35,
+    cyan: 36
+  }
+  def colorize(*control)
+    convert = ->(code) do
+      code = case code
+      when Numeric then code
+      else
+        ColorTable.fetch(code)
+      end
+      "\e[#{code}m"
+    end
+    [*control.map(&convert), self, "\e[0m"].join
+  end
+end
+
+def main(argv)
+  opts = {}
+  parser = OptionParser.new
+  def parser.print_usage(code, additional = nil)
+    puts additional if additional
+    puts self
+    exit code
+  end
+  parser.banner = "Usage: #$0 [options]".colorize(:green)
+  parser.separator("Options:")
+  parser.on("-h", "--help", "Prints this help") { parser.print_usage(0) }
+  
+  args = parser.parse!(argv, into: opts)
+  # print args, opts, "\n"
+end
+
+main ARGV
+endsnippet
+
+snippet main-command "description" b
+# frozen_string_literal: true
+require "rubycli"
+
+class App
+  extend RubyCLI::DSL::Root
+
+  desc "$0"
+  def main
+  end
+end
+App.run!
+endsnippet
+
 snippet monkey_patch "a monkey_patch method template" b
 ${1/[?!]?$//}_method = instance_method(:$1)
 define_method(:$1) do |${2:*args}|
@@ -432,6 +496,33 @@ $patch_stderr ||= begin
                     end
                     $stderr = new
                   end
+endsnippet
+
+snippet colorize "colorize snip" b
+class String
+  ColorTable = {
+    bold: 1,
+    underline: 4,
+    reverse: 7,
+    red: 31,
+    green: 32,
+    yellow: 33,
+    blue: 34,
+    magenta: 35,
+    cyan: 36
+  }
+  def colorize(*control)
+    convert = ->(code) do
+      code = case code
+      when Numeric then code
+      else
+        ColorTable.fetch(code)
+      end
+      "\e[#{code}m"
+    end
+    [*control.map(&convert), self, "\e[0m"].join
+  end
+end
 endsnippet
 
 extends color

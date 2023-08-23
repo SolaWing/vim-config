@@ -1,0 +1,43 @@
+snippet { "description"
+{ |${1:v}| $0
+endsnippet
+
+snippet do/ "do |param| end block" A
+do |${1:v}|
+	$0
+end
+endsnippet
+
+snippet main "main snippet" b
+require "option_parser"
+require "colorize"
+
+class OptionParser
+  def print_usage(code, additional = nil)
+    puts additional if additional
+    puts self
+    exit code
+  end
+end
+
+def main(argv)
+  opts = {} of Symbol => String|Bool
+  args = [] of String
+
+  parser = OptionParser.new(gnu_optional_args: true)
+  parser.banner = "#{PROGRAM_NAME} [options]".colorize(:green).to_s
+  parser.separator
+  parser.on("-h", "--help", "Show this help") { parser.print_usage 0 }
+  parser.unknown_args do |v|
+    args = v
+  end
+
+  parser.parse(argv)
+
+  print args, opts, "\n"
+  return
+end
+
+main ARGV
+
+endsnippet

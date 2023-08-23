@@ -5,8 +5,10 @@
        {:markdown false :text false
         :plantuml true :dot true
         :fennel true :lua true :vim true
-        :ruby true :rbs true :python true :sh true
-        :swift true})
+        :racket true
+        :ruby true :rbs true :crystal true
+        :python true :sh true
+        :swift true :go true})
 
   (vim.api.nvim_create_autocmd :User
    {:group :mine :pattern "codeium.vim" :once true

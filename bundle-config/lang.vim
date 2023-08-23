@@ -42,4 +42,7 @@
     "}}}
     Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
+    Plug 'vim-crystal/vim-crystal', {'for': 'crystal'}
+    let g:crystal_define_mappings = 0
+    source ~/.vim/bundle-config/lang/go.vim
 " }}}
