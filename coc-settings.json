@@ -44,39 +44,34 @@
     "go.goplsPath": "/Users/wang/go/bin/gopls",
 
     // swift
-    // "sourcekit.commandPath": "xcrun",
-    // "sourcekit.args": ["--toolchain", "swift", "sourcekit-lsp"],
     "languageserver": {
         "sourcekit": {
             // "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
             // "command": "sourcekit-lsp",
             "command": "xcrun",
             "args": ["--toolchain", "swift", "sourcekit-lsp", "--log-level", "info"],
-            "rootPatterns": ["buildServer.json", "Package.swift"],
+            "rootPatterns": ["buildServer.json", "Package.swift", "compile_flags.txt"],
             // "trace.server": "verbose",
             // "env": { "SOURCEKIT_LOGGING": "3" },
             "filetypes": ["swift", "cpp", "c", "objective-c", "objective-cpp"]
         }
-        , "racket": {
-          "command": "racket",
-          "args": [
-            "--lib",
-            "racket-langserver"
-          ],
-          "filetypes": [
-            "scheme",
-            "racket"
-          ]
-        }
-        , "crystal": {
-          "command": "crystalline",
-          "args": [
-            "--stdio"
-          ],
-          "filetypes": [
-            "crystal"
-          ]
-        }
+        // , "racket": {
+        //   "command": "racket",
+        //   "args": [
+        //     "--lib",
+        //     "racket-langserver"
+        //   ],
+        //   "filetypes": [
+        //     "scheme",
+        //     "racket"
+        //   ]
+        // }
+        // , "crystal": {
+        //   "command": "crystalline",
+        //   "args": [ "--stdio" ],
+        //   "filetypes": [ "crystal" ],
+        //   "rootPatterns": ["shard.yml"]
+        // }
         // , "fennel-ls": {
         //   "command": "/Users/wang/Documents/github/MAC/fennel-ls/fennel-ls",
         //   "filetypes": ["fennel"]
@@ -108,7 +103,7 @@
     "suggest.minTriggerInputLength": 2,
     "suggest.maxCompleteItemCount": 9,
     // "suggest.numberSelect": true,
-    "codeLens.enable": true,
+    "codeLens.enable": false, // has flicker in rust analyzer
     "diagnostic.virtualText": true,
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
     // "list.maxPreviewHeight": 20,

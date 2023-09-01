@@ -39,6 +39,7 @@ xnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 " Clang-Format integrate
 nmap <buffer> gq <Plug>(operator-clang-format)
 xnoremap <buffer> gq :ClangFormat<CR>
+nmap <buffer> gqq :ClangFormat<CR>
 
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"

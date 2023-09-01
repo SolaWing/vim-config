@@ -27,6 +27,14 @@ try {
 
 endsnippet
 
+snippet lambda "a lambda function declare" b
+auto $1 = [&]($2){$0};
+endsnippet
+
+snippet auto "auto type"
+decltype(auto)
+endsnippet
+
 snippet externc "extern c block declare" b
 extern "C" $0
 endsnippet
@@ -34,4 +42,8 @@ endsnippet
 snippet ifcpp "cpp guard"
 #ifdef __cplusplus
 #endif
+endsnippet
+
+snippet @ "this-> shortcut" i
+this->
 endsnippet

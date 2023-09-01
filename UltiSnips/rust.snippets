@@ -1,4 +1,7 @@
 # clearsnippets impl
+snippet --- "seperator" b
+// MARK: $0
+endsnippet
 
 snippet macro "macro_rules!" b
 macro_rules! ${1:name} {
@@ -6,6 +9,10 @@ macro_rules! ${1:name} {
 		${3}
 	}
 }
+endsnippet
+
+snippet | "closure" i
+|$1| ${2:{}}
 endsnippet
 
 snippet tests "test mod" b
@@ -104,6 +111,11 @@ endsnippet
 
 snippet f "fn define" b
 fn ${1:name}($2) {
+	$0
+}
+endsnippet
+snippet m "method define" b
+fn ${1:name}(${2:&mut }self$3) {
 	$0
 }
 endsnippet

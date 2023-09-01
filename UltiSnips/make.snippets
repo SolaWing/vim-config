@@ -5,3 +5,22 @@ priority 0
 snippet forin "for each loop" b
 $(foreach ${1:i}, ${2:items}, ${3:text})
 endsnippet
+
+snippet wildcard "wildcard cmd" w
+$(wildcard ${1:src/*.cc})
+endsnippet
+
+snippet task "task which not represent a file target" b
+# These rules do not correspond to a specific file
+.PHONY: build clean
+endsnippet
+
+snippet init-template "init template for makefile" b
+SHELL := bash
+all: build
+build:
+clean:
+
+# These rules do not correspond to a specific file
+.PHONY: build clean
+endsnippet

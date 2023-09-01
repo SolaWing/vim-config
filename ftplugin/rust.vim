@@ -14,7 +14,7 @@ setl signcolumn=yes
 
 nnoremap <buffer> <LocalLeader>b :update <bar> Make! check
 nnoremap <buffer> <LocalLeader>r :update <bar> make run<CR>
-nnoremap <buffer> <LocalLeader>t :update <bar> make test<CR>
+nnoremap <buffer> <LocalLeader>t :update <bar> Make test<Space>
 nnoremap <buffer> <LocalLeader>p :update <bar> make bench<CR>
 
 inoremap <buffer> <M-;> <End>;<CR>

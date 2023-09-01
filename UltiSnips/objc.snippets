@@ -6,6 +6,12 @@ priority 0
 
 clearsnippets array dict forarray objacc
 
+snippet m "method define" b
+- ($3)${1:method}${2:(int)a} {
+	$0
+}
+endsnippet
+
 # syntax 语法扩展
 snippet cl "closure define" b
 $2(^__unsafe_unretained ${3:block})($1) = ^${2:void}(${1}) {

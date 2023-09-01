@@ -125,6 +125,12 @@ snippet #if "#if directive" b
 #endif // #if $1
 endsnippet
 
+snippet ifndef "#if header guard" b
+#ifndef $1_H
+#define $1_H
+#endif
+endsnippet
+
 snippet ifdefine "if define symbol, execute code" b
 #if defined(${1:DEBUG}) && $1 != 0
 	${VISUAL}$0
@@ -148,4 +154,8 @@ snippet va_list "va_list declare" b
 va_list ap; va_start(ap, $1);
 $0
 va_end(ap);
+endsnippet
+
+snippet f "function declare"
+${3:void} ${1:f}($2) {$0}
 endsnippet

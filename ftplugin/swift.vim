@@ -15,7 +15,8 @@ nnoremap <buffer> <LocalLeader>r :update <bar> !swift '%'<CR>
 nnoremap <buffer> <LocalLeader>gk <Cmd>YcmCompleter RestartServer<CR>
 nnoremap <buffer> <M-o> :OpenInXcode<CR>
 
-nnoremap <buffer> <LocalLeader>b :Dispatch swift build --build-tests<CR> 
+nnoremap <buffer> <LocalLeader>b :Dispatch swift build --build-tests<CR>
+nnoremap <buffer> <LocalLeader>t :Dispatch swift test --filter<Space>
 
 
 snoremap <buffer> <CR> <ESC>:call <SID>ExpandClosure(1)<CR>

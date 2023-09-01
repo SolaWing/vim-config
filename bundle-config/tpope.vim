@@ -44,6 +44,11 @@ let g:projectionist_heuristics = {
       \ "*.podspec": {
       \   "*.swift": {"type": "source"},
       \   "*.podspec": {"type": "podspec"}
+      \ },
+      \ "Package.swift": {
+      \   "Sources/*.swift": {"type": "source", "alternate": "Tests/lib-tests/{}Tests.swift"},
+      \   "Tests/lib-tests/*Tests.swift": {"type": "test", "alternate": "Sources/{}.swift", "template": ["import XCTest", "", "final class {basename}Tests: XCTestCase {open}{close}"]},
+      \   "Package.swift": {"type": "package"}
       \ }
       \}
 "}}}
