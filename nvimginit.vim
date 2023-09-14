@@ -24,6 +24,15 @@ elseif exists("g:neovide")
         autocmd CmdlineEnter [/\?] let g:neovide_input_ime=v:false
         autocmd CmdlineLeave [/\?] let g:neovide_input_ime=v:true
     augroup END
+
+    nnoremap <D-n> <Cmd>!neovide<CR>
+    noremap <D-c> "*y
+    noremap <D-v> "*p
+    inoremap <D-v> <C-R><C-O>*
+    cnoremap <D-v> <C-R><C-R>*
+    noremap <D-w> <C-w>q
+    " not work...
+    " noremap <D-S-w> <Cmd>confirm quitall<CR>
 else
     " set guifont=Fira\ Code:h14
     set guifont=FiraCode\ Nerd\ Font\ Mono:h14

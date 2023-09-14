@@ -477,7 +477,6 @@ noremap <M-v> "*p
 inoremap <M-v> <C-R><C-O>*
 cnoremap <M-v> <C-R><C-R>*
 
-
 " write " to specify register
 function! SetRegister() range
     let char = getchar()
