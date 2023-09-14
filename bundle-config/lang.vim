@@ -27,7 +27,7 @@
     Plug 'mattn/emmet-vim', {'for': ['eruby', 'html']}
     " Plug 'vim-scripts/bash-support.vim', { 'for': ['sh'] }
 
-    " 暂时不用lisp
+    source ~/.vim/bundle-config/conjure.vim
     source ~/.vim/bundle-config/lang/lisp.vim
 " }}}
 " Static Language {{{

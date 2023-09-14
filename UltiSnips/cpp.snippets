@@ -47,3 +47,17 @@ endsnippet
 snippet @ "this-> shortcut" i
 this->
 endsnippet
+
+snippet color_declare "color" b
+namespace Color {
+static const char *clear = "\e[0m";
+static const char *black = "\e[30m";
+static const char *red = "\e[31m";
+static const char *green = "\e[32m";
+static const char *yellow = "\e[33m";
+static const char *blue = "\e[34m";
+static const char *magenta = "\e[35m";
+static const char *cyan = "\e[36m";
+static const char *white = "\e[37m";
+} // namespace Color
+endsnippet

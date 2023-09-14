@@ -1,6 +1,4 @@
 echom "run nvimginit"
-" set guifont=Fira\ Code:h14
-" set guifont=Hack_Regular_Nerd_Font_Complete_Mono:h14
 
 nnoremap <D-1>    1gt
 inoremap <D-1>    <esc>1gt
@@ -18,6 +16,18 @@ nnoremap <D-M-[>    :tabm -1<cr>
 
 if has("gui_vimr")
     map <M-S-*> <M-*>
+elseif exists("g:neovide")
+    augroup ime_input
+        autocmd!
+        autocmd InsertLeave * let g:neovide_input_ime=v:false
+        autocmd InsertEnter * let g:neovide_input_ime=v:true
+        autocmd CmdlineEnter [/\?] let g:neovide_input_ime=v:false
+        autocmd CmdlineLeave [/\?] let g:neovide_input_ime=v:true
+    augroup END
+else
+    " set guifont=Fira\ Code:h14
+    set guifont=FiraCode\ Nerd\ Font\ Mono:h14
+    " set guifont=Hack_Regular_Nerd_Font_Complete_Mono:h14
 end
 
 " autocmd! mine InsertLeave * set imdisable
