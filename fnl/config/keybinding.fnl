@@ -113,6 +113,7 @@
   (nmap "h;" #(fzf-lua.command_history)); command history
   (nmap "h/" #(fzf-lua.search_history)); search history
   (nmap "m"  #(fzf-lua.marks)); :marks
+  (nmap "'"  #(fzf-lua.marks)); :marks
   (nmap "j"  #(fzf-lua.jumps)); :jumps
   (nmap "c"  #(fzf-lua.changes)); :changes
   (nmap "\"" #(fzf-lua.registers)); :registers

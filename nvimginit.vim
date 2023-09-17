@@ -25,11 +25,12 @@ elseif exists("g:neovide")
         autocmd CmdlineLeave [/\?] let g:neovide_input_ime=v:true
     augroup END
 
-    nnoremap <D-n> <Cmd>!neovide<CR>
+    nnoremap <D-n> <Cmd>!~/.cargo/bin/neovide<CR>
     noremap <D-c> "*y
     noremap <D-v> "*p
     inoremap <D-v> <C-R><C-O>*
     cnoremap <D-v> <C-R><C-R>*
+    tnoremap <D-v> <C-\><C-N>"*pi
     noremap <D-w> <C-w>q
     " not work...
     " noremap <D-S-w> <Cmd>confirm quitall<CR>

@@ -16,7 +16,7 @@ let g:fzf_command_prefix = 'FZ'
 let g:fzf_preview_window = 'up:hidden'
 " FIXME: fzf_action now execute first, not append args after, so tab drop not work..
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab edit',
+  \ 'ctrl-t': 'tab drop',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 let $FZF_DEFAULT_OPTS=' --bind="' . join([
