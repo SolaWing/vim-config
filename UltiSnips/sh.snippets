@@ -6,6 +6,15 @@ snippet dir "current script dir" b
 __dir__="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 endsnippet
 
+snippet abspath "abspath function script" b
+function abspath () {
+    for arg; do
+        __dir__="$( cd "$( dirname "${arg}" )" && pwd )"
+        echo "$__dir__"/"$(basename "$arg")"
+    done
+}
+endsnippet
+
 snippet f "function define" b
 function $1 () {
 	$0

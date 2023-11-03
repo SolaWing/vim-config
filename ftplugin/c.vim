@@ -3,6 +3,7 @@ if exists("b:did_ftplugin")
 endif
 " case statement in c indent style
 setl cinoptions+=l1
+setl commentstring=//\ %s
 
 " diag will use it, avoid frequent column change
 setl signcolumn=yes

@@ -5,6 +5,7 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_set_highlights = 1
 let g:ale_linters_explicit = 1
+let g:ale_virtualtext_cursor = 0 " 会全部显示，太多了..
 let g:ale_linters = {
             \ 'javascript' :[ 'eslint' ],
             \ 'swift' : ['my_swiftlint'],
