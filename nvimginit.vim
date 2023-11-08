@@ -17,13 +17,14 @@ nnoremap <D-M-[>    :tabm -1<cr>
 if has("gui_vimr")
     map <M-S-*> <M-*>
 elseif exists("g:neovide")
-    augroup ime_input
-        autocmd!
-        autocmd InsertLeave * let g:neovide_input_ime=v:false
-        autocmd InsertEnter * let g:neovide_input_ime=v:true
-        autocmd CmdlineEnter [/\?] let g:neovide_input_ime=v:false
-        autocmd CmdlineLeave [/\?] let g:neovide_input_ime=v:true
-    augroup END
+    " 感觉作用不大，中文状态下输入的全角字符，还是得切换语言
+    " augroup ime_input
+    "     autocmd!
+    "     autocmd InsertLeave * let g:neovide_input_ime=v:false
+    "     autocmd InsertEnter * let g:neovide_input_ime=v:true
+    "     autocmd CmdlineEnter [/\?] let g:neovide_input_ime=v:false
+    "     autocmd CmdlineLeave [/\?] let g:neovide_input_ime=v:true
+    " augroup END
 
     nnoremap <D-n> <Cmd>!~/.cargo/bin/neovide<CR>
     noremap <D-c> "*y

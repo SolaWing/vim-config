@@ -37,6 +37,8 @@
   (when vim.g.neovide
     (set vim.g.neovide_input_macos_alt_is_meta true)
     (set vim.g.neovide_cursor_animation_length 0.02)
+    (set vim.g.neovide_scroll_animation_far_lines 0) ; disable animation for out screen jump
+    (set vim.g.neovide_scroll_animation_length 0) ; disable to avoid animation jump. only scroll by mouse is useful..
     ; (set vim.g.neovide_theme "auto")
     (set vim.g.neovide_cursor_animate_command_line false)
     (set vim.o.guifont "FiraCode Nerd Font Mono:h14")

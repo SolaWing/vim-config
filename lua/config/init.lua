@@ -80,6 +80,8 @@ local function init()
   if vim.g.neovide then
     vim.g.neovide_input_macos_alt_is_meta = true
     vim.g.neovide_cursor_animation_length = 0.02
+    vim.g.neovide_scroll_animation_far_lines = 0
+    vim.g.neovide_scroll_animation_length = 0
     vim.g.neovide_cursor_animate_command_line = false
     vim.o.guifont = "FiraCode Nerd Font Mono:h14"
     vim.o.linespace = 5
