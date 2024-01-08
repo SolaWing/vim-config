@@ -48,8 +48,8 @@ end
 
 nmap <buffer> <LocalLeader>r :update <bar> !ruby %<CR>
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
-" xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
-xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 pry_instance.eval `pbpaste`, {generated: true}<CR>
+xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
+" xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 pry_instance.eval `pbpaste`, {generated: true}<CR>
 " xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 eval `pbpaste`, binding<CR>
 
 nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>

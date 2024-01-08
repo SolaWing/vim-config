@@ -54,7 +54,11 @@
         source ~/.vim/functions.vim
         source ~/.vim/bundle-config/index.vim " plugins
 
-        colorscheme gruvbox
+        if 0 && has('nvim-0.10')
+            colorscheme gruvbox-material
+        else
+            colorscheme gruvbox
+        endif
         "显示行号
         set nonumber
         "显示相对行号

@@ -26,6 +26,7 @@ elseif exists("g:neovide")
     "     autocmd CmdlineLeave [/\?] let g:neovide_input_ime=v:true
     " augroup END
 
+    map <M-S-8> <M-*>
     nnoremap <D-n> <Cmd>!~/.cargo/bin/neovide<CR>
     noremap <D-c> "*y
     noremap <D-v> "*p
