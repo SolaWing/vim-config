@@ -30,7 +30,7 @@
   (set vim.o.shada "!,'999,<50,s10,h,f0")
 
   (set vim.g.python_host_prog "/usr/bin/python")
-  (set vim.g.python3_host_prog "/usr/local/bin/python3")
+  (set vim.g.python3_host_prog "/usr/bin/python3")
   (when (= 1 (vim.fn.has :gui_vimr))
     (set vim.env.LANG "zh_CN.UTF-8"))
 

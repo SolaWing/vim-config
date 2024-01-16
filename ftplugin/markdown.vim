@@ -23,6 +23,10 @@ nnoremap <buffer> <LocalLeader>4 :<C-U>call <SID>toggle_header(4)<CR>
 nnoremap <buffer> <LocalLeader>5 :<C-U>call <SID>toggle_header(5)<CR>
 nnoremap <buffer> <LocalLeader>6 :<C-U>call <SID>toggle_header(6)<CR>
 
+" nnoremap <buffer> <LocalLeader>i :<C-U>call <SID>toggle_list(v:count)<CR>
+nnoremap <buffer> <LocalLeader>i :<C-U>call v:lua.require("config.ft.markdown")["toggle-list-item"](v:count)<CR>
+xmap <buffer> <LocalLeader>i :call v:lua.require("config.ft.markdown")["toggle-list-item"](v:count)<CR>
+
 " strong, stroke through
 xmap <buffer> <LocalLeader>b s*gvs*
 xmap <buffer> <LocalLeader>s s~gvs~
@@ -79,4 +83,3 @@ function! s:toggle_header(headerCount)
     endif
     call setpos('.', cursor)
 endfunction
-
