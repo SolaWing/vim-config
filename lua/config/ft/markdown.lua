@@ -13,9 +13,8 @@ end
 local function toggle_list_item(kind)
   local line = vim.fn.getline(".")
   local patterns = {all = "^\\v\\s*\\zs[-*] %(\\[[ xX]=\\] =)=", no = "^\\s*\\zs"}
-  local matches = vim.fn.matchstrpos(line, patterns.all)
-  print(line, kind, matches[2])
-  if (-1 == matches[2]) then
+  local start, _end = vim.regex(patterns.all):match_str(line)
+  if not start then
     local _1_ = kind
     if ((_1_ == 0) or (_1_ == 2)) then
       return vim.fn.setline(".", vim.fn.substitute(line, patterns.no, "- ", ""))
@@ -26,7 +25,7 @@ local function toggle_list_item(kind)
     else
       return nil
     end
-  elseif ((matches[3] - matches[2]) <= 2) then
+  elseif ((_end - start) <= 2) then
     local _3_ = kind
     if ((_3_ == 0) or (_3_ == 3)) then
       return vim.fn.setline(".", vim.fn.substitute(line, patterns.all, "- [ ] ", ""))
@@ -51,5 +50,5 @@ local function toggle_list_item(kind)
   end
 end
 _2amodule_2a["toggle-list-item"] = toggle_list_item
---[[ (let [line "完成初步的代码生成(silgen)"] (vim.fn.substitute line "^\\s*s" "- " "")) ]]
+--[[ (-> "^\\v\\s*\\zs[-*] %(\\[[ xX]=\\] =)=" vim.regex (: "match_str" "  - []abc")) (: (vim.regex "^\\v\\s*\\zs[-*] %(\\[[ xX]=\\] =)=") "match_str" "  - []abc") ]]
 return _2amodule_2a

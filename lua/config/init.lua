@@ -73,6 +73,7 @@ local function init()
   vim.o.shada = "!,'999,<50,s10,h,f0"
   vim.g.python_host_prog = "/usr/bin/python"
   vim.g.python3_host_prog = "/usr/bin/python3"
+  -- vim.g.loaded_python3_provider = 0
   if (1 == vim.fn.has("gui_vimr")) then
     vim.env.LANG = "zh_CN.UTF-8"
   else

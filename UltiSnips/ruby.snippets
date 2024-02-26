@@ -121,6 +121,10 @@ attr_writer :$1
 endsnippet
 
 snippet b "breakpoint" b
+binding.irb
+endsnippet
+
+snippet pry "description" b
 binding.pry
 endsnippet
 
@@ -309,7 +313,7 @@ end
 endsnippet
 
 snippet catch "catch throw label" b
-catch :${1:done} do
+catch do |${1:done}|
 	$0
 end
 endsnippet
