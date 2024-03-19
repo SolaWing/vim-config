@@ -53,7 +53,8 @@
   (nvim-lib)
   (nvim-common)
 
-  (Plug "Exafunction/codeium.vim" {:on ["Codeium"]})
+  ; 会扫描目录，隐私风险问题不用了..
+  ; (Plug "Exafunction/codeium.vim" {:on ["Codeium"]})
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
   (Plug "ThePrimeagen/refactoring.nvim") ; 要求最新develop，不稳定..
