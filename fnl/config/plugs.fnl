@@ -55,6 +55,9 @@
 
   ; 会扫描目录，隐私风险问题不用了..
   ; (Plug "Exafunction/codeium.vim" {:on ["Codeium"]})
+
+  (Plug "git@code.byted.org:chenjiaqi.cposture/codeverse.vim.git" {:on ["Codeverse"]})
+
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
   (Plug "ThePrimeagen/refactoring.nvim") ; 要求最新develop，不稳定..
@@ -75,7 +78,8 @@
 
 (defn after []
   (luafile "~/.vim/lua/config/plug/treesitter.lua")
-  ((. (require "config.plug.codeium") :setup))
+  ; ((. (require "config.plug.codeium") :setup))
+  ((. (require "config.plug.codeverse") :setup))
   (_G.hook-require :fzf-lua :setup #((. (require "config.plug.fzf-lua") :setup)))
   (_G.hook-require :bqf     :setup #((. (require "config.plug.bqf")     :setup)))
   (_G.hook-require "refactoring" :setup #((. (require "config.plug.refactoring")     :setup))))

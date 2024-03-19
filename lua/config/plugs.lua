@@ -56,7 +56,7 @@ local function init()
   _function()
   nvim_lib()
   nvim_common()
-  Plug("Exafunction/codeium.vim", {on = {"Codeium"}})
+  Plug("git@code.byted.org:chenjiaqi.cposture/codeverse.vim.git", {on = {"Codeverse"}})
   Plug("ThePrimeagen/harpoon")
   Plug("ThePrimeagen/refactoring.nvim")
   Plug("ggandor/leap.nvim")
@@ -66,7 +66,7 @@ end
 _2amodule_2a["init"] = init
 local function after()
   luafile("~/.vim/lua/config/plug/treesitter.lua")
-  do end (require("config.plug.codeium")).setup()
+  do end (require("config.plug.codeverse")).setup()
   local function _4_()
     return (require("config.plug.fzf-lua")).setup()
   end
