@@ -16,6 +16,7 @@ local function get_line_starts(winid)
     else
       if (lnum < cur_line - skip_range) or (lnum > cur_line + skip_range) then
         local col = vim.fn.virtcol2col(0, lnum, cur_virtcol)
+        if col < 1 then col = 1 end
         local max_col = vim.fn.col{lnum, '$'}
         if col > max_col then
           col = max_col
