@@ -23,15 +23,15 @@
     " Plug 'hynek/vim-python-pep8-indent'
 
     " Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-    Plug 'HerringtonDarkholme/yats.vim' " typescript
-    Plug 'mattn/emmet-vim', {'for': ['eruby', 'html']}
+    " Plug 'HerringtonDarkholme/yats.vim' " typescript
+    " Plug 'mattn/emmet-vim', {'for': ['eruby', 'html']}
     " Plug 'vim-scripts/bash-support.vim', { 'for': ['sh'] }
 
     source ~/.vim/bundle-config/conjure.vim
     source ~/.vim/bundle-config/lang/lisp.vim
 " }}}
 " Static Language {{{
-    Plug 'udalov/kotlin-vim'
+    " Plug 'udalov/kotlin-vim'
     Plug 'keith/swift.vim', {'for': 'swift'}
     " rhysd/vim-clang-format "{{{
         Plug 'kana/vim-operator-user'
@@ -40,9 +40,10 @@
         " fix lazy load not not consider default range
         command! -range=% -nargs=0 ClangFormat call plug#load('vim-clang-format') | call clang_format#replace(<line1>, <line2>)
     "}}}
-    Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
+    " Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
+    Plug 'bfrg/vim-cpp-modern', {'for': 'cpp'}
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
-    Plug 'vim-crystal/vim-crystal', {'for': 'crystal'}
-    let g:crystal_define_mappings = 0
-    source ~/.vim/bundle-config/lang/go.vim
+    " Plug 'vim-crystal/vim-crystal', {'for': 'crystal'}
+    " let g:crystal_define_mappings = 0
+    " source ~/.vim/bundle-config/lang/go.vim
 " }}}

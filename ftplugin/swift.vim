@@ -19,6 +19,7 @@ nnoremap <buffer> <LocalLeader>b :Dispatch swift build --build-tests<CR>
 nnoremap <buffer> <LocalLeader>t :Dispatch swift test --filter<Space>
 
 
+
 snoremap <buffer> <CR> <ESC>:call <SID>ExpandClosure(1)<CR>
 snoremap <buffer> <M-CR> <ESC>:call <SID>ExpandClosure(0)<CR>
 " make g:UltiSnipsMappings don't remove select mode mapping of ExpandClosure
@@ -42,6 +43,7 @@ if filereadable(b:ale_swift_swiftlint_config)
     " nnoremap <buffer> <LocalLeader>f :!cd '%:h' && swiftlint lint --fix -- '%:t'<CR>
     nnoremap <buffer> <LocalLeader>f :!cd <C-R>=fnamemodify(b:ale_swift_swiftlint_config, ":p:h")<CR>; swiftlint lint --fix -- '%:p'<CR>
 else
+    nnoremap <buffer> <LocalLeader>f :%!swift-format --configuration ~/.swift-format<CR>
     let b:ale_linters_ignore = ['swiftlint', 'my_swiftlint']
 endif
 
