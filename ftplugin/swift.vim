@@ -9,7 +9,7 @@ setl comments=f:/*,e:*/,b:///,://
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"
 
-nnoremap <buffer> <LocalLeader>m <Cmd>call fzf#vim#buffer_lines("func \\|class \\|extension \\|struct \\|enum \\|[^.]init(\\|\\%(MARK\\|TODO\\|FIXME\\):", {'options': '+s'})<CR>
+nnoremap <buffer> <LocalLeader>m <Cmd>call fzf#vim#buffer_lines("func \\|class \\|extension \\|struct \\|protocol \\|enum \\|[^.]init(\\|\\%(MARK\\|TODO\\|FIXME\\):", {'options': '+s'})<CR>
 nnoremap <buffer> <LocalLeader>lt <Cmd>call fzf#vim#buffer_lines("\\%(TODO\\|FIXME\\):", {'options': '+s'})<CR>
 nnoremap <buffer> <LocalLeader>r :update <bar> !swift '%'<CR>
 nnoremap <buffer> <LocalLeader>gk <Cmd>YcmCompleter RestartServer<CR>
@@ -46,6 +46,7 @@ else
     nnoremap <buffer> <LocalLeader>f :%!swift-format --configuration ~/.swift-format<CR>
     let b:ale_linters_ignore = ['swiftlint', 'my_swiftlint']
 endif
+nnoremap <buffer> <LocalLeader>F :%!swift-format --configuration ~/.swift-format<CR>
 
 
 " should select expanding closure before call this method, when curry, expand last closure as a single curry argument
