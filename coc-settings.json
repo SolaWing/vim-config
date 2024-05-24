@@ -49,7 +49,10 @@
             // "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
             // "command": "sourcekit-lsp",
             "command": "xcrun",
-            "args": ["--toolchain", "swift", "sourcekit-lsp", "--log-level", "info"],
+            "args": ["--toolchain", "swift", "sourcekit-lsp"
+                ,"--log-level", "info"
+                // ,"--generated-interfaces-path", ".build/SourceKit-GeneratedInterfaces"
+            ],
             "rootPatterns": ["buildServer.json", "Package.swift", "compile_flags.txt"],
             // "trace.server": "verbose",
             // "env": { "SOURCEKIT_LOGGING": "3" },
@@ -94,7 +97,7 @@
 
     "coc.source.omni.filetypes": [],
     // config
-    "workspace.bottomUpFiletypes": ["swift"],
+    "workspace.bottomUpFiletypes": ["*"],
     "workspace.workspaceFolderCheckCwd": false,
     // "workspace.bottomUpFiletypes": ["ruby"],
     // "workspace.progressTarget": "statusline",

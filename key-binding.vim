@@ -285,7 +285,7 @@ xmap <LocalLeader>m <Leader><F3>
 
 
 nnoremap <F6> :<C-U>FZTags<CR>
-nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W> <CR>
+nnoremap <Leader><F6> :<C-U>FZTags <C-R><C-W><CR>
 xnoremap <Leader><F6> :<C-U>exe "FZTags" GetVisualString()<CR>
 nmap g] <Leader><F6>
 xmap g] <Leader><F6>

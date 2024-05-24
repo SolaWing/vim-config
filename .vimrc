@@ -173,6 +173,7 @@
         set textwidth=100 " allow to a vertical split
         set colorcolumn=+1 " highlight a textwidth tip
         set cursorline
+        let diff_translations = v:false " diff 高亮里大量的translation匹配很慢, 也没必要
         "highlight trim whitespace
         hi link TrimWhiteSpace CursorLine
         augroup TrimWhiteSpace

@@ -51,7 +51,18 @@ let g:projectionist_heuristics = {
       \   "Package.swift": {"type": "package"}
       \ }
       \}
+" 优化不必要的检查，加速打开性能（特别是fugtive的各种buffer）
+function! ExcludeBufferFromDiscovery(file, type)
+    if stridx(a:file, ":") != -1
+        return v:true
+    endif
+    return v:false
+endfunction
 "}}}
-Plug 'tpope/vim-commentary'
+if has('nvim-0.10.0')
+    nmap gcu gcgc
+else
+    Plug 'tpope/vim-commentary'
+end
 
 " Plug 'tpope/vim-dadbod'
