@@ -35,7 +35,8 @@
     (set vim.env.LANG "zh_CN.UTF-8"))
 
   (when vim.g.neovide
-    (set vim.g.neovide_input_macos_alt_is_meta true)
+    ; (set vim.g.neovide_input_macos_alt_is_meta true)
+    (set vim.g.neovide_input_macos_option_key_is_meta :only_left)
     (set vim.g.neovide_cursor_animation_length 0.02)
     (set vim.g.neovide_scroll_animation_far_lines 0) ; disable animation for out screen jump
     (set vim.g.neovide_scroll_animation_length 0) ; disable to avoid animation jump. only scroll by mouse is useful..

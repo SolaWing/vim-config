@@ -59,5 +59,5 @@
                         (let [d {}] (tset _G.my-require-hook.hooks name d) d)))
   (tset hook-table id callback)
   ; if loaded, invoke directly
-  (match (. package.loaded name)
+  (case (. package.loaded name)
     mod (callback name mod id)))
