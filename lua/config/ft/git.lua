@@ -1,15 +1,4 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/ft/git.fnl"
-local _2amodule_name_2a = "config.ft.git"
-local _2amodule_2a
-do
-  package.loaded[_2amodule_name_2a] = {}
-  _2amodule_2a = package.loaded[_2amodule_name_2a]
-end
-local _2amodule_locals_2a
-do
-  _2amodule_2a["aniseed/locals"] = {}
-  _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
-end
+-- [nfnl] Compiled from fnl/config/ft/git.fnl by https://github.com/Olical/nfnl, do not edit.
 local function gv_23parent(count)
   local sha = vim.fn["gv#sha"]()
   local _1_ = #sha
@@ -28,5 +17,4 @@ local function gv_23parent(count)
     return nil
   end
 end
-_2amodule_2a["gv#parent"] = gv_23parent
-return _2amodule_2a
+return {["gv#parent"] = gv_23parent}

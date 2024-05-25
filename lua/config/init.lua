@@ -1,17 +1,5 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/init.fnl"
-local _2amodule_name_2a = "config.init"
-local _2amodule_2a
-do
-  package.loaded[_2amodule_name_2a] = {}
-  _2amodule_2a = package.loaded[_2amodule_name_2a]
-end
-local _2amodule_locals_2a
-do
-  _2amodule_2a["aniseed/locals"] = {}
-  _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
-end
-local _ = require("config.util")
-do end (_2amodule_locals_2a)["_"] = _
+-- [nfnl] Compiled from fnl/config/init.fnl by https://github.com/Olical/nfnl, do not edit.
+require("config.util")
 _G.fun = require("deps.fun")
 local function colorfgbg()
   local _1_ = vim.env.COLORFGBG
@@ -94,5 +82,4 @@ local function init()
     return vim.cmd("source ~/.vimrc\n                source ~/.vim/nvimafterinit.vim")
   end
 end
-_2amodule_2a["init"] = init
-return _2amodule_2a
+return {init = init}

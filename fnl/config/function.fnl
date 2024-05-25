@@ -1,20 +1,19 @@
-(module config.function
-  {autoload {a aniseed.core}})
+(local M {})
 
-;;; this module store the function used by user
+;;; this module store the function used by user, just like Command
 
-(defn Bwipeout [bang]
+(fn M.Bwipeout [bang]
   "wipe out all buffer, except the used one in window"
-  (var bang (or bang ""))
-  (local has_bang? (not (a.empty? bang)))
-  (let [buf_in_wins (collect [k v (ipairs (vim.api.nvim_list_wins))]
+  (local bang (or bang ""))
+  (local has_bang? (not (vim.true? bang)))
+  (let [buf_in_wins (collect [_k v (ipairs (vim.api.nvim_list_wins))]
                       (vim.api.nvim_win_get_buf v) true)]
     (var c 0)
     (var m 0)
     (fn clear [buf] ;do clear and count
       (set c (+ c 1))
       (vim.ex (.. buf "bwipeout" bang)))
-    (each [i buf (ipairs (vim.api.nvim_list_bufs))]
+    (each [_i buf (ipairs (vim.api.nvim_list_bufs))]
       (when (not (table.key? buf_in_wins buf))
         (if (. vim.bo buf :modified)
           (do (set m (+ m 1))
@@ -28,7 +27,7 @@
                 :left)
               m))))
   
-(defn CursorContext []
+(fn M.CursorContext []
   (if
     ((. (require "nvim-treesitter.parsers") :has_parser))
     (vim.fn.nvim_treesitter#statusline)
@@ -37,3 +36,5 @@
     (vim.fn.tagbar#currenttag "%s" "" "s")
 
     nil))
+
+M

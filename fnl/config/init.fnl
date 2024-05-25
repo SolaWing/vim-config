@@ -1,5 +1,4 @@
-(module config.init
-  {require {_ :config.util}})
+(require :config.util)
 
 ; TODO: replace with aniseed fun for duplicate ;
 (set _G.fun (require :deps.fun))
@@ -10,7 +9,7 @@
        (match t (. t (length t)))
        (tonumber)))
 
-(defn init []
+(fn init []
   (set _G.F {}) ; as a global namespace to save custom global lua function
 
   (when (= (-?> vim.env.COLORTERM
@@ -55,3 +54,5 @@
   
 ; (vim.fn.api_info)
 ; (. vim.g :conjure)
+
+{: init}

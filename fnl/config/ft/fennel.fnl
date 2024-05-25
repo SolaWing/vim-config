@@ -1,7 +1,6 @@
-(module config.ft.fennel
-  {autoload {fs aniseed.fs}})
+(local {: fs} (require :config.deps))
 
-(defn module->path [mod first]
+(fn module->path [mod first]
   "nofirst: return a array of match paths. or []
    first: only return the first match. nil if no match"
   (local mod-path (mod:gsub "%." fs.path-sep))
@@ -18,7 +17,7 @@
             (table.insert t p)))))
   (if first nil t)) ; first should early return
 
-(defn goto-module [mod first open-cmd]
+(fn goto-module [mod first open-cmd]
   (local paths (if (mod:find fs.path-sep)
                 (if first mod [mod]) ; normal file path with /, goto directly
                 (module->path mod first)))
@@ -46,3 +45,5 @@
 ; (goto-module "config.macros" false)
 ; (goto-module "config.macros2" false)
 ; (goto-module "~/.vim/init.vim" false)
+
+{: goto-module}

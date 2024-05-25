@@ -1,3 +1,6 @@
+;; fennel-ls: macro-file
+;; [nfnl-macro]
+
 (fn call [...]
   "simple macro to use with ->, to call the thread value"
   (list ...))

@@ -1,15 +1,4 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/util/vim-info.fnl"
-local _2amodule_name_2a = "util.vim-info"
-local _2amodule_2a
-do
-  package.loaded[_2amodule_name_2a] = {}
-  _2amodule_2a = package.loaded[_2amodule_name_2a]
-end
-local _2amodule_locals_2a
-do
-  _2amodule_2a["aniseed/locals"] = {}
-  _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
-end
+-- [nfnl] Compiled from fnl/util/vim-info.fnl by https://github.com/Olical/nfnl, do not edit.
 local function registers__3evimscript()
   local registers = "qwertyuiopasdfghjklzxcvbnm0*"
   local tbl_17_auto = {}
@@ -43,6 +32,5 @@ local function registers__3evimscript()
   end
   return tbl_17_auto
 end
-_2amodule_2a["registers->vimscript"] = registers__3evimscript
 --[[ (local char "g") (local i 2) ]]
-return _2amodule_2a
+return {["registers->vimscript"] = registers__3evimscript}

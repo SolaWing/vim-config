@@ -1,18 +1,6 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/ft/fennel.fnl"
-local _2amodule_name_2a = "config.ft.fennel"
-local _2amodule_2a
-do
-  package.loaded[_2amodule_name_2a] = {}
-  _2amodule_2a = package.loaded[_2amodule_name_2a]
-end
-local _2amodule_locals_2a
-do
-  _2amodule_2a["aniseed/locals"] = {}
-  _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
-end
-local autoload = (require("aniseed.autoload")).autoload
-local fs = autoload("aniseed.fs")
-do end (_2amodule_locals_2a)["fs"] = fs
+-- [nfnl] Compiled from fnl/config/ft/fennel.fnl by https://github.com/Olical/nfnl, do not edit.
+local _local_1_ = require("config.deps")
+local fs = _local_1_["fs"]
 local function module__3epath(mod, first)
   local mod_path = mod:gsub("%.", fs["path-sep"])
   local paths = {("fnl" .. fs["path-sep"] .. mod_path .. ".fnl"), ("fnl" .. fs["path-sep"] .. mod_path .. fs["path-sep"] .. "init.fnl"), ("lua" .. fs["path-sep"] .. mod_path .. ".lua"), ("lua" .. fs["path-sep"] .. mod_path .. fs["path-sep"] .. "init.lua")}
@@ -36,7 +24,6 @@ local function module__3epath(mod, first)
     return t
   end
 end
-_2amodule_2a["module->path"] = module__3epath
 local function goto_module(mod, first, open_cmd)
   local paths
   if mod:find(fs["path-sep"]) then
@@ -58,25 +45,24 @@ local function goto_module(mod, first, open_cmd)
       return vim.notify("no match file found", vim.log.levels.WARN)
     end
   else
-    local _7_ = #paths
-    if (_7_ == 0) then
+    local _8_ = #paths
+    if (_8_ == 0) then
       return vim.notify("no match file found", vim.log.levels.WARN)
-    elseif (_7_ == 1) then
+    elseif (_8_ == 1) then
       return edit(paths[1])
     elseif true then
-      local _ = _7_
-      local function _8_(_241)
+      local _ = _8_
+      local function _9_(_241)
         if (nil ~= _241) then
           return edit(_241)
         else
           return nil
         end
       end
-      return vim.ui.select(paths, {prompt = "which file to choose? "}, _8_)
+      return vim.ui.select(paths, {prompt = "which file to choose? "}, _9_)
     else
       return nil
     end
   end
 end
-_2amodule_2a["goto-module"] = goto_module
-return _2amodule_2a
+return {["goto-module"] = goto_module}

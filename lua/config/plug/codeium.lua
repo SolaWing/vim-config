@@ -1,7 +1,7 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/plug/codeium.fnl"
+-- [nfnl] Compiled from fnl/config/plug/codeium.fnl by https://github.com/Olical/nfnl, do not edit.
 local function setup()
   vim.g.codeium_no_map_tab = 0
-  vim.g.codeium_filetypes = {plantuml = true, dot = true, fennel = true, lua = true, vim = true, racket = true, ruby = true, rbs = true, crystal = true, python = true, sh = true, swift = true, go = true, rust = true, c = true, cpp = true, objc = true, make = true, text = false, markdown = false}
+  vim.g.codeium_filetypes = {plantuml = true, dot = true, fennel = true, lua = true, vim = true, racket = true, ruby = true, rbs = true, crystal = true, python = true, sh = true, swift = true, go = true, rust = true, c = true, cpp = true, objc = true, make = true, markdown = false, text = false}
   local function _1_()
     return vim.cmd("imap <script><silent><nowait><expr> <C-e> codeium#Accept()\n                        let g:codeium_tab_fallback = \"\\<End>\"")
   end

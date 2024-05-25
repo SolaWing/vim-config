@@ -12,7 +12,7 @@ xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 
 if stridx(expand("%:p"), "/.vim/") > 0
     " vim fennel, use aniseed
-    nnoremap <buffer> ,c :<C-U>update<bar>AniseedCompile<CR>
+    "nnoremap <buffer> ,c :<C-U>update<bar>AniseedCompile<CR>
 else
     " outside vim plugin, use stdio repl
     " it's not valid buffer var...

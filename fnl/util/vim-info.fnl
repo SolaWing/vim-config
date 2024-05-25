@@ -1,6 +1,4 @@
-(module util.vim-info)
-
-(defn registers->vimscript []
+(fn registers->vimscript []
   (local registers "qwertyuiopasdfghjklzxcvbnm0*")
 
   (fcollect [i 1 (length registers) 1]
@@ -23,3 +21,5 @@
 (comment
   (local char "g")
   (local i 2))
+
+{: registers->vimscript}

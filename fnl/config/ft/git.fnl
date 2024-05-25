@@ -1,6 +1,4 @@
-(module config.ft.git {})
-
-(defn gv#parent [count]
+(fn gv#parent [count]
   (local sha ((. vim.fn "gv#sha")))
   (case (length sha)
     0 (vim.notify "no sha found" vim.log.levels.WARN)
@@ -9,3 +7,5 @@
         (if (and pos (~= 0 (. pos 1)))
           (vim.api.nvim_win_set_cursor 0 [(. pos 1) (- (. pos 2) 1)])
           (vim.notify "no parent sha found" vim.log.levels.WARN)))))
+
+{: gv#parent}

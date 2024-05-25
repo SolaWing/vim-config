@@ -75,10 +75,15 @@
         //   "filetypes": [ "crystal" ],
         //   "rootPatterns": ["shard.yml"]
         // }
-        // , "fennel-ls": {
-        //   "command": "/Users/wang/Documents/github/MAC/fennel-ls/fennel-ls",
-        //   "filetypes": ["fennel"]
-        // }
+         , "fennel-ls": {
+           "command": "/Users/wang/Documents/github/MAC/fennel-ls/fennel-ls",
+           "filetypes": ["fennel"],
+           "settings": {
+             "fennel-ls": {
+               "extra-globals": "vim luafile"
+             }
+           }
+         }
         // , "HY": {
         //     "command": "python3",
         //     "args": ["/Users/wang/Library/Python/3.9/bin/hyls"],

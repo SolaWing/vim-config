@@ -1,4 +1,4 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/plug/codeverse.fnl"
+-- [nfnl] Compiled from fnl/config/plug/codeverse.fnl by https://github.com/Olical/nfnl, do not edit.
 local function setup()
   vim.g.codeverse_no_map_tab = true
   vim.g.codeverse_disable_bindings = true

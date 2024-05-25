@@ -1,2 +1,2 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/util/core.fnl"
-return nil
+-- [nfnl] Compiled from fnl/util/core.fnl by https://github.com/Olical/nfnl, do not edit.
+

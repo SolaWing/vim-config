@@ -1,19 +1,6 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/util.fnl"
-local _2amodule_name_2a = "config.util"
-local _2amodule_2a
-do
-  package.loaded[_2amodule_name_2a] = {}
-  _2amodule_2a = package.loaded[_2amodule_name_2a]
-end
-local _2amodule_locals_2a
-do
-  _2amodule_2a["aniseed/locals"] = {}
-  _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
-end
-local autoload = (require("aniseed.autoload")).autoload
-local a, _ = autoload("aniseed.core"), nil
-_2amodule_locals_2a["a"] = a
-_2amodule_locals_2a["_"] = _
+-- [nfnl] Compiled from fnl/config/util.fnl by https://github.com/Olical/nfnl, do not edit.
+local _local_1_ = require("config.deps")
+local a = _local_1_["core"]
 table["key?"] = function(self, k)
   return (nil ~= self[k])
 end
@@ -21,34 +8,34 @@ do
   local function call_command(...)
     return vim.api.nvim_command(table.concat(vim.tbl_flatten({...}), " "))
   end
-  local function _1_(...)
+  local function _2_(...)
     return call_command(select(2, ...))
   end
-  local function _2_(t, k)
+  local function _3_(t, k)
     if a["string?"](k) then
       local command = k:gsub("_$", "!")
-      local function _3_(...)
+      local function _4_(...)
         return call_command(command, ...)
       end
-      return _3_
+      return _4_
     else
       return nil
     end
   end
-  vim.ex = setmetatable({}, {__call = _1_, __index = _2_})
+  vim.ex = setmetatable({}, {__call = _2_, __index = _3_})
 end
 vim["true?"] = function(v)
-  local _5_ = type(v)
-  if (_5_ == "number") then
+  local _6_ = type(v)
+  if (_6_ == "number") then
     return (0 ~= v)
-  elseif (_5_ == "nil") then
+  elseif (_6_ == "nil") then
     return false
-  elseif (_5_ == "boolean") then
+  elseif (_6_ == "boolean") then
     return v
-  elseif (_5_ == "string") then
+  elseif (_6_ == "string") then
     return vim["true?"](tonumber(v))
   elseif true then
-    local _0 = _5_
+    local _ = _6_
     return error(("invalid type for vim boolean check: " .. type(v)))
   else
     return nil
@@ -60,12 +47,12 @@ _G["hook-require"] = function(name, id, callback)
     local old = require
     local hooks = {}
     local function req(name0)
-      local function _7_()
+      local function _8_()
         local mod = old(name0)
         do
-          local _8_ = hooks[name0]
-          if (nil ~= _8_) then
-            local hook_table = _8_
+          local _9_ = hooks[name0]
+          if (nil ~= _9_) then
+            local hook_table = _9_
             for id0, callback0 in pairs(hook_table) do
               callback0(name0, mod, id0)
             end
@@ -74,26 +61,26 @@ _G["hook-require"] = function(name, id, callback)
         end
         return mod
       end
-      return (package.loaded[name0] or _7_())
+      return (package.loaded[name0] or _8_())
     end
     _G["my-require-hook"] = {hooks = hooks, hooked = true, old = old, req = req}
     _G.require = req
   else
   end
   local hook_table
-  local function _11_()
+  local function _12_()
     local d = {}
     _G["my-require-hook"].hooks[name] = d
     return d
   end
-  hook_table = ((_G["my-require-hook"].hooks)[name] or _11_())
+  hook_table = ((_G["my-require-hook"].hooks)[name] or _12_())
   do end (hook_table)[id] = callback
-  local _12_ = package.loaded[name]
-  if (nil ~= _12_) then
-    local mod = _12_
+  local _13_ = package.loaded[name]
+  if (nil ~= _13_) then
+    local mod = _13_
     return callback(name, mod, id)
   else
     return nil
   end
 end
-return _2amodule_2a
+return _G["hook-require"]

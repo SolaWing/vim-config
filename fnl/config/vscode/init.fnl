@@ -1,7 +1,6 @@
-(module config.vscode.init
-  {require {{: Plug : function} :config.plugs}})
+(local {: Plug : function} {require :config.plugs})
 
-(defn- settings []
+(fn settings []
   (vim.cmd "augroup mine | augroup end") ; create mine group so can be used directly
   (set vim.g.mapleader " ")
   (set vim.g.maplocalleader ",")
@@ -14,10 +13,12 @@
   ; compatible
   (set vim.g.hasCOC false))
 
-(defn- keybinding []
+(fn keybinding []
   "NOTE: 原生的一些功能需要remap，绑定会失效"
   (vim.cmd.source "~/.vim/meta-keybinding.vim")
   (vim.cmd.source "~/.vim/key-binding.vim")
+
+  (local VSCodeNotify _G.VSCodeNotify)
 
   (fn remap-key [from to]
     (vim.keymap.set ["n" "x"] from to {:remap true}))
@@ -53,7 +54,7 @@
   (remap-key "<Leader>to" "<Cmd>Tabonly<CR>")
   (remap-key "<Leader>tc" "<Cmd>Tabclose<CR>"))
 
-(defn- plugins []
+(fn plugins []
   "NOTE: notworking function:
   quickfix terminal filepath-dep
   "
@@ -98,7 +99,7 @@
   (vim.cmd "silent doautocmd <nomodeline> User plug#end"))
 
 
-(defn init []
+(fn init []
   (local config-path (vim.fn.stdpath :config))
   (vim.opt.runtimepath:remove config-path)
   (vim.opt.runtimepath:prepend (.. config-path "/vscode"))
@@ -110,3 +111,5 @@
   (settings)
   (plugins)
   (keybinding))
+
+{: init}

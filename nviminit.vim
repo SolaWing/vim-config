@@ -8,9 +8,11 @@
 
 " try use lua to write nvim config
 " help lua function may be used before plugin load. these loaded function may use old version code
-set rtp+=~/.vim/bundle/aniseed,~/.vim/bundle/plenary.nvim
+"set rtp+=~/.vim/bundle/aniseed,~/.vim/bundle/plenary.nvim
+set rtp+=~/.vim/bundle/nfnl
 " lua require('aniseed.env').init({module = 'config.init'})
 lua require("config.init").init()
+
 finish
 
 " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1

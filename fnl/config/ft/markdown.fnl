@@ -1,6 +1,4 @@
-(module config.ft.markdown {})
-  
-(defn toggle-list-item [kind]
+(fn toggle-list-item [kind]
   "kind: 0 cycle toggle. 1 remove. 2 normal item. 3 todo item"
   (local line (vim.fn.getline "."))
   (local patterns {:all "^\\v\\s*\\zs[-*] %(\\[[ xX]=\\] =)="
@@ -32,3 +30,5 @@
       vim.regex
       (: :match_str "  - []abc"))
   (: (vim.regex "^\\v\\s*\\zs[-*] %(\\[[ xX]=\\] =)=") :match_str "  - []abc"))
+
+{: toggle-list-item}

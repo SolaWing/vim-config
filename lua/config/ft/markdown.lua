@@ -1,15 +1,4 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/ft/markdown.fnl"
-local _2amodule_name_2a = "config.ft.markdown"
-local _2amodule_2a
-do
-  package.loaded[_2amodule_name_2a] = {}
-  _2amodule_2a = package.loaded[_2amodule_name_2a]
-end
-local _2amodule_locals_2a
-do
-  _2amodule_2a["aniseed/locals"] = {}
-  _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
-end
+-- [nfnl] Compiled from fnl/config/ft/markdown.fnl by https://github.com/Olical/nfnl, do not edit.
 local function toggle_list_item(kind)
   local line = vim.fn.getline(".")
   local patterns = {all = "^\\v\\s*\\zs[-*] %(\\[[ xX]=\\] =)=", no = "^\\s*\\zs"}
@@ -49,6 +38,5 @@ local function toggle_list_item(kind)
     end
   end
 end
-_2amodule_2a["toggle-list-item"] = toggle_list_item
 --[[ (-> "^\\v\\s*\\zs[-*] %(\\[[ xX]=\\] =)=" vim.regex (: "match_str" "  - []abc")) (: (vim.regex "^\\v\\s*\\zs[-*] %(\\[[ xX]=\\] =)=") "match_str" "  - []abc") ]]
-return _2amodule_2a
+return {["toggle-list-item"] = toggle_list_item}

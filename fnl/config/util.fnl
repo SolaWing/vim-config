@@ -1,6 +1,7 @@
-(module config.util
-  {autoload {a aniseed.core}
-   require-macros [config.macros]})
+(local {:core a} (require :config.deps))
+; (module config.util
+;   {autoload {a aniseed.core}
+;    require-macros [config.macros]})
 
 ; TODO: 稳定后, 设置换成once, 预防意外修改 ;
 

@@ -1,14 +1,15 @@
-(module config.keybinding
-  {autoload {: fzf-lua}})
+(local {: autoload} (require :config.deps))
+(local fzf-lua (autoload :fzf-lua))
 
-(defn common []
+(local M {})
+(fn common []
   (vim.keymap.set :n ",." #(print ((. (require "config.function") :CursorContext))))
   ; edit fnl file quickly
   (vim.keymap.set :n "<Leader>eI" "<Cmd>0tab drop ~/.vim/fnl/config/init.fnl<CR>")
   (vim.keymap.set :n "<Leader>eP" "<Cmd>0tab drop ~/.vim/fnl/config/plugs.fnl<CR>")
   (vim.keymap.set :n "<Leader>eK" "<Cmd>0tab drop ~/.vim/fnl/config/keybinding.fnl<CR>"))
 
-(defn fzf-lua-bind []
+(fn fzf-lua-bind []
   ; 大量加载fzf-lua后，大约消耗了6ms..
   ; 命令基本都是基于cwd的，而不是基于当前文件的...
   ; 虽然默认体验不够好，但是builtin的preview是杀手级特性.. fzf.vim还做不到..
@@ -132,14 +133,14 @@
 
   
 
-(defn harpoon-bind []
+(fn harpoon-bind []
   (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)) {:desc "harpoon.mark"})
   (vim.keymap.set :n "<Leader>p<Tab>"   #((. (require "harpoon.ui")   :toggle_quick_menu)) {:desc "harpoon.ui"}))
 
-(defn refactoring-bind []
+(fn refactoring-bind []
   (vim.keymap.set [:x :n] "<Leader>xr" #((. (require "refactoring") :select_refactor)) {:desc "refactoring"}))
 
-(defn leap-bind []
+(fn leap-bind []
   (vim.keymap.set ["n" "x"] "<Space><CR>" #((. (require "config.plug.leap") :leap_to_line)) {:desc "leap_to_line"})
   (vim.keymap.set ["o"] "<Space><CR>" "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>" {:desc "leap_to_line"})
   ; TODO: unify surround and leap mapping ;
@@ -147,7 +148,7 @@
   ; ((. (require "leap") :add_repeat_mappings) ";" "," {:relative_directions true
   ;                                                     :modes [:n :x :o]}))
 
-(defn init []
+(fn M.init []
   (common)
   (when (vim.plug? "fzf-lua") (fzf-lua-bind))
   (when (vim.plug? "harpoon") (harpoon-bind))
@@ -155,3 +156,4 @@
   (when (vim.plug? "leap.nvim") (leap-bind))
   (when (vim.plug? "nvim-spectre") ((. (require :config/plug/spectre) :setup))))
 
+M

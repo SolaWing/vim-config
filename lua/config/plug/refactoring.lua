@@ -1,4 +1,4 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/plug/refactoring.fnl"
+-- [nfnl] Compiled from fnl/config/plug/refactoring.fnl by https://github.com/Olical/nfnl, do not edit.
 local function setup()
   return (require("refactoring")).setup()
 end

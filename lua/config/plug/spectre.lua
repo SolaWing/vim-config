@@ -1,4 +1,4 @@
-local _2afile_2a = "/Users/wang/.config/nvim/fnl/config/plug/spectre.fnl"
+-- [nfnl] Compiled from fnl/config/plug/spectre.fnl by https://github.com/Olical/nfnl, do not edit.
 local function setup()
   local function spectre()
     vim.fn["plug#load"]("nvim-spectre")

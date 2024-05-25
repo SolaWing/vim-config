@@ -1,8 +1,6 @@
-(module config.plugs)
+(local Plug (. vim.fn :plug#))
 
-(def Plug (. vim.fn :plug#))
-
-(defn nvim-lib []
+(fn nvim-lib []
   "libraries to be dependency by others"
   (Plug "nvim-lua/plenary.nvim")
   ; optional for icon support and nerd font may required, required by fzf-lua, barbar etc 
@@ -10,7 +8,7 @@
   (Plug "nvim-treesitter/nvim-treesitter" {:do ":TSUpdate"})) ; We recommend updating the parsers on update
   ; (Plug "kkharji/sqlite.lua")) ; optional required by neoclip
 
-(defn nvim-common []
+(fn nvim-common []
   (Plug "andymass/vim-matchup") ; {:on []}) ; nvim-treesitter break % pair by syntax. use replacement
   ; disable original match, this delay may fast 5ms
   (set vim.g.loaded_matchparen 1)
@@ -31,7 +29,7 @@
   (set vim.g.no_ruby_maps 1) ; ruby map depend on syntax. no work when treesitter enable
   (set vim.g.ruby_no_expensive 1)) ; ruby default synatx make it very slow, though treesitter should disable it
 
-(defn function []
+(fn function []
   ; plug相关辅助函数
   (vim.cmd "function! HasPlug(key)
            return has_key(g:plugs, a:key)
@@ -46,7 +44,7 @@
       (_ err) (error err)
       (f nil) (f))))
 
-(defn init []
+(fn init []
   ; 迁移耗时好像没有明显变化。是因为主要耗时在vim调用上吗?
 
   (function)
@@ -76,7 +74,7 @@
 
   (vim.cmd "autocmd mine User plug#end ++once lua require('config.plugs').after()"))
 
-(defn after []
+(fn after []
   (luafile "~/.vim/lua/config/plug/treesitter.lua")
   ; ((. (require "config.plug.codeium") :setup))
   ((. (require "config.plug.codeverse") :setup))
@@ -86,3 +84,4 @@
   ; ((. (require "config.plug.neoclip") :setup)))
   ; (vim.cmd "autocmd mine CmdlineEnter * ++once call v:lua.require('config.plug.wilder').setup() | call wilder#main#start()"))
 
+{: Plug : function : init : after}

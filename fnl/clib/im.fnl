@@ -1,5 +1,5 @@
-(module clib.im
-  {autoload {: ffi}})
+(local {: autoload} (require :config.deps))
+(local ffi (autoload :ffi))
 
 ; lazy load state
 (var last-im nil)
@@ -8,7 +8,7 @@
   (ffi.gc v ffi.C.CFRelease))
 
 (var _carbon nil)
-(defn carbon []
+(fn carbon []
   (when (= nil _carbon)
     (set _carbon (ffi.load "/System/Library/Frameworks/Carbon.framework/Carbon"))
     (ffi.cdef "
@@ -27,25 +27,27 @@
   _carbon)
 
 (var _ascii-im nil)
-(defn ascii-im []
+(fn ascii-im []
   (when (= nil _ascii-im)
     (set _ascii-im (CFTypeAutoRelease ((. (carbon) "TISCopyCurrentASCIICapableKeyboardInputSource")))))
 
   _ascii-im)
 
 ;; IM hook and autoswitch
-(defn exit-insert []
+(fn exit-insert []
   (set last-im (CFTypeAutoRelease ((. (carbon) "TISCopyCurrentKeyboardInputSource"))))
   ((. (carbon) "TISSelectInputSource") (ascii-im)))
 
-(defn enter-insert []
+(fn enter-insert []
   (when last-im
     ((. (carbon) "TISSelectInputSource") last-im)))
 
 ; FIXME: 终端下不管用，虽然看着输入法是切换了..
-(defn enable-auto-im-switch []
+(fn enable-auto-im-switch []
   (vim.cmd "
     autocmd mine InsertEnter * lua require('clib.im')['enter-insert']()
     autocmd mine InsertLeave * lua require('clib.im')['exit-insert']()
     "))
 
+
+{: enter-insert : exit-insert : enable-auto-im-switch}
