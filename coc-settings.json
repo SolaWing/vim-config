@@ -80,7 +80,8 @@
            "filetypes": ["fennel"],
            "settings": {
              "fennel-ls": {
-               "extra-globals": "vim luafile"
+               "extra-globals": "vim luafile",
+               "fennel-path": "./?.fnl;./?/init.fnl;./fnl/?.fnl;./fnl/?/init.fnl"
              }
            }
          }

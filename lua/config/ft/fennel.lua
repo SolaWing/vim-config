@@ -1,13 +1,12 @@
 -- [nfnl] Compiled from fnl/config/ft/fennel.fnl by https://github.com/Olical/nfnl, do not edit.
-local _local_1_ = require("config.deps")
-local fs = _local_1_["fs"]
 local function module__3epath(mod, first)
-  local mod_path = mod:gsub("%.", fs["path-sep"])
-  local paths = {("fnl" .. fs["path-sep"] .. mod_path .. ".fnl"), ("fnl" .. fs["path-sep"] .. mod_path .. fs["path-sep"] .. "init.fnl"), ("lua" .. fs["path-sep"] .. mod_path .. ".lua"), ("lua" .. fs["path-sep"] .. mod_path .. fs["path-sep"] .. "init.lua")}
+  local path_sep = os["path-sep"]
+  local mod_path = mod:gsub("%.", path_sep)
+  local paths = {("fnl" .. path_sep .. mod_path .. ".fnl"), ("fnl" .. path_sep .. mod_path .. path_sep .. "init.fnl"), ("lua" .. path_sep .. mod_path .. ".lua"), ("lua" .. path_sep .. mod_path .. path_sep .. "init.lua")}
   local t = {}
   for _, path in ipairs(vim.api.nvim_list_runtime_paths()) do
     for _0, rel_path in ipairs(paths) do
-      local p = (path .. fs["path-sep"] .. rel_path)
+      local p = (path .. path_sep .. rel_path)
       if (1 == vim.fn.filereadable(p)) then
         if first then
           return p
@@ -26,7 +25,7 @@ local function module__3epath(mod, first)
 end
 local function goto_module(mod, first, open_cmd)
   local paths
-  if mod:find(fs["path-sep"]) then
+  if mod:find(os["path-sep"]) then
     if first then
       paths = mod
     else
@@ -45,21 +44,21 @@ local function goto_module(mod, first, open_cmd)
       return vim.notify("no match file found", vim.log.levels.WARN)
     end
   else
-    local _8_ = #paths
-    if (_8_ == 0) then
+    local _7_ = #paths
+    if (_7_ == 0) then
       return vim.notify("no match file found", vim.log.levels.WARN)
-    elseif (_8_ == 1) then
+    elseif (_7_ == 1) then
       return edit(paths[1])
     elseif true then
-      local _ = _8_
-      local function _9_(_241)
+      local _ = _7_
+      local function _8_(_241)
         if (nil ~= _241) then
           return edit(_241)
         else
           return nil
         end
       end
-      return vim.ui.select(paths, {prompt = "which file to choose? "}, _9_)
+      return vim.ui.select(paths, {prompt = "which file to choose? "}, _8_)
     else
       return nil
     end

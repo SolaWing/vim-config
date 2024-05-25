@@ -1,24 +1,23 @@
-(local {: fs} (require :config.deps))
-
 (fn module->path [mod first]
   "nofirst: return a array of match paths. or []
    first: only return the first match. nil if no match"
-  (local mod-path (mod:gsub "%." fs.path-sep))
-  (local paths [(.. :fnl fs.path-sep mod-path :.fnl)
-                (.. :fnl fs.path-sep mod-path fs.path-sep :init.fnl)
-                (.. :lua fs.path-sep mod-path :.lua)
-                (.. :lua fs.path-sep mod-path fs.path-sep :init.lua)])
+  (local path-sep os.path-sep)
+  (local mod-path (mod:gsub "%." path-sep))
+  (local paths [(.. :fnl path-sep mod-path :.fnl)
+                (.. :fnl path-sep mod-path path-sep :init.fnl)
+                (.. :lua path-sep mod-path :.lua)
+                (.. :lua path-sep mod-path path-sep :init.lua)])
   (local t [])
   (each [_ path (ipairs (vim.api.nvim_list_runtime_paths))]
     (each [_ rel-path (ipairs paths)]
-      (local p (.. path fs.path-sep rel-path))
+      (local p (.. path path-sep rel-path))
       (if (= 1 (vim.fn.filereadable p))
         (do (when first (lua "return p"))
             (table.insert t p)))))
   (if first nil t)) ; first should early return
 
 (fn goto-module [mod first open-cmd]
-  (local paths (if (mod:find fs.path-sep)
+  (local paths (if (mod:find os.path-sep)
                 (if first mod [mod]) ; normal file path with /, goto directly
                 (module->path mod first)))
   (fn edit [p] (vim.cmd (-> [(or open-cmd "edit") (vim.fn.fnameescape p)]
