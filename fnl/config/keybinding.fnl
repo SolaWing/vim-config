@@ -1,7 +1,6 @@
 (local {: autoload} (require :config.deps))
 (local fzf-lua (autoload :fzf-lua))
 
-(local M {})
 (fn common []
   (vim.keymap.set :n ",." #(print ((. (require "config.function") :CursorContext))))
   ; edit fnl file quickly
@@ -148,7 +147,7 @@
   ; ((. (require "leap") :add_repeat_mappings) ";" "," {:relative_directions true
   ;                                                     :modes [:n :x :o]}))
 
-(fn M.init []
+(fn init []
   (common)
   (when (vim.plug? "fzf-lua") (fzf-lua-bind))
   (when (vim.plug? "harpoon") (harpoon-bind))
@@ -156,4 +155,4 @@
   (when (vim.plug? "leap.nvim") (leap-bind))
   (when (vim.plug? "nvim-spectre") ((. (require :config/plug/spectre) :setup))))
 
-M
+{: init}

@@ -2,7 +2,6 @@
 local _local_1_ = require("config.deps")
 local autoload = _local_1_["autoload"]
 local fzf_lua = autoload("fzf-lua")
-local M = {}
 local function common()
   local function _2_()
     return print((require("config.function")).CursorContext())
@@ -201,7 +200,7 @@ local function leap_bind()
   vim.keymap.set({"o"}, "<Space><CR>", "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>", {desc = "leap_to_line"})
   return (require("leap")).add_default_mappings()
 end
-M.init = function()
+local function init()
   common()
   if vim["plug?"]("fzf-lua") then
     fzf_lua_bind()
@@ -225,4 +224,4 @@ M.init = function()
     return nil
   end
 end
-return M
+return {init = init}

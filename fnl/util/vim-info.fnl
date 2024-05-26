@@ -1,4 +1,5 @@
 (fn registers->vimscript []
+  "returns: a list of vim script of setreg registers"
   (local registers "qwertyuiopasdfghjklzxcvbnm0*")
 
   (fcollect [i 1 (length registers) 1]
