@@ -7,9 +7,8 @@ local function gv_23parent(count)
   elseif true then
     local _ = _1_
     local parent = vim.trim(vim.fn.system(vim.fn.FugitiveShellCommand({"rev-parse", "--short", (sha .. "^" .. count)})))
-    local pos = ((0 ~= #parent) and vim.fn.searchpos(parent))
-    if (pos and (0 ~= pos[1])) then
-      return vim.api.nvim_win_set_cursor(0, {pos[1], (pos[2] - 1)})
+    if ((0 ~= #parent) and (0 ~= vim.fn.search(parent, "s"))) then
+      return nil
     else
       return vim.notify("no parent sha found", vim.log.levels.WARN)
     end
@@ -17,4 +16,5 @@ local function gv_23parent(count)
     return nil
   end
 end
+--[[ (tset (require "config.ft.git") "gv#parent" gv#parent) ]]
 return {["gv#parent"] = gv_23parent}

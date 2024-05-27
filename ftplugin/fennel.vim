@@ -35,6 +35,8 @@ xnoremap <buffer> <C-w>gf "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-m
 nnoremap <buffer> <C-w>gF <Cmd>call v:lua.require("config.ft.fennel")["goto-module"](expand("<cfile>"), v:false, "tab drop")<CR>
 xnoremap <buffer> <C-w>gF "vy<Cmd>call v:lua.require("config.ft.fennel")["goto-module"](@v, v:false, "tab drop")<CR>
 
+xmap <buffer> <LocalLeader>ee <LocalLeader>E
+
 " (. (form) :_)
 imap <buffer> <M-.> <C-o><LocalLeader>i.<C-o>>I<Space>:
 " ((form)_)

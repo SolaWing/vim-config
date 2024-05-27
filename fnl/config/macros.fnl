@@ -12,5 +12,13 @@
         (print ,(.. "ignore exist val" (tostring name)))
         ,name)))
 
+(fn MT [a t]
+  "merge literal array and dict to one table"
+  (for [i 1 (length a) 1]
+    (table.insert t (. a i)))
+  t)
+
 {: set-once
- : call}
+ : call
+ : MT}
+
