@@ -8,10 +8,10 @@
 ;;; table extension
 (fn table.key? [self k] (~= nil (. self k)))
 ;;; https://github.com/nvim-lua/plenary.nvim/blob/a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683/lua/plenary/path.lua#L21
-(set os.path-sep (if jit (let [v (string.lower jit.os)]
-                           (if (~= v :windows)
-                             :/
-                             "\\"))
+(set os.path-sep (if _G.jit (let [v (string.lower _G.jit.os)]
+                              (if (~= v :windows)
+                                :/
+                                "\\"))
                    (package.config:sub 1 1)))
 ;;; vim extension
 ;; eg:

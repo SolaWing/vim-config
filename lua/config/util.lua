@@ -4,8 +4,8 @@ local a = _local_1_["core"]
 table["key?"] = function(self, k)
   return (nil ~= self[k])
 end
-if jit then
-  local v = string.lower(jit.os)
+if _G.jit then
+  local v = string.lower(_G.jit.os)
   if (v ~= "windows") then
     os["path-sep"] = "/"
   else
