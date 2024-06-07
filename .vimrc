@@ -95,6 +95,7 @@
         set autoread
         " not save options and mapping when mksession.
         set sessionoptions-=options
+        set jumpoptions=stack
         " term italic
         set t_ZH=[3m
         set t_ZR=[23m

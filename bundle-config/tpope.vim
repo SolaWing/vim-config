@@ -58,6 +58,7 @@ function! ExcludeBufferFromDiscovery(file, type)
     endif
     return v:false
 endfunction
+let g:projectionist_ignore_fugitive = v:true
 "}}}
 if has('nvim-0.10.0')
     nmap gcu gcgc

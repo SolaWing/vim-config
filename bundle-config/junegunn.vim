@@ -33,23 +33,23 @@ Plug 'junegunn/fzf.vim'
 if has('nvim-0.5.0')
     Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 end
-" if g:hasCOC
-"     Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
-"     let g:coc_fzf_opts = []
-"     let g:coc_fzf_preview_fullscreen = 1
-"     " Show all diagnostics.
-"     nnoremap <silent> <localleader>La  <Cmd>CocFzfList diagnostics<cr>
-"     " Show commands.
-"     nnoremap <silent> <localleader>Lc  <Cmd>CocFzfList commands<cr>
-"     " Find symbol of current document.
-"     nnoremap <silent> <localleader>Lo  <Cmd>CocFzfList outline<cr>
-"     " Search workspace symbols.
-"     nnoremap <silent> <localleader>Ls  <Cmd>CocFzfList symbols<cr>
-"     " workspace folders
-"     nnoremap <silent> <localleader>Lw  <Cmd>CocFzfList folders<cr>
-"     " Resume latest coc list.
-"     nnoremap <silent> <localleader>Ll  <Cmd>CocFzfListResume<CR>
-" endif
+ if g:hasCOC
+     Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+     let g:coc_fzf_opts = []
+     let g:coc_fzf_preview_fullscreen = 1
+     " Show all diagnostics.
+     nnoremap <silent> <localleader>La  <Cmd>CocFzfList diagnostics<cr>
+     " Show commands.
+     nnoremap <silent> <localleader>Lc  <Cmd>CocFzfList commands<cr>
+     " Find symbol of current document.
+     nnoremap <silent> <localleader>Lo  <Cmd>CocFzfList outline<cr>
+     " Search workspace symbols.
+     nnoremap <silent> <localleader>Ls  <Cmd>CocFzfList symbols<cr>
+     " workspace folders
+     "nnoremap <silent> <localleader>Lw  <Cmd>CocFzfList folders<cr>
+     " Resume latest coc list.
+     nnoremap <silent> <localleader>Ll  <Cmd>CocFzfListResume<CR>
+ endif
 
 command! -bang -nargs=* FZRg
             \ call fzf#vim#grep(
