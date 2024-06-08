@@ -51,14 +51,19 @@ let g:projectionist_heuristics = {
       \   "Package.swift": {"type": "package"}
       \ }
       \}
+
 " 优化不必要的检查，加速打开性能（特别是fugtive的各种buffer）
-function! ExcludeBufferFromDiscovery(file, type)
-    if stridx(a:file, ":") != -1
-        return v:true
-    endif
-    return v:false
-endfunction
-let g:projectionist_ignore_fugitive = v:true
+" 各种插件容易触发fugitive的FileReadable
+" https://github.com/tpope/vim-fugitive/issues/2310
+let g:fugitive_file_api = v:false
+
+"function! ExcludeBufferFromDiscovery(file, type)
+"    if stridx(a:file, ":") != -1
+"        return v:true
+"    endif
+"    return v:false
+"endfunction
+"let g:projectionist_ignore_fugitive = v:true
 "}}}
 if has('nvim-0.10.0')
     nmap gcu gcgc
