@@ -6,7 +6,11 @@
   ; edit fnl file quickly
   (vim.keymap.set :n "<Leader>eI" "<Cmd>0tab drop ~/.vim/fnl/config/init.fnl<CR>")
   (vim.keymap.set :n "<Leader>eP" "<Cmd>0tab drop ~/.vim/fnl/config/plugs.fnl<CR>")
-  (vim.keymap.set :n "<Leader>eK" "<Cmd>0tab drop ~/.vim/fnl/config/keybinding.fnl<CR>"))
+  (vim.keymap.set :n "<Leader>eK" "<Cmd>0tab drop ~/.vim/fnl/config/keybinding.fnl<CR>")
+
+  (vim.keymap.set :x "[?" ":lua require('util.secret').encodeR()<CR>")
+  (vim.keymap.set :x "]?" ":lua require('util.secret').decodeR()<CR>"))
+
 
 (fn fzf-lua-bind []
   ; 大量加载fzf-lua后，大约消耗了6ms..
