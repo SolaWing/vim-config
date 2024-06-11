@@ -84,9 +84,9 @@ nmap gr <Plug>(coc-references-used)
 
 " Use K to show documentation in preview window.
 
-command! -nargs=* CocHover :call CocActionAsync('doHover')
+command! -nargs=* CocHover :call CocActionAsync('definitionHover')
 set keywordprg=:CocHover
-nmap <silent> <LocalLeader>gk <Cmd>call CocActionAsync('doHover')<CR>
+nmap <silent> <LocalLeader>gk <Cmd>call CocActionAsync('definitionHover')<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')

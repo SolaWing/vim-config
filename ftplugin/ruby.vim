@@ -51,7 +51,7 @@ nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
 xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
 " xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 pry_instance.eval `pbpaste`, {generated: true}<CR>
 " xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 eval `pbpaste`, binding<CR>
-nmap <buffer> <LocalLeader>ef <Cmd>update <Bar> rubyfile %<CR>
+nmap <buffer> <LocalLeader>ef :update <Bar> rubyfile %<CR>
 xmap <buffer> <LocalLeader>E :<C-U>echo rubyeval("eval(VIM.evaluate('GetVisualString()'))")<CR>
 xmap <buffer> <LocalLeader>ee <LocalLeader>E
 nmap <buffer> <LocalLeader>ee :<C-U>echo rubyeval("eval(VIM.evaluate('getline(\".\")'))")<CR>
