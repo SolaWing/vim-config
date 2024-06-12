@@ -124,8 +124,13 @@ snippet b "breakpoint" b
 binding.irb
 endsnippet
 
-snippet pry "description" b
+snippet pry "pry break point" b
 binding.pry
+endsnippet
+
+snippet pry-remote "pry-remote break point" b
+require "pry-remote"
+binding.remote_pry
 endsnippet
 
 snippet debug "ruby/debug" b
@@ -549,6 +554,11 @@ endsnippet
 
 snippet = "Erb eval" i
 <%= $0 %>
+endsnippet
+snippet erb "ERB template"
+ERB.new(<<~EOF, trim_mode: "%").result(binding)
+	$0
+EOF
 endsnippet
 
 extends color

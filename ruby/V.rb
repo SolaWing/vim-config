@@ -1,10 +1,19 @@
 # 提供一些VIM扩展
 module V
-  def self.feedkeys(keys, mode = "m", escape: true, throw: false)
+  def self.feedkeys!(*, **) = feedkeys(*, **, throw: false)
+  def self.feedkeys(keys, mode = "m", escape: true, throw: true)
     keys = VIM.replace_termcodes(keys, true, false, true) if escape
     VIM.command('let v:errmsg = ""') if throw
-    VIM.feedkeys(keys, mode, false)
-    if throw and m = VIM.eval('v:errmsg') and m != ""
+    if throw
+      check { VIM.feedkeys(keys, mode, false) }
+    else
+      VIM.feedkeys(keys, mode, false)
+    end
+  end
+  def self.check
+    VIM.command('let v:errmsg = ""')
+    yield
+    if m = VIM.eval('v:errmsg') and m != ""
       raise "vim error: #{m}"
     end
   end

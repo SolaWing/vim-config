@@ -62,7 +62,7 @@ nnoremap <M-0> 10gt
 nnoremap <Space>tl <Cmd>exe "tabm +". v:count1<CR>
 nnoremap <Space>tL <Cmd>tabm<CR>
 nnoremap <Space>th <Cmd>exe "tabm -". v:count1<CR>
-nnoremap <Space>tH <Cmd>tabm 0<CR>
+nnoremap <Space>tH <Cmd>exe "tabm " . v:count<CR>
 nnoremap <Space>tt <C-W>T
 " new tab
 nnoremap <Space>ts <C-W>s<C-W>T

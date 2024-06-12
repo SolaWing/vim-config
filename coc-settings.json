@@ -122,6 +122,7 @@
     // mapping
     "list.insertMappings": {
         "<C-g>": "do:exit",
+        "<A-v>": "eval:@*",
         "<A-j>": "normal:j",
         "<A-k>": "normal:k",
         "<A-h>": "prompt:left",
