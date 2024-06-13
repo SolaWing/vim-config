@@ -114,10 +114,10 @@ function! LastSearchCount(opts = {}) abort
     return printf(' /%s [%d/%d]', @/,
                 \             result.current, result.total)
 endfunction
-function! s:slash_after()
+function! Myslash_after()
     call slash#blink(2, 50)
     echo LastSearchCount(#{recompute: 1, timeout: 100})
     return ''
 endfunction
-nmap <expr> <plug>(slash-after) <sid>slash_after()
+map <expr> <plug>(slash-after) Myslash_after()
 " }}}
