@@ -2,9 +2,9 @@
 source ~/.vim/bundle-config/vista.vim
 Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_file_list_command = {
-            \ 'markers': {
-            \ '.git': 'bash -c "git ls-files; git ls-files --others --exclude-standard"',
-            \ },
+            \   'markers': {
+            \   '.git': $'bash {expand("<sfile>:h")}/tagsfile.sh'
+            \   },
             \ }
 let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_new = 0
