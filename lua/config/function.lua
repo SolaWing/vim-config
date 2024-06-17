@@ -2,7 +2,7 @@
 local M = {}
 M.Bwipeout = function(bang)
   local bang0 = (bang or "")
-  local has_bang_3f = not vim["true?"](bang0)
+  local has_bang_3f = vim["true?"](bang0)
   local buf_in_wins
   do
     local tbl_14_auto = {}

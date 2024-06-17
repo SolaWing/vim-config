@@ -48,3 +48,7 @@ endsnippet
 snippet which "test program exit"
 command -v $0 &> /dev/null
 endsnippet
+
+snippet redirect "redirect output" b
+exec &> >(tee /tmp/$0.log)
+endsnippet

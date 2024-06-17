@@ -1,11 +1,12 @@
 (local M {})
+; (local M (require "config.function"))
 
 ;;; this module store the function used by user, just like Command
 
 (fn M.Bwipeout [bang]
   "wipe out all buffer, except the used one in window"
   (local bang (or bang ""))
-  (local has_bang? (not (vim.true? bang)))
+  (local has_bang? (vim.true? bang))
   (let [buf_in_wins (collect [_k v (ipairs (vim.api.nvim_list_wins))]
                       (vim.api.nvim_win_get_buf v) true)]
     (var c 0)
