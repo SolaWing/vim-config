@@ -18,7 +18,8 @@ nnoremap <buffer> <M-o> :OpenInXcode<CR>
 nnoremap <buffer> <LocalLeader>b :Dispatch swift build --build-tests<CR>
 nnoremap <buffer> <LocalLeader>t :Dispatch swift test --filter<Space>
 
-
+nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
+xnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 
 snoremap <buffer> <CR> <ESC>:call <SID>ExpandClosure(1)<CR>
 snoremap <buffer> <M-CR> <ESC>:call <SID>ExpandClosure(0)<CR>
@@ -55,4 +56,14 @@ function! s:ExpandClosure(curry) range
     " PY from importlib import reload
     " PY reload(swifttool)
     return PYEVAL( printf( "swifttool.expand_closure(%d)", a:curry))
+endfunction
+
+function! s:moveImportToList() range
+    exe printf('%d,%ds/^\s*//', a:firstline, a:lastline)
+    exe printf('%d,%dd', a:firstline, a:lastline)
+
+    let l:line = search('^\s*\%(import\)', 'b')
+    exe l:line . 'put'
+
+    call cursor(a:lastline, 1)
 endfunction

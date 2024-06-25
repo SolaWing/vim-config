@@ -71,4 +71,6 @@ else
     Plug 'tpope/vim-commentary'
 end
 
-" Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dadbod', {'on': ['DB', 'DBUI']}
+Plug 'kristijanhusak/vim-dadbod-ui', {'on': ['DBUI']}
+let g:db_ui_auto_execute_table_helpers = 1
