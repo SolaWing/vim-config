@@ -23,7 +23,7 @@ let $FZF_DEFAULT_OPTS=' --bind="' . join([
             \    'alt-j:down,alt-k:up',
             \    'alt-h:backward-char,alt-l:forward-char',
             \    'alt-a:select-all,alt-d:deselect-all',
-            \    'alt-space:jump,`:jump-accept',
+            \    'alt-space:jump,`:jump-accept,alt-g:jump',
             \    'F4:toggle-preview,alt-[:preview-page-up,alt-]:preview-page-down',
             \    'ctrl-f:page-down,ctrl-b:page-up'
             \], ',') . '" --color="pointer:15"'
