@@ -96,10 +96,11 @@
         //      "args": ["langserver"],
         //      "filetypes": ["ruby"]
         //  }
-        // , "rubylsp": {
-        //     "command": "ruby-lsp",
-        //     "filetypes": ["ruby"]
-        // }
+         //, "rubylsp": {
+         //    "command": "ruby-lsp",
+         //    //"command": "/private/tmp/ruby-lsp/exe/ruby-lsp",
+         //    "filetypes": ["ruby"]
+         //}
     },
 
     "coc.source.omni.filetypes": [],

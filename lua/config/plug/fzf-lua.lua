@@ -58,32 +58,19 @@ local function setup()
             end
           }
         },
-    }
-    f.setup(opts)
-    local special_opts = {
         lines = {
             actions = {
-                ['default'] = actions.buf_edit_or_qf,
-                ['alt-q']   = actions.buf_sel_to_qf,
-                ['alt-1']   = actions.buf_sel_to_ll
+                ['alt-1']   = actions.buf_sel_to_ll,
+                ['alt-l']   = false
             }
         },
         blines = {
             actions = {
-                ['default'] = actions.buf_edit_or_qf,
-                ['alt-q']   = actions.buf_sel_to_qf,
-                ['alt-1']   = actions.buf_sel_to_ll
+                ['alt-1']   = actions.buf_sel_to_ll,
+                ['alt-l']   = false
             }
         }
     }
-    local globals = require("fzf-lua.config").globals
-    for t, v in pairs({
-        ["lines"]  = { "actions" },
-        ["blines"] = { "actions" },
-    }) do
-        for _, k in ipairs(v) do
-            globals[t][k] = special_opts[t][k]
-        end
-    end
+    f.setup(opts)
 end
 return { setup = setup }
