@@ -1,10 +1,9 @@
 """ vim: set sw=4 ts=4 sts=4 et foldmethod=marker foldlevel=1:
 " Config File {{{
     Plug 'cespare/vim-toml'
-    " wannesm/wmgraphviz.vim  {{{
-        let g:WMGraphviz_output = 'pdf'
-        Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
-    "}}}
+    "let g:WMGraphviz_output = 'pdf'
+    "Plug 'wannesm/wmgraphviz.vim', {'for': 'dot'}
+    Plug 'liuchengxu/graphviz.vim'
     Plug 'aklt/plantuml-syntax'
     source ~/.vim/bundle-config/lang/markdown.vim
 " }}}
