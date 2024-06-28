@@ -1,18 +1,16 @@
-let g:UltiSnipsListSnippets        = "<Plug>UltisnipList"
-let g:UltiSnipsExpandTrigger       = "<Plug>UltisnipExpand"
-" function! ExpandOrList()
-"     let l = getline('.')
-"     let l:kw = matchstr(l,'\v\S+$')
-"     if len(l:kw)
-"         return "\<Plug>UltisnipExpand"
-"     endif
-"     return "\<Plug>UltisnipList"
-" endfunction
-" imap <expr> <M-'> ExpandOrList()
-imap <M-'> <Plug>UltisnipExpand
-" visual expand
-xmap <M-'> <Plug>UltisnipExpand
-imap <M-C-'> <Plug>UltisnipList
+" 配置的trigger失败会返回对应的key。不需要
+"let g:UltiSnipsListSnippets        = "<M-C-'>"
+"let g:UltiSnipsExpandTrigger       = "<M-'>"
+function! MyUltiSnipsExpandSnippet() range
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+      echo "expand fail"
+  endif
+  return ""
+endfunction
+imap <M-'> <C-R>=MyUltiSnipsExpandSnippet()<CR>
+xnoremap <M-'> :call UltiSnips#SaveLastVisualSelection()<cr>gvs
+imap <M-C-'> <Cmd>call UltiSnips#ListSnippets()<CR>
 let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 let g:UltiSnipsEditSplit = "horizontal"
