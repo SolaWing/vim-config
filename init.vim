@@ -1,1 +1,0 @@
-nviminit.vim
