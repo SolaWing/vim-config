@@ -1,7 +1,7 @@
 {
     // https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources
     // ruby
-    "solargraph.commandPath": "/Users/wang/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/solargraph/main.rb",
+    "solargraph.commandPath": "/Users/wang/Documents/github/ruby/solargraph/main.rb",
     "solargraph.checkGemVersion": false,
     "solargraph.folding": true,
     "solargraph.hover": true,
@@ -14,14 +14,14 @@
     // "solargraph.transport": "socket",
     // "solargraph.transport": "stdio",
 
-    // "solargraph.transport": "external", // local run and connect to debug
+    //"solargraph.transport": "external", // local run and connect to debug
     "solargraph.externalServer": {
       "host": "127.0.0.1",
       "port": 7658
     },
 
     "solargraph.logLevel": "debug",
-    // "solargraph.trace.server": "verbose",
+    //"solargraph.trace.server": "verbose",
 
     // javascript
     "javascript.format.enabled": false, // 和eslint冲突，没用，使用外部的eslint fix
