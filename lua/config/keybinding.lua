@@ -6,12 +6,12 @@ local function common()
   local function _2_()
     return print((require("config.function")).CursorContext())
   end
-  vim.keymap.set("n", ",.", _2_)
-  vim.keymap.set("n", "<Leader>eI", "<Cmd>0tab drop ~/.vim/fnl/config/init.fnl<CR>")
-  vim.keymap.set("n", "<Leader>eP", "<Cmd>0tab drop ~/.vim/fnl/config/plugs.fnl<CR>")
-  vim.keymap.set("n", "<Leader>eK", "<Cmd>0tab drop ~/.vim/fnl/config/keybinding.fnl<CR>")
-  vim.keymap.set("x", "[?", ":lua require('util.secret').encodeR()<CR>")
-  return vim.keymap.set("x", "]?", ":lua require('util.secret').decodeR()<CR>")
+  vim.keymap.set("n", ",.", _2_, {desc = "CursorContext"})
+  vim.keymap.set("n", "<Leader>eI", "<Cmd>0tab drop ~/.vim/fnl/config/init.fnl<CR>", {desc = "tab init.fnl"})
+  vim.keymap.set("n", "<Leader>eP", "<Cmd>0tab drop ~/.vim/fnl/config/plugs.fnl<CR>", {desc = "tab plugs.fnl"})
+  vim.keymap.set("n", "<Leader>eK", "<Cmd>0tab drop ~/.vim/fnl/config/keybinding.fnl<CR>", {desc = "tab keybinding.fnl"})
+  vim.keymap.set("x", "[?", ":lua require('util.secret').encodeR()<CR>", {desc = "encode selected line"})
+  return vim.keymap.set("x", "]?", ":lua require('util.secret').decodeR()<CR>", {desc = "decode selected line"})
 end
 local function fzf_lua_bind()
   local leader = "<Leader>/"

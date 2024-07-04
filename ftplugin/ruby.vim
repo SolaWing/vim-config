@@ -81,7 +81,8 @@ nmap <buffer> <LocalLeader>T :Dispatch -dir=%:h bundle exec rake spec<CR>
 " endif
 
 " coc project root check
-let b:coc_root_patterns = ["Gemfile"]
+" echo coc#util#root_patterns()
+" let b:coc_root_patterns = ["Gemfile", ".solargraph.yml"]
 
 if has_key(g:plugs, 'YouCompleteMe')
   nmap <buffer> <LocalLeader>f :YcmCompleter Format<CR>

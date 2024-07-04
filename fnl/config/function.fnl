@@ -29,6 +29,7 @@
               m))))
   
 (fn M.CursorContext []
+  "return current cursor context info"
   (if
     ((. (require "nvim-treesitter.parsers") :has_parser))
     (vim.fn.nvim_treesitter#statusline)
