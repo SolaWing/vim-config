@@ -3,6 +3,8 @@ if exists("b:did_ftplugin") | finish | endif
 " support tags: https://solargraph.org/guides/yard
 
 let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+
+" surround_d
 let b:surround_100 = "do \r\nend"
 
 if has_key(g:plugs, 'nvim-treesitter')

@@ -21,4 +21,4 @@ Map  <Space><Space> <Cmd>HopChar1<CR>
 "   hi! HopNextKey2 cterm=bold ctermfg=3 gui=bold guifg=#b98300
 " endfunction
 
-autocmd mine User plug#end ++once call _ConfigHop()
+"autocmd mine User plug#end ++once call _ConfigHop()
