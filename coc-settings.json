@@ -3,11 +3,11 @@
     // ruby
     "solargraph.commandPath": "/Users/wang/Documents/github/ruby/solargraph/main.rb",
     "solargraph.checkGemVersion": false,
-    "solargraph.folding": true,
-    "solargraph.hover": true,
+    // "solargraph.folding": true,
+    // "solargraph.hover": true,
     "solargraph.diagnostics": true,
     "solargraph.formatting": true,
-    "solargraph.symbols": true,
+    // "solargraph.symbols": true,
 
     // stdio可能吐一些意外的内容，导致解析失败，用socket进行隔离
     // socket可能连接错误，又改回stdio了.. https://github.com/neoclide/coc-solargraph/issues/66
@@ -105,9 +105,9 @@
 
     "coc.source.omni.filetypes": [],
     // config
-    "workspace.bottomUpFiletypes": ["*"],
+    "workspace.bottomUpFiletypes": ["swift"],
     "workspace.workspaceFolderCheckCwd": false,
-    // "workspace.bottomUpFiletypes": ["ruby"],
+
     // "workspace.progressTarget": "statusline",
     // "suggest.autoTrigger": "trigger",
     // "suggest.noselect": true,

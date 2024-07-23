@@ -11,6 +11,9 @@ let b:surround_47 = "<!-- \r -->"
 " use ^ to surround with ```
 let b:surround_94 = "```\r```"
 
+" insert编辑
+inoremap <buffer> <A-Tab> <C-o>>><End>
+inoremap <buffer> <A-S-Tab> <C-o><<
 
 nnoremap <buffer> <LocalLeader>h :<C-U>call <SID>header_line('-')<CR>
 nnoremap <buffer> <LocalLeader>H :<C-U>call <SID>header_line('=')<CR>
@@ -26,6 +29,9 @@ nnoremap <buffer> <LocalLeader>6 :<C-U>call <SID>toggle_header(6)<CR>
 " nnoremap <buffer> <LocalLeader>i :<C-U>call <SID>toggle_list(v:count)<CR>
 nnoremap <buffer> <LocalLeader>i :<C-U>call v:lua.require("config.ft.markdown")["toggle-list-item"](v:count % 10)<CR>
 xmap <buffer> <LocalLeader>i :call v:lua.require("config.ft.markdown")["toggle-list-item"](v:count % 10)<CR>
+
+" link
+xmap <buffer> <LocalLeader>k S]%a(
 
 " strong, stroke through
 xmap <buffer> <LocalLeader>b s*gvs*

@@ -6,6 +6,7 @@ Plug 'plasticboy/vim-markdown'
 " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 let g:vim_markdown_math = 1
 let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_no_default_key_mappings = 1 " 与treesitter不兼容
 " fix ]c conflict with diff
 map ]h <Plug>Markdown_MoveToCurHeader
 " let g:vim_markdown_new_list_item_indent = 2

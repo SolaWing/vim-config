@@ -74,4 +74,7 @@ endfunction
 
 if has_key(g:plugs, 'YouCompleteMe')
   nmap <buffer> <LocalLeader>f :ALEFix<CR>
+else
+" echo coc#util#root_patterns()
+let b:coc_root_patterns = ["pyrightconfig.json", "pyproject.toml"]
 end
