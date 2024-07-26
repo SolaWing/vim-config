@@ -10,6 +10,13 @@ call timer_start(3000, funcref("<SID>delay_load"))
 function! CodeiumStatus()
     if exists("*codeium#GetStatusString")
         return "AI:" . codeium#GetStatusString()
+    elseif exists("b:codeverseCompletions") &&
+        \ has_key(b:codeverseCompletions, 'items') &&
+        \ has_key(b:codeverseCompletions, 'index')
+        let itemCount = len(b:codeverseCompletions.items)
+        if itemCount > 0
+            return "AI:" .. (b:codeverseCompletions.index + 1) .. "/" .. itemCount
+        endif
     endif
     return ""
 endfunction
