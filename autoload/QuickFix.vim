@@ -43,3 +43,11 @@ function! QuickFix#Do(cmd, jumpFile, uselocal, bang) range
     let &eventignore = l:ei
   endtry
 endfunction
+
+function! QuickFix#CopyFormat()
+%s/|\v(\d+) col (\d+)\V|/:\1:\2:
+endfunction
+function! QuickFix#CopyCBuffer()
+silent! call QuickFix#CopyFormat()
+cbuffer
+endfunction

@@ -106,7 +106,7 @@
     "coc.source.omni.filetypes": [],
     // config
     "workspace.bottomUpFiletypes": ["swift"],
-    "workspace.workspaceFolderCheckCwd": false,
+    "workspace.workspaceFolderCheckCwd": true,
 
     // "workspace.progressTarget": "statusline",
     // "suggest.autoTrigger": "trigger",

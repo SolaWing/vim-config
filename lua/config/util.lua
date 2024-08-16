@@ -12,7 +12,7 @@ if _G.jit then
     os["path-sep"] = "\\"
   end
 else
-  os["path-sep"] = (package.config):sub(1, 1)
+  os["path-sep"] = package.config:sub(1, 1)
 end
 do
   local function call_command(...)
@@ -44,11 +44,9 @@ vim["true?"] = function(v)
     return v
   elseif (_8_ == "string") then
     return vim["true?"](tonumber(v))
-  elseif true then
+  else
     local _ = _8_
     return error(("invalid type for vim boolean check: " .. type(v)))
-  else
-    return nil
   end
 end
 _G["hook-require"] = function(name, id, callback)
@@ -57,37 +55,39 @@ _G["hook-require"] = function(name, id, callback)
     local old = require
     local hooks = {}
     local function req(name0)
-      local function _10_()
+      local or_10_ = package.loaded[name0]
+      if not or_10_ then
         local mod = old(name0)
         do
-          local _11_ = hooks[name0]
-          if (nil ~= _11_) then
-            local hook_table = _11_
+          local _12_ = hooks[name0]
+          if (nil ~= _12_) then
+            local hook_table = _12_
             for id0, callback0 in pairs(hook_table) do
               callback0(name0, mod, id0)
             end
           else
           end
         end
-        return mod
+        or_10_ = mod
       end
-      return (package.loaded[name0] or _10_())
+      return or_10_
     end
     _G["my-require-hook"] = {hooks = hooks, hooked = true, old = old, req = req}
     _G.require = req
   else
   end
   local hook_table
-  local function _14_()
+  local or_15_ = _G["my-require-hook"].hooks[name]
+  if not or_15_ then
     local d = {}
     _G["my-require-hook"].hooks[name] = d
-    return d
+    or_15_ = d
   end
-  hook_table = ((_G["my-require-hook"].hooks)[name] or _14_())
-  do end (hook_table)[id] = callback
-  local _15_ = package.loaded[name]
-  if (nil ~= _15_) then
-    local mod = _15_
+  hook_table = or_15_
+  hook_table[id] = callback
+  local _17_ = package.loaded[name]
+  if (nil ~= _17_) then
+    local mod = _17_
     return callback(name, mod, id)
   else
     return nil

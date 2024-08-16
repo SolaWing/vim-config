@@ -4,7 +4,7 @@ local autoload = _local_1_["autoload"]
 local fzf_lua = autoload("fzf-lua")
 local function common()
   local function _2_()
-    return print((require("config.function")).CursorContext())
+    return print(require("config.function").CursorContext())
   end
   vim.keymap.set("n", ",.", _2_, {desc = "CursorContext"})
   vim.keymap.set("n", "<Leader>eI", "<Cmd>0tab drop ~/.vim/fnl/config/init.fnl<CR>", {desc = "tab init.fnl"})
@@ -22,7 +22,7 @@ local function fzf_lua_bind()
     return vim.keymap.set("x", (leader .. f), t, {remap = true, desc = desc})
   end
   local function quote_visual()
-    return ("'" .. vim.fn.escape(fzf_lua.utils.get_visual_selection(), " \9'\\") .. " ")
+    return ("'" .. vim.fn.escape(fzf_lua.utils.get_visual_selection(), " \t'\\") .. " ")
   end
   vim.keymap.set({"n"}, "<M-Tab>", (leader .. "b"), {remap = true})
   local function _3_()
@@ -180,27 +180,27 @@ local function fzf_lua_bind()
 end
 local function harpoon_bind()
   local function _40_()
-    return (require("harpoon.mark")).add_file()
+    return require("harpoon.mark").add_file()
   end
   vim.keymap.set("n", "<Leader>p<Space>", _40_, {desc = "harpoon.mark"})
   local function _41_()
-    return (require("harpoon.ui")).toggle_quick_menu()
+    return require("harpoon.ui").toggle_quick_menu()
   end
   return vim.keymap.set("n", "<Leader>p<Tab>", _41_, {desc = "harpoon.ui"})
 end
 local function refactoring_bind()
   local function _42_()
-    return (require("refactoring")).select_refactor()
+    return require("refactoring").select_refactor()
   end
   return vim.keymap.set({"x", "n"}, "<Leader>xr", _42_, {desc = "refactoring"})
 end
 local function leap_bind()
   local function _43_()
-    return (require("config.plug.leap")).leap_to_line()
+    return require("config.plug.leap").leap_to_line()
   end
   vim.keymap.set({"n", "x"}, "<Space><CR>", _43_, {desc = "leap_to_line"})
   vim.keymap.set({"o"}, "<Space><CR>", "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>", {desc = "leap_to_line"})
-  return (require("leap")).add_default_mappings()
+  return require("leap").add_default_mappings()
 end
 local function init()
   common()
@@ -221,7 +221,7 @@ local function init()
   else
   end
   if vim["plug?"]("nvim-spectre") then
-    return (require("config/plug/spectre")).setup()
+    return require("config/plug/spectre").setup()
   else
     return nil
   end

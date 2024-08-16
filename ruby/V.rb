@@ -24,4 +24,5 @@ module V
     else !!value
     end
   end
+  def self.selected_text = VIM.eval "GetVisualString()"
 end

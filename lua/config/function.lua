@@ -5,15 +5,15 @@ M.Bwipeout = function(bang)
   local has_bang_3f = vim["true?"](bang0)
   local buf_in_wins
   do
-    local tbl_14_auto = {}
+    local tbl_16_auto = {}
     for _k, v in ipairs(vim.api.nvim_list_wins()) do
-      local k_15_auto, v_16_auto = vim.api.nvim_win_get_buf(v), true
-      if ((k_15_auto ~= nil) and (v_16_auto ~= nil)) then
-        tbl_14_auto[k_15_auto] = v_16_auto
+      local k_17_auto, v_18_auto = vim.api.nvim_win_get_buf(v), true
+      if ((k_17_auto ~= nil) and (v_18_auto ~= nil)) then
+        tbl_16_auto[k_17_auto] = v_18_auto
       else
       end
     end
-    buf_in_wins = tbl_14_auto
+    buf_in_wins = tbl_16_auto
   end
   local c = 0
   local m = 0
@@ -44,7 +44,7 @@ M.Bwipeout = function(bang)
   return print(("wipeout %d buffers, %s %d modified"):format(c, _5_, m))
 end
 M.CursorContext = function()
-  if (require("nvim-treesitter.parsers")).has_parser() then
+  if require("nvim-treesitter.parsers").has_parser() then
     return vim.fn["nvim_treesitter#statusline"]()
   elseif vim["true?"](vim.fn.exists("*tagbar#currenttag")) then
     return vim.fn["tagbar#currenttag"]("%s", "", "s")

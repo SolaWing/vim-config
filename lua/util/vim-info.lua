@@ -1,10 +1,10 @@
 -- [nfnl] Compiled from fnl/util/vim-info.fnl by https://github.com/Olical/nfnl, do not edit.
 local function registers__3evimscript()
   local registers = "qwertyuiopasdfghjklzxcvbnm0*"
-  local tbl_17_auto = {}
-  local i_18_auto = #tbl_17_auto
+  local tbl_21_auto = {}
+  local i_22_auto = 0
   for i = 1, #registers, 1 do
-    local val_19_auto
+    local val_23_auto
     do
       local char = registers:sub(i, i)
       local reginfo = vim.fn.getreginfo(char)
@@ -19,18 +19,18 @@ local function registers__3evimscript()
           end
           _1_ = lines
         end
-        val_19_auto = string.format("call setreg('%s', [%s], '%s')", char, table.concat(_1_, ", "), reginfo.regtype)
+        val_23_auto = string.format("call setreg('%s', [%s], '%s')", char, table.concat(_1_, ", "), reginfo.regtype)
       else
-        val_19_auto = nil
+        val_23_auto = nil
       end
     end
-    if (nil ~= val_19_auto) then
-      i_18_auto = (i_18_auto + 1)
-      do end (tbl_17_auto)[i_18_auto] = val_19_auto
+    if (nil ~= val_23_auto) then
+      i_22_auto = (i_22_auto + 1)
+      tbl_21_auto[i_22_auto] = val_23_auto
     else
     end
   end
-  return tbl_17_auto
+  return tbl_21_auto
 end
 --[[ (local char "g") (local i 2) ]]
 return {["registers->vimscript"] = registers__3evimscript}

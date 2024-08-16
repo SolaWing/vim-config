@@ -49,7 +49,7 @@ local function goto_module(mod, first, open_cmd)
       return vim.notify("no match file found", vim.log.levels.WARN)
     elseif (_7_ == 1) then
       return edit(paths[1])
-    elseif true then
+    else
       local _ = _7_
       local function _8_(_241)
         if (nil ~= _241) then
@@ -59,8 +59,6 @@ local function goto_module(mod, first, open_cmd)
         end
       end
       return vim.ui.select(paths, {prompt = "which file to choose? "}, _8_)
-    else
-      return nil
     end
   end
 end

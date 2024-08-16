@@ -2,51 +2,48 @@
 require("config.util")
 _G.fun = require("deps.fun")
 local function colorfgbg()
-  local _1_ = vim.env.COLORFGBG
-  if (nil ~= _1_) then
-    local _2_ = vim.split(_1_, ";")
-    if (nil ~= _2_) then
-      local _3_
-      do
-        local _4_ = _2_
-        if (nil ~= _4_) then
-          local t = _4_
-          _3_ = t[#t]
-        else
-          _3_ = nil
-        end
-      end
-      if (nil ~= _3_) then
-        return tonumber(_3_)
+  local tmp_3_auto = vim.env.COLORFGBG
+  if (nil ~= tmp_3_auto) then
+    local tmp_3_auto0 = vim.split(tmp_3_auto, ";")
+    if (nil ~= tmp_3_auto0) then
+      local tmp_3_auto1
+      if (nil ~= tmp_3_auto0) then
+        local t = tmp_3_auto0
+        tmp_3_auto1 = t[#t]
       else
-        return _3_
+        tmp_3_auto1 = nil
+      end
+      if (nil ~= tmp_3_auto1) then
+        return tonumber(tmp_3_auto1)
+      else
+        return nil
       end
     else
-      return _2_
+      return nil
     end
   else
-    return _1_
+    return nil
   end
 end
 local function init()
   _G.F = {}
-  local _10_
+  local _5_
   do
-    local _9_ = vim.env.COLORTERM
-    if (nil ~= _9_) then
-      _10_ = vim.stricmp(_9_, "truecolor")
+    local tmp_3_auto = vim.env.COLORTERM
+    if (nil ~= tmp_3_auto) then
+      _5_ = vim.stricmp(tmp_3_auto, "truecolor")
     else
-      _10_ = _9_
+      _5_ = nil
     end
   end
-  if (_10_ == 0) then
+  if (_5_ == 0) then
     vim.o.termguicolors = true
   else
   end
   do
-    local _13_ = colorfgbg()
-    if (nil ~= _13_) then
-      local color = _13_
+    local _8_ = colorfgbg()
+    if (nil ~= _8_) then
+      local color = _8_
       if (color > 8) then
         vim.o.background = "light"
       else
@@ -75,7 +72,7 @@ local function init()
   else
   end
   if vim.g.vscode then
-    return (require("config.vscode.init")).init()
+    return require("config.vscode.init").init()
   else
     vim.env.FZF_LUA_NVIM_BIN = "nvim"
     return vim.cmd("source ~/.vimrc\n                source ~/.vim/nvimafterinit.vim")
