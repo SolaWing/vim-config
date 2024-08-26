@@ -110,10 +110,10 @@ nnoremap <M-Up> <C-W>k
 nnoremap <M-Down> <C-W>j
 
 " use F5 to open quick-fix list
-nnoremap <F5> :cwin<cr>
-nnoremap <S-F5> :lwin<cr>
-nmap <F17> <S-F5>
-nmap <Leader><F5> <S-F5>
+nnoremap <F5> <Cmd>cwin<CR>
+nnoremap <Leader><F5> <Cmd>lwin<CR>
+nmap <F17> <Leader><F5>
+nmap <S-F5> <Leader><F5>
 "}}}
 """ terminal"{{{
 tnoremap <ESC> <C-\><C-n>

@@ -34,6 +34,7 @@ nnoremap <buffer> <LocalLeader>c :<C-U>YcmDiags<CR>
 nnoremap <buffer> <LocalLeader>gd :<C-U>YcmCompleter DocComment<CR>
 else
 nnoremap <buffer> <LocalLeader>c :<C-U>CocDiagnostics<CR>
+nnoremap <buffer><expr> <LocalLeader>xt <SID>insertHint()
 endif
 
 
@@ -67,3 +68,15 @@ function! s:moveImportToList() range
 
     call cursor(a:lastline, 1)
 endfunction
+
+if has_key(g:plugs, "coc.nvim")
+function! s:insertHint()
+    let hover = CocAction('getHover')[0]
+    let m = matchlist(hover, ':\s*\(.\{-}\)\ze[\r\n]')
+    if len(m) > 1
+        return "wgea: "..m[1].."\<esc>"
+    end
+    echo "can't get type"
+    return ""
+endfunction
+endif
