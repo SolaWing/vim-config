@@ -53,7 +53,8 @@
   (nvim-common)
 
   (Plug "git@code.byted.org:chenjiaqi.cposture/codeverse.vim.git" {:on ["Codeverse"]})
-  (Plug "git@code.byted.org:chenjiaqi.cposture/vim-ai.git" {:on ["AI" "AIEdit" "AIChat"]})
+  ; (Plug "git@code.byted.org:chenjiaqi.cposture/vim-ai.git" {:on ["AI" "AIEdit" "AIChat"]})
+  (Plug "~/.vim/bundle/vim-ai" {:on ["AI" "AIEdit" "AIChat"]})
 
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
