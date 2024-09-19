@@ -9,7 +9,7 @@ nnoremap <buffer> <F1> :silent! !open -a Firefox http://plantuml.com/zh/commons<
 nnoremap <buffer> <LocalLeader>x <Cmd>call UMLSwitch0()<CR>
 
 function! UMLSwitch0()
-  s/\v(\w\S*)\s+("[^"]*"\s*)?([^-. ]*)([.-]+)([^-. ]*)\s+("[^"]*"\s*)?(%(\w|\.)+)/\=join([submatch(7), " ", submatch(6), UMLSwitch(submatch(5)), submatch(4), UMLSwitch(submatch(3)), " ", submatch(2), submatch(1)], "")
+  s/\v(\S*)\s+("[^"]*"\s*)?([^-. ]*)([.-]+)([^-. ]*)\s+("[^"]*"\s*)?(%(\w|\.)+)/\=join([submatch(7), " ", submatch(6), UMLSwitch(submatch(5)), submatch(4), UMLSwitch(submatch(3)), " ", submatch(2), submatch(1)], "")
 endfunction
 
 function! UMLSwitch(text)

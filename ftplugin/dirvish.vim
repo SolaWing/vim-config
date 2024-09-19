@@ -10,6 +10,6 @@ nnoremap <buffer><silent> <LocalLeader>o :silent !open '<C-R><C-F>'<CR>
 nnoremap <buffer><silent> <LocalLeader>r :silent !open '<C-R>%'<CR>
 nnoremap <buffer><silent> <LocalLeader>t <Cmd>Terminal %<CR>
 nnoremap <buffer> // <Cmd>FZF %<CR>
-nnoremap <LocalLeader>/ :Grepper -tool rg -dir file<CR>
+nnoremap <buffer> <LocalLeader>/ :Grepper -tool rg -dir file<CR>
 
 nmap <buffer> <LocalLeader><BS> .rm -r

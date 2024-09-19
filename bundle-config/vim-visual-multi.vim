@@ -10,5 +10,6 @@ let g:VM_maps = {
             \ 'Visual All':      '<M-*>',
             \ 'Visual Find':     '<M-F>',
             \ }
+map \\8 <M-*>
 " let g:VM_Mono_Cursor_hl = 'StatusLine'
 " let g:VM_Ins_Mode_hl = 'Underlined'
