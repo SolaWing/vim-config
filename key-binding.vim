@@ -212,7 +212,6 @@ noremap <Space>gB :GBrowse<CR>
 nnoremap <Space>gcd :Gcd<CR>
 nnoremap <Space>gf :Git fetch --prune<CR>
 nnoremap <Space>gF :Git pull --rebase<CR>
-nnoremap <Space>gpr :Git rv
 nnoremap <Space>gm :Git mergetool<CR>
 " 不要push，防误点
 " nnoremap <Space>gp :Gpush

@@ -57,12 +57,8 @@ local function after()
   end
   _G["hook-require"]("fzf-lua", "setup", _4_)
   local function _5_()
-    return require("config.plug.bqf").setup()
-  end
-  _G["hook-require"]("bqf", "setup", _5_)
-  local function _6_()
     return require("config.plug.refactoring").setup()
   end
-  return _G["hook-require"]("refactoring", "setup", _6_)
+  return _G["hook-require"]("refactoring", "setup", _5_)
 end
 return {Plug = Plug, ["function"] = _function, init = init, after = after}

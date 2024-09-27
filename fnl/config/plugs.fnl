@@ -79,7 +79,7 @@
   ; ((. (require "config.plug.codeium") :setup))
   (S.call (. (require "config.plug.codeverse") :setup))
   (_G.hook-require :fzf-lua :setup #(S.call (. (require "config.plug.fzf-lua") :setup)))
-  (_G.hook-require :bqf     :setup #(S.call (. (require "config.plug.bqf")     :setup)))
+  ; (_G.hook-require :bqf     :setup #(S.call (. (require "config.plug.bqf")     :setup)))
   (_G.hook-require "refactoring" :setup #(S.call (. (require "config.plug.refactoring")     :setup))))
 
   ; ((. (require "config.plug.neoclip") :setup)))

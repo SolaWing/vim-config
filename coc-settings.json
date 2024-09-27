@@ -50,7 +50,6 @@
             // "command": "sourcekit-lsp",
             "command": "xcrun",
             "args": ["--toolchain", "swift", "sourcekit-lsp"
-                ,"--log-level", "info"
                 // ,"--generated-interfaces-path", ".build/SourceKit-GeneratedInterfaces"
             ],
             "rootPatterns": ["buildServer.json", "Package.swift", "compile_flags.txt"],
@@ -86,6 +85,12 @@
              }
            }
          }
+        //," lua": {
+        //  "command": "lua-language-server",
+        //  "filetypes": ["lua"],
+        //  "rootPatterns": [".git/"],
+        //}
+
         // , "HY": {
         //     "command": "python3",
         //     "args": ["/Users/wang/Library/Python/3.9/bin/hyls"],
