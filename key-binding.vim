@@ -203,7 +203,7 @@ nnoremap <Space>gv :GV --since='3\ months'<CR>
 xnoremap <Space>gV :GV<CR>
 nnoremap <Space>gV :<C-U>tab Git -p log -p <C-R>=v:count == v:count1? "-".v:count : ""<CR>  -- %<CR>
 " follow is slow, so use another key when needed
-nnoremap <Space>g<M-V> :tab Git -p log -p --follow -- %<CR>
+nnoremap <Space>g<M-V> :tab Git -p log -p --follow <C-R>=v:count == v:count1? "-".v:count : ""<CR> -- %<CR>
 nnoremap <Space>gd :<C-U>Gdiffsplit <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>gD :<C-U>Gvdiffsplit <C-R>=v:count == v:count1?"@~".v:count : ""<CR><CR>
 nnoremap <Space>g<C-d> :<C-U>FZBCommits<CR>

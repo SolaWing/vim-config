@@ -560,6 +560,9 @@ endsnippet
 snippet = "Erb eval" i
 <%= $0 %>
 endsnippet
+snippet % "Erb command" i
+<% $0 %>
+endsnippet
 snippet erb "ERB template"
 ERB.new(<<~EOF, trim_mode: "%").result(binding)
 	$0

@@ -2,7 +2,7 @@
 module V
   def self.feedkeys!(*, **) = feedkeys(*, **, throw: false)
   def self.feedkeys(keys, mode = "m", escape: true, throw: true)
-    keys = VIM.replace_termcodes(keys, true, false, true) if escape
+    keys = VIM.replace_termcodes(keys, true, true, true) if escape
     VIM.command('let v:errmsg = ""') if throw
     if throw
       check { VIM.feedkeys(keys, mode, false) }
