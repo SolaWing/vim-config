@@ -191,7 +191,7 @@
     command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
     command! -nargs=? -complete=dir Terminal silent exe printf( "!open -a Terminal.app '%s'" , <q-args>=='' ? getcwd() : expand(<q-args>) )
     "command! -nargs=? -complete=dir OpenITerm silent exe printf( "!open -a /Applications/iTerm.app %s" , <q-args>=='' ? getcwd() : expand(<q-args>) )
-    command! -nargs=? -complete=file OpenInXcode silent exec printf("!open -a xcode %s", expand( <q-args> == '' ? '%' : <q-args>))
+    command! -nargs=? -complete=file OpenInXcode silent exec printf("!xed %s", expand(<q-args> == '' ? ('--line ' .. line('.') .. ' %') : <q-args>))
 
     command! DiffOn windo diffthis
     command! DiffOff windo diffoff

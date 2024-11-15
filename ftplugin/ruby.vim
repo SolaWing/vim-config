@@ -67,12 +67,12 @@ nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|F
 
 if has("nvim")
     " use g:rubytest or b:test to run test, default to bundle exec rake spec
-    nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=%:h <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("line")<CR><CR>
+    nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=<C-R><C-O>=exists("g:rubytest_dir")?g:rubytest_dir:"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("line")<CR><CR>
     nmap <buffer> <LocalLeader><C-t> :update <bar>
                 \ let @* = v:lua.require("config.ft.ruby").test_cmd("line")<CR>
-    nmap <buffer> <LocalLeader><M-t> :Dispatch -dir=%:h <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("file")<CR><CR>
+    nmap <buffer> <LocalLeader><M-t> :Dispatch -dir=<C-R><C-O>=exists("g:rubytest_dir")?g:rubytest_dir:"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("file")<CR><CR>
     " all
-    nmap <buffer> <LocalLeader>T :Dispatch -dir=%:h <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("all")<CR><CR>
+    nmap <buffer> <LocalLeader>T :Dispatch -dir=<C-R><C-O>=exists("g:rubytest_dir")?g:rubytest_dir:"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("all")<CR><CR>
 else
     " current line
     nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=%:h bundle exec rake spec 'SPEC=<C-R>=expand("%:p")<CR>:<C-R>=line('.')<CR>'<CR>
