@@ -17,6 +17,7 @@ nnoremap <buffer> <M-o> :OpenInXcode<CR>
 
 nnoremap <buffer> <LocalLeader>b :Dispatch swift build --build-tests<CR>
 nnoremap <buffer> <LocalLeader>t :Dispatch swift test --filter<Space>
+nnoremap <buffer> <LocalLeader>T :Dispatch swift test<CR>
 
 nnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>
 xnoremap <buffer> <LocalLeader>i :call <SID>moveImportToList()<CR>

@@ -116,12 +116,15 @@ nmap <F17> <Leader><F5>
 nmap <S-F5> <Leader><F5>
 "}}}
 """ terminal"{{{
+nmap :: got
 tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 "}}}
 """ args "{{{
 nnoremap <Leader>aa :<C-u><C-R>=v:count?v:count:""<CR>argadd <Bar> argdedupe <CR>
 nnoremap <Leader>ad :<C-u><C-R>=v:count?v:count:""<CR>argdelete<CR>
+nnoremap <Leader>al :argl<CR>
+nnoremap <Leader>ag :argg<CR>
 
 " }}}
 """ buffer"{{{
@@ -200,7 +203,7 @@ nnoremap <silent> <Space>gg <Cmd>!cd '%:h' && gitup<CR>
 nnoremap <Space>gs :Git<CR>
 nnoremap <Space>gS :tab Git<CR>
 nnoremap <Space>gv :GV --since='3\ months'<CR>
-xnoremap <Space>gV :GV<CR>
+xnoremap <Space>gV :GV <C-R>=v:count == v:count1 ? "-".v:count : ""<CR><CR>
 nnoremap <Space>gV :<C-U>tab Git -p log -p <C-R>=v:count == v:count1? "-".v:count : ""<CR>  -- %<CR>
 " follow is slow, so use another key when needed
 nnoremap <Space>g<M-V> :tab Git -p log -p --follow <C-R>=v:count == v:count1? "-".v:count : ""<CR> -- %<CR>

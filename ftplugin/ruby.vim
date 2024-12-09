@@ -48,11 +48,13 @@ else
     setlocal foldmethod=syntax
 end
 
+if !exists("g:ruby_pry")
+    let g:ruby_pry = v:false
+end
+
 nmap <buffer> <LocalLeader>r :update <bar> !ruby %<CR>
 nmap <buffer> <LocalLeader><CR> <Plug>SlimeLineSend
-xmap <buffer> <LocalLeader><CR> <Plug>SlimeRegionSend
-" xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 pry_instance.eval `pbpaste`, {generated: true}<CR>
-" xmap <buffer> <LocalLeader><CR> "*y:let @*.=';'<bar>SlimeSend1 eval `pbpaste`, binding<CR>
+xmap <buffer><expr> <LocalLeader><CR> g:ruby_pry ? "\"*y:let @*.=';'\<bar>SlimeSend1 pry_instance.eval `pbpaste`, {generated: true}\<CR>" : "\<Plug>SlimeLineSend"
 nmap <buffer> <LocalLeader>ef :update <Bar> rubyfile %<CR>
 xmap <buffer> <LocalLeader>E :<C-U>echo rubyeval("eval(VIM.evaluate('GetVisualString()'))")<CR>
 xmap <buffer> <LocalLeader>ee <LocalLeader>E
@@ -66,13 +68,18 @@ nnoremap <buffer> <LocalLeader>lt :<C-U>call fzf#vim#buffer_lines("\\%(TODO\\|F
 " FIXME: nest Rakefile local pwd will be reset after dispatch. but parent dir is wrong..
 
 if has("nvim")
+    if !exists("g:rubytest_dir")
+        let g:rubytest_dir = v:false
+        let g:rubytest = v:false
+    end
+
     " use g:rubytest or b:test to run test, default to bundle exec rake spec
-    nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=<C-R><C-O>=exists("g:rubytest_dir")?g:rubytest_dir:"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("line")<CR><CR>
+    nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=<C-R><C-O>=g:rubytest_dir ?? :"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("line")<CR><CR>
     nmap <buffer> <LocalLeader><C-t> :update <bar>
                 \ let @* = v:lua.require("config.ft.ruby").test_cmd("line")<CR>
-    nmap <buffer> <LocalLeader><M-t> :Dispatch -dir=<C-R><C-O>=exists("g:rubytest_dir")?g:rubytest_dir:"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("file")<CR><CR>
+    nmap <buffer> <LocalLeader><M-t> :Dispatch -dir=<C-R><C-O>=g:rubytest_dir ?? :"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("file")<CR><CR>
     " all
-    nmap <buffer> <LocalLeader>T :Dispatch -dir=<C-R><C-O>=exists("g:rubytest_dir")?g:rubytest_dir:"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("all")<CR><CR>
+    nmap <buffer> <LocalLeader>T :Dispatch -dir=<C-R><C-O>=g:rubytest_dir ?? :"%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("all")<CR><CR>
 else
     " current line
     nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=%:h bundle exec rake spec 'SPEC=<C-R>=expand("%:p")<CR>:<C-R>=line('.')<CR>'<CR>
