@@ -117,88 +117,100 @@ local function fzf_lua_bind()
   end
   nmap("]", _24_, "fzf-lua.btags")
   xmap("<C-]>", tags_wrap("tags_grep_visual"), "fzf-lua.tags_grep_visual")
-  local function _25_()
-    return fzf_lua.git_files()
+  local function with_git_opts(opts)
+    opts["git_icons"] = false
+    local _25_ = vim.b.git_dir
+    if true then
+      local _git_dir = _25_
+      opts["cwd"] = vim.fn.FugitiveWorkTree()
+      return opts
+    else
+      local _ = _25_
+      return opts
+    end
   end
-  nmap("gg", _25_, "fzf-lua.git_files")
-  local function _26_()
-    return fzf_lua.git_files({query = quote_visual()})
-  end
-  xmap("gg", _26_, "fzf-lua.git_files")
   local function _27_()
+    return fzf_lua.git_files(with_git_opts({}))
+  end
+  nmap("gg", _27_, "fzf-lua.git_files")
+  local function _28_()
+    return fzf_lua.git_files(with_git_opts({query = quote_visual()}))
+  end
+  xmap("gg", _28_, "fzf-lua.git_files")
+  local function _29_()
     return fzf_lua.git_status()
   end
-  nmap("g<Space>", _27_, "fzf-lua.git_status")
-  local function _28_()
+  nmap("g<Space>", _29_, "fzf-lua.git_status")
+  local function _30_()
     return fzf_lua.git_branches()
   end
-  nmap("gb", _28_, "fzf-lua.git_branches")
-  local function _29_()
+  nmap("gb", _30_, "fzf-lua.git_branches")
+  local function _31_()
     return fzf_lua.git_stash()
   end
-  nmap("gz", _29_, "fzf-lua.git_stash")
-  local function _30_()
+  nmap("gz", _31_, "fzf-lua.git_stash")
+  local function _32_()
     return fzf_lua.command_history()
   end
-  nmap("h;", _30_, "fzf-lua.command_history")
-  local function _31_()
+  nmap("h;", _32_, "fzf-lua.command_history")
+  local function _33_()
     return fzf_lua.search_history()
   end
-  nmap("h/", _31_, "fzf-lua.search_history")
-  local function _32_()
-    return fzf_lua.marks()
-  end
-  nmap("m", _32_, "fzf-lua.marks")
-  local function _33_()
-    return fzf_lua.marks()
-  end
-  nmap("'", _33_, "fzf-lua.marks")
+  nmap("h/", _33_, "fzf-lua.search_history")
   local function _34_()
+    return fzf_lua.marks()
+  end
+  nmap("m", _34_, "fzf-lua.marks")
+  local function _35_()
+    return fzf_lua.marks()
+  end
+  nmap("'", _35_, "fzf-lua.marks")
+  local function _36_()
     return fzf_lua.jumps()
   end
-  nmap("j", _34_, "fzf-lua.jumps")
-  local function _35_()
+  nmap("j", _36_, "fzf-lua.jumps")
+  local function _37_()
     return fzf_lua.changes()
   end
-  nmap("c", _35_, "fzf-lua.changes")
-  local function _36_()
+  nmap("c", _37_, "fzf-lua.changes")
+  local function _38_()
     return fzf_lua.registers()
   end
-  nmap("\"", _36_, "fzf-lua.registers")
+  nmap("\"", _38_, "fzf-lua.registers")
   if vim["plug?"]("nvim-neoclip.lua") then
-    local function _37_()
+    local function _39_()
       return require("neoclip.fzf")()
     end
-    nmap("h\"", _37_)
-    local function _38_()
+    nmap("h\"", _39_)
+    local function _40_()
       return require("neoclip.fzf")("q")
     end
-    nmap("hq", _38_)
+    nmap("hq", _40_)
   else
   end
   return "\n  | `tagstack`         | :tags                                      |\n  | `keymaps`          | key mappings                               |\n  | `filetypes`        | filetypes                                  |\n  | `menus`            | menus                                      |\n  | `spell_suggest`    | spelling suggestions                       |\n  | `packadd`          | :packadd <package>                         |T)\n  "
 end
 local function harpoon_bind()
-  local function _40_()
+  local function _42_()
     return require("harpoon.mark").add_file()
   end
-  vim.keymap.set("n", "<Leader>p<Space>", _40_, {desc = "harpoon.mark"})
-  local function _41_()
+  vim.keymap.set("n", "<Leader>p<Space>", _42_, {desc = "harpoon.mark"})
+  local function _43_()
     return require("harpoon.ui").toggle_quick_menu()
   end
-  return vim.keymap.set("n", "<Leader>p<Tab>", _41_, {desc = "harpoon.ui"})
+  return vim.keymap.set("n", "<Leader>p<Tab>", _43_, {desc = "harpoon.ui"})
 end
 local function refactoring_bind()
-  local function _42_()
+  local function _44_()
     return require("refactoring").select_refactor()
   end
-  return vim.keymap.set({"x", "n"}, "<Leader>xr", _42_, {desc = "refactoring"})
+  return vim.keymap.set({"x", "n"}, "<Leader>xr", _44_, {desc = "refactoring"})
 end
 local function leap_bind()
-  local function _43_()
+  local function _45_()
     return require("config.plug.leap").leap_to_line()
   end
-  vim.keymap.set({"n", "x"}, "<Space><CR>", _43_, {desc = "leap_to_line"})
+  vim.keymap.set({"n", "x"}, "<Space><CR>", _45_, {desc = "leap_to_line"})
   vim.keymap.set({"o"}, "<Space><CR>", "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>", {desc = "leap_to_line"})
   return require("leap").add_default_mappings()
 end

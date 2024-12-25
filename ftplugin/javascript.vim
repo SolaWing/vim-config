@@ -6,6 +6,7 @@ setl shiftwidth=2
 setl softtabstop=2
 setl tabstop=4
 
+nnoremap <buffer> <F1> <Cmd>!open 'https://developer.apple.com/library/archive/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html\#//apple_ref/doc/uid/TP40014508-CH109-SW2'<CR>
 " JXA doc:
 " https://developer.apple.com/library/archive/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html#//apple_ref/doc/uid/TP40014508-CH109-SW2
 " https://github.com/JXA-Cookbook/JXA-Cookbook?tab=readme-ov-file

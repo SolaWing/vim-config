@@ -167,7 +167,7 @@ nnoremap <Space>fr :<C-U>CtrlPMRUFiles<CR>
 nnoremap <Space>ff :<C-U>FZFiles <C-R>=expand("%:p:h")<CR>
 "}}}
 """ project keys"{{{
-nnoremap <Space>pf :<C-U>FZGFiles<CR>
+nnoremap <Space>pf <Cmd>call fzf#vim#gitfiles("", fzf#vim#with_preview({"dir" : FugitiveWorkTree()}), 0)<CR>
 nnoremap <Space>pr :<C-U>FZHistory<CR>
 nmap <F8> <Space>pr
 nmap <F7> <Space>pf

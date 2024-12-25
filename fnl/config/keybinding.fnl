@@ -73,9 +73,16 @@
   | `tags_grep_cWORD`  | `tags_grep` WORD under cursor                |
   | `tags_live_grep`   | live grep project tags                     |
   "
+
   ; GIT                                                              *fzf-lua-git*
-  (nmap "gg"       #(fzf-lua.git_files) "fzf-lua.git_files"); `git ls-files`
-  (xmap "gg"       #(fzf-lua.git_files {:query (quote-visual)}) "fzf-lua.git_files"); `git ls-files`
+  (fn with-git-opts [opts]
+    (tset opts :git_icons false)
+    (case vim.b.git_dir
+      _git_dir (doto opts (tset :cwd (vim.fn.FugitiveWorkTree)))
+      _ opts))
+    
+  (nmap "gg"       #(fzf-lua.git_files (with-git-opts {})) "fzf-lua.git_files"); `git ls-files`
+  (xmap "gg"       #(fzf-lua.git_files (with-git-opts {:query (quote-visual)})) "fzf-lua.git_files"); `git ls-files`
   (nmap "g<Space>" #(fzf-lua.git_status) "fzf-lua.git_status"); `git status`
   ; action 需要适配一下
   ; (nmap "gC"   #(fzf-lua.git_commits git commit log (project)                   )
@@ -132,9 +139,6 @@
   | `spell_suggest`    | spelling suggestions                       |
   | `packadd`          | :packadd <package>                         |T)
   ")
-  
-
-  
 
 (fn harpoon-bind []
   (vim.keymap.set :n "<Leader>p<Space>" #((. (require "harpoon.mark") :add_file)) {:desc "harpoon.mark"})
