@@ -42,6 +42,9 @@
 
     "go.goplsArgs": ["-remote=auto"],
     "go.goplsPath": "/Users/wang/go/bin/gopls",
+    "[swift]": {
+      "inlayHint.enable": false
+    },
 
     // swift
     "languageserver": {
