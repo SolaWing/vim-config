@@ -43,7 +43,7 @@
     "go.goplsArgs": ["-remote=auto"],
     "go.goplsPath": "/Users/wang/go/bin/gopls",
     "[swift]": {
-      "inlayHint.enable": false
+      "inlayHint.enable": true
     },
 
     // swift
@@ -56,8 +56,8 @@
                 // ,"--generated-interfaces-path", ".build/SourceKit-GeneratedInterfaces"
             ],
             "rootPatterns": ["buildServer.json", "Package.swift", "compile_flags.txt"],
-            // "trace.server": "verbose",
-            // "env": { "SOURCEKIT_LOGGING": "3" },
+             //"trace.server": "verbose",
+             //"env": { "SOURCEKIT_LOGGING": "3" },
             "filetypes": ["swift", "cpp", "c", "objective-c", "objective-cpp"]
         }
         // , "racket": {
