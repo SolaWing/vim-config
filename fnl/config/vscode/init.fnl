@@ -1,4 +1,4 @@
-(local {: Plug : function} {require :config.plugs})
+(local {: Plug : function} (require :config.plugs))
 
 (fn settings []
   (vim.cmd "augroup mine | augroup end") ; create mine group so can be used directly
@@ -101,9 +101,11 @@
 
 (fn init []
   (local config-path (vim.fn.stdpath :config))
+  ; replace default usable plugin and path
   (vim.opt.runtimepath:remove config-path)
-  (vim.opt.runtimepath:prepend (.. config-path "/vscode"))
-  (print "neovim in vscode" vim.o.runtimepath)
+  (vim.opt.runtimepath:prepend (.. config-path "/vscode-nvim"))
+  ; print case deadlock？
+  (print "neovim in vscode") ;vim.o.runtimepath))
 
   (require :config.vscode.bind)
 

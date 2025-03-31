@@ -1,5 +1,5 @@
 -- [nfnl] Compiled from fnl/config/vscode/init.fnl by https://github.com/Olical/nfnl, do not edit.
-local _local_1_ = {[require] = "config.plugs"}
+local _local_1_ = require("config.plugs")
 local Plug = _local_1_["Plug"]
 local _function = _local_1_["function"]
 local function settings()
@@ -101,8 +101,8 @@ end
 local function init()
   local config_path = vim.fn.stdpath("config")
   vim.opt.runtimepath:remove(config_path)
-  vim.opt.runtimepath:prepend((config_path .. "/vscode"))
-  print("neovim in vscode", vim.o.runtimepath)
+  vim.opt.runtimepath:prepend((config_path .. "/vscode-nvim"))
+  print("neovim in vscode")
   require("config.vscode.bind")
   _function()
   settings()
