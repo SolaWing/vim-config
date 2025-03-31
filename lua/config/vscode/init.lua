@@ -80,13 +80,9 @@ local function keybinding()
 end
 local function plugins()
   vim.fn["plug#begin"]("~/.vim/bundle")
-  vim.cmd.source("~/.vim/bundle-config/easymotion.vim")
   Plug("ggandor/leap.nvim")
   vim.cmd.source("~/.vim/bundle-config/sneak.vim")
   vim.cmd.source("~/.vim/bundle-config/tpope.vim")
-  Plug("tpope/vim-fugitive", {on = {}})
-  Plug("tpope/vim-rhubarb", {on = {}})
-  Plug("junegunn/gv.vim", {on = {}})
   Plug("google/vim-searchindex")
   vim.g.searchindex_line_limit = 20000
   Plug("kshenoy/vim-signature")

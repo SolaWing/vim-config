@@ -61,13 +61,13 @@
 
   (vim.fn.plug#begin "~/.vim/bundle")
 
-  (vim.cmd.source "~/.vim/bundle-config/easymotion.vim")
+  ; (vim.cmd.source "~/.vim/bundle-config/easymotion.vim")
   (Plug "ggandor/leap.nvim")
   (vim.cmd.source "~/.vim/bundle-config/sneak.vim")
   (vim.cmd.source "~/.vim/bundle-config/tpope.vim")
-  (Plug "tpope/vim-fugitive" {:on []}) ; disabled for not working
-  (Plug "tpope/vim-rhubarb" {:on []}) ; disabled for not working
-  (Plug "junegunn/gv.vim" {:on []}) ; disabled for not working
+  ; (Plug "tpope/vim-fugitive" {:on []}) ; disabled for not working
+  ; (Plug "tpope/vim-rhubarb" {:on []}) ; disabled for not working
+  ; (Plug "junegunn/gv.vim" {:on []}) ; disabled for not working
   ; fzf not work
   ; (vim.cmd.source "~/.vim/bundle-config/junegunn.vim")
 
