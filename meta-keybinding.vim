@@ -12,3 +12,5 @@ map ¶ <M-7>
 map • <M-8>
 map ª <M-9>
 map º <M-0>
+map Ô <M-S-J>
+map  <M-S-K>

@@ -2,6 +2,7 @@
 local _local_1_ = require("config.plugs")
 local Plug = _local_1_["Plug"]
 local _function = _local_1_["function"]
+local vscode = require("vscode")
 local function settings()
   vim.cmd("augroup mine | augroup end")
   vim.g.mapleader = " "
@@ -14,66 +15,72 @@ end
 local function keybinding()
   vim.cmd.source("~/.vim/meta-keybinding.vim")
   vim.cmd.source("~/.vim/key-binding.vim")
-  local VSCodeNotify = _G.VSCodeNotify
   local function remap_key(from, to)
     return vim.keymap.set({"n", "x"}, from, to, {remap = true})
   end
+  local function _2_()
+    local function _3_()
+      return vscode.action("editor.action.addSelectionToNextFindMatch")
+    end
+    return vscode.with_insert(_3_)
+  end
+  remap_key("<C-n>", _2_)
   remap_key("<M-g>", "<C-]>")
   remap_key("<LocalLeader>gg", "<C-]>")
   remap_key("<LocalLeader>gr", "gH")
-  local function _2_()
-    return VSCodeNotify("editor.action.revealDeclaration")
-  end
-  remap_key("<LocalLeader>gd", _2_)
-  local function _3_()
-    return VSCodeNotify("editor.action.revealDefinitionAside")
-  end
-  remap_key("<C-w><M-g>", _3_)
-  remap_key("<C-w><LocalLeader>gg", "<C-w><M-g>")
   local function _4_()
-    return VSCodeNotify("editor.action.quickFix")
+    return vscode.action("editor.action.revealDeclaration")
   end
-  remap_key("<LocalLeader>gf", _4_)
+  remap_key("<LocalLeader>gd", _4_)
   local function _5_()
-    return VSCodeNotify("outline.focus")
+    return vscode.action("editor.action.revealDefinitionAside")
   end
-  vim.keymap.set({"n"}, "<F3>", _5_)
+  remap_key("<C-w><M-g>", _5_)
+  remap_key("<C-w><LocalLeader>gg", "<C-w><M-g>")
   local function _6_()
-    return VSCodeNotify("workbench.files.action.showActiveFileInExplorer")
+    return vscode.action("editor.action.quickFix")
   end
-  vim.keymap.set({"n"}, "-", _6_)
+  remap_key("<LocalLeader>gf", _6_)
   local function _7_()
-    return VSCodeNotify("workbench.scm.focus")
+    return vscode.action("outline.focus")
   end
-  vim.keymap.set({"n"}, "<Leader>gs", _7_)
+  vim.keymap.set({"n"}, "<F3>", _7_)
   local function _8_()
-    return VSCodeNotify("gitlens.toggleFileBlame")
+    return vscode.action("workbench.files.action.showActiveFileInExplorer")
   end
-  vim.keymap.set({"n"}, "<Leader>gb", _8_)
+  vim.keymap.set({"n"}, "-", _8_)
   local function _9_()
-    return VSCodeNotify("workbench.action.showAllEditorsByMostRecentlyUsed")
+    return vscode.action("workbench.scm.focus")
   end
-  vim.keymap.set({"n"}, "<Leader>bl", _9_)
-  local function _10_(_241)
-    return VSCodeNotify("workbench.action.quickOpen", ("@" .. (_241.args or "")))
+  vim.keymap.set({"n"}, "<Leader>gs", _9_)
+  local function _10_()
+    return vscode.action("gitlens.toggleFileBlame")
   end
-  vim.api.nvim_create_user_command("FZBTags", _10_, {nargs = "?"})
-  local function _11_(_241)
-    return VSCodeNotify("workbench.action.quickOpen", ("#" .. (_241.args or "")))
+  vim.keymap.set({"n"}, "<Leader>gb", _10_)
+  local function _11_()
+    return vscode.action("workbench.action.showAllEditorsByMostRecentlyUsed")
   end
-  vim.api.nvim_create_user_command("FZTags", _11_, {nargs = "?"})
-  local function _12_()
-    return VSCodeNotify("workbench.action.switchWindow")
+  vim.keymap.set({"n"}, "<Leader>bl", _11_)
+  local function _12_(_241)
+    return vscode.action("workbench.action.quickOpen", ("@" .. (_241.args or "")))
   end
-  vim.api.nvim_create_user_command("FZWindows", _12_, {})
-  local function _13_()
-    return VSCodeNotify("workbench.action.openSettingsJson")
+  vim.api.nvim_create_user_command("FZBTags", _12_, {nargs = "?"})
+  local function _13_(_241)
+    return vscode.action("workbench.action.quickOpen", ("#" .. (_241.args or "")))
   end
-  remap_key("<Leader>e,", _13_)
+  vim.api.nvim_create_user_command("FZTags", _13_, {nargs = "?"})
   local function _14_()
-    return VSCodeNotify("workbench.action.openGlobalKeybindings")
+    return vscode.action("workbench.action.switchWindow")
   end
-  remap_key("<Leader>ek", _14_)
+  vim.api.nvim_create_user_command("FZWindows", _14_, {})
+  local function _15_()
+    return vscode.action("workbench.action.openSettingsJson")
+  end
+  remap_key("<Leader>e,", _15_)
+  local function _16_()
+    return vscode.action("workbench.action.openGlobalKeybindings")
+  end
+  remap_key("<Leader>ek", _16_)
   remap_key("<C-w>o", "<Cmd>Only<CR>")
   remap_key("<Leader>to", "<Cmd>Tabonly<CR>")
   return remap_key("<Leader>tc", "<Cmd>Tabclose<CR>")

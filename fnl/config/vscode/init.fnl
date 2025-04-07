@@ -1,4 +1,5 @@
 (local {: Plug : function} (require :config.plugs))
+(local vscode (require :vscode))
 
 (fn settings []
   (vim.cmd "augroup mine | augroup end") ; create mine group so can be used directly
@@ -18,41 +19,42 @@
   (vim.cmd.source "~/.vim/meta-keybinding.vim")
   (vim.cmd.source "~/.vim/key-binding.vim")
 
-  (local VSCodeNotify _G.VSCodeNotify)
-
   (fn remap-key [from to]
     (vim.keymap.set ["n" "x"] from to {:remap true}))
 
+  (remap-key "<C-n>" #(vscode.with_insert #(vscode.action "editor.action.addSelectionToNextFindMatch")))
+                       
   ;; navigation bindings
   (remap-key "<M-g>" "<C-]>")
   (remap-key "<LocalLeader>gg" "<C-]>")
   (remap-key "<LocalLeader>gr" "gH")
-  (remap-key "<LocalLeader>gd" #(VSCodeNotify "editor.action.revealDeclaration"))
-  (remap-key "<C-w><M-g>" #(VSCodeNotify "editor.action.revealDefinitionAside"))
+  (remap-key "<LocalLeader>gd" #(vscode.action "editor.action.revealDeclaration"))
+  (remap-key "<C-w><M-g>" #(vscode.action "editor.action.revealDefinitionAside"))
   (remap-key "<C-w><LocalLeader>gg" "<C-w><M-g>")
-  (remap-key "<LocalLeader>gf" #(VSCodeNotify "editor.action.quickFix"))
+  (remap-key "<LocalLeader>gf" #(vscode.action "editor.action.quickFix"))
 
   ;; various view jump
-  (vim.keymap.set ["n"] "<F3>" #(VSCodeNotify "outline.focus"))
-  (vim.keymap.set ["n"] "-" #(VSCodeNotify "workbench.files.action.showActiveFileInExplorer"))
-  (vim.keymap.set ["n"] "<Leader>gs" #(VSCodeNotify "workbench.scm.focus"))
-  (vim.keymap.set ["n"] "<Leader>gb" #(VSCodeNotify "gitlens.toggleFileBlame"))
-  (vim.keymap.set ["n"] "<Leader>bl" #(VSCodeNotify "workbench.action.showAllEditorsByMostRecentlyUsed"))
+  (vim.keymap.set ["n"] "<F3>" #(vscode.action "outline.focus"))
+  (vim.keymap.set ["n"] "-" #(vscode.action "workbench.files.action.showActiveFileInExplorer"))
+  (vim.keymap.set ["n"] "<Leader>gs" #(vscode.action "workbench.scm.focus"))
+  (vim.keymap.set ["n"] "<Leader>gb" #(vscode.action "gitlens.toggleFileBlame"))
+  (vim.keymap.set ["n"] "<Leader>bl" #(vscode.action "workbench.action.showAllEditorsByMostRecentlyUsed"))
 
   (vim.api.nvim_create_user_command "FZBTags"
-      #(VSCodeNotify "workbench.action.quickOpen" (.. "@" (or $1.args "")))
+      #(vscode.action "workbench.action.quickOpen" (.. "@" (or $1.args "")))
       {:nargs :?})
   (vim.api.nvim_create_user_command "FZTags"
-      #(VSCodeNotify "workbench.action.quickOpen" (.. "#" (or $1.args "")))
+      #(vscode.action "workbench.action.quickOpen" (.. "#" (or $1.args "")))
       {:nargs :?})
-  (vim.api.nvim_create_user_command "FZWindows" #(VSCodeNotify "workbench.action.switchWindow") {})
-  (remap-key "<Leader>e," #(VSCodeNotify "workbench.action.openSettingsJson"))
-  (remap-key "<Leader>ek" #(VSCodeNotify "workbench.action.openGlobalKeybindings"))
+  (vim.api.nvim_create_user_command "FZWindows" #(vscode.action "workbench.action.switchWindow") {})
+  (remap-key "<Leader>e," #(vscode.action "workbench.action.openSettingsJson"))
+  (remap-key "<Leader>ek" #(vscode.action "workbench.action.openGlobalKeybindings"))
 
   ;; windows, tabs, buffers
   (remap-key "<C-w>o" "<Cmd>Only<CR>")
   (remap-key "<Leader>to" "<Cmd>Tabonly<CR>")
   (remap-key "<Leader>tc" "<Cmd>Tabclose<CR>"))
+  
 
 (fn plugins []
   "NOTE: notworking function:
