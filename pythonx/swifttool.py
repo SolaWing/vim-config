@@ -65,7 +65,12 @@ def expand_closure(curry=True):
     line = ToBytes(buf[begin_pos[0] -1]) # type: bytes
     if len(line) <= end_pos[1] + 1: return # 不能选中到行末, expand的closure后面应该有`,)`等分隔符
 
-    if line[begin_pos[1]] == b'(': # start a closure and no label
+    already_closure = False
+    if line[begin_pos[1]] == ord('('): # start a closure and no label
+        closure_begin = begin_pos[1]
+    elif line[begin_pos[1]] == ord('{'): # already a impl
+        if not curry: return # 只转换curry
+        already_closure = True
         closure_begin = begin_pos[1]
     else: # start with a label
         closure_begin = line.find(b"(", begin_pos[1])
@@ -73,12 +78,15 @@ def expand_closure(curry=True):
     closure_param_end = index_pair(line, closure_begin)
     if closure_param_end == -1: return
 
-    closure_params = line[closure_begin+1:closure_param_end].decode()
-    closure_return_parts = line[closure_param_end+1: end_pos[1] + 1].decode()
-    # ignore `-> Void`
-    if closure_return_parts and re.match(r"^\s*(throws )?->\s*(Void|\(\))\s*$", closure_return_parts):
-        closure_return_parts = ""
-    template = "{ (${1:%s})%s in\n\t$0\n}"%( closure_params, closure_return_parts )
+    if already_closure:
+        template = line[closure_begin:closure_param_end+1].decode()
+    else:
+        closure_params = line[closure_begin+1:closure_param_end].decode()
+        closure_return_parts = line[closure_param_end+1: end_pos[1] + 1].decode()
+        # ignore `-> Void`
+        if closure_return_parts and re.match(r"^\s*(throws )?->\s*(Void|\(\))\s*$", closure_return_parts):
+            closure_return_parts = ""
+        template = "{ (${1:%s})%s in\n\t$0\n}"%( closure_params, closure_return_parts )
 
     # find replace range
     next_char = line[end_pos[1]+1]
