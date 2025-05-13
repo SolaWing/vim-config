@@ -116,7 +116,7 @@ nmap <F17> <Leader><F5>
 nmap <S-F5> <Leader><F5>
 "}}}
 """ terminal"{{{
-nmap :: got
+"nmap :: got
 tnoremap <ESC> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 "}}}

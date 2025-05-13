@@ -2,7 +2,7 @@
 local _local_1_ = require("config.plugs")
 local Plug = _local_1_["Plug"]
 local _function = _local_1_["function"]
-local vscode = require("vscode")
+vscode = require("vscode")
 local function settings()
   vim.cmd("augroup mine | augroup end")
   vim.g.mapleader = " "
@@ -41,46 +41,51 @@ local function keybinding()
     return vscode.action("editor.action.quickFix")
   end
   remap_key("<LocalLeader>gf", _6_)
+  vim.keymap.set({"n"}, "<Leader>ee", "<Cmd>0tab drop ~/.vim/fnl/config/vscode/init.fnl<CR>", {desc = "vscode init file"})
   local function _7_()
     return vscode.action("outline.focus")
   end
   vim.keymap.set({"n"}, "<F3>", _7_)
   local function _8_()
+    return vscode.action("workbench.action.gotoSymbol")
+  end
+  vim.keymap.set({"n"}, "<LocalLeader>m", _8_)
+  local function _9_()
     return vscode.action("workbench.files.action.showActiveFileInExplorer")
   end
-  vim.keymap.set({"n"}, "-", _8_)
-  local function _9_()
+  vim.keymap.set({"n"}, "-", _9_)
+  local function _10_()
     return vscode.action("workbench.scm.focus")
   end
-  vim.keymap.set({"n"}, "<Leader>gs", _9_)
-  local function _10_()
+  vim.keymap.set({"n"}, "<Leader>gs", _10_)
+  local function _11_()
     return vscode.action("gitlens.toggleFileBlame")
   end
-  vim.keymap.set({"n"}, "<Leader>gb", _10_)
-  local function _11_()
+  vim.keymap.set({"n"}, "<Leader>gb", _11_)
+  local function _12_()
     return vscode.action("workbench.action.showAllEditorsByMostRecentlyUsed")
   end
-  vim.keymap.set({"n"}, "<Leader>bl", _11_)
-  local function _12_(_241)
+  vim.keymap.set({"n"}, "<Leader>bl", _12_)
+  local function _13_(_241)
     return vscode.action("workbench.action.quickOpen", ("@" .. (_241.args or "")))
   end
-  vim.api.nvim_create_user_command("FZBTags", _12_, {nargs = "?"})
-  local function _13_(_241)
+  vim.api.nvim_create_user_command("FZBTags", _13_, {nargs = "?"})
+  local function _14_(_241)
     return vscode.action("workbench.action.quickOpen", ("#" .. (_241.args or "")))
   end
-  vim.api.nvim_create_user_command("FZTags", _13_, {nargs = "?"})
-  local function _14_()
+  vim.api.nvim_create_user_command("FZTags", _14_, {nargs = "?"})
+  local function _15_()
     return vscode.action("workbench.action.switchWindow")
   end
-  vim.api.nvim_create_user_command("FZWindows", _14_, {})
-  local function _15_()
+  vim.api.nvim_create_user_command("FZWindows", _15_, {})
+  local function _16_()
     return vscode.action("workbench.action.openSettingsJson")
   end
-  remap_key("<Leader>e,", _15_)
-  local function _16_()
+  remap_key("<Leader>e,", _16_)
+  local function _17_()
     return vscode.action("workbench.action.openGlobalKeybindings")
   end
-  remap_key("<Leader>ek", _16_)
+  remap_key("<Leader>ek", _17_)
   remap_key("<C-w>o", "<Cmd>Only<CR>")
   remap_key("<Leader>to", "<Cmd>Tabonly<CR>")
   return remap_key("<Leader>tc", "<Cmd>Tabclose<CR>")
@@ -98,6 +103,8 @@ local function plugins()
   vim.cmd.source("~/.vim/bundle-config/devdocs.io.vim")
   Plug("tpope/vim-bundler", {["for"] = "ruby"})
   Plug("tpope/vim-rake", {["for"] = "ruby"})
+  vim.cmd.source("~/.vim/bundle-config/conjure.vim")
+  Plug("bakpakin/fennel.vim")
   vim.fn["plug#end"]()
   return vim.cmd("silent doautocmd <nomodeline> User plug#end")
 end

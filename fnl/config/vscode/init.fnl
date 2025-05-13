@@ -1,5 +1,5 @@
 (local {: Plug : function} (require :config.plugs))
-(local vscode (require :vscode))
+(global vscode (require :vscode))
 
 (fn settings []
   (vim.cmd "augroup mine | augroup end") ; create mine group so can be used directly
@@ -32,9 +32,11 @@
   (remap-key "<C-w><M-g>" #(vscode.action "editor.action.revealDefinitionAside"))
   (remap-key "<C-w><LocalLeader>gg" "<C-w><M-g>")
   (remap-key "<LocalLeader>gf" #(vscode.action "editor.action.quickFix"))
+  (vim.keymap.set ["n"] "<Leader>ee" "<Cmd>0tab drop ~/.vim/fnl/config/vscode/init.fnl<CR>" {:desc "vscode init file"})
 
   ;; various view jump
   (vim.keymap.set ["n"] "<F3>" #(vscode.action "outline.focus"))
+  (vim.keymap.set ["n"] "<LocalLeader>m" #(vscode.action "workbench.action.gotoSymbol"))
   (vim.keymap.set ["n"] "-" #(vscode.action "workbench.files.action.showActiveFileInExplorer"))
   (vim.keymap.set ["n"] "<Leader>gs" #(vscode.action "workbench.scm.focus"))
   (vim.keymap.set ["n"] "<Leader>gb" #(vscode.action "gitlens.toggleFileBlame"))
@@ -94,12 +96,15 @@
   ; langs
   (Plug "tpope/vim-bundler" {:for :ruby})
   (Plug "tpope/vim-rake" {:for :ruby})
+
+  (vim.cmd.source "~/.vim/bundle-config/conjure.vim")
   ; 体验很差，不开启lisp编辑
   ; (vim.cmd.source "~/.vim/bundle-config/lang/lisp.vim")
 
+  (Plug "bakpakin/fennel.vim")
+
   ((. vim.fn :plug#end))
   (vim.cmd "silent doautocmd <nomodeline> User plug#end"))
-
 
 (fn init []
   (local config-path (vim.fn.stdpath :config))

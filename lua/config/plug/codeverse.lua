@@ -1,19 +1,19 @@
--- [nfnl] Compiled from fnl/config/plug/codeverse.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/plug/codeverse.fnl
 local function setup()
-  vim.g.marscode_no_map_tab = true
-  vim.g.marscode_disable_bindings = true
-  vim.g.marscode_filetypes = {plantuml = true, dot = true, fennel = true, lua = true, vim = true, racket = true, ruby = true, rbs = true, crystal = true, python = true, sh = true, swift = true, go = true, rust = true, c = true, cpp = true, objc = true, make = true, ["*"] = false, markdown = false, text = false}
+  vim.g.trae_no_map_tab = true
+  vim.g.trae_disable_bindings = true
+  vim.g.trae_filetypes = {plantuml = true, dot = true, fennel = true, lua = true, vim = true, racket = true, ruby = true, rbs = true, crystal = true, python = true, sh = true, swift = true, go = true, rust = true, c = true, cpp = true, objc = true, make = true, ["*"] = false, markdown = false, text = false}
   local function _1_()
-    return vim.cmd("\n      imap <script><silent><nowait><expr> <C-e> marscode#Accept()\n      let g:marscode_tab_fallback = \"\\<End>\"\n      imap <silent><script><nowait><expr> <C-]> marscode#Clear() . \"\\<C-]>\"\n      imap <M-]> <Plug>(marscode-next-or-complete)\n      imap <M-[> <Plug>(marscode-previous)\n      imap <C-k> <Plug>(marscode-accept-word)\n      imap <C-j> <Plug>(marscode-accept-line)\n    ")
+    return vim.cmd("\n      imap <script><silent><nowait><expr> <C-e> trae#Accept()\n      let g:trae_tab_fallback = \"\\<End>\"\n      imap <silent><script><nowait><expr> <C-]> trae#Clear() . \"\\<C-]>\"\n      imap <M-]> <Plug>(trae-next-or-complete)\n      imap <M-[> <Plug>(trae-previous)\n      imap <C-k> <Plug>(trae-accept-word)\n      imap <C-j> <Plug>(trae-accept-line)\n    ")
   end
-  vim.api.nvim_create_autocmd("User", {group = "mine", pattern = "codeverse.vim", once = true, desc = "config marscode", callback = _1_})
+  vim.api.nvim_create_autocmd("User", {group = "mine", pattern = "codeverse.vim", once = true, desc = "config trae", callback = _1_})
   local function _2_()
     vim.fn["plug#load"]("codeverse.vim")
-    vim.notify("marscode loaded")
-    vim.keymap.set("i", "<M-Bslash>", "<Cmd>call marscode#Complete()<CR>", {remap = true})
-    return vim.fn["marscode#Complete"]()
+    vim.notify("trae loaded")
+    vim.keymap.set("i", "<M-Bslash>", "<Cmd>call trae#Complete()<CR>", {remap = true})
+    return vim.fn["trae#Complete"]()
   end
   vim.keymap.set("i", "<M-Bslash>", _2_)
-  return vim.api.nvim_create_user_command("MarscodeLoad", "call plug#load('codeverse.vim') | echo 'Marscode loaded'", {})
+  return vim.api.nvim_create_user_command("TraeLoad", "call plug#load('codeverse.vim') | echo 'Trae loaded'", {})
 end
 return {setup = setup}

@@ -16,11 +16,13 @@ end
 " waiting try
             " \ 'do': 'cargo build --release',
 
+if !exists("g:vscode")
 Plug 'eraserhd/parinfer-rust', {
             \ 'for': ['racket', 'scheme', 'hy', 'fennel'],
             \ 'do': 'cargo build --release'
             \ }
 " let g:parinfer_enabled = 0 " 尝试结构化编辑
+endif
 
 " Plug 'MicahElliott/vrod',                          {'for': ['racket', 'scheme']}
 Plug 'wlangstroth/vim-racket'
