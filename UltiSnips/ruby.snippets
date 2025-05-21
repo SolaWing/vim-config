@@ -483,8 +483,7 @@ endsnippet
 snippet lazy "lazy getter" b
 def $1
 	return @$1 if defined?(@$1)
-	@$1 = $2
-	return @$1
+	return @$1 = $2
 end
 endsnippet
 

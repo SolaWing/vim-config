@@ -2,7 +2,7 @@
 local function setup()
   vim.g.trae_no_map_tab = true
   vim.g.trae_disable_bindings = true
-  vim.g.trae_filetypes = {plantuml = true, dot = true, fennel = true, lua = true, vim = true, racket = true, ruby = true, rbs = true, crystal = true, python = true, sh = true, swift = true, go = true, rust = true, c = true, cpp = true, objc = true, make = true, ["*"] = false, markdown = false, text = false}
+  vim.g.trae_filetypes = {plantuml = true, dot = true, fennel = true, lua = true, vim = true, racket = true, ruby = true, rbs = true, eruby = true, crystal = true, python = true, sh = true, swift = true, go = true, rust = true, c = true, cpp = true, objc = true, make = true, ["*"] = false, markdown = false, text = false}
   local function _1_()
     return vim.cmd("\n      imap <script><silent><nowait><expr> <C-e> trae#Accept()\n      let g:trae_tab_fallback = \"\\<End>\"\n      imap <silent><script><nowait><expr> <C-]> trae#Clear() . \"\\<C-]>\"\n      imap <M-]> <Plug>(trae-next-or-complete)\n      imap <M-[> <Plug>(trae-previous)\n      imap <C-k> <Plug>(trae-accept-word)\n      imap <C-j> <Plug>(trae-accept-line)\n    ")
   end

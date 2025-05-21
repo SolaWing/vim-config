@@ -6,7 +6,7 @@
           :plantuml true :dot true
           :fennel true :lua true :vim true
           :racket true
-          :ruby true :rbs true :crystal true
+          :ruby true :rbs true :eruby true :crystal true
           :python true :sh true
           :swift true :go true :rust true
           :c true :cpp true :objc true :make true})
