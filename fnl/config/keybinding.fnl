@@ -9,8 +9,11 @@
   (vim.keymap.set :n "<Leader>eK" "<Cmd>0tab drop ~/.vim/fnl/config/keybinding.fnl<CR>" {:desc "tab keybinding.fnl"})
 
   (vim.keymap.set :x "[?" ":lua require('util.secret').encodeR()<CR>" {:desc "encode selected line"})
-  (vim.keymap.set :x "]?" ":lua require('util.secret').decodeR()<CR>" {:desc "decode selected line"}))
-
+  (vim.keymap.set :x "]?" ":lua require('util.secret').decodeR()<CR>" {:desc "decode selected line"})
+  (when vim.g.neovide
+    (vim.keymap.set [:n :v] "<D-s>" "<M-s>" {:remap true})
+    (vim.keymap.set :i "<D-s>" "<M-s>" {:remap true})
+    (vim.keymap.set [:n :v] "<D-M-s>" "<M-S>" {:remap true})))
 
 (fn fzf-lua-bind []
   ; 大量加载fzf-lua后，大约消耗了6ms..
