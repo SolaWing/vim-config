@@ -6,6 +6,9 @@ setl foldmarker={,}
 setl formatoptions+=r
 setl comments=f:/*,e:*/,b:///,://
 
+" Coc失效了，先在文件里定义, 等release发布
+let b:coc_root_patterns = ["buildServer.json", "Package.swift"]
+
 " use / to surround /* block comment
 let b:surround_47 = "/* \r */"
 

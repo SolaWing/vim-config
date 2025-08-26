@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/config/vscode/init.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/vscode/init.fnl
 local _local_1_ = require("config.plugs")
 local Plug = _local_1_["Plug"]
 local _function = _local_1_["function"]
@@ -42,6 +42,7 @@ local function keybinding()
   end
   remap_key("<LocalLeader>gf", _6_)
   vim.keymap.set({"n"}, "<Leader>ee", "<Cmd>0tab drop ~/.vim/fnl/config/vscode/init.fnl<CR>", {desc = "vscode init file"})
+  vim.keymap.set({"n"}, "<M-o>", "<Cmd>!vv %<CR>", {desc = "open in vim"})
   local function _7_()
     return vscode.action("outline.focus")
   end
@@ -66,26 +67,54 @@ local function keybinding()
     return vscode.action("workbench.action.showAllEditorsByMostRecentlyUsed")
   end
   vim.keymap.set({"n"}, "<Leader>bl", _12_)
-  local function _13_(_241)
+  local function _13_()
+    return vscode.action("editor.foldAll")
+  end
+  vim.keymap.set({"n"}, "zM", _13_)
+  local function _14_()
+    return vscode.action("editor.unfoldAll")
+  end
+  vim.keymap.set({"n"}, "zR", _14_)
+  local function _15_()
+    return vscode.action("editor.fold")
+  end
+  vim.keymap.set({"n"}, "zc", _15_)
+  local function _16_()
+    return vscode.action("editor.foldRecursively")
+  end
+  vim.keymap.set({"n"}, "zC", _16_)
+  local function _17_()
+    return vscode.action("editor.unfold")
+  end
+  vim.keymap.set({"n"}, "zo", _17_)
+  local function _18_()
+    return vscode.action("editor.unfoldRecursively")
+  end
+  vim.keymap.set({"n"}, "zO", _18_)
+  local function _19_()
+    return vscode.action("editor.toggleFold")
+  end
+  vim.keymap.set({"n"}, "za", _19_)
+  local function _20_(_241)
     return vscode.action("workbench.action.quickOpen", ("@" .. (_241.args or "")))
   end
-  vim.api.nvim_create_user_command("FZBTags", _13_, {nargs = "?"})
-  local function _14_(_241)
+  vim.api.nvim_create_user_command("FZBTags", _20_, {nargs = "?"})
+  local function _21_(_241)
     return vscode.action("workbench.action.quickOpen", ("#" .. (_241.args or "")))
   end
-  vim.api.nvim_create_user_command("FZTags", _14_, {nargs = "?"})
-  local function _15_()
+  vim.api.nvim_create_user_command("FZTags", _21_, {nargs = "?"})
+  local function _22_()
     return vscode.action("workbench.action.switchWindow")
   end
-  vim.api.nvim_create_user_command("FZWindows", _15_, {})
-  local function _16_()
+  vim.api.nvim_create_user_command("FZWindows", _22_, {})
+  local function _23_()
     return vscode.action("workbench.action.openSettingsJson")
   end
-  remap_key("<Leader>e,", _16_)
-  local function _17_()
+  remap_key("<Leader>e,", _23_)
+  local function _24_()
     return vscode.action("workbench.action.openGlobalKeybindings")
   end
-  remap_key("<Leader>ek", _17_)
+  remap_key("<Leader>ek", _24_)
   remap_key("<C-w>o", "<Cmd>Only<CR>")
   remap_key("<Leader>to", "<Cmd>Tabonly<CR>")
   return remap_key("<Leader>tc", "<Cmd>Tabclose<CR>")

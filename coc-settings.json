@@ -49,15 +49,15 @@
     // swift
     "languageserver": {
         "sourcekit": {
-             "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
+            "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
             // "command": "sourcekit-lsp",
-            //"command": "xcrun",
-            //"args": ["--toolchain", "swift", "sourcekit-lsp"
+            // "command": "xcrun",
+            // "args": ["--toolchain", "swift", "sourcekit-lsp"
             //    // ,"--generated-interfaces-path", ".build/SourceKit-GeneratedInterfaces"
-            //],
-            "rootPatterns": ["buildServer.json", "Package.swift", "compile_flags.txt"],
-            //"trace.server": "verbose",
-            //"env": { "SOURCEKIT_LOGGING": "3" },
+            // ],
+            "rootPatterns": ["buildServer.json", "Package.swift"],
+            // "trace.server": "verbose",
+            // "env": { "SOURCEKIT_LOGGING": "3" },
             "filetypes": ["swift", "cpp", "c", "objective-c", "objective-cpp"]
         }
         // , "racket": {
@@ -115,6 +115,7 @@
     // config
     "workspace.bottomUpFiletypes": ["swift"],
     "workspace.workspaceFolderCheckCwd": true,
+    "workspace.workspaceFolderFallbackCwd": true,
 
     // "workspace.progressTarget": "statusline",
     // "suggest.autoTrigger": "trigger",

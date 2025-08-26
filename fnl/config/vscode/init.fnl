@@ -33,6 +33,7 @@
   (remap-key "<C-w><LocalLeader>gg" "<C-w><M-g>")
   (remap-key "<LocalLeader>gf" #(vscode.action "editor.action.quickFix"))
   (vim.keymap.set ["n"] "<Leader>ee" "<Cmd>0tab drop ~/.vim/fnl/config/vscode/init.fnl<CR>" {:desc "vscode init file"})
+  (vim.keymap.set ["n"] "<M-o>" "<Cmd>!vv %<CR>" {:desc "open in vim"})
 
   ;; various view jump
   (vim.keymap.set ["n"] "<F3>" #(vscode.action "outline.focus"))
@@ -41,6 +42,15 @@
   (vim.keymap.set ["n"] "<Leader>gs" #(vscode.action "workbench.scm.focus"))
   (vim.keymap.set ["n"] "<Leader>gb" #(vscode.action "gitlens.toggleFileBlame"))
   (vim.keymap.set ["n"] "<Leader>bl" #(vscode.action "workbench.action.showAllEditorsByMostRecentlyUsed"))
+
+  ;; fold
+  (vim.keymap.set ["n"] "zM" #(vscode.action "editor.foldAll"))
+  (vim.keymap.set ["n"] "zR" #(vscode.action "editor.unfoldAll"))
+  (vim.keymap.set ["n"] "zc" #(vscode.action "editor.fold"))
+  (vim.keymap.set ["n"] "zC" #(vscode.action "editor.foldRecursively"))
+  (vim.keymap.set ["n"] "zo" #(vscode.action "editor.unfold"))
+  (vim.keymap.set ["n"] "zO" #(vscode.action "editor.unfoldRecursively"))
+  (vim.keymap.set ["n"] "za" #(vscode.action "editor.toggleFold"))
 
   (vim.api.nvim_create_user_command "FZBTags"
       #(vscode.action "workbench.action.quickOpen" (.. "@" (or $1.args "")))
@@ -56,7 +66,6 @@
   (remap-key "<C-w>o" "<Cmd>Only<CR>")
   (remap-key "<Leader>to" "<Cmd>Tabonly<CR>")
   (remap-key "<Leader>tc" "<Cmd>Tabclose<CR>"))
-  
 
 (fn plugins []
   "NOTE: notworking function:

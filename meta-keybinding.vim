@@ -16,3 +16,5 @@ map Ô <M-S-J>
 map  <M-S-K>
 map Í <M-S-S>
 map ß <M-s>
+map ø <M-o>
+

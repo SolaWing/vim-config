@@ -69,6 +69,7 @@ nmap <silent> <LocalLeader>gi <Plug>(coc-implementation)
 nmap <silent> <LocalLeader>gd <Plug>(coc-declaration)
 nmap <silent> <LocalLeader>gr <Plug>(coc-references)
 nmap <silent> <LocalLeader>gR <Cmd>CocCommand document.showIncomingCalls<CR>
+nmap <silent> <LocalLeader>gj <Cmd>CocCommand workspace.diagnosticRelated<CR>
 nnoremap <LocalLeader>gc <Cmd>CocDiagnostics<CR>
 
 " disable auto-preview

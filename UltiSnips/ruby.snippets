@@ -345,12 +345,71 @@ rescue ${1:TYPE} => ${2:e}
 end
 endsnippet
 
+snippet parser "my simple parser" b
+# parse argv and return component, nil if failed
+class Parser
+  include Enumerable
+  def initialize(argv)
+    @it = argv.to_enum
+  end
+
+  def each
+    while @arg = @it.next
+      if @arg.start_with?("--")
+        @state = :long
+        v, @value = @arg.split("=", 2)
+        yield v
+      elsif @arg[0] == '-' # short flag
+        @state = :short
+        (1...@arg.size).each do |i|
+          @index = i
+          yield "-#{@arg[@index]}"
+          break if @state != :short
+        end
+      else # other args
+        @state = :arg
+        yield @arg
+      end
+    end
+  rescue StopIteration
+    nil
+  end
+
+  def left_args
+    args = []
+    while v = @it.next
+      args.push(v)
+    end
+  rescue StopIteration
+    args
+  end
+
+  def next_required_value
+    next_optional_value2 or @it.next
+  end
+
+  def next_optional_value
+    case @state
+    when :short
+      @state = nil # 消耗后都不再是short状态, break yield in each
+      case @arg[@index+1]
+      when "=" then return @arg[(@index+2)..]
+      when nil then return nil
+      else return @arg[(@index+1)..]
+      end
+    when :long
+      @value
+    end
+  end
+end
+endsnippet
+
 snippet main "main script template" b
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
 def print_usage(code, additional = nil)
-	puts additional if additional
+	$stdout.puts additional if additional
 	$stdout.puts <<~USAGE
 		#\$0
 	USAGE
