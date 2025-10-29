@@ -1,6 +1,6 @@
 -- [nfnl] fnl/config/keybinding.fnl
 local _local_1_ = require("config.deps")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local fzf_lua = autoload("fzf-lua")
 local function common()
   local function _2_()
@@ -29,7 +29,7 @@ local function fzf_lua_bind()
     return vim.keymap.set("x", (leader .. f), t, {remap = true, desc = desc})
   end
   local function quote_visual()
-    return ("'" .. vim.fn.escape(fzf_lua.utils.get_visual_selection(), " \9'\\") .. " ")
+    return ("'" .. vim.fn.escape(fzf_lua.utils.get_visual_selection(), " \t'\\") .. " ")
   end
   vim.keymap.set({"n"}, "<M-Tab>", (leader .. "b"), {remap = true})
   local function _4_()
@@ -126,13 +126,13 @@ local function fzf_lua_bind()
   xmap("<C-]>", tags_wrap("tags_grep_visual"), "fzf-lua.tags_grep_visual")
   local function with_git_opts(opts)
     opts["git_icons"] = false
-    local _26_ = vim.b.git_dir
+    local case_26_ = vim.b.git_dir
     if true then
-      local _git_dir = _26_
+      local _git_dir = case_26_
       opts["cwd"] = vim.fn.FugitiveWorkTree()
       return opts
     else
-      local _ = _26_
+      local _ = case_26_
       return opts
     end
   end
@@ -219,7 +219,20 @@ local function leap_bind()
   end
   vim.keymap.set({"n", "x"}, "<Space><CR>", _46_, {desc = "leap_to_line"})
   vim.keymap.set({"o"}, "<Space><CR>", "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>", {desc = "leap_to_line"})
-  return require("leap").add_default_mappings()
+  local force_3f = false
+  for _, _47_ in ipairs({{{"n", "x", "o"}, "s", "<Plug>(leap-forward)", "Leap forward"}, {{"n", "x", "o"}, "S", "<Plug>(leap-backward)", "Leap backward"}, {{"x", "o"}, "x", "<Plug>(leap-forward-till)", "Leap forward till"}, {{"x", "o"}, "X", "<Plug>(leap-backward-till)", "Leap backward till"}, {{"n", "x", "o"}, "gs", "<Plug>(leap-from-window)", "Leap from window"}}) do
+    local modes = _47_[1]
+    local lhs = _47_[2]
+    local rhs = _47_[3]
+    local desc = _47_[4]
+    for _0, mode in ipairs(modes) do
+      if (force_3f or ((vim.fn.mapcheck(lhs, mode) == "") and (vim.fn.hasmapto(rhs, mode) == 0))) then
+        vim.keymap.set(mode, lhs, rhs, {silent = true, desc = desc})
+      else
+      end
+    end
+  end
+  return nil
 end
 local function init()
   common()

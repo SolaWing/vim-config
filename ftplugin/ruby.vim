@@ -14,7 +14,8 @@ if has_key(g:plugs, 'nvim-treesitter')
 
     setlocal foldmethod=expr
     " expr foldmethod cause easymotion jum when split very slow, use cache to avoid performance issue
-    setlocal foldexpr=fold#cache(\"nvim_treesitter#foldexpr()\")
+    "setlocal foldexpr=fold#cache(\"nvim_treesitter#foldexpr()\")
+    setlocal foldexpr=nvim_treesitter#foldexpr()
 
     if exists("g:no_ruby_maps") " 补充file和tag跳转map
         nmap <buffer><script> <SID>c: :<C-U><C-R>=v:count ? v:count : ''<CR>
@@ -77,12 +78,14 @@ if has("nvim")
     end
 
     " use g:rubytest or b:test to run test, default to bundle exec rake spec
+    " eg: let g:rubytest = "bundle exec rspec"
+    " eg: let g:rubytest_dir = "."
     nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=<C-R><C-O>=g:rubytest_dir ?? "%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("line")<CR><CR>
     nmap <buffer> <LocalLeader><C-t> :update <bar>
                 \ let @* = v:lua.require("config.ft.ruby").test_cmd("line")<CR>
     nmap <buffer> <LocalLeader><M-t> :Dispatch -dir=<C-R><C-O>=g:rubytest_dir ?? "%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("file")<CR><CR>
     " all
-    nmap <buffer> <LocalLeader>T :Dispatch -dir=<C-R><C-O>=g:rubytest_dir ?? "%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("all")<CR>
+    nmap <buffer> <LocalLeader>T :Dispatch -dir=<C-R><C-O>=g:rubytest_dir ?? "%:h"<CR> <C-R><C-O>=v:lua.require("config.ft.ruby").test_cmd("all")<CR><CR>
 else
     " current line
     nmap <buffer> <LocalLeader>t :update <bar> Dispatch -dir=%:h bundle exec rake spec 'SPEC=<C-R>=expand("%:p")<CR>:<C-R>=line('.')<CR>'<CR>

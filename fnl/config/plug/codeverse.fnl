@@ -3,6 +3,7 @@
   (set vim.g.trae_disable_bindings true)
   (set vim.g.trae_filetypes
          {:* false :markdown false :text false
+          :json true :yaml true
           :plantuml true :dot true
           :fennel true :lua true :vim true
           :racket true

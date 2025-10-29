@@ -28,7 +28,7 @@ let $FZF_DEFAULT_OPTS=' --bind="' . join([
             \    'ctrl-f:page-down,ctrl-b:page-up'
             \], ',') . '" --color="pointer:15"'
 " let g:fzf_layout = { 'up' : '~40%'  }
-Plug '/usr/local/opt/fzf'
+Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
 if has('nvim-0.5.0')
     Plug 'ibhagwan/fzf-lua', {'branch': 'main'}

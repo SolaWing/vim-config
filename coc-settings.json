@@ -14,14 +14,14 @@
     "solargraph.transport": "socket",
     // "solargraph.transport": "stdio",
 
-    //"solargraph.transport": "external", // local run and connect to debug
+    // "solargraph.transport": "external", // local run and connect to debug
     "solargraph.externalServer": {
       "host": "127.0.0.1",
       "port": 7658
     },
 
-    "solargraph.logLevel": "debug",
-    //"solargraph.trace.server": "verbose",
+    // "solargraph.logLevel": "debug",
+    // "solargraph.trace.server": "verbose",
 
     // javascript
     "javascript.format.enabled": false, // 和eslint冲突，没用，使用外部的eslint fix
@@ -49,12 +49,12 @@
     // swift
     "languageserver": {
         "sourcekit": {
-            "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
+            // "command": "/Users/wang/Documents/github/Apple/sourcekit-lsp/.build/release/sourcekit-lsp",
             // "command": "sourcekit-lsp",
-            // "command": "xcrun",
-            // "args": ["--toolchain", "swift", "sourcekit-lsp"
-            //    // ,"--generated-interfaces-path", ".build/SourceKit-GeneratedInterfaces"
-            // ],
+            "command": "xcrun",
+            "args": ["--toolchain", "swift", "sourcekit-lsp"
+               // ,"--generated-interfaces-path", ".build/SourceKit-GeneratedInterfaces"
+            ],
             "rootPatterns": ["buildServer.json", "Package.swift"],
             // "trace.server": "verbose",
             // "env": { "SOURCEKIT_LOGGING": "3" },
@@ -104,16 +104,17 @@
         //      "args": ["langserver"],
         //      "filetypes": ["ruby"]
         //  }
-        //, "rubylsp": {
+        // , "rubylsp": {
         //  "command": "ruby-lsp",
         //  //"command": "/private/tmp/ruby-lsp/exe/ruby-lsp",
         //  "filetypes": ["ruby"]
-        //}
+        // }
     },
 
     "coc.source.omni.filetypes": [],
     // config
     "workspace.bottomUpFiletypes": ["swift"],
+    // current first 看起来不会跟着cwd变化
     "workspace.workspaceFolderCheckCwd": true,
     "workspace.workspaceFolderFallbackCwd": true,
 

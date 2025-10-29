@@ -154,7 +154,24 @@
   (vim.keymap.set ["n" "x"] "<Space><CR>" #((. (require "config.plug.leap") :leap_to_line)) {:desc "leap_to_line"})
   (vim.keymap.set ["o"] "<Space><CR>" "V<Cmd>lua require('config.plug.leap').leap_to_line()<CR>" {:desc "leap_to_line"})
   ; TODO: unify surround and leap mapping ;
-  ((. (require "leap") :add_default_mappings)))
+  (local force? false)
+  (each [_ [modes lhs rhs desc]
+           (ipairs
+            [[[:n :x :o] "s"  "<Plug>(leap-forward)" "Leap forward"]
+             [[:n :x :o] "S"  "<Plug>(leap-backward)" "Leap backward"]
+             [   [:x :o] "x"  "<Plug>(leap-forward-till)" "Leap forward till"]
+             [   [:x :o] "X"  "<Plug>(leap-backward-till)" "Leap backward till"]
+             [[:n :x :o] "gs" "<Plug>(leap-from-window)" "Leap from window"]])]
+           
+      (each [_ mode (ipairs modes)]
+        (when (or force?
+                  ; Otherwise only set the keymaps if:
+                  ; 1. (A keyseq starting with) `lhs` is not already mapped
+                  ;    to something else.
+                  ; 2. There is no existing mapping to the <Plug> key.
+                  (and (= (vim.fn.mapcheck lhs mode) "")
+                       (= (vim.fn.hasmapto rhs mode) 0)))
+          (vim.keymap.set mode lhs rhs {:silent true :desc desc})))))
   ; ((. (require "leap") :add_repeat_mappings) ";" "," {:relative_directions true
   ;                                                     :modes [:n :x :o]}))
 
