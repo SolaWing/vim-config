@@ -1,9 +1,9 @@
--- [nfnl] Compiled from fnl/config/plugs.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/plugs.fnl
 local Plug = vim.fn["plug#"]
 local function nvim_lib()
   Plug("nvim-lua/plenary.nvim")
   Plug("nvim-tree/nvim-web-devicons")
-  return Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
+  return Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate", tag = "v0.10.0"})
 end
 local function nvim_common()
   Plug("andymass/vim-matchup")
@@ -23,13 +23,13 @@ local function _function()
     return (1 == vim.fn.HasPlug(name))
   end
   _G.luafile = function(path)
-    local _1_, _2_ = loadfile(vim.fs.normalize(path))
-    if (true and (nil ~= _2_)) then
-      local _ = _1_
-      local err = _2_
+    local case_1_, case_2_ = loadfile(vim.fs.normalize(path))
+    if (true and (nil ~= case_2_)) then
+      local _ = case_1_
+      local err = case_2_
       return error(err)
-    elseif ((nil ~= _1_) and (_2_ == nil)) then
-      local f = _1_
+    elseif ((nil ~= case_1_) and (case_2_ == nil)) then
+      local f = case_1_
       return f()
     else
       return nil

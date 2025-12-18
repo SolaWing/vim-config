@@ -157,6 +157,7 @@ nnoremap <silent> <LocalLeader>lc  <Cmd>CocList commands<cr>
 nnoremap <silent> <LocalLeader>lo  <Cmd>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent> <LocalLeader>ls  <Cmd>CocList symbols<cr>
+xnoremap <silent> <LocalLeader>ls  :<C-U>CocList -I --input=<C-R>=GetVisualString()<CR> symbols<cr>
 " workspace folders
 nnoremap <silent> <LocalLeader>lw  <Cmd>CocList folders<cr>
 " Do default action for next item.
