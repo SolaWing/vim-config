@@ -1,8 +1,8 @@
--- [nfnl] Compiled from fnl/config/ft/ruby.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/config/ft/ruby.fnl
 local M = {}
 M.test_cmd = function(ty)
   local ty0 = (ty or "all")
-  local cmd = (vim.b.test or vim.g.rubytest or "bundle exec rake spec")
+  local cmd = (vim.b.test or vim.g.rubytest or "bundle exec rspec")
   local function rake_spec()
     if string.find(cmd, "rake") then
       return "SPEC="
@@ -20,5 +20,16 @@ M.test_cmd = function(ty)
     full_cmd = string.format("%s", cmd)
   end
   return full_cmd
+end
+M.rspec_dir = function()
+  local buf = vim.api.nvim_buf_get_name(0)
+  for dir, _ in vim.fs.parents(buf) do
+    local helper_path = vim.fs.joinpath(dir, "spec", "spec_helper.rb")
+    if vim.uv.fs_stat(helper_path) then
+      return dir
+    else
+    end
+  end
+  return vim.fs.dirname(buf)
 end
 return M

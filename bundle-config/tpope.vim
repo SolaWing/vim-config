@@ -18,6 +18,9 @@ nnoremap ]oD <Cmd>windo diffoff<CR>
 nnoremap yoe :set ei=<C-R>=(&ei ==# '')? "all" : ""<CR><CR>
 nnoremap [oe <Cmd>set ei=all<CR>
 nnoremap ]oe <Cmd>set ei=<CR>
+nnoremap yof :set buftype=<C-R>=empty(&buftype) ? "nofile" : ""<CR><CR>
+nnoremap [of <Cmd>set buftype=<CR>
+nnoremap ]of <Cmd>set buftype=nofile<CR>
 "}}}
 
 " tpope/vim-repeat"{{{
