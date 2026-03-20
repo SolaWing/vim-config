@@ -42,10 +42,10 @@ local function init()
   nvim_lib()
   nvim_common()
   Plug("git@code.byted.org:chenjiaqi.cposture/codeverse.vim.git", {on = {"Marscode"}})
-  Plug("~/.vim/bundle/vim-ai", {on = {"AI", "AIEdit", "AIChat"}})
+  Plug("folke/sidekick.nvim")
   Plug("ThePrimeagen/harpoon")
   Plug("ThePrimeagen/refactoring.nvim")
-  Plug("ggandor/leap.nvim")
+  Plug("https://codeberg.org/andyg/leap.nvim")
   Plug("windwp/nvim-spectre", {on = {"Spectre"}})
   return vim.cmd("autocmd mine User plug#end ++once lua require('config.plugs').after()")
 end
@@ -59,6 +59,7 @@ local function after()
   local function _5_()
     return require("config.plug.refactoring").setup()
   end
-  return _G["hook-require"]("refactoring", "setup", _5_)
+  _G["hook-require"]("refactoring", "setup", _5_)
+  return require("config.plug.sidekick").setup()
 end
 return {Plug = Plug, ["function"] = _function, init = init, after = after}

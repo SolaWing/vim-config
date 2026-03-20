@@ -53,14 +53,13 @@
   (nvim-common)
 
   (Plug "git@code.byted.org:chenjiaqi.cposture/codeverse.vim.git" {:on ["Marscode"]})
-  ; (Plug "git@code.byted.org:chenjiaqi.cposture/vim-ai.git" {:on ["AI" "AIEdit" "AIChat"]})
-  (Plug "~/.vim/bundle/vim-ai" {:on ["AI" "AIEdit" "AIChat"]})
+  (Plug "folke/sidekick.nvim")
 
   ; buffer manager, 也许可以使用args列表代替(但是args不会保存)
   (Plug "ThePrimeagen/harpoon")
   (Plug "ThePrimeagen/refactoring.nvim") ; 要求最新develop，不稳定..
   ; (Plug "~/.vim/bundle/refactoring.nvim")
-  (Plug "ggandor/leap.nvim")
+  (Plug "https://codeberg.org/andyg/leap.nvim")
   ; (Plug "kevinhwang91/nvim-bqf")
   ; NOTE: require gsed or rust build(broken), slow on large replace when update UI, and will stuck nvim
   (Plug "windwp/nvim-spectre" {:on ["Spectre"]})
@@ -77,10 +76,11 @@
 (fn after []
   (luafile "~/.vim/lua/config/plug/treesitter.lua")
   ; ((. (require "config.plug.codeium") :setup))
-  (S.call (. (require "config.plug.codeverse") :setup))
-  (_G.hook-require :fzf-lua :setup #(S.call (. (require "config.plug.fzf-lua") :setup)))
-  ; (_G.hook-require :bqf     :setup #(S.call (. (require "config.plug.bqf")     :setup)))
-  (_G.hook-require "refactoring" :setup #(S.call (. (require "config.plug.refactoring")     :setup))))
+  ((. (require "config.plug.codeverse") :setup))
+  (_G.hook-require :fzf-lua :setup #((. (require "config.plug.fzf-lua") :setup)))
+  ; (_G.hook-require :bqf     :setup #(. (require "config.plug.bqf")     :setup)))
+  (_G.hook-require "refactoring" :setup #((. (require "config.plug.refactoring") :setup)))
+  ((. (require "config.plug.sidekick") :setup)))
 
   ; ((. (require "config.plug.neoclip") :setup)))
   ; (vim.cmd "autocmd mine CmdlineEnter * ++once call v:lua.require('config.plug.wilder').setup() | call wilder#main#start()"))
