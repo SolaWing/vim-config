@@ -182,3 +182,29 @@ let g:coc_filetype_map = {
   \ 'objc': 'objective-c',
   \ 'objcpp': 'objective-cpp',
   \ }
+
+" CocCd: 切换到 WorkspaceFolders 的目录
+" - 补全来源：g:WorkspaceFolders
+" - 无参数：默认切到第一个 WorkspaceFolder
+function! CocCdComplete(A, L, P) abort
+  if exists('g:WorkspaceFolders') && type(g:WorkspaceFolders) == type([])
+    return copy(g:WorkspaceFolders)
+  endif
+  return []
+endfunction
+
+function! CocChdir(cmd, ...) abort
+  let l:list = exists('g:WorkspaceFolders') && type(g:WorkspaceFolders) == type([]) ? g:WorkspaceFolders : []
+  let l:target = a:0 > 0 ? a:1 : (len(l:list) > 0 ? l:list[0] : getcwd())
+  let l:name = a:cmd ==# 'lcd' ? 'CocLcd' : 'CocCd'
+  if empty(l:target)
+    echoerr l:name . ': 未找到可用目录'
+    return
+  endif
+  execute a:cmd fnameescape(l:target)
+endfunction
+
+command! -nargs=? -complete=customlist,CocCdComplete CocCd  call CocChdir('cd',  <f-args>)
+
+" CocLcd: 仅当前窗口切换到 WorkspaceFolders 的目录
+command! -nargs=? -complete=customlist,CocCdComplete CocLcd call CocChdir('lcd', <f-args>)

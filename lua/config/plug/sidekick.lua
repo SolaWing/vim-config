@@ -7,6 +7,7 @@ local function setup()
   vim.keymap.set("n", "<leader>at", _1_, {desc = "show sidekick"})
   vim.keymap.set("n", "<M-i>", "<leader>at", {remap = true})
   vim.keymap.set("n", "<leader>a<space>", "<leader>at", {remap = true})
+  vim.keymap.set("n", "<C-.>", "<leader>at", {remap = true})
   local function _2_()
     return require("sidekick.cli").send({name = "coco", msg = "{this}"})
   end
