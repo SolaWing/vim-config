@@ -188,9 +188,9 @@ let g:coc_filetype_map = {
 " - 无参数：默认切到第一个 WorkspaceFolder
 function! CocCdComplete(A, L, P) abort
   if exists('g:WorkspaceFolders') && type(g:WorkspaceFolders) == type([])
-    return copy(g:WorkspaceFolders)
+    return join(copy(g:WorkspaceFolders), "\n")
   endif
-  return []
+  return ""
 endfunction
 
 function! CocChdir(cmd, ...) abort
@@ -204,7 +204,7 @@ function! CocChdir(cmd, ...) abort
   execute a:cmd fnameescape(l:target)
 endfunction
 
-command! -nargs=? -complete=customlist,CocCdComplete CocCd  call CocChdir('cd',  <f-args>)
+command! -nargs=? -complete=custom,CocCdComplete CocCd  call CocChdir('cd',  <f-args>)
 
 " CocLcd: 仅当前窗口切换到 WorkspaceFolders 的目录
-command! -nargs=? -complete=customlist,CocCdComplete CocLcd call CocChdir('lcd', <f-args>)
+command! -nargs=? -complete=custom,CocCdComplete CocLcd call CocChdir('lcd', <f-args>)
