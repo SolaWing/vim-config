@@ -1,19 +1,11 @@
-require'nvim-treesitter.configs'.setup {
-    highlight = {
-      enable = true,
-      -- disable = {"swift"}
-    },
-    -- comment换行有问题，先禁用 https://github.com/nvim-treesitter/nvim-treesitter/issues/1336
-    indent = {
-        enable = true,
-        disable = {"ruby", "_yaml"}
-    },
+require'nvim-treesitter'.setup {
+    install_dir = vim.fn.stdpath("config") .. "/bundle/nvim-treesitter",
     matchup = { enable = true },
     textobjects = {
         enable = true,
         select = {
             enable = true,
-            -- Automatically jump forward to textobj, similar to targets.vim 
+            -- Automatically jump forward to textobj, similar to targets.vim
             lookahead = true,
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
@@ -79,3 +71,14 @@ require'nvim-treesitter.configs'.setup {
         lint_events = {"BufWrite", "CursorHold"},
     },
 }
+
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(ev)
+    -- Enable treesitter highlighting and disable regex syntax
+    pcall(vim.treesitter.start)
+    -- Enable treesitter-based indentation
+    if ev.match ~= "ruby" then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end
+})

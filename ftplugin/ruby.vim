@@ -15,7 +15,7 @@ if has_key(g:plugs, 'nvim-treesitter')
     setlocal foldmethod=expr
     " expr foldmethod cause easymotion jum when split very slow, use cache to avoid performance issue
     "setlocal foldexpr=fold#cache(\"nvim_treesitter#foldexpr()\")
-    setlocal foldexpr=nvim_treesitter#foldexpr()
+    setlocal foldexpr=v:lua.vim.treesitter.foldexpr()
 
     if exists("g:no_ruby_maps") " 补充file和tag跳转map
         nmap <buffer><script> <SID>c: :<C-U><C-R>=v:count ? v:count : ''<CR>

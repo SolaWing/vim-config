@@ -6,7 +6,7 @@
   (Plug "nvim-lua/plenary.nvim")
   ; optional for icon support and nerd font may required, required by fzf-lua, barbar etc 
   (Plug "nvim-tree/nvim-web-devicons")
-  (Plug "nvim-treesitter/nvim-treesitter" {:do ":TSUpdate" :tag "v0.10.0"})) ; We recommend updating the parsers on update
+  (Plug "nvim-treesitter/nvim-treesitter" {:do ":TSUpdate"})) ; We recommend updating the parsers on update
   ; (Plug "kkharji/sqlite.lua")) ; optional required by neoclip
 
 (fn nvim-common []

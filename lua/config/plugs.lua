@@ -3,7 +3,7 @@ local Plug = vim.fn["plug#"]
 local function nvim_lib()
   Plug("nvim-lua/plenary.nvim")
   Plug("nvim-tree/nvim-web-devicons")
-  return Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate", tag = "v0.10.0"})
+  return Plug("nvim-treesitter/nvim-treesitter", {["do"] = ":TSUpdate"})
 end
 local function nvim_common()
   Plug("andymass/vim-matchup")
