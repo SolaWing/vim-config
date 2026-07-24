@@ -6,7 +6,8 @@ def preview_markdown(path, s):
   if isinstance(s, bytes):
     s = s.decode('utf8')
 
-  cssPath = os.path.expanduser("~/Sites/github-pandoc.css")
+  "cssPath = os.path.expanduser("~/Sites/github-pandoc.css")
+  cssPath = os.path.expanduser("~/.vim/autoload/github-pandoc.css")
   # import tempfile
   # tempdir = tempfile.gettempdir()
   # tempHeader = os.path.join(tempdir, "preview-{}.header".format(name))

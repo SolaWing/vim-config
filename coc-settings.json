@@ -15,11 +15,11 @@
     // "solargraph.transport": "stdio",
 
     // "solargraph.transport": "external", // local run and connect to debug
-    "solargraph.externalServer": {
-      "host": "127.0.0.1",
-      "port": 7658
-    },
-
+    // "solargraph.externalServer": {
+    //   "host": "127.0.0.1",
+    //   "port": 7658
+    // },
+    //
     // "solargraph.logLevel": "debug",
     // "solargraph.trace.server": "verbose",
 
@@ -84,7 +84,7 @@
              "fennel-ls": {
                "extra-globals": "vim luafile",
                "fennel-path": "./?.fnl;./?/init.fnl;./fnl/?.fnl;./fnl/?/init.fnl",
-               "macro-path": "./?.fnl;./?/init-macros.fnl;./?/init.fnl;fnl/?.fnl;fnl/?/init-macros.fnl;fnl/?/init.fnl",
+               "macro-path": "./?.fnl;./?/init-macros.fnl;./fnl/?.fnl;./?/init.fnl;fnl/?.fnl;fnl/?/init-macros.fnl;fnl/?/init.fnl",
              }
            }
          }
